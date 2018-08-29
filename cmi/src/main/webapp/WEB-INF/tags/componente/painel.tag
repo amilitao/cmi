@@ -1,8 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://java.sun.com/jstl/core" prefix="c"%>
-<!DOCTYPE html>
-<html>
+<%@tag description="Painel de status" pageEncoding="UTF-8"%>
+<%@attribute name="qtdDisponivel" required="true" %>
+
 
 <div class="w3-row-padding w3-margin-bottom">
 	
@@ -12,7 +10,7 @@
 				<i class="fa fa-thumbs-o-up w3-xxxlarge"></i>
 			</div>
 			<div class="w3-right">
-				<h3>${numImpDisponivel}</h3>
+				<h3>${qtdDisponivel}</h3>
 			</div>
 			<div class="w3-clear"></div>
 			<h4>Disponivel</h4>
@@ -27,7 +25,7 @@
 				<h3>${numImpEmprestimo}</h3>
 			</div>
 			<div class="w3-clear"></div>
-			<h4>Em empréstimo</h4>
+			<h4>Em emprÃ©stimo</h4>
 		</div>
 	</div>	
 	<div class="w3-quarter">
@@ -39,7 +37,7 @@
 				<h3>${numImpManutencao}</h3>
 			</div>
 			<div class="w3-clear"></div>
-			<h4>Manutenção</h4>
+			<h4>ManutenÃ§Ã£o</h4>
 		</div>
 	</div>
 	<div class="w3-quarter">
@@ -55,5 +53,3 @@
 		</div>
 	</div>
 </div>
-
-</html>
