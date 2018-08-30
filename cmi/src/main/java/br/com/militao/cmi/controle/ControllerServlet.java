@@ -24,8 +24,8 @@ public class ControllerServlet extends HttpServlet {
 
 			Logica logica = (Logica) classe.newInstance();
 
-			logica.executa(req, resp);
-			RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/jsps/template/template.jsp");
+			String urldestino = logica.executa(req, resp);
+			RequestDispatcher dispatcher = req.getRequestDispatcher(urldestino);
 
 			dispatcher.forward(req, resp);
 
