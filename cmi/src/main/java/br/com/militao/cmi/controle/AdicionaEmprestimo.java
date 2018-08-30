@@ -15,7 +15,7 @@ import br.com.militao.cmi.modelo.dao.LojaDao;
 public class AdicionaEmprestimo implements Logica {
 
 	@Override
-	public void executa(HttpServletRequest req, HttpServletResponse resp) {
+	public String executa(HttpServletRequest req, HttpServletResponse resp) {
 
 		EmprestimoDao dao = new EmprestimoDao();
 		Loja loja = new LojaDao().getLojaPorNumero(Integer.parseInt(req.getParameter("numero_loja")));
@@ -30,7 +30,7 @@ public class AdicionaEmprestimo implements Logica {
 		if (!dao.insert(emprestimo)) {
 			req.setAttribute("erro_emprestimo", "Erro ao salvar emprestimo");
 		}
-
+		return "/WEB-INF/jsps/emprestimo/emprestimo.jsp";
 	}
 
 }

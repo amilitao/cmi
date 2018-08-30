@@ -6,6 +6,6 @@ import javax.servlet.http.HttpServletResponse;
 
 public interface Logica {
 	
-	void executa(HttpServletRequest req, HttpServletResponse resp) throws Exception;
+	String executa(HttpServletRequest req, HttpServletResponse resp) throws Exception;
 
 }

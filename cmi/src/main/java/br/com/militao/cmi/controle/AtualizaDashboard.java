@@ -9,7 +9,7 @@ import br.com.militao.cmi.modelo.dao.ImpressoraDao;
 public class AtualizaDashboard implements Logica {
 	
 	@Override
-	public void executa(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+	public String executa(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 								
 		ImpressoraDao impDao = new ImpressoraDao();		
 		
@@ -17,6 +17,8 @@ public class AtualizaDashboard implements Logica {
 		req.setAttribute("numImpEmprestimo", 2);
 		req.setAttribute("numImpManutencao", 5);
 		req.setAttribute("numImpDefeito", 7);
+		
+		return "/WEB-INF/jsps/dashboard.jsp";
 		
 	}
 
