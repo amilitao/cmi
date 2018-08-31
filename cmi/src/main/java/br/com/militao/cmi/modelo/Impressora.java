@@ -17,17 +17,19 @@ public class Impressora {
     private String modelo;
     private int pip;
     private String numero_serie;
+    private String status;
 
     public Impressora() {
     }
         
-    public Impressora(int id_impressora, Loja loja, int numero, String modelo, int pip, String numero_serie) {
+    public Impressora(int id_impressora, Loja loja, int numero, String modelo, int pip, String numero_serie, String status) {
         this.id_impressora = id_impressora;
         this.loja = loja;
         this.numero = numero;
         this.modelo = modelo;
         this.pip = pip;
         this.numero_serie = numero_serie;
+        this.status = status;
     }
 
     public int getId_impressora() {
@@ -76,9 +78,18 @@ public class Impressora {
 
     public void setNumero_serie(String numero_serie) {
         this.numero_serie = numero_serie;
-    }
+    }    
     
-    @Override
+    
+    public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	@Override
     public String toString() {
         String numero = String.valueOf(this.getNumero());
         return numero + " - " + this.getModelo();
