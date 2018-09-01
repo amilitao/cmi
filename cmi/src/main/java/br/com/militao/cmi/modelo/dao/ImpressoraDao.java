@@ -102,7 +102,7 @@ public class ImpressoraDao implements GenericDao {
 		List<Object> objImpressoras = new ArrayList<>();
 
 		String sql = "select id_impressora, numero, modelo, pip,"
-				+ " numero_serie, id_loja, numero_loja, nome from impressora imp join loja lo on imp.loja_id_loja = lo.id_loja"
+				+ " numero_serie, status, id_loja, numero_loja, nome from impressora imp join loja lo on imp.loja_id_loja = lo.id_loja"
 				+ " order by numero;";
 
 		try (Connection con = new ConnectionFactory().getConnection();
@@ -119,6 +119,7 @@ public class ImpressoraDao implements GenericDao {
 				imp.setModelo(rs.getString("modelo"));
 				imp.setPip(rs.getInt("pip"));
 				imp.setNumero_serie(rs.getString("numero_serie"));
+				imp.setStatus(rs.getString("status"));
 				loja.setIdLoja(rs.getInt("id_loja"));
 				loja.setNumero_loja(rs.getInt("numero_loja"));
 				loja.setNome(rs.getString("nome"));

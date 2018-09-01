@@ -20,14 +20,15 @@ public class ConnectionFactory {
 	private final String senha = "admin";
 	
 	
-	public Connection getConnection() {
+	public Connection getConnection(){
 
 		try {
+			Class.forName("com.mysql.jdbc.Driver");
 			Connection conexao = DriverManager.getConnection( url_bd , login , senha );
 
 			return conexao;
 
-		} catch (SQLException ex) {
+		} catch (SQLException | ClassNotFoundException ex) {
 			throw new RuntimeException("Erro na criação da conexao", ex);
 		}
 	}

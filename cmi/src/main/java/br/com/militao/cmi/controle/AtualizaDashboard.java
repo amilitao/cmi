@@ -13,8 +13,10 @@ public class AtualizaDashboard implements Logica {
 	public String executa(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 								
 		ImpressoraDao impDao = new ImpressoraDao();	
-		
-		PainelStatus.atualiza(impDao.getList(), req);		
+						
+		PainelStatus painel = new PainelStatus();
+		painel.atualiza(impDao.getList(), req, resp);
+		req.setAttribute("painel", painel);
 		
 		return "/WEB-INF/jsps/dashboard.jsp";
 		
