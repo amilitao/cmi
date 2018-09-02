@@ -10,6 +10,6 @@
 <title>CMI</title>
 </head>
 <body>	
-	<jsp:forward page="/ControllerServlet?logica=AtualizaDashboard" />
+	<jsp:forward page="dashboard" />
 </body>
 </html>
