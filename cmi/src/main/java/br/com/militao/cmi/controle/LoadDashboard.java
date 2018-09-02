@@ -12,18 +12,17 @@ public class LoadDashboard implements Logica {
 
 	@Override
 	public String executa(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-
-		HttpSession session = req.getSession();
-		System.out.println(session.getAttribute("dashboard"));
+	
+		HttpSession session = req.getSession();	
 		
-		if (session.getAttribute("dashboard") == null) {
-			Dashboard dashboard = new DashboardBuilder().comPainelStatus(new PainelStatus()).geraDashboard();
-			System.out.println(dashboard.toString());
-			req.setAttribute("dashboard", dashboard);
+		if(session.getAttribute("dashboard") == null) {
 			
-		}
+			Dashboard dashboard = new DashboardBuilder().comPainelStatus(new PainelStatus()).geraDashboard();
+			session.setAttribute("dashboard", dashboard);
 		
-
+			req.setAttribute("painelStatus", dashboard.getPainel());						
+		}		
+		
 		return "/WEB-INF/jsps/dashboard.jsp";
 	}
 
