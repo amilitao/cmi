@@ -10,6 +10,6 @@
 <title>CMI</title>
 </head>
 <body>	
-	<jsp:forward page="dashboard" />
+	<jsp:forward page="controle?logica=LoadDashboard" />
 </body>
 </html>

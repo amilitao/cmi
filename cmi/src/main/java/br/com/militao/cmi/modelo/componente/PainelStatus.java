@@ -2,28 +2,23 @@ package br.com.militao.cmi.modelo.componente;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import br.com.militao.cmi.modelo.Impressora;
+import br.com.militao.cmi.modelo.dao.ImpressoraDao;
 
-public class PainelStatus implements Componente {
+public class PainelStatus {
 
-	private String nome;
 	private int qtdDisponivel;
 	private int qtdEmprestimo;
 	private int qtdManutencao;
 	private int qtdDefeito;
 
 	public PainelStatus() {
-		this.nome = "painelStatus";
-		this.qtdDisponivel = 0;
-		this.qtdEmprestimo = 0;
-		this.qtdManutencao = 0;
-		this.qtdDefeito = 0;
-	}
+		
+		this.atualiza(new ImpressoraDao().getList());
+	}	
+	
 
-	public PainelStatus(List<Object> impressoras) {
+	public void atualiza(List<Object> impressoras) {
 		
 		for (Object imp : impressoras) {
 
@@ -46,11 +41,7 @@ public class PainelStatus implements Componente {
 		}
 
 	}
-
-	public String getNome() {
-		return nome;
-	}
-
+	
 	public int getQtdDisponivel() {
 		return qtdDisponivel;
 	}

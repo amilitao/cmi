@@ -10,35 +10,34 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import br.com.militao.cmi.modelo.Dashboard;
 
 
-@WebFilter("controle")
+@WebFilter("dashboard.jsp")
 public class DashboardFiltro implements Filter {
 
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
-	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+	public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain)
 			throws IOException, ServletException {
 
-		HttpSession session = ((HttpServletRequest) request).getSession();
+		
+		HttpSession session = ((HttpServletRequest) req).getSession();
 		
 		Dashboard dashboard = (Dashboard)session.getAttribute("dashboard");
 
-		if(dashboard.getList().isEmpty()) {
-			dashboard.atualiza();	
-		session.setAttribute("dashboard", dashboard);	
-		}
 		
-		chain.doFilter(request, response);
+		req.setAttribute("painelStatus", dashboard.getPainel());
+		System.out.println("entrou no filtro");	
+		
+		chain.doFilter(req, resp);
 	}
 
 	@Override
