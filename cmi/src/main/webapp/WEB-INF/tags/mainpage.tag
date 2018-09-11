@@ -18,11 +18,14 @@
    
 	</nav>
     <!-- Overlay effect when opening sidebar on small screens -->
-<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>  
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div> 
+ 
     </jsp:attribute>
 
 
 	<jsp:body>
-        <jsp:doBody />
+		<div class="w3-main" style="margin-left:300px;margin-top:43px;">
+       		 <jsp:doBody />
+        </div>
     </jsp:body>
 </t:genericpage>

@@ -11,19 +11,19 @@ package br.com.militao.cmi.modelo;
  */
 public class Loja {
 
-    private int idLoja;   
+    private int id_loja;   
     private int numero_loja;
     private String nome;
     private String cnpj;
     private String telefone;
     private String endereco;
 
-    public int getIdLoja() {
-        return idLoja;
+    public int getId_loja() {
+        return id_loja;
     }
 
-    public void setIdLoja(int id_loja) {
-        this.idLoja = id_loja;
+    public void setId_loja(int id_loja) {
+        this.id_loja = id_loja;
     }
     
 
@@ -85,7 +85,7 @@ public class Loja {
             return false;
         }
         Loja loja = (Loja) o;
-        if (idLoja != loja.idLoja) {
+        if (id_loja != loja.id_loja) {
             return false;
         }
         if (nome != null ? !nome.equals(loja.nome) : loja.nome != null) {

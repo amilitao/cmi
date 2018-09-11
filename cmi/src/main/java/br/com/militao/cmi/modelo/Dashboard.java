@@ -1,44 +1,25 @@
 package br.com.militao.cmi.modelo;
 
-import java.util.List;
-
-import br.com.militao.cmi.modelo.componente.Componente;
 import br.com.militao.cmi.modelo.componente.PainelStatus;
-import br.com.militao.cmi.modelo.dao.ImpressoraDao;
 
 public class Dashboard {
 	
-	private List<Componente> componentes;
+	private PainelStatus painel;
 	
 	
 	
-	public void addComponente(Componente com) {
-		
-		componentes.add(com);
-	}
-	
-	public List<Componente> getList(){
-		
-		return componentes;
+	public Dashboard(PainelStatus painel) {
+		this.painel = painel;
 	}
 
-	public void atualiza() {
-		ImpressoraDao dao = new ImpressoraDao();
-		
-		componentes.set(componentes.indexOf(get("painelStatus")), new PainelStatus(dao.getList()));
-		
-		
-	}
 
-	public Componente get(String string) {
-				
-		for(Componente c : componentes) {
-			if(c.getNome().equals(string)) {
-				return c;
-			}			
-		}
-		
-		return null;
-	}
+
+	public PainelStatus getPainel() {
+		return painel;
+	}	
+	
+	
+
+	
 
 }

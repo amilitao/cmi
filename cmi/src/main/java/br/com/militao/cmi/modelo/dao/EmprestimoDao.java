@@ -53,7 +53,7 @@ public class EmprestimoDao implements GenericDao {
 		try (Connection con = new ConnectionFactory().getConnection();
 				PreparedStatement stmt = con.prepareStatement(sql);) {
 
-			stmt.setInt(1, emprestimo.getLoja().getIdLoja());
+			stmt.setInt(1, emprestimo.getLoja().getId_loja());
 			stmt.setInt(2, emprestimo.getImpressora().getId_impressora());
 			stmt.setDate(3, FormatadorDeData.toDate(emprestimo.getDtEnvio()));
 
@@ -88,7 +88,7 @@ public class EmprestimoDao implements GenericDao {
 		try (Connection con = new ConnectionFactory().getConnection();
 				PreparedStatement stmt = con.prepareStatement(sql);) {
 
-			stmt.setInt(1, emprestimo.getLoja().getIdLoja());
+			stmt.setInt(1, emprestimo.getLoja().getId_loja());
 			stmt.setInt(2, emprestimo.getImpressora().getId_impressora());
 			stmt.setDate(3, FormatadorDeData.toDate(emprestimo.getDtEnvio()));
 			stmt.setString(4, emprestimo.getSituacao());
@@ -125,7 +125,7 @@ public class EmprestimoDao implements GenericDao {
 
 				// id_impressora, numero, modelo, pip, numero_serie, id_loja, nome
 				e.setIdEmprestimo(rs.getInt("id_emprestimo"));
-				loja.setIdLoja(rs.getInt("id_loja"));
+				loja.setId_loja(rs.getInt("id_loja"));
 				loja.setNome(rs.getString("nome"));
 				imp.setId_impressora(rs.getInt("id_impressora"));
 				imp.setNumero(rs.getInt("numero"));

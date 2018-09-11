@@ -53,7 +53,7 @@ public class ImpressoraDao implements GenericDao {
 		try (Connection con = new ConnectionFactory().getConnection();
 				PreparedStatement stmt = con.prepareStatement(sql);) {
 
-			stmt.setInt(1, impressora.getLoja().getIdLoja());
+			stmt.setInt(1, impressora.getLoja().getId_loja());
 			stmt.setInt(2, impressora.getNumero());
 			stmt.setString(3, impressora.getModelo());
 			stmt.setInt(4, impressora.getPip());
@@ -80,7 +80,7 @@ public class ImpressoraDao implements GenericDao {
 		try (Connection con = new ConnectionFactory().getConnection();
 				PreparedStatement stmt = con.prepareStatement(sql);) {
 
-			stmt.setInt(1, impressora.getLoja().getIdLoja());
+			stmt.setInt(1, impressora.getLoja().getId_loja());
 			stmt.setInt(2, impressora.getNumero());
 			stmt.setString(3, impressora.getModelo());
 			stmt.setInt(4, impressora.getPip());
@@ -120,7 +120,7 @@ public class ImpressoraDao implements GenericDao {
 				imp.setPip(rs.getInt("pip"));
 				imp.setNumero_serie(rs.getString("numero_serie"));
 				imp.setStatus(rs.getString("status"));
-				loja.setIdLoja(rs.getInt("id_loja"));
+				loja.setId_loja(rs.getInt("id_loja"));
 				loja.setNumero_loja(rs.getInt("numero_loja"));
 				loja.setNome(rs.getString("nome"));
 
@@ -136,18 +136,33 @@ public class ImpressoraDao implements GenericDao {
 		return objImpressoras;
 	}
 
-	public Impressora getImpressoraPorNumero(int nImp) {
+	public Impressora getImpressoraPorId(int id) {
 		Impressora impressoraProcurada = new Impressora();
 		List<Object> impressoras = this.getList();
 
 		for (Object imp : impressoras) {
 			Impressora impressora = (Impressora) imp;
-			if (impressora.getNumero() == nImp) {
+			if (impressora.getId_impressora() == id) {
 				impressoraProcurada = impressora;
 			}
 
 		}
 		return impressoraProcurada;
+	}
+	
+	
+	public List<Object> getListPorStatus(String status) {
+		List<Object> listaDeImpressoras = new ArrayList<>();
+		Impressora imp;
+		
+		for(Object obj : this.getList()) {
+			imp = (Impressora) obj;
+			if(imp.getStatus().equals(status)) {
+				listaDeImpressoras.add(obj);
+			}
+		}	
+
+		return listaDeImpressoras;
 	}
 
 }
