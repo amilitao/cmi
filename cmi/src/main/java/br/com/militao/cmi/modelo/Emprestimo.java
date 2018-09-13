@@ -5,6 +5,7 @@
  */
 package br.com.militao.cmi.modelo;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 
 /**
@@ -16,10 +17,18 @@ public class Emprestimo {
     private int idEmprestimo;
     private Loja loja;
     private Impressora impressora;
+    private LocalDateTime dtAbertura;
+    private LocalDateTime dtEncerramento;
     private LocalDate dtEnvio;
     private LocalDate dtDevolucao;
+    private String numNotaEnvio;
+    private String numNotaDevolucao;
+    private String tipoTransporte;
+    private String nomeTransportadora;
+    private String numMinuta;
     private String situacao;
-    private String num_chamado;  
+    private String num_chamado; 
+    private LocalDate prazoDevolucao;
     
     public Emprestimo() {    	
     }
@@ -31,6 +40,8 @@ public class Emprestimo {
 		this.situacao = situacao;
 		this.num_chamado = num_chamado;
 	}
+    
+    
 
 	public int getIdEmprestimo() {
         return idEmprestimo;
@@ -56,8 +67,73 @@ public class Emprestimo {
         this.impressora = impressora;
     }  
     
+    
+    public LocalDateTime getDtAbertura() {
+		return dtAbertura;
+	}
 
-    public LocalDate getDtEnvio() {
+	public void setDtAbertura(LocalDateTime dtAbertura) {
+		this.dtAbertura = dtAbertura;
+	}
+
+	public LocalDateTime getDtEncerramento() {
+		return dtEncerramento;
+	}
+
+	public void setDtEncerramento(LocalDateTime dtEncerramento) {
+		this.dtEncerramento = dtEncerramento;
+	}
+
+	public String getNumNotaEnvio() {
+		return numNotaEnvio;
+	}
+
+	public void setNumNotaEnvio(String numNotaEnvio) {
+		this.numNotaEnvio = numNotaEnvio;
+	}
+
+	public String getNumNotaDevolucao() {
+		return numNotaDevolucao;
+	}
+
+	public void setNumNotaDevolucao(String numNotaDevolucao) {
+		this.numNotaDevolucao = numNotaDevolucao;
+	}
+
+	public String getTipoTransporte() {
+		return tipoTransporte;
+	}
+
+	public void setTipoTransporte(String tipoTransporte) {
+		this.tipoTransporte = tipoTransporte;
+	}	
+	
+
+	public String getNomeTransportadora() {
+		return nomeTransportadora;
+	}
+
+	public void setNomeTransportadora(String nomeTransportadora) {
+		this.nomeTransportadora = nomeTransportadora;
+	}
+
+	public String getNumMinuta() {
+		return numMinuta;
+	}
+
+	public void setNumMinuta(String numMinuta) {
+		this.numMinuta = numMinuta;
+	}
+
+	public LocalDate getPrazoDevolucao() {
+		return prazoDevolucao;
+	}
+
+	public void setPrazoDevolucao(LocalDate prazoDevolucao) {
+		this.prazoDevolucao = prazoDevolucao;
+	}
+
+	public LocalDate getDtEnvio() {
 		return dtEnvio;
 	}
 

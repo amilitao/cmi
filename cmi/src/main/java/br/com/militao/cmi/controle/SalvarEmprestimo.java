@@ -41,7 +41,7 @@ public class SalvarEmprestimo implements Logica {
 		req.setAttribute("impressoras", impDao.getListPorStatus("disponivel"));
 		
 		
-		return "/WEB-INF/jsps/emprestimo/emprestimo.jsp";
+		return "/WEB-INF/jsps/emprestimo.jsp";
 	}
 
 }

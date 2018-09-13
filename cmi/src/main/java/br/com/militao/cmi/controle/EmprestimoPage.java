@@ -22,7 +22,7 @@ public class EmprestimoPage implements Logica{
 		
 		
 		
-		return "/WEB-INF/jsps/emprestimo/emprestimo.jsp";
+		return "/WEB-INF/jsps/emprestimo.jsp";
 		
 	}
 	
