@@ -6,7 +6,7 @@
 <t:mainpage>
 
 	<br>
-		<div class="w3-container w3-padding-large">
+		<div class="w3-container">
 			<h2>
 				<i class="fa fa-bed w3-margin-right"></i>Meus Empréstimos
 			</h2>
@@ -17,23 +17,26 @@
 				<thead>
 					<tr class="w3-blue"> 
 						<th>ID</th> 
-						<th>Loja</th>
-						<th>Impressora</th>
-						<th>data de envio</th>
-						<th>data de devolução</th>
-						<th>situação</th>
+						<th>data de inicio</th>	
 						<th>chamado</th>
+						<th>Loja</th>
+						<th>Impressora</th>											
+						<th>situação</th>						
+						<th>data do fim</th>
+						<th>prazo devolução</th>
 					</tr>
 				</thead>
 				<c:forEach var="emprestimo" items="${listaDeEmprestimos}">
 				<tr>
 					<td>${emprestimo.idEmprestimo}</td>
+					<td>${emprestimo.dataInicioFormatada}</td>
+					<td>${emprestimo.num_chamado}</td>
 					<td>${emprestimo.loja}</td> 
 					<td>${emprestimo.impressora}</td>
-					<td>${emprestimo.dtEnvioFormatada}</td>
-					<td>${emprestimo.dtDevolucao}</td>
-					<td>${emprestimo.situacao}</td>					
-					<td>${emprestimo.num_chamado}</td>
+					<td>${emprestimo.situacao}</td>		
+					<td>${emprestimo.dataFimFormatada}</td>
+					<td>${emprestimo.prazoDevolucaoFormatada}</td>								
+					
 				</tr>
 				</c:forEach>				
 			</table>

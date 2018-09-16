@@ -27,11 +27,10 @@ public class SalvarEmprestimo implements Logica {
 		Impressora impressora = impDao
 				.getImpressoraPorId(Integer.parseInt(req.getParameter("id_impressora")));
 		
-		String situacao = "Inicio de emprestimo";
 		String numChamado = req.getParameter("num_chamado");
 		
 
-		Emprestimo emprestimo = new Emprestimo(loja, impressora, LocalDate.now(), situacao, numChamado);
+		Emprestimo emprestimo = new Emprestimo(loja, impressora, numChamado);
 
 		if (!empDao.insert(emprestimo)) {
 			req.setAttribute("erro_emprestimo", "Erro ao salvar emprestimo");

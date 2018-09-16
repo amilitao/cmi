@@ -23,17 +23,17 @@ public class PainelStatus {
 
 			Impressora impressora = (Impressora) imp;
 
-			switch (impressora.getStatus()) {
+			switch (impressora.getSituacao()) {
 			case "disponivel":
 				qtdDisponivel++;
 				break;
-			case "emprestimo":
+			case "em emprestimo":
 				qtdEmprestimo++;
 				break;
-			case "manutencao":
+			case "em manutencao":
 				qtdManutencao++;
 				break;
-			case "defeito":
+			case "com defeito":
 				qtdDefeito++;
 
 			}

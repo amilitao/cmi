@@ -7,7 +7,7 @@
 <t:mainpage>
 
 	<br>
-		<div class="w3-container w3-padding-large">
+		<div class="w3-container">
 			<h2>
 				<i class="fa fa-bed w3-margin-right"></i>Novo Empréstimo
 			</h2>

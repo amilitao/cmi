@@ -19,15 +19,8 @@ public class Emprestimo {
     private int idEmprestimo;
     private Loja loja;
     private Impressora impressora;
-    private LocalDateTime dtAbertura;
-    private LocalDateTime dtEncerramento;
-    private LocalDate dtEnvio;
-    private LocalDate dtDevolucao;
-    private String numNotaEnvio;
-    private String numNotaDevolucao;
-    private String tipoTransporte;
-    private String nomeTransportadora;
-    private String numMinuta;
+    private LocalDateTime dtInicio;
+    private LocalDateTime dtFim;   
     private String situacao;
     private String num_chamado; 
     private LocalDate prazoDevolucao;
@@ -35,15 +28,22 @@ public class Emprestimo {
     public Emprestimo() {    	
     }
 
-    public Emprestimo(Loja loja, Impressora impressora, LocalDate dtEnvio, String situacao, String num_chamado) {
+    public Emprestimo(Loja loja, Impressora impressora,  String num_chamado) {
 		this.loja = loja;
 		this.impressora = impressora;
-		this.dtEnvio = dtEnvio;	
-		this.situacao = situacao;
+		this.dtInicio = LocalDateTime.now();
+		this.situacao = "aguardando nfe de envio";
 		this.num_chamado = num_chamado;
+		this.prazoDevolucao = calculaPrazoDevolucao();
 	}
     
     
+
+	private LocalDate calculaPrazoDevolucao() {
+		LocalDate hoje = LocalDate.now();
+		return hoje.plusMonths(4);
+	}	
+	
 
 	public int getIdEmprestimo() {
         return idEmprestimo;
@@ -67,65 +67,34 @@ public class Emprestimo {
 
     public void setImpressora(Impressora impressora) {
         this.impressora = impressora;
-    }  
+    }      
     
-    
-    public LocalDateTime getDtAbertura() {
-		return dtAbertura;
+    public LocalDateTime getDtFim() {
+		return dtFim;
 	}
 
-	public void setDtAbertura(LocalDateTime dtAbertura) {
-		this.dtAbertura = dtAbertura;
+	public void setDtFim(LocalDateTime dtFim) {
+		this.dtFim = dtFim;
 	}
 
-	public LocalDateTime getDtEncerramento() {
-		return dtEncerramento;
-	}
-
-	public void setDtEncerramento(LocalDateTime dtEncerramento) {
-		this.dtEncerramento = dtEncerramento;
-	}
-
-	public String getNumNotaEnvio() {
-		return numNotaEnvio;
-	}
-
-	public void setNumNotaEnvio(String numNotaEnvio) {
-		this.numNotaEnvio = numNotaEnvio;
-	}
-
-	public String getNumNotaDevolucao() {
-		return numNotaDevolucao;
-	}
-
-	public void setNumNotaDevolucao(String numNotaDevolucao) {
-		this.numNotaDevolucao = numNotaDevolucao;
-	}
-
-	public String getTipoTransporte() {
-		return tipoTransporte;
-	}
-
-	public void setTipoTransporte(String tipoTransporte) {
-		this.tipoTransporte = tipoTransporte;
-	}	
 	
-
-	public String getNomeTransportadora() {
-		return nomeTransportadora;
+	
+	public void setDtInicio(LocalDateTime dtInicio) {
+		this.dtInicio = dtInicio;
 	}
 
-	public void setNomeTransportadora(String nomeTransportadora) {
-		this.nomeTransportadora = nomeTransportadora;
+	public LocalDateTime getDtInicio() {
+		return dtInicio;
 	}
-
-	public String getNumMinuta() {
-		return numMinuta;
+	
+	public String getDataInicioFormatada() {
+		return FormatadorDeData.formata(dtInicio);
 	}
-
-	public void setNumMinuta(String numMinuta) {
-		this.numMinuta = numMinuta;
+	
+	public String getDataFimFormatada() {
+		return FormatadorDeData.formata(dtFim);
 	}
+    
 
 	public LocalDate getPrazoDevolucao() {
 		return prazoDevolucao;
@@ -133,28 +102,12 @@ public class Emprestimo {
 
 	public void setPrazoDevolucao(LocalDate prazoDevolucao) {
 		this.prazoDevolucao = prazoDevolucao;
-	}
-
-	public LocalDate getDtEnvio() {
-		return dtEnvio;
-	}
-
-	public void setDtEnvio(LocalDate dtEnvio) {
-		this.dtEnvio = dtEnvio;
+	}	
+	
+	public String getPrazoDevolucaoFormatada() {
+		return FormatadorDeData.formata(prazoDevolucao);
 	}
 	
-	public String getDtEnvioFormatada() {
-		return FormatadorDeData.formata(dtEnvio);
-	}
-	
-
-	public LocalDate getDtDevolucao() {
-		return dtDevolucao;
-	}
-
-	public void setDtDevolucao(LocalDate dtDevolucao) {
-		this.dtDevolucao = dtDevolucao;
-	}
 
 	public String getSituacao() {
         return situacao;

@@ -47,25 +47,20 @@ public class EmprestimoDao implements GenericDao {
 	public boolean update(Object obj) {
 		Emprestimo emprestimo = (Emprestimo) obj;
 
-		String sql = "update emprestimo set loja_id_loja=?, " + "impressora_id_impressora=?, dt_envio=?,"
-				+ "dt_devolucao=?, situacao=?, num_chamado=? where id_emprestimo=?";
+		String sql = "update emprestimo set loja_id_loja=?, impressora_id_impressora=?,"
+				+ "num_chamado=?, situacao=?, dt_inicio=?, dt_fim=?, prazo_devolucao=? where id_emprestimo=?";
 
 		try (Connection con = new ConnectionFactory().getConnection();
 				PreparedStatement stmt = con.prepareStatement(sql);) {
-
+			
 			stmt.setInt(1, emprestimo.getLoja().getId_loja());
-			stmt.setInt(2, emprestimo.getImpressora().getId_impressora());
-			stmt.setDate(3, FormatadorDeData.toDate(emprestimo.getDtEnvio()));
-
-			if (emprestimo.getDtDevolucao() == null) {
-				stmt.setDate(4, null);
-			} else {
-				stmt.setDate(3, FormatadorDeData.toDate(emprestimo.getDtDevolucao()));
-			}
-
-			stmt.setString(5, emprestimo.getSituacao());
-			stmt.setString(6, emprestimo.getNum_chamado());
-			stmt.setInt(7, emprestimo.getIdEmprestimo());
+			stmt.setInt(2, emprestimo.getImpressora().getId_impressora());					
+			stmt.setString(3, emprestimo.getNum_chamado());
+			stmt.setString(4, emprestimo.getSituacao());
+			stmt.setTimestamp(5, FormatadorDeData.toTimeStamp(emprestimo.getDtInicio()));
+			stmt.setTimestamp(6, FormatadorDeData.toTimeStamp(emprestimo.getDtFim()));
+			stmt.setDate(7, FormatadorDeData.toDate(emprestimo.getPrazoDevolucao()));
+			stmt.setInt(8, emprestimo.getIdEmprestimo());
 
 			stmt.executeUpdate();
 			resultado = true;
@@ -82,18 +77,19 @@ public class EmprestimoDao implements GenericDao {
 	public boolean insert(Object obj) {
 		Emprestimo emprestimo = (Emprestimo) obj;
 
-		String sql = "insert into emprestimo " + "(loja_id_loja,impressora_id_impressora,dt_envio,"
-				+ "situacao,num_chamado)" + "values (?,?,?,?,?)";
+		String sql = "insert into emprestimo " + "(loja_id_loja,impressora_id_impressora,"
+				+ "num_chamado, situacao, dt_inicio, prazo_devolucao)" + "values (?,?,?,?,?,?)";
 
 		try (Connection con = new ConnectionFactory().getConnection();
 				PreparedStatement stmt = con.prepareStatement(sql);) {
 
 			stmt.setInt(1, emprestimo.getLoja().getId_loja());
-			stmt.setInt(2, emprestimo.getImpressora().getId_impressora());
-			stmt.setDate(3, FormatadorDeData.toDate(emprestimo.getDtEnvio()));
+			stmt.setInt(2, emprestimo.getImpressora().getId_impressora());	
+			stmt.setString(3, emprestimo.getNum_chamado());
 			stmt.setString(4, emprestimo.getSituacao());
-			stmt.setString(5, emprestimo.getNum_chamado());
-
+			stmt.setTimestamp(5, FormatadorDeData.toTimeStamp(emprestimo.getDtInicio()));
+			stmt.setDate(6, FormatadorDeData.toDate(emprestimo.getPrazoDevolucao()));
+			
 			stmt.executeUpdate();
 			resultado = true;
 
@@ -109,8 +105,8 @@ public class EmprestimoDao implements GenericDao {
 	public List<Object> getList() {
 		List<Object> objEmprestimos = new ArrayList<>();
 
-		String sql = "select e.id_emprestimo, l.id_loja, l.numero_loja, l.nome, i.id_impressora, "
-				+ "i.numero, i.modelo, dt_envio, dt_devolucao, situacao, num_chamado from emprestimo e\n"
+		String sql = "select e.id_emprestimo, e.dt_inicio, l.id_loja, l.numero_loja, l.nome, i.id_impressora, "
+				+ "i.numero, i.modelo,  e.num_chamado, e.situacao, e.prazo_devolucao, dt_fim from emprestimo e\n"
 				+ "join loja l on e.loja_id_loja = l.id_loja \n"
 				+ "join impressora i on e.impressora_id_impressora = i.id_impressora;";
 
@@ -123,18 +119,19 @@ public class EmprestimoDao implements GenericDao {
 				Loja loja = new Loja();
 				Impressora imp = new Impressora();
 
-				// id_impressora, numero, modelo, pip, numero_serie, id_loja, nome
-				e.setIdEmprestimo(rs.getInt("id_emprestimo"));
+			
+				e.setIdEmprestimo(rs.getInt("id_emprestimo"));	
+				e.setDtInicio(FormatadorDeData.toLocalDateTime(rs.getTimestamp("dt_inicio")));
 				loja.setId_loja(rs.getInt("id_loja"));
 				loja.setNome(rs.getString("nome"));
 				loja.setNumero_loja(rs.getInt("numero_loja"));
 				imp.setId_impressora(rs.getInt("id_impressora"));
 				imp.setNumero(rs.getInt("numero"));
-				imp.setModelo(rs.getString("modelo"));
-				e.setDtEnvio(FormatadorDeData.toLocalDate(rs.getDate("dt_envio")));
-				e.setDtDevolucao(FormatadorDeData.toLocalDate(rs.getDate("dt_devolucao")));
+				imp.setModelo(rs.getString("modelo"));				
 				e.setSituacao(rs.getString("situacao"));
 				e.setNum_chamado(rs.getString("num_chamado"));
+				e.setPrazoDevolucao(FormatadorDeData.toLocalDate(rs.getDate("prazo_devolucao")));
+				e.setDtFim(FormatadorDeData.toLocalDateTime(rs.getTimestamp("dt_fim")));
 				e.setLoja(loja);
 				e.setImpressora(imp);
 

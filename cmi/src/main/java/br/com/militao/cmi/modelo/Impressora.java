@@ -11,25 +11,25 @@ package br.com.militao.cmi.modelo;
  */
 public class Impressora {
     
-    private int id_impressora;
-    private Loja loja;
+    private int id_impressora;  
     private int numero;
     private String modelo;
     private int pip;
     private String numero_serie;
-    private String status;
+    private String estado;
+    private String situacao;
 
     public Impressora() {
     }
         
-    public Impressora(int id_impressora, Loja loja, int numero, String modelo, int pip, String numero_serie, String status) {
-        this.id_impressora = id_impressora;
-        this.loja = loja;
+    public Impressora(int id_impressora, int numero, String modelo, int pip, String numero_serie, String estado, String situacao) {
+        this.id_impressora = id_impressora;       
         this.numero = numero;
         this.modelo = modelo;
         this.pip = pip;
         this.numero_serie = numero_serie;
-        this.status = status;
+        this.estado = estado;
+        this.situacao = situacao;
     }
 
     public int getId_impressora() {
@@ -39,14 +39,7 @@ public class Impressora {
     public void setId_impressora(int id_impressora) {
         this.id_impressora = id_impressora;
     }
-
-    public Loja getLoja() {
-        return loja;
-    }
-
-    public void setLoja(Loja loja) {
-        this.loja = loja;
-    }
+   
 
     public int getNumero() {
         return numero;
@@ -78,15 +71,25 @@ public class Impressora {
 
     public void setNumero_serie(String numero_serie) {
         this.numero_serie = numero_serie;
-    }    
+    } 
     
     
-    public String getStatus() {
-		return status;
+    
+    
+    public String getEstado() {
+		return estado;
 	}
 
-	public void setStatus(String status) {
-		this.status = status;
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
+
+	public String getSituacao() {
+		return situacao;
+	}
+
+	public void setSituacao(String status) {
+		this.situacao = status;
 	}
 
 	@Override
