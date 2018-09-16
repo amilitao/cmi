@@ -4,17 +4,14 @@
 <%@taglib prefix="com" tagdir="/WEB-INF/tags/componente"%>
 
 
-<t:mainpage>
-	
-
-	<div class="w3-main" style="margin-left:300px;margin-top:43px;">
+<t:mainpage>	
 
   <!-- Header -->
   <header class="w3-container" style="padding-top:22px">
     <h5><b><i class="fa fa-dashboard"></i> My Dashboard</b></h5>
   </header>
 
-  <com:painel qtdDisponivel="${painel.qtdDisponivel}" qtdEmprestimo="${painel.qtdEmprestimo}" qtdManutencao="${painel.qtdManutencao}" qtdDefeito="${painel.qtdDefeito}"/>
+  <com:painel qtdDisponivel="${painelStatus.qtdDisponivel}" qtdEmprestimo="${painelStatus.qtdEmprestimo}" qtdManutencao="${painelStatus.qtdManutencao}" qtdDefeito="${painelStatus.qtdDefeito}"/>
 
   <div class="w3-panel">
     <div class="w3-row-padding" style="margin:0 -16px">
@@ -188,7 +185,7 @@
   </footer>
 
   <!-- End page content -->
-</div>
+
 	
 
 

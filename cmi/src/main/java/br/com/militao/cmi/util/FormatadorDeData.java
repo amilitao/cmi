@@ -21,7 +21,11 @@ public class FormatadorDeData {
 	
 	public static LocalDate toLocalDate(Date date) {
 		
-		return new java.sql.Date(date.getTime()).toLocalDate();		
+		if(date == null) {		
+			return null;	
+		}else {
+			return new java.sql.Date(date.getTime()).toLocalDate();
+		}
 		
 	}
 

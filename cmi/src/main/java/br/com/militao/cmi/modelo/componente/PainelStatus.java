@@ -12,13 +12,12 @@ public class PainelStatus {
 	private int qtdManutencao;
 	private int qtdDefeito;
 
-	public PainelStatus() {
-		
-		this.atualiza(new ImpressoraDao().getList());
+	public PainelStatus(List<Object> i) {		
+		this.carrega(i);
 	}	
 	
 
-	public void atualiza(List<Object> impressoras) {
+	public void carrega(List<Object> impressoras) {
 		
 		for (Object imp : impressoras) {
 

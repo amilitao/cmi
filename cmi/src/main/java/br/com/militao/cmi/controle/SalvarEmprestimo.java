@@ -12,24 +12,35 @@ import br.com.militao.cmi.modelo.dao.EmprestimoDao;
 import br.com.militao.cmi.modelo.dao.ImpressoraDao;
 import br.com.militao.cmi.modelo.dao.LojaDao;
 
-public class AdicionaEmprestimo implements Logica {
+public class SalvarEmprestimo implements Logica {
 
 	@Override
 	public String executa(HttpServletRequest req, HttpServletResponse resp) {
 
-		EmprestimoDao dao = new EmprestimoDao();
-		Loja loja = new LojaDao().getLojaPorNumero(Integer.parseInt(req.getParameter("numero_loja")));
-		Impressora impressora = new ImpressoraDao()
-				.getImpressoraPorNumero(Integer.parseInt(req.getParameter("numero_impressora")));
+		EmprestimoDao empDao = new EmprestimoDao();	
+		ImpressoraDao impDao = new ImpressoraDao();
+		LojaDao lojaDao = new LojaDao();
+		
+		Loja loja = lojaDao
+				.getLojaPorId(Integer.parseInt(req.getParameter("id_loja")));
+		
+		Impressora impressora = impDao
+				.getImpressoraPorId(Integer.parseInt(req.getParameter("id_impressora")));
+		
 		String situacao = "Inicio de emprestimo";
-		String numChamado = req.getParameter("numero_chamado");
+		String numChamado = req.getParameter("num_chamado");
 		
 
 		Emprestimo emprestimo = new Emprestimo(loja, impressora, LocalDate.now(), situacao, numChamado);
 
-		if (!dao.insert(emprestimo)) {
+		if (!empDao.insert(emprestimo)) {
 			req.setAttribute("erro_emprestimo", "Erro ao salvar emprestimo");
 		}
+		
+		req.setAttribute("lojas", lojaDao.getList());
+		req.setAttribute("impressoras", impDao.getListPorStatus("disponivel"));
+		
+		
 		return "/WEB-INF/jsps/emprestimo/emprestimo.jsp";
 	}
 
