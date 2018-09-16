@@ -109,8 +109,8 @@ public class EmprestimoDao implements GenericDao {
 	public List<Object> getList() {
 		List<Object> objEmprestimos = new ArrayList<>();
 
-		String sql = "select e.id_emprestimo, l.id_loja, l.nome, i.id_impressora, "
-				+ "i.numero, dt_envio, dt_devolucao, situacao, num_chamado from emprestimo e\n"
+		String sql = "select e.id_emprestimo, l.id_loja, l.numero_loja, l.nome, i.id_impressora, "
+				+ "i.numero, i.modelo, dt_envio, dt_devolucao, situacao, num_chamado from emprestimo e\n"
 				+ "join loja l on e.loja_id_loja = l.id_loja \n"
 				+ "join impressora i on e.impressora_id_impressora = i.id_impressora;";
 
@@ -127,8 +127,10 @@ public class EmprestimoDao implements GenericDao {
 				e.setIdEmprestimo(rs.getInt("id_emprestimo"));
 				loja.setId_loja(rs.getInt("id_loja"));
 				loja.setNome(rs.getString("nome"));
+				loja.setNumero_loja(rs.getInt("numero_loja"));
 				imp.setId_impressora(rs.getInt("id_impressora"));
 				imp.setNumero(rs.getInt("numero"));
+				imp.setModelo(rs.getString("modelo"));
 				e.setDtEnvio(FormatadorDeData.toLocalDate(rs.getDate("dt_envio")));
 				e.setDtDevolucao(FormatadorDeData.toLocalDate(rs.getDate("dt_devolucao")));
 				e.setSituacao(rs.getString("situacao"));

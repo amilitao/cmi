@@ -41,7 +41,11 @@ public class SalvarEmprestimo implements Logica {
 		req.setAttribute("impressoras", impDao.getListPorStatus("disponivel"));
 		
 		
+<<<<<<< HEAD
 		return "/WEB-INF/jsps/emprestimo.jsp";
+=======
+		return "/WEB-INF/jsps/emprestimo/emprestimo.jsp";
+>>>>>>> branch 'master' of https://github.com/amilitao/cmi.git
 	}
 
 }

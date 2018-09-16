@@ -7,6 +7,8 @@ package br.com.militao.cmi.modelo;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+import br.com.militao.cmi.util.FormatadorDeData;
+
 
 /**
  *
@@ -140,6 +142,11 @@ public class Emprestimo {
 	public void setDtEnvio(LocalDate dtEnvio) {
 		this.dtEnvio = dtEnvio;
 	}
+	
+	public String getDtEnvioFormatada() {
+		return FormatadorDeData.formata(dtEnvio);
+	}
+	
 
 	public LocalDate getDtDevolucao() {
 		return dtDevolucao;
