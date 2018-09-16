@@ -15,7 +15,7 @@
 
 			<table class="w3-table-all w3-hoverable" >
 				<thead>
-					<tr class="w3-red"> 
+					<tr class="w3-blue"> 
 						<th>ID</th> 
 						<th>Loja</th>
 						<th>Impressora</th>

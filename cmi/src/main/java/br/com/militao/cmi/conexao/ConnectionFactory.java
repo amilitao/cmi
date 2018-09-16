@@ -15,7 +15,7 @@ import java.sql.SQLException;
  */
 public class ConnectionFactory {
 
-	private final String url_bd = "jdbc:mysql://localhost/db_cmi";
+	private final String url_bd = "jdbc:mysql://localhost/db_cmi?useSSL=false";
 	private final String login = "root";
 	private final String senha = "admin";
 	
