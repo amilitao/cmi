@@ -5,12 +5,21 @@
 
 
 <t:mainpage>
-
+	<c:set var="teste" value="" />
 	<br>
 		<div class="w3-container">
 			<h2>
 				<i class="fa fa-bed w3-margin-right"></i>Novo Empréstimo
-			</h2>
+			</h2>			
+			
+				<c:if test="${empty impressoras}">					
+						<c:set var="teste"  value="disabled" />
+  						<div class="w3-panel w3-pale-yellow w3-border w3-border-yellow">
+   							 <p>Nenhuma impressora disponível no momento!!!</p>
+  						</div>		
+					
+				</c:if>
+			
 		</div>
 		<div class="w3-panel w3-padding-large">
 
@@ -44,7 +53,7 @@
 				<br>
 				<input type="hidden" name="logica" value="SalvarEmprestimo" />
 				
-				<button class="w3-button w3-blue" type="submit">
+				<button class="w3-button w3-blue" type="submit"  <c:out value="${teste}" /> > 
 					<i class="fa fa-floppy-o w3-margin-right"></i>Salvar
 				</button>
 			</form>
