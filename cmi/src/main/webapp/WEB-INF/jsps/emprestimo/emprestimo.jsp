@@ -29,7 +29,8 @@
 					<div class="w3-third w3-margin-bottom">
 						<label><i class="fa fa-calendar-o"></i> Loja</label>
 							
-						 <select class="w3-input w3-border" name="id_loja" required>
+						 <select class="w3-select w3-border" name="id_loja" required>
+						 <option value="" disabled selected>Escolha a loja</option>
 							<c:forEach var="loja" items="${lojas}">
 								<option value="${loja.id_loja}">${loja}</option>
 							</c:forEach>						
@@ -38,7 +39,8 @@
 					</div>
 					<div class="w3-third">
 						<label><i class="fa fa-calendar-o"></i> Impressora</label> 
-						<select class="w3-input w3-border" name="id_impressora" required>
+						<select class="w3-select w3-border"  name="id_impressora" required>
+						 <option value="" disabled selected>Escolha a impressora</option>
 							<c:forEach var="impressora" items="${impressoras}">
 								<option value="${impressora.id_impressora}">${impressora}</option>
 							</c:forEach>						
@@ -50,7 +52,7 @@
 						<input class="w3-input w3-border" type="text" name="num_chamado" required>
 					</div>
 				</div>
-				<br>
+				<hr>
 				<input type="hidden" name="logica" value="SalvarEmprestimo" />
 				
 				<button class="w3-button w3-blue" type="submit"  <c:out value="${teste}" /> > 
