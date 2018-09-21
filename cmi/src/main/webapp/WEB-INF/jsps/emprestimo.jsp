@@ -4,13 +4,9 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags"%>
 
 
-<t:mainpage>
+<t:mainpage>	
 
-	<br>
-	<div class="w3-container w3-padding-large">
-
-
-		<div class="w3-container w3-padding-large">
+		<div class="w3-container">
 			<h2>
 				<i class="fa fa-bed w3-margin-right"></i>Novo Empréstimo
 			</h2>
@@ -52,7 +48,7 @@
 				</button>
 			</form>
 		</div>
-	</div>
+	
 
 
 

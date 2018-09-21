@@ -6,7 +6,7 @@
 
 <t:mainpage>
 	<c:set var="teste" value="" />
-	<br>
+	
 		<div class="w3-container">
 			<h2>
 				<i class="fa fa-bed w3-margin-right"></i>Novo Empréstimo

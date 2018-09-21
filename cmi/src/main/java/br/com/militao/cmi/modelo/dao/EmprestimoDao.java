@@ -17,6 +17,7 @@ import br.com.militao.cmi.conexao.ConnectionFactory;
 import br.com.militao.cmi.modelo.Emprestimo;
 import br.com.militao.cmi.modelo.Impressora;
 import br.com.militao.cmi.modelo.Loja;
+import br.com.militao.cmi.modelo.StatusEmprestimo;
 import br.com.militao.cmi.util.FormatadorDeData;
 
 public class EmprestimoDao implements GenericDao {
@@ -56,7 +57,7 @@ public class EmprestimoDao implements GenericDao {
 			stmt.setInt(1, emprestimo.getLoja().getId_loja());
 			stmt.setInt(2, emprestimo.getImpressora().getId_impressora());					
 			stmt.setString(3, emprestimo.getNum_chamado());
-			stmt.setString(4, emprestimo.getSituacao());
+			stmt.setString(4, emprestimo.getSituacao().descricao);
 			stmt.setTimestamp(5, FormatadorDeData.toTimeStamp(emprestimo.getDtInicio()));
 			stmt.setTimestamp(6, FormatadorDeData.toTimeStamp(emprestimo.getDtFim()));
 			stmt.setDate(7, FormatadorDeData.toDate(emprestimo.getPrazoDevolucao()));
@@ -86,7 +87,7 @@ public class EmprestimoDao implements GenericDao {
 			stmt.setInt(1, emprestimo.getLoja().getId_loja());
 			stmt.setInt(2, emprestimo.getImpressora().getId_impressora());	
 			stmt.setString(3, emprestimo.getNum_chamado());
-			stmt.setString(4, emprestimo.getSituacao());
+			stmt.setString(4, emprestimo.getSituacao().descricao);
 			stmt.setTimestamp(5, FormatadorDeData.toTimeStamp(emprestimo.getDtInicio()));
 			stmt.setDate(6, FormatadorDeData.toDate(emprestimo.getPrazoDevolucao()));
 			
@@ -128,7 +129,7 @@ public class EmprestimoDao implements GenericDao {
 				imp.setId_impressora(rs.getInt("id_impressora"));
 				imp.setNumero(rs.getInt("numero"));
 				imp.setModelo(rs.getString("modelo"));				
-				e.setSituacao(rs.getString("situacao"));
+				e.setSituacao(StatusEmprestimo.valueOf(rs.getString("situacao")));
 				e.setNum_chamado(rs.getString("num_chamado"));
 				e.setPrazoDevolucao(FormatadorDeData.toLocalDate(rs.getDate("prazo_devolucao")));
 				e.setDtFim(FormatadorDeData.toLocalDateTime(rs.getTimestamp("dt_fim")));
