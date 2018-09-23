@@ -18,9 +18,12 @@ class EmprestimoDaoTest {
 			System.out.println(e.getDataInicioFormatada());
 			System.out.println(e.getDataFimFormatada());
 			System.out.println(e.getLoja());
+			System.out.println(e.getLoja().getCnpj());
 			System.out.println(e.getImpressora());
+			System.out.println(e.getImpressora().getIdImpressora());
 			System.out.println(e.getNum_chamado());
 			System.out.println(e.getSituacao());
+			System.out.println(e.getDtFim());
 			System.out.println(e.getPrazoDevolucaoFormatada());
 		}
 		

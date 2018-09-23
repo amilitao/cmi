@@ -55,7 +55,7 @@ public class LojaDao implements GenericDao {
 			stmt.setString(3, loja.getCnpj());
 			stmt.setString(4, loja.getTelefone());
 			stmt.setString(5, loja.getEndereco());
-			stmt.setInt(6, loja.getId_loja());
+			stmt.setInt(6, loja.getIdLoja());
 
 			stmt.executeUpdate();
 
@@ -106,7 +106,7 @@ public class LojaDao implements GenericDao {
 			while (rs.next()) {
 				Loja loja = new Loja();
 
-				loja.setId_loja(rs.getInt("id_loja"));
+				loja.setIdLoja(rs.getInt("id_loja"));
 				loja.setNumero_loja(rs.getInt("numero_loja"));
 				loja.setNome(rs.getString("nome"));
 				loja.setCnpj(rs.getString("cnpj"));
@@ -132,7 +132,7 @@ public class LojaDao implements GenericDao {
 
 		for (Object loj : lojas) {
 			Loja loja = (Loja) loj;
-			if (loja.getId_loja() == id) {
+			if (loja.getIdLoja() == id) {
 				lojaProcurada = loja;
 			}
 

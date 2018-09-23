@@ -31,7 +31,7 @@ public class Emprestimo {
     public Emprestimo(Loja loja, Impressora impressora,  String num_chamado) {
 		this.loja = loja;
 		this.impressora = impressora;
-		this.dtInicio = LocalDateTime.now();
+		this.dtInicio = LocalDateTime.now();		
 		this.situacao = StatusEmprestimo.NFE;
 		this.num_chamado = num_chamado;
 		this.prazoDevolucao = calculaPrazoDevolucao();

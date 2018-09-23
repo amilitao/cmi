@@ -21,15 +21,12 @@ public class SalvarEmprestimo implements Logica {
 		ImpressoraDao impDao = new ImpressoraDao();
 		LojaDao lojaDao = new LojaDao();
 		
+				
 		Loja loja = lojaDao
-				.getLojaPorId(Integer.parseInt(req.getParameter("id_loja")));
-		
+				.getLojaPorId(Integer.parseInt(req.getParameter("id_loja")));		
 		Impressora impressora = impDao
-				.getImpressoraPorId(Integer.parseInt(req.getParameter("id_impressora")));
-		
+				.getImpressoraPorId(Integer.parseInt(req.getParameter("id_impressora")));		
 		String numChamado = req.getParameter("num_chamado");
-		
-
 		Emprestimo emprestimo = new Emprestimo(loja, impressora, numChamado);
 
 		if (!empDao.insert(emprestimo)) {
@@ -38,9 +35,6 @@ public class SalvarEmprestimo implements Logica {
 		
 		req.setAttribute("lojas", lojaDao.getList());
 		req.setAttribute("impressoras", impDao.getListPorStatus("disponivel"));
-		
-		
-
 
 		return "/WEB-INF/jsps/emprestimo/emprestimo.jsp";
 

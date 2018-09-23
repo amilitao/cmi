@@ -11,7 +11,7 @@ package br.com.militao.cmi.modelo;
  */
 public class Impressora {
     
-    private int id_impressora;  
+    private int idImpressora;  
     private int numero;
     private String modelo;
     private int pip;
@@ -23,7 +23,7 @@ public class Impressora {
     }
         
     public Impressora(int id_impressora, int numero, String modelo, int pip, String numero_serie, String estado, String situacao) {
-        this.id_impressora = id_impressora;       
+        this.idImpressora = id_impressora;       
         this.numero = numero;
         this.modelo = modelo;
         this.pip = pip;
@@ -32,12 +32,12 @@ public class Impressora {
         this.situacao = situacao;
     }
 
-    public int getId_impressora() {
-        return id_impressora;
+    public int getIdImpressora() {
+        return idImpressora;
     }
 
-    public void setId_impressora(int id_impressora) {
-        this.id_impressora = id_impressora;
+    public void setIdImpressora(int id_impressora) {
+        this.idImpressora = id_impressora;
     }
    
 

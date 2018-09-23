@@ -32,17 +32,17 @@
 						 <select class="w3-select w3-border" name="id_loja" required>
 						 <option value="" disabled selected>Escolha a loja</option>
 							<c:forEach var="loja" items="${lojas}">
-								<option value="${loja.id_loja}">${loja}</option>
+								<option value="${loja.idLoja}">${loja}</option>
 							</c:forEach>						
 						</select>
 
 					</div>
-					<div class="w3-third">
+					<div class="w3-third w3-margin-bottom">
 						<label><i class="fa fa-calendar-o"></i> Impressora</label> 
 						<select class="w3-select w3-border"  name="id_impressora" required>
 						 <option value="" disabled selected>Escolha a impressora</option>
 							<c:forEach var="impressora" items="${impressoras}">
-								<option value="${impressora.id_impressora}">${impressora}</option>
+								<option value="${impressora.idImpressora}">${impressora}</option>
 							</c:forEach>						
 						</select>
 						

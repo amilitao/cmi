@@ -48,20 +48,15 @@ public class EmprestimoDao implements GenericDao {
 	public boolean update(Object obj) {
 		Emprestimo emprestimo = (Emprestimo) obj;
 
-		String sql = "update emprestimo set loja_id_loja=?, impressora_id_impressora=?,"
-				+ "num_chamado=?, situacao=?, dt_inicio=?, dt_fim=?, prazo_devolucao=? where id_emprestimo=?";
+		String sql = "update emprestimo set situacao=?, dt_fim=? where id_emprestimo=?";
 
 		try (Connection con = new ConnectionFactory().getConnection();
 				PreparedStatement stmt = con.prepareStatement(sql);) {
+							
 			
-			stmt.setInt(1, emprestimo.getLoja().getId_loja());
-			stmt.setInt(2, emprestimo.getImpressora().getId_impressora());					
-			stmt.setString(3, emprestimo.getNum_chamado());
-			stmt.setString(4, emprestimo.getSituacao().descricao);
-			stmt.setTimestamp(5, FormatadorDeData.toTimeStamp(emprestimo.getDtInicio()));
-			stmt.setTimestamp(6, FormatadorDeData.toTimeStamp(emprestimo.getDtFim()));
-			stmt.setDate(7, FormatadorDeData.toDate(emprestimo.getPrazoDevolucao()));
-			stmt.setInt(8, emprestimo.getIdEmprestimo());
+			stmt.setString(1, emprestimo.getSituacao().name());			
+			stmt.setTimestamp(2, FormatadorDeData.toTimeStamp(emprestimo.getDtFim()));		
+			stmt.setInt(3, emprestimo.getIdEmprestimo());
 
 			stmt.executeUpdate();
 			resultado = true;
@@ -84,10 +79,10 @@ public class EmprestimoDao implements GenericDao {
 		try (Connection con = new ConnectionFactory().getConnection();
 				PreparedStatement stmt = con.prepareStatement(sql);) {
 
-			stmt.setInt(1, emprestimo.getLoja().getId_loja());
-			stmt.setInt(2, emprestimo.getImpressora().getId_impressora());	
+			stmt.setInt(1, emprestimo.getLoja().getIdLoja());
+			stmt.setInt(2, emprestimo.getImpressora().getIdImpressora());	
 			stmt.setString(3, emprestimo.getNum_chamado());
-			stmt.setString(4, emprestimo.getSituacao().descricao);
+			stmt.setString(4, emprestimo.getSituacao().name());
 			stmt.setTimestamp(5, FormatadorDeData.toTimeStamp(emprestimo.getDtInicio()));
 			stmt.setDate(6, FormatadorDeData.toDate(emprestimo.getPrazoDevolucao()));
 			
@@ -106,10 +101,11 @@ public class EmprestimoDao implements GenericDao {
 	public List<Object> getList() {
 		List<Object> objEmprestimos = new ArrayList<>();
 
-		String sql = "select e.id_emprestimo, e.dt_inicio, l.id_loja, l.numero_loja, l.nome, i.id_impressora, "
+		String sql = "select e.id_emprestimo, e.dt_inicio, l.id_loja, l.numero_loja, l.nome, l.cnpj, i.id_impressora, "
 				+ "i.numero, i.modelo,  e.num_chamado, e.situacao, e.prazo_devolucao, dt_fim from emprestimo e\n"
 				+ "join loja l on e.loja_id_loja = l.id_loja \n"
-				+ "join impressora i on e.impressora_id_impressora = i.id_impressora;";
+				+ "join impressora i on e.impressora_id_impressora = i.id_impressora "
+				+ "order by id_emprestimo desc;";
 
 		try (Connection con = new ConnectionFactory().getConnection();
 				PreparedStatement stmt = con.prepareStatement(sql);
@@ -123,10 +119,11 @@ public class EmprestimoDao implements GenericDao {
 			
 				e.setIdEmprestimo(rs.getInt("id_emprestimo"));	
 				e.setDtInicio(FormatadorDeData.toLocalDateTime(rs.getTimestamp("dt_inicio")));
-				loja.setId_loja(rs.getInt("id_loja"));
+				loja.setIdLoja(rs.getInt("id_loja"));
 				loja.setNome(rs.getString("nome"));
 				loja.setNumero_loja(rs.getInt("numero_loja"));
-				imp.setId_impressora(rs.getInt("id_impressora"));
+				loja.setCnpj(rs.getString("cnpj"));
+				imp.setIdImpressora(rs.getInt("id_impressora"));
 				imp.setNumero(rs.getInt("numero"));
 				imp.setModelo(rs.getString("modelo"));				
 				e.setSituacao(StatusEmprestimo.valueOf(rs.getString("situacao")));

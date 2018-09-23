@@ -60,7 +60,7 @@ public class ImpressoraDao implements GenericDao {
 			stmt.setString(4, impressora.getNumero_serie());
 			stmt.setString(5, impressora.getEstado());
 			stmt.setString(6, impressora.getSituacao());
-			stmt.setInt(7, impressora.getId_impressora());
+			stmt.setInt(7, impressora.getIdImpressora());
 
 			stmt.executeUpdate();
 			resultado = true;
@@ -116,7 +116,7 @@ public class ImpressoraDao implements GenericDao {
 				Loja loja = new Loja();
 
 				// id_impressora, numero, modelo, pip, numero_serie, id_loja, nome
-				imp.setId_impressora(rs.getInt("id_impressora"));
+				imp.setIdImpressora(rs.getInt("id_impressora"));
 				imp.setNumero(rs.getInt("numero"));
 				imp.setModelo(rs.getString("modelo"));
 				imp.setPip(rs.getInt("pip"));
@@ -140,7 +140,7 @@ public class ImpressoraDao implements GenericDao {
 
 		for (Object imp : impressoras) {
 			Impressora impressora = (Impressora) imp;
-			if (impressora.getId_impressora() == id) {
+			if (impressora.getIdImpressora() == id) {
 				impressoraProcurada = impressora;
 			}
 

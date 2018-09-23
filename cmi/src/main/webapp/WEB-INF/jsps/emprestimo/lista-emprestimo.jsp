@@ -17,36 +17,27 @@
 		<c:forEach var="emprestimo" items="${listaDeEmprestimos}">
 
 			<button onclick="myFunction('demo${emprestimo.idEmprestimo}')"
-				class="w3-button w3-block w3-left-align w3-padding-small w3-white w3-border w3-border-blue w3-round-large">
+				class="w3-button w3-block w3-left-align w3-padding-small w3-white w3-border ">
 
 				<div class="w3-row">
-
-					<div class="w3-row">
-						<div class="w3-col w3-container" style="width: 12%">
-							<h4>Empréstimo :</h4>
-						</div>
-						<div class="w3-col w3-container" style="width: 8%">
-							<h4>
-								<b>${emprestimo.idEmprestimo}</b>
-							</h4>
-						</div>
-						<div class="w3-col w3-container" style="width: 7%">
-							<h4>Loja :</h4>
-						</div>
-						<div class="w3-col w3-container" style="width: 35%">
-							<h4>
-								<b>${emprestimo.loja}</b>
-							</h4>
-						</div>
-						<div class="w3-col w3-container" style="width: 11%">
-							<h4>Situação :</h4>
-						</div>
-						<div class="w3-rest w3-container">
-							<h4>
-								<b>${emprestimo.situacao}</b>
-							</h4>
-						</div>
+					<div class="w3-col m3">
+						<h4>
+							<i class="fa fa-handshake-o"></i> Empréstimo :
+							${emprestimo.idEmprestimo}
+						</h4>
 					</div>
+					<div class="w3-col m5">
+						<h4>
+							<i class="fa fa-home"></i> Loja : ${emprestimo.loja}
+						</h4>
+					</div>
+					<div class="w3-col m3">
+						<h4>
+							<i class="fa fa-search"></i> Situação :
+							${emprestimo.situacao.descricao}
+						</h4>
+					</div>
+
 				</div>
 			</button>
 
@@ -55,77 +46,84 @@
 
 				<div class="container w3-white">
 
-					<div class="w3-light-grey w3-tiny">
-						<div class="w3-container w3-center w3-green"
-							style="width:${emprestimo.situacao.porcentagem}">
-							<c:out value="${emprestimo.situacao.porcentagem}" />
-						</div>
-					</div>			
-														
 					
 					<div class="w3-row">
-						<div class="w3-col w3-center w3-container" style="width: 10%">
+						
+							<div class="w3-container w3-center w3-green"
+							style="width:${emprestimo.situacao.porcentagem}">
+							<c:out value="${emprestimo.situacao.porcentagem}" />
+							</div>
+						
+					</div>
+					<div class="w3-row">
+						<div class="w3-col m2 w3-center">
 							<p>
 								Iniciado <b>${emprestimo.dataInicioFormatada}</b>
 							</p>
-
 						</div>
-						<div class="w3-col w3-container" style="width: 20%">
+						<div class="w3-col m2 w3-center">
 							<p>
 								<c:set var="btn1" value="" />
 								<c:if test="${emprestimo.situacao.porcentagem != '20%'}">
 									<c:set var="btn1" value="disabled" />
-								</c:if>	
-							
+								</c:if>
+
 								<c:import url="modal-nfe.jsp">
-									 <c:param name="b1" value="${btn1}"/>
+									<c:param name="b1" value="${btn1}" />
+									<c:param name="idEmprestimo" value="${emprestimo.idEmprestimo}" />
+									<c:param name="idLoja" value="${emprestimo.loja.idLoja}" />
+									<c:param name="nomeLoja" value="${emprestimo.loja.nome}" />
+									<c:param name="cnpjLoja" value="${emprestimo.loja.cnpj}" />
+									<c:param name="idImpressora"
+										value="${emprestimo.impressora.idImpressora}" />
+									<c:param name="impressora" value="${emprestimo.impressora}" />
+									<c:param name="dtFim" value="${emprestimo.dtFim}" />
+									<c:param name="prazo_devolucao"
+										value="${emprestimo.prazoDevolucao}" />
 								</c:import>
 							</p>
 						</div>
-						
-						<div class="w3-col w3-container" style="width: 20%">
+						<div class="w3-col m2 w3-center">
 							<p>
 								<c:set var="btn2" value="" />
 								<c:if test="${emprestimo.situacao.porcentagem != '40%'}">
 									<c:set var="btn2" value="disabled" />
-								</c:if>					
-							
-								<c:import url="modal-transporte.jsp" >
-									 <c:param name="b2" value="${btn2}"/>
+								</c:if>
+
+								<c:import url="modal-transporte.jsp">
+									<c:param name="b2" value="${btn2}" />
+									<c:param name="idEmprestimo" value="${emprestimo.idEmprestimo}" />
 								</c:import>
 							</p>
 						</div>
-						
-						<div class="w3-col w3-container" style="width: 20%">
+						<div class="w3-col m2 w3-center">
 							<p>
 								<c:set var="btn3" value="" />
 								<c:if test="${emprestimo.situacao.porcentagem != '60%'}">
 									<c:set var="btn3" value="disabled" />
-								</c:if>	
-							
+								</c:if>
+
 								<button class="w3-button w3-khaki" ${btn3}>Entrega</button>
 							</p>
 						</div>
-						
-						<div class="w3-col w3-container" style="width: 20%">												
+						<div class="w3-col m2 w3-center">
 							<p>
-								<c:set var="btn4" value="" />
-								<c:if test="${emprestimo.situacao.porcentagem != '80%'}">
-									<c:set var="btn4" value="disabled" />
-								</c:if>	
-							
-								<c:import url="modal-devolucao.jsp">
-									 <c:param name="b4" value="${btn4}"/>
-								</c:import>
+								<c:set var="btn3" value="" />
+								<c:if test="${emprestimo.situacao.porcentagem != '60%'}">
+									<c:set var="btn3" value="disabled" />
+								</c:if>
+
+								<button class="w3-button w3-khaki" ${btn3}>Entrega</button>
 							</p>
 						</div>
-						
-						<div class="w3-col w3-container w3-center" style="width: 10%">
+						<div class="w3-col m2 w3-center">
 							<p>
 								Encerrado <b>${emprestimo.dataFimFormatada}</b>
 							</p>
 						</div>
 					</div>
+
+
 				</div>
 
 				<hr>
@@ -144,9 +142,9 @@
 
 					<div class="w3-third w3-margin-bottom">
 
-						<ul class="w3-ul w3-border w3-center w3-hover-shadow">
-							<li class="w3-green w3-large">Transporte</li>
-							<li><b>10GB</b> Storage</li>
+						<ul class="w3-ul w3-border w3-hover-shadow">
+							<li class="w3-green w3-center ">Transporte</li>
+							<li>Transportadora: <b></b></li>
 							<li><b>10</b> Domains</li>
 							<li><b>10</b> Domains</li>
 							<li><b>Endless</b> Support</li>

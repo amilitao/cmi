@@ -4,13 +4,13 @@
 
 
 
-<button onclick="document.getElementById('id02').style.display='block'"
+<button onclick="document.getElementById('idtransporte${param.idEmprestimo}').style.display='block'"
 	class="w3-button w3-khaki" <c:out value="${param.b2}" /> >Transporte</button>
 
-<div id="id02" class="w3-modal">
+<div id="idtransporte${param.idEmprestimo}" class="w3-modal">
 	<div class="w3-modal-content w3-animate-top w3-card-4">
 		<header class="w3-container w3-teal">
-			<span onclick="document.getElementById('id02').style.display='none'"
+			<span onclick="document.getElementById('idtransporte${param.idEmprestimo}').style.display='none'"
 				class="w3-button w3-display-topright">&times;</span>
 			<h2>Modal Header</h2>
 		</header>
