@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>		
 
 <button onclick="document.getElementById('id03').style.display='block'"
-	class="w3-button w3-khaki" <c:out value="${param.b4}" /> >Devolução</button>
+	class="w3-button" style="background:#ffeead" <c:out value="${param.b4}" /> >Devolução</button>
 
 <div id="id03" class="w3-modal">
 	<div class="w3-modal-content w3-animate-top w3-card-4">

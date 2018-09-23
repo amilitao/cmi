@@ -17,7 +17,7 @@
 		<c:forEach var="emprestimo" items="${listaDeEmprestimos}">
 
 			<button onclick="myFunction('demo${emprestimo.idEmprestimo}')"
-				class="w3-button w3-block w3-left-align w3-padding-small w3-white w3-border ">
+				class="w3-button w3-block w3-left-align w3-padding-small w3-border" style="background:#ffeead">
 
 				<div class="w3-row">
 					<div class="w3-col m3">
@@ -49,8 +49,8 @@
 					
 					<div class="w3-row">
 						
-							<div class="w3-container w3-center w3-green"
-							style="width:${emprestimo.situacao.porcentagem}">
+							<div class="w3-container w3-center w3-text-white"
+							style="width:${emprestimo.situacao.porcentagem}; background:#ff6f69">
 							<c:out value="${emprestimo.situacao.porcentagem}" />
 							</div>
 						
@@ -58,13 +58,13 @@
 					<div class="w3-row">
 						<div class="w3-col m2 w3-center">
 							<p>
-								Iniciado <b>${emprestimo.dataInicioFormatada}</b>
+								Iniciado <br /><b>${emprestimo.dataInicioFormatada}</b>
 							</p>
 						</div>
 						<div class="w3-col m2 w3-center">
 							<p>
 								<c:set var="btn1" value="" />
-								<c:if test="${emprestimo.situacao.porcentagem != '20%'}">
+								<c:if test="${emprestimo.situacao.porcentagem != '25%'}">
 									<c:set var="btn1" value="disabled" />
 								</c:if>
 
@@ -103,7 +103,7 @@
 									<c:set var="btn3" value="disabled" />
 								</c:if>
 
-								<button class="w3-button w3-khaki" ${btn3}>Entrega</button>
+								<button class="w3-button" style="background:#ffeead" ${btn3}>Entrega</button>
 							</p>
 						</div>
 						<div class="w3-col m2 w3-center">
@@ -113,12 +113,12 @@
 									<c:set var="btn3" value="disabled" />
 								</c:if>
 
-								<button class="w3-button w3-khaki" ${btn3}>Entrega</button>
+								<button class="w3-button" style="background:#ffeead" ${btn3}>Devolução</button>
 							</p>
 						</div>
 						<div class="w3-col m2 w3-center">
 							<p>
-								Encerrado <b>${emprestimo.dataFimFormatada}</b>
+								Encerrado <br /><b>${emprestimo.dataFimFormatada}</b>
 							</p>
 						</div>
 					</div>
@@ -143,7 +143,7 @@
 					<div class="w3-third w3-margin-bottom">
 
 						<ul class="w3-ul w3-border w3-hover-shadow">
-							<li class="w3-green w3-center ">Transporte</li>
+							<li class="w3-large w3-center" style="background:#ffcc5c">Transporte</li>
 							<li>Transportadora: <b></b></li>
 							<li><b>10</b> Domains</li>
 							<li><b>10</b> Domains</li>
@@ -152,8 +152,8 @@
 					</div>
 
 					<div class="w3-third w3-margin-bottom">
-						<ul class="w3-ul w3-border w3-center w3-hover-shadow">
-							<li class="w3-black w3-large">Devolução</li>
+						<ul class="w3-ul w3-border w3-hover-shadow">
+							<li class="w3-large w3-center" style="background:#96ceb4">Devolução</li>
 							<li><b>10GB</b> Storage</li>
 							<li><b>10</b> Domains</li>
 							<li><b>10</b> Domains</li>

@@ -11,7 +11,7 @@
 
 	<jsp:attribute name="sidebar">
       
-     <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
+     <nav class="w3-sidebar w3-collapse w3-animate-left" style="z-index:3;width:300px" id="mySidebar"><br>
    
    		<t:userbar />
    		<t:sidebar />

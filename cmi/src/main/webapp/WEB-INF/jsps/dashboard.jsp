@@ -7,8 +7,8 @@
 <t:mainpage>	
 
   <!-- Header -->
-  <header class="w3-container" style="padding-top:22px">
-    <h5><b><i class="fa fa-dashboard"></i> My Dashboard</b></h5>
+  <header class="w3-container">
+    <h5><b><i class="fa fa-dashboard"></i> Meu Dashboard</b></h5>
   </header>
 
   <com:painel qtdDisponivel="${painelStatus.qtdDisponivel}" qtdEmprestimo="${painelStatus.qtdEmprestimo}" qtdManutencao="${painelStatus.qtdManutencao}" qtdDefeito="${painelStatus.qtdDefeito}"/>

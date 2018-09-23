@@ -55,7 +55,7 @@
 				<hr>
 				<input type="hidden" name="logica" value="SalvarEmprestimo" />
 				
-				<button class="w3-button w3-blue" type="submit"  <c:out value="${teste}" /> > 
+				<button class="w3-button" style="background:#ffcc5c" type="submit"  <c:out value="${teste}" /> > 
 					<i class="fa fa-floppy-o w3-margin-right"></i>Salvar
 				</button>
 			</form>
