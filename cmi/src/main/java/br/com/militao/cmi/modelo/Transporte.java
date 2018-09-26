@@ -6,20 +6,20 @@ public class Transporte {
 	
 	private int idTransporte;
 	private Emprestimo emprestimo;
-	private String nomeTransportadora;
-	private String numMinuta;
+	private String nomeTransportadora;	
 	private String numControle;
 	private String numNfeEnvio;
 	private LocalDate dtEnvio;	
 	
+	public Transporte() {
 		
+	}	
 	
-	public Transporte(int idTransporte, Emprestimo emprestimo, String nomeTransportadora, String numMinuta,
+	public Transporte(int idTransporte, Emprestimo emprestimo, String nomeTransportadora,
 			String numControle, String numNfeEnvio, LocalDate dtEnvio) {
 		this.idTransporte = idTransporte;
 		this.emprestimo = emprestimo;
-		this.nomeTransportadora = nomeTransportadora;
-		this.numMinuta = numMinuta;
+		this.nomeTransportadora = nomeTransportadora;		
 		this.numControle = numControle;
 		this.numNfeEnvio = numNfeEnvio;
 		this.dtEnvio = dtEnvio;
@@ -43,13 +43,7 @@ public class Transporte {
 	}
 	public void setNomeTransportadora(String nomeTransportadora) {
 		this.nomeTransportadora = nomeTransportadora;
-	}
-	public String getNumMinuta() {
-		return numMinuta;
-	}
-	public void setNumMinuta(String numMinuta) {
-		this.numMinuta = numMinuta;
-	}
+	}	
 	public String getNumControle() {
 		return numControle;
 	}
@@ -69,7 +63,26 @@ public class Transporte {
 		this.dtEnvio = dtEnvio;
 	}
 	
-	
+	@Override
+    public boolean equals(Object o) {
+        if (o == null) {
+            return false;
+        }
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Transporte)) {
+            return false;
+        }
+        Transporte transporte = (Transporte) o;
+        if (idTransporte != transporte.idTransporte) {
+            return false;
+        }
+        if (nomeTransportadora != null ? !nomeTransportadora.equals(transporte.nomeTransportadora) : transporte.nomeTransportadora != null) {
+            return false;
+        }
+        return true;
+    }
 	
 	
 

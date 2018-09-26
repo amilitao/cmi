@@ -6,16 +6,16 @@
 	class="w3-button" style="background:#ffeead" <c:out value="${param.b1}" />>Solicitar Nfe</button>
 
 <div id="idnfe${param.idEmprestimo}" class="w3-modal">
-	<div class="w3-modal-content w3-animate-top w3-card-4">
+	<div class="w3-modal-content w3-animate-top w3-card-4 w3-left-align">
 		<header class="w3-container w3-khaki">
 			<span onclick="document.getElementById('idnfe${param.idEmprestimo}').style.display='none'"
-				class="w3-button w3-display-topright">&times;</span>
-			<h4>Modelo de Email</h4>
-			<h5><b>ASSUNTO:</b> Solicitação de emissão de nota fiscal.</h5>
+				class="w3-button w3-display-topright w3-xlarge">&times;</span>
+			<h2>Solicitação de NFE</h2>			
 		</header>
 
 		<div class="w3-panel w3-padding-large">
-
+			<h5><b>ASSUNTO:</b> Solicitação de emissão de nota fiscal.</h5>
+			
 			<form action="controle" method="post">
 								
 					<p>Poderia emitir uma nota fiscal para a devolução de impressora para a filial ${param.nomeLoja} .</p>

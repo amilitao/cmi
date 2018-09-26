@@ -27,6 +27,10 @@ public class Emprestimo {
     
     public Emprestimo() {    	
     }
+    
+    public Emprestimo(int id) {  
+    	idEmprestimo = id;
+    }
 
     public Emprestimo(Loja loja, Impressora impressora,  String num_chamado) {
 		this.loja = loja;

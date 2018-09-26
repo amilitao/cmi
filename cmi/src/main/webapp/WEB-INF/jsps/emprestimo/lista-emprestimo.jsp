@@ -16,8 +16,10 @@
 
 		<c:forEach var="emprestimo" items="${listaDeEmprestimos}">
 
+		
+
 			<button onclick="myFunction('demo${emprestimo.idEmprestimo}')"
-				class="w3-button w3-block w3-left-align w3-padding-small w3-border" style="background:#ffeead">
+				class="w3-button w3-block w3-left-align w3-padding-small w3-border w3-white w3-hover-blue" >
 
 				<div class="w3-row">
 					<div class="w3-col m3">
@@ -93,6 +95,7 @@
 								<c:import url="modal-transporte.jsp">
 									<c:param name="b2" value="${btn2}" />
 									<c:param name="idEmprestimo" value="${emprestimo.idEmprestimo}" />
+									<c:param name="dtEnvio" value="now.getDate()" />
 								</c:import>
 							</p>
 						</div>
@@ -139,21 +142,29 @@
 							<li>Prazo devolução: <b>${emprestimo.prazoDevolucaoFormatada}</b></li>
 						</ul>
 					</div>
+						
+					<c:set var="transporte" value="${null}" />
+					<c:forEach var="transp" items="${listaDeTransporte}">							
+						<c:if test="${transp.emprestimo.idEmprestimo == emprestimo.idEmprestimo}">
+							<c:set var="transporte" value="${transp}" />
+						</c:if>												
+					</c:forEach>
+					
+					<div class="w3-third w3-margin-bottom">							
+						
+							<ul class="w3-ul w3-border w3-hover-shadow">
+								<li class="w3-large w3-center w3-text-white" style="background:#f4ab43">Transporte</li>
+								<li>Transportadora: <b>${transporte.nomeTransportadora}</b></li>
+								<li>Número de controle: <b>${transporte.numControle}</b></li>
+								<li>Número de NFe de envio: <b>${transporte.numNfeEnvio}</b></li>
+								<li>Data de envio: <b>${transporte.dtEnvio}</b></li>
+							</ul>					
+					</div>					
+					
 
 					<div class="w3-third w3-margin-bottom">
-
 						<ul class="w3-ul w3-border w3-hover-shadow">
-							<li class="w3-large w3-center" style="background:#ffcc5c">Transporte</li>
-							<li>Transportadora: <b></b></li>
-							<li><b>10</b> Domains</li>
-							<li><b>10</b> Domains</li>
-							<li><b>Endless</b> Support</li>
-						</ul>
-					</div>
-
-					<div class="w3-third w3-margin-bottom">
-						<ul class="w3-ul w3-border w3-hover-shadow">
-							<li class="w3-large w3-center" style="background:#96ceb4">Devolução</li>
+							<li class="w3-large w3-center w3-text-white" style="background:#5ebf99">Devolução</li>
 							<li><b>10GB</b> Storage</li>
 							<li><b>10</b> Domains</li>
 							<li><b>10</b> Domains</li>

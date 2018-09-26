@@ -17,6 +17,8 @@ public class Loja {
     private String cnpj;
     private String telefone;
     private String endereco;
+    
+    
 
     public int getIdLoja() {
         return idLoja;
