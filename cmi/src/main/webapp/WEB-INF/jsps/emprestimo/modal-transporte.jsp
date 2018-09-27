@@ -62,7 +62,7 @@ String dataAtual = FormatadorDeData.formata(LocalDate.now());
 		</div>
 
 		<footer class="w3-container w3-khaki">
-			<p>Modal Footer</p>
+			<p> Footer</p>
 		</footer>
 	</div>
 </div>

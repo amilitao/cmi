@@ -21,6 +21,7 @@ public class SalvarEmprestimo implements Logica {
 		ImpressoraDao impDao = new ImpressoraDao();
 		LojaDao lojaDao = new LojaDao();
 		
+		//
 				
 		Loja loja = lojaDao
 				.getLojaPorId(Integer.parseInt(req.getParameter("id_loja")));		
