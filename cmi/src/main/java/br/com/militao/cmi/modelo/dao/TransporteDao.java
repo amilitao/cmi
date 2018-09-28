@@ -103,10 +103,11 @@ public class TransporteDao implements GenericDao{
 
 			while (rs.next()) {
 				Transporte transporte = new Transporte();
-				
+				Emprestimo emprestimo = new Emprestimo();
 
 				transporte.setIdTransporte(rs.getInt("id_transporte"));
-				transporte.setEmprestimo(new Emprestimo(rs.getInt("emprestimo_id_emprestimo")));
+				emprestimo.setIdEmprestimo(rs.getInt("emprestimo_id_emprestimo"));
+				transporte.setEmprestimo(emprestimo);
 				transporte.setNomeTransportadora(rs.getString("nome_transportadora"));			
 				transporte.setNumControle(rs.getString("num_controle"));
 				transporte.setNumNfeEnvio(rs.getString("num_nfe_envio"));

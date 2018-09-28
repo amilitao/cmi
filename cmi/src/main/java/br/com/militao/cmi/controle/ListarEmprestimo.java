@@ -18,11 +18,10 @@ public class ListarEmprestimo implements Logica{
 		
 		EmprestimoDao emprestimoDao = new EmprestimoDao();
 		TransporteDao transporteDao = new TransporteDao();
-		
-			
+					
 		
 		req.setAttribute("listaDeEmprestimos", emprestimoDao.getList());
-		req.setAttribute("listaDeTransporte", transporteDao.getList());
+		req.setAttribute("listaDeTransporte", transporteDao.getList());		
 		
 		
 		return  "/WEB-INF/jsps/emprestimo/lista-emprestimo.jsp";

@@ -56,6 +56,11 @@ public class FormatadorDeData {
 		
 	}	
 	
+	public static LocalDate toLocalDate(String date) {
+		return LocalDate.parse(date);
+	}
+	
+	
 	public static LocalDateTime toLocalDateTime(Timestamp timestamp) {	
 		if(timestamp != null) {
 		return timestamp.toLocalDateTime();

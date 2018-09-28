@@ -15,9 +15,9 @@ public class Transporte {
 		
 	}	
 	
-	public Transporte(int idTransporte, Emprestimo emprestimo, String nomeTransportadora,
+	public Transporte(Emprestimo emprestimo, String nomeTransportadora,
 			String numControle, String numNfeEnvio, LocalDate dtEnvio) {
-		this.idTransporte = idTransporte;
+		
 		this.emprestimo = emprestimo;
 		this.nomeTransportadora = nomeTransportadora;		
 		this.numControle = numControle;

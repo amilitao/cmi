@@ -14,12 +14,20 @@
 
 	<div class="w3-container w3-padding-large">
 
+		<c:if test="${confirmaDao}">
+			<c:set var="teste" value="disabled" />
+			<div class="w3-panel w3-display-container" style="background:#b5e7a0">
+				<span onclick="this.parentElement.style.display='none'"
+					class="w3-button  w3-large w3-display-topright" style="background:#b5e7a0">&times;</span>				
+				<p>Os dados foram salvos com sucesso!!!</p>
+			</div>
+
+		</c:if>		
+		
 		<c:forEach var="emprestimo" items="${listaDeEmprestimos}">
 
-		
-
 			<button onclick="myFunction('demo${emprestimo.idEmprestimo}')"
-				class="w3-button w3-block w3-left-align w3-padding-small w3-border w3-white w3-hover-blue" >
+				class="w3-button w3-block w3-left-align w3-padding-small w3-border w3-white w3-hover-blue">
 
 				<div class="w3-row">
 					<div class="w3-col m3">
@@ -48,19 +56,19 @@
 
 				<div class="container w3-white">
 
-					
+
 					<div class="w3-row">
-						
-							<div class="w3-container w3-center w3-text-white"
+
+						<div class="w3-container w3-center w3-text-white"
 							style="width:${emprestimo.situacao.porcentagem}; background:#ff6f69">
 							<c:out value="${emprestimo.situacao.porcentagem}" />
-							</div>
-						
+						</div>
+
 					</div>
 					<div class="w3-row">
 						<div class="w3-col m2 w3-center">
 							<p>
-								Iniciado <br /><b>${emprestimo.dataInicioFormatada}</b>
+								Iniciado <br /> <b>${emprestimo.dataInicioFormatada}</b>
 							</p>
 						</div>
 						<div class="w3-col m2 w3-center">
@@ -106,7 +114,7 @@
 									<c:set var="btn3" value="disabled" />
 								</c:if>
 
-								<button class="w3-button" style="background:#ffeead" ${btn3}>Entrega</button>
+								<button class="w3-button" style="background: #ffeead" ${btn3}>Entrega</button>
 							</p>
 						</div>
 						<div class="w3-col m2 w3-center">
@@ -116,12 +124,12 @@
 									<c:set var="btn3" value="disabled" />
 								</c:if>
 
-								<button class="w3-button" style="background:#ffeead" ${btn3}>Devolução</button>
+								<button class="w3-button" style="background: #ffeead" ${btn3}>Devolução</button>
 							</p>
 						</div>
 						<div class="w3-col m2 w3-center">
 							<p>
-								Encerrado <br /><b>${emprestimo.dataFimFormatada}</b>
+								Encerrado <br /> <b>${emprestimo.dataFimFormatada}</b>
 							</p>
 						</div>
 					</div>
@@ -142,29 +150,32 @@
 							<li>Prazo devolução: <b>${emprestimo.prazoDevolucaoFormatada}</b></li>
 						</ul>
 					</div>
-						
+
 					<c:set var="transporte" value="${null}" />
-					<c:forEach var="transp" items="${listaDeTransporte}">							
-						<c:if test="${transp.emprestimo.idEmprestimo == emprestimo.idEmprestimo}">
+					<c:forEach var="transp" items="${listaDeTransporte}">
+						<c:if
+							test="${transp.emprestimo.idEmprestimo == emprestimo.idEmprestimo}">
 							<c:set var="transporte" value="${transp}" />
-						</c:if>												
+						</c:if>
 					</c:forEach>
-					
-					<div class="w3-third w3-margin-bottom">							
-						
-							<ul class="w3-ul w3-border w3-hover-shadow">
-								<li class="w3-large w3-center w3-text-white" style="background:#f4ab43">Transporte</li>
-								<li>Transportadora: <b>${transporte.nomeTransportadora}</b></li>
-								<li>Número de controle: <b>${transporte.numControle}</b></li>
-								<li>Número de NFe de envio: <b>${transporte.numNfeEnvio}</b></li>
-								<li>Data de envio: <b>${transporte.dtEnvio}</b></li>
-							</ul>					
-					</div>					
-					
+
+					<div class="w3-third w3-margin-bottom">
+
+						<ul class="w3-ul w3-border w3-hover-shadow">
+							<li class="w3-large w3-center w3-text-white"
+								style="background: #f4ab43">Transporte</li>
+							<li>Transportadora: <b>${transporte.nomeTransportadora}</b></li>
+							<li>Número de controle: <b>${transporte.numControle}</b></li>
+							<li>Número de NFe de envio: <b>${transporte.numNfeEnvio}</b></li>
+							<li>Data de envio: <b>${transporte.dtEnvio}</b></li>
+						</ul>
+					</div>
+
 
 					<div class="w3-third w3-margin-bottom">
 						<ul class="w3-ul w3-border w3-hover-shadow">
-							<li class="w3-large w3-center w3-text-white" style="background:#5ebf99">Devolução</li>
+							<li class="w3-large w3-center w3-text-white"
+								style="background: #5ebf99">Devolução</li>
 							<li><b>10GB</b> Storage</li>
 							<li><b>10</b> Domains</li>
 							<li><b>10</b> Domains</li>

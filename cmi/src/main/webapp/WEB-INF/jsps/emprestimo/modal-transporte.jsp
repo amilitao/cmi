@@ -31,7 +31,7 @@ String dataAtual = FormatadorDeData.formata(LocalDate.now());
 						<label><i class="fa fa-calendar-o"></i> Número do empréstimo</label>
 						<input class="w3-input w3-border" type="text" value="${param.idEmprestimo}" name="idEmprestimo" required >
 					</div>
-					<div class="w3-third">
+					<div class="w3-third w3-margin-bottom">
 						<label><i class="fa fa-calendar-o"></i> Data de envio</label>
 						<input class="w3-input w3-border" type="text" value="<%= dataAtual %>" name="dtEnvio" required>
 					</div>
@@ -41,7 +41,7 @@ String dataAtual = FormatadorDeData.formata(LocalDate.now());
 					</div>					
 				</div>
 				<div class="w3-row-padding" style="margin: 0 -16px;">
-					<div class="w3-third">
+					<div class="w3-third w3-margin-bottom">
 						<label><i class="fa fa-calendar-o"></i> Número do controle</label>
 						<input class="w3-input w3-border" type="text" name="numControle" required>
 					</div>

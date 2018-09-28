@@ -1,6 +1,5 @@
 package br.com.militao.cmi.controle;
 
-import java.time.LocalDate;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -30,8 +29,8 @@ public class SalvarEmprestimo implements Logica {
 		String numChamado = req.getParameter("num_chamado");
 		Emprestimo emprestimo = new Emprestimo(loja, impressora, numChamado);
 
-		if (!empDao.insert(emprestimo)) {
-			req.setAttribute("erro_emprestimo", "Erro ao salvar emprestimo");
+		if (empDao.insert(emprestimo)) {
+			req.setAttribute("confirmaDao", true);			
 		}
 		
 		req.setAttribute("lojas", lojaDao.getList());
