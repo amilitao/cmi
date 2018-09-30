@@ -1,0 +1,32 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>	
+
+<button onclick="document.getElementById('identrega${param.idEmprestimo}').style.display='block'"
+	class="w3-button" style="background:#ffeead" <c:out value="${param.b3}" />>Entrega</button>
+
+<div id="identrega${param.idEmprestimo}" class="w3-modal">
+	<div class="w3-modal-content w3-animate-top w3-card-4 w3-left-align">
+		<header class="w3-container w3-khaki">
+			<span onclick="document.getElementById('identrega${param.idEmprestimo}').style.display='none'"
+				class="w3-button w3-display-topright w3-xlarge">&times;</span>
+			<h2>Entrega</h2>			
+		</header>		
+
+		<div class="w3-panel w3-padding-large">			
+			
+			<p>Deseja confirmar a entrega da impressora?</p><br>
+			
+			<form action="controle" method="post">					
+			
+				<input type="hidden" name="logica" value="AtualizarEmprestimo" />
+				<input type="hidden" name="idEmprestimo" value="${param.idEmprestimo}" />
+				<input type="hidden" name="situacao" value="EM_EMPRESTIMO" />				
+
+				<button class="w3-button w3-khaki" type="submit">
+					<i class="fa fa-floppy-o w3-margin-right"></i>Confirmar
+				</button>
+			</form>
+		</div>		
+	</div>
+</div>

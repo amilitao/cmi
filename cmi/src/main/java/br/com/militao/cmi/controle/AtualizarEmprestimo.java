@@ -28,7 +28,9 @@ public class AtualizarEmprestimo implements Logica{
 			emprestimo.setDtFim(null);		
 		}	
 		
-		emprestimoDao.update(emprestimo);	
+		if(emprestimoDao.update(emprestimo)) {
+			req.setAttribute("confirmaDao", true);
+		}	
 		
 		
 		req.setAttribute("listaDeEmprestimos", emprestimoDao.getList());				

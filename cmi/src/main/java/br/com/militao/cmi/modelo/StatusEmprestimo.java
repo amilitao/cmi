@@ -2,9 +2,9 @@ package br.com.militao.cmi.modelo;
 
 public enum StatusEmprestimo {
 	
-	INICIO("1%", "iniciado"), NFE("25%", "aguardando nfe"), 
-	TRANSPORTE("40%", "aguardando transporte"), ENTREGA("60%", "em transporte"),
-	DEVOLUCAO("80%", "em emprestimo"), FIM("100%", "encerrado");
+	INICIADO("1%", "iniciado"), EMISSAO_NFE("25%", "aguardando nfe"), 
+	AGUARDANDO_TRANSPORTE("40%", "aguardando transporte"), ENVIADO("60%", "em transporte"),
+	EM_EMPRESTIMO("75%", "em emprestimo"), ENCERRADO("100%", "encerrado");
 	
 	public String porcentagem;
 	public String descricao;

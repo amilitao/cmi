@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags"%>
 
 
@@ -66,9 +67,9 @@
 
 					</div>
 					<div class="w3-row">
-						<div class="w3-col m2 w3-center">
+						<div class="w3-col m2 w3-center">						 												
 							<p>
-								Iniciado <br /> <b>${emprestimo.dataInicioFormatada}</b>
+								Iniciado <br /><b>${emprestimo.dataInicioFormatada}</b>
 							</p>
 						</div>
 						<div class="w3-col m2 w3-center">
@@ -114,13 +115,16 @@
 									<c:set var="btn3" value="disabled" />
 								</c:if>
 
-								<button class="w3-button" style="background: #ffeead" ${btn3}>Entrega</button>
+								<c:import url="modal-entrega.jsp" >
+									<c:param name="b3" value="${btn3}" />
+									<c:param name="idEmprestimo" value="${emprestimo.idEmprestimo}" />
+								</c:import>
 							</p>
 						</div>
 						<div class="w3-col m2 w3-center">
 							<p>
 								<c:set var="btn3" value="" />
-								<c:if test="${emprestimo.situacao.porcentagem != '60%'}">
+								<c:if test="${emprestimo.situacao.porcentagem != '75%'}">
 									<c:set var="btn3" value="disabled" />
 								</c:if>
 

@@ -44,7 +44,7 @@ public class FormatadorDeData {
 			return null;
 		}
 		
-	}
+	}		
 	
 	public static LocalDate toLocalDate(Date date) {
 		

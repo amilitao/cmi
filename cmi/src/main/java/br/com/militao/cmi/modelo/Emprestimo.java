@@ -37,7 +37,7 @@ public class Emprestimo {
 		this.loja = loja;
 		this.impressora = impressora;
 		this.dtInicio = LocalDateTime.now();		
-		this.situacao = StatusEmprestimo.NFE;
+		this.situacao = StatusEmprestimo.EMISSAO_NFE;
 		this.num_chamado = num_chamado;
 		this.prazoDevolucao = calculaPrazoDevolucao();
 	}
@@ -89,7 +89,7 @@ public class Emprestimo {
 		this.dtInicio = dtInicio;
 	}
 
-	public LocalDateTime getDtInicio() {
+	public LocalDateTime getDtInicio() {	
 		return dtInicio;
 	}
 	

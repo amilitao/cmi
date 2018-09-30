@@ -8,8 +8,8 @@ class StatusEmprestimoTest {
 
 	@Test
 	void statusTest() {
-		System.out.println(StatusEmprestimo.NFE.name());
-		StatusEmprestimo e = StatusEmprestimo.valueOf("NFE");
+		System.out.println(StatusEmprestimo.EMISSAO_NFE.name());
+		StatusEmprestimo e = StatusEmprestimo.valueOf("EMISSAO_NFE");
 		
 		
 		
