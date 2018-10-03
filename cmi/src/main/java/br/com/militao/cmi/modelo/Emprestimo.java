@@ -27,6 +27,7 @@ public class Emprestimo {
     
     public Emprestimo() {    	
     }
+        
     
     public Emprestimo(int id, StatusEmprestimo situacao) {  
     	this.idEmprestimo = id;

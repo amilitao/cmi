@@ -123,12 +123,15 @@
 						</div>
 						<div class="w3-col m2 w3-center">
 							<p>
-								<c:set var="btn3" value="" />
+								<c:set var="btn4" value="" />
 								<c:if test="${emprestimo.situacao.porcentagem != '75%'}">
-									<c:set var="btn3" value="disabled" />
+									<c:set var="btn4" value="disabled" />
 								</c:if>
 
-								<button class="w3-button" style="background: #ffeead" ${btn3}>Devolução</button>
+								<c:import url="modal-devolucao.jsp" >
+									<c:param name="b4" value="${btn4}" />
+									<c:param name="idEmprestimo" value="${emprestimo.idEmprestimo}" />
+								</c:import>
 							</p>
 						</div>
 						<div class="w3-col m2 w3-center">
@@ -176,14 +179,23 @@
 					</div>
 
 
+
+					<c:set var="devolucao" value="${null}" />
+					
+					<c:forEach var="devol" items="${listaDeDevolucao}">
+						<c:if
+							test="${devol.emprestimo.idEmprestimo == emprestimo.idEmprestimo}">
+							<c:set var="devolucao" value="${devol}" />
+						</c:if>
+					</c:forEach>
+
 					<div class="w3-third w3-margin-bottom">
 						<ul class="w3-ul w3-border w3-hover-shadow">
 							<li class="w3-large w3-center w3-text-white"
-								style="background: #5ebf99">Devolução</li>
-							<li><b>10GB</b> Storage</li>
-							<li><b>10</b> Domains</li>
-							<li><b>10</b> Domains</li>
-							<li><b>Endless</b> Support</li>
+								style="background: #5ebf99">Devolução</li>							
+							<li>Número da NFe: <b>${devolucao.numNfeDevolucao}</b></li>
+							<li>Recebedor: <b>${devolucao.recebedor}</b></li>
+							<li>Data da devolução: <b>${devolucao.dtDevolucao}</b></li>							
 						</ul>
 					</div>
 				</div>
