@@ -20,7 +20,8 @@ public class SalvarTransporte implements Logica{
 		TransporteDao transporteDao = new TransporteDao();
 		
 		Transporte transporte = new Transporte(
-				new Emprestimo(Integer.parseInt(req.getParameter("idEmprestimo")), StatusEmprestimo.ENVIADO), 
+				new Emprestimo(Integer.parseInt(req.getParameter("idEmprestimo")), 
+				StatusEmprestimo.ENVIADO), 
 				req.getParameter("nomeTransportadora"), req.getParameter("numControle"),
 				req.getParameter("nfeEnvio"), LocalDate.now());
 		

@@ -35,7 +35,7 @@
 				<br> <input type="hidden" name="logica" value="AtualizarEmprestimo" />
 				
 				<input type="hidden" name="idEmprestimo" value="${param.idEmprestimo}" />
-				<input type="hidden" name="situacao" value="TRANSPORTE" />
+				<input type="hidden" name="situacao" value="AGUARDANDO_TRANSPORTE" />
 				<input type="hidden" name="dtFim" value="${param.dtFim}" />
 				
 

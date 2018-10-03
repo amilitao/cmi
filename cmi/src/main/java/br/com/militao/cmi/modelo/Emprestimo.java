@@ -33,6 +33,12 @@ public class Emprestimo {
     	this.idEmprestimo = id;
     	this.situacao = situacao;
     }
+    
+    public Emprestimo(int id, StatusEmprestimo situacao, LocalDateTime dataHora) {  
+    	this.idEmprestimo = id;
+    	this.situacao = situacao;
+    	this.dtFim = dataHora;
+    }
 
     public Emprestimo(Loja loja, Impressora impressora,  String num_chamado) {
 		this.loja = loja;
