@@ -1,13 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<%@taglib prefix="t" tagdir="/WEB-INF/tags"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib prefix="t" tagdir="/WEB-INF/tags"%>
 
 <t:mainpage>
 
-	<div class="w3-container">
+<div class="w3-container">
 		<h2>
 			<i class="fa fa-bed w3-margin-right"></i>Meus Empréstimos
 		</h2>
@@ -17,14 +16,16 @@
 
 		<c:if test="${confirmaDao}">
 			<c:set var="teste" value="disabled" />
-			<div class="w3-panel w3-display-container" style="background:#b5e7a0">
+			<div class="w3-panel w3-display-container"
+				style="background: #b5e7a0">
 				<span onclick="this.parentElement.style.display='none'"
-					class="w3-button  w3-large w3-display-topright" style="background:#b5e7a0">&times;</span>				
+					class="w3-button  w3-large w3-display-topright"
+					style="background: #b5e7a0">&times;</span>
 				<p>Os dados foram salvos com sucesso!!!</p>
 			</div>
 
-		</c:if>		
-		
+		</c:if>
+
 		<c:forEach var="emprestimo" items="${listaDeEmprestimos}">
 
 			<button onclick="myFunction('demo${emprestimo.idEmprestimo}')"
@@ -42,13 +43,12 @@
 							<i class="fa fa-home"></i> Loja : ${emprestimo.loja}
 						</h4>
 					</div>
-					<div class="w3-col m3">
+					<div class="w3-col m2">
 						<h4>
-							<i class="fa fa-search"></i> Situação :
-							${emprestimo.situacao.descricao}
+							<i class="fa fa-search w3-text-${emprestimo.situacao.cor}"> </i>
+							Situação : ${emprestimo.situacao.descricao}
 						</h4>
 					</div>
-
 				</div>
 			</button>
 
@@ -67,9 +67,10 @@
 
 					</div>
 					<div class="w3-row">
-						<div class="w3-col m2 w3-center">						 												
+						<div class="w3-col m2 w3-center">
 							<p>
-								Iniciado <br /><b>${emprestimo.dataInicioFormatada}</b>
+								Iniciado <br />
+								<b>${emprestimo.dataInicioFormatada}</b>
 							</p>
 						</div>
 						<div class="w3-col m2 w3-center">
@@ -115,7 +116,7 @@
 									<c:set var="btn3" value="disabled" />
 								</c:if>
 
-								<c:import url="modal-entrega.jsp" >
+								<c:import url="modal-entrega.jsp">
 									<c:param name="b3" value="${btn3}" />
 									<c:param name="idEmprestimo" value="${emprestimo.idEmprestimo}" />
 								</c:import>
@@ -128,7 +129,7 @@
 									<c:set var="btn4" value="disabled" />
 								</c:if>
 
-								<c:import url="modal-devolucao.jsp" >
+								<c:import url="modal-devolucao.jsp">
 									<c:param name="b4" value="${btn4}" />
 									<c:param name="idEmprestimo" value="${emprestimo.idEmprestimo}" />
 								</c:import>
@@ -159,7 +160,7 @@
 					</div>
 
 					<c:set var="transporte" value="${null}" />
-					<c:forEach var="transp" items="${listaDeTransporte}">
+					<c:forEach var="transp" items="${listaDeTransportes}">
 						<c:if
 							test="${transp.emprestimo.idEmprestimo == emprestimo.idEmprestimo}">
 							<c:set var="transporte" value="${transp}" />
@@ -178,11 +179,9 @@
 						</ul>
 					</div>
 
-
-
 					<c:set var="devolucao" value="${null}" />
-					
-					<c:forEach var="devol" items="${listaDeDevolucao}">
+
+					<c:forEach var="devol" items="${listaDeDevolucoes}">
 						<c:if
 							test="${devol.emprestimo.idEmprestimo == emprestimo.idEmprestimo}">
 							<c:set var="devolucao" value="${devol}" />
@@ -192,10 +191,10 @@
 					<div class="w3-third w3-margin-bottom">
 						<ul class="w3-ul w3-border w3-hover-shadow">
 							<li class="w3-large w3-center w3-text-white"
-								style="background: #5ebf99">Devolução</li>							
+								style="background: #5ebf99">Devolução</li>
 							<li>Número da NFe: <b>${devolucao.numNfeDevolucao}</b></li>
 							<li>Recebedor: <b>${devolucao.recebedor}</b></li>
-							<li>Data da devolução: <b>${devolucao.dtDevolucao}</b></li>							
+							<li>Data da devolução: <b>${devolucao.dtDevolucao}</b></li>
 						</ul>
 					</div>
 				</div>
@@ -215,7 +214,4 @@
 			}
 		}
 	</script>
-
-
-
 </t:mainpage>

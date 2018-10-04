@@ -34,8 +34,8 @@ public class SalvarDevolucao implements Logica{
 		
 		
 		req.setAttribute("listaDeEmprestimos", emprestimoDao.getList());
-		req.setAttribute("listaDeTransporte", transporteDao.getList());
-		req.setAttribute("listaDeDevolucao", devolucaoDao.getList());
+		req.setAttribute("listaDeTransportes", transporteDao.getList());
+		req.setAttribute("listaDeDevolucoes", devolucaoDao.getList());
 		
 		
 		return "/WEB-INF/jsps/emprestimo/lista-emprestimo.jsp";

@@ -31,7 +31,7 @@ public class SalvarTransporte implements Logica{
 		
 		
 		req.setAttribute("listaDeEmprestimos", emprestimoDao.getList());
-		req.setAttribute("listaDeTransporte", transporteDao.getList());
+		req.setAttribute("listaDeTransportes", transporteDao.getList());
 		
 		
 		

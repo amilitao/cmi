@@ -35,7 +35,7 @@ String dataAtual = FormatadorDeData.formata(LocalDate.now());
 				</div>
 				<div class="w3-row-padding" style="margin: 0 -16px;">
 					<div class="w3-third w3-margin-bottom">
-						<label><i class="fa fa-calendar-o"></i> Número Nfe de envio</label>
+						<label><i class="fa fa-calendar-o"></i> Nfe de devolução</label>
 						<input class="w3-input w3-border" type="text" name="numNfeDevolucao" required>
 					</div>		
 					<div class="w3-third w3-margin-bottom">
