@@ -21,7 +21,7 @@ public class LoadDashboard implements Logica {
 		ImpressoraDao impDao = new ImpressoraDao();
 		List<Object> impressoras = impDao.getList();
 		
-		HttpSession session = req.getSession();
+		HttpSession session = req.getSession();	
 
 		if (session.getAttribute("dashboard") == null) {
 			
