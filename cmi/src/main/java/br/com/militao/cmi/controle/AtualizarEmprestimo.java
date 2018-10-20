@@ -21,21 +21,13 @@ public class AtualizarEmprestimo implements Logica{
 		emprestimo.setIdEmprestimo(Integer.parseInt(req.getParameter("idEmprestimo")));		
 		emprestimo.setSituacao(StatusEmprestimo.valueOf(req.getParameter("situacao")));	
 		
-	
-		if(req.getAttribute("dtFim") != null) {			
-			emprestimo.setDtFim(LocalDateTime.parse(req.getParameter("dtFim")));
-		}else {			
-			emprestimo.setDtFim(null);		
-		}	
 		
 		if(emprestimoDao.update(emprestimo)) {
 			req.setAttribute("confirmaDao", true);
 		}	
+				
 		
-		
-		req.setAttribute("listaDeEmprestimos", emprestimoDao.getList());				
-		
-		return "/WEB-INF/jsps/emprestimo/lista-emprestimo.jsp";
+		return new ListarEmprestimo().executa(req, resp);
 	}
 	
 	

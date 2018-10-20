@@ -17,6 +17,7 @@ public class SalvarDevolucao implements Logica{
 
 	@Override
 	public String executa(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+		
 		EmprestimoDao emprestimoDao = new EmprestimoDao();
 		TransporteDao transporteDao = new TransporteDao();
 		DevolucaoDao devolucaoDao = new DevolucaoDao();
@@ -30,15 +31,9 @@ public class SalvarDevolucao implements Logica{
 		
 		if (devolucaoDao.insert(devolucao) && emprestimoDao.update(devolucao.getEmprestimo())) {
 			req.setAttribute("confirmaDao", true);
-		}	
-		
-		
-		req.setAttribute("listaDeEmprestimos", emprestimoDao.getList());
-		req.setAttribute("listaDeTransportes", transporteDao.getList());
-		req.setAttribute("listaDeDevolucoes", devolucaoDao.getList());
-		
-		
-		return "/WEB-INF/jsps/emprestimo/lista-emprestimo.jsp";
+		}			
+	
+		return new ListarEmprestimo().executa(req, resp);
 	}
 
 	

@@ -27,15 +27,9 @@ public class SalvarTransporte implements Logica{
 		
 		if (transporteDao.insert(transporte) && emprestimoDao.update(transporte.getEmprestimo())) {
 			req.setAttribute("confirmaDao", true);
-		}	
+		}					
 		
-		
-		req.setAttribute("listaDeEmprestimos", emprestimoDao.getList());
-		req.setAttribute("listaDeTransportes", transporteDao.getList());
-		
-		
-		
-		return "/WEB-INF/jsps/emprestimo/lista-emprestimo.jsp";
+		return new ListarEmprestimo().executa(req, resp);
 	}
 	
 	
