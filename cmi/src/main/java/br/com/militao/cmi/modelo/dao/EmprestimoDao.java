@@ -22,6 +22,7 @@ import br.com.militao.cmi.modelo.Loja;
 import br.com.militao.cmi.modelo.StatusEmprestimo;
 import br.com.militao.cmi.util.FormatadorDeData;
 
+
 public class EmprestimoDao implements GenericDao {
 
 	private boolean resultado;
