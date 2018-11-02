@@ -8,7 +8,7 @@
 
 <div class="w3-container">
 		<h2>
-			<i class="fa fa-bed w3-margin-right"></i>Meus Empréstimos
+			<i class="fa fa-cubes"></i> Meus Empréstimos
 		</h2>
 	</div>
 
