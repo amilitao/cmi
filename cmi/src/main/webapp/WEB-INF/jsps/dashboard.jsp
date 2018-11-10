@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags"%>
 <%@taglib prefix="com" tagdir="/WEB-INF/tags/componente"%>
 
@@ -109,7 +108,7 @@
         <td>1.5%</td>
       </tr>
     </table><br>
-    <button class="w3-button w3-dark-grey">More Countries  <i class="fa fa-arrow-right"></i></button>
+    <button class="w3-button w3-dark-grey">More Countries Â <i class="fa fa-arrow-right"></i></button>
   </div>
   <hr>
   <div class="w3-container">

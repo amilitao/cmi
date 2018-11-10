@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>		
 <%@page import="java.time.LocalDate"%>
 <%@page import="br.com.militao.cmi.util.FormatadorDeData" %>
@@ -9,7 +8,7 @@ String dataAtual = FormatadorDeData.formata(LocalDate.now());
 %>
 
 <button onclick="document.getElementById('iddevolucao${param.idEmprestimo}').style.display='block'"
-	class="w3-button w3-khaki" <c:out value="${param.b4}" /> >Devolução</button>
+	class="w3-button w3-khaki" <c:out value="${param.b4}" /> >DevoluÃ§Ã£o</button>
 
 <div id="iddevolucao${param.idEmprestimo}" class="w3-modal">
 	<div class="w3-modal-content w3-animate-top w3-card-4">
@@ -25,7 +24,7 @@ String dataAtual = FormatadorDeData.formata(LocalDate.now());
 
 				<div class="w3-row-padding" style="margin: 0 -16px;">
 					<div class="w3-third w3-margin-bottom">
-						<label><i class="fa fa-calendar-o"></i> Número do empréstimo</label>
+						<label><i class="fa fa-calendar-o"></i> NÃºmero do emprÃ©stimo</label>
 						<input class="w3-input w3-border" type="text" value="${param.idEmprestimo}" name="idEmprestimo" required >
 					</div>
 					<div class="w3-third w3-margin-bottom">
@@ -35,7 +34,7 @@ String dataAtual = FormatadorDeData.formata(LocalDate.now());
 				</div>
 				<div class="w3-row-padding" style="margin: 0 -16px;">
 					<div class="w3-third w3-margin-bottom">
-						<label><i class="fa fa-calendar-o"></i> Nfe de devolução</label>
+						<label><i class="fa fa-calendar-o"></i> Nfe de devoluÃ§Ã£o</label>
 						<input class="w3-input w3-border" type="text" name="numNfeDevolucao" required>
 					</div>		
 					<div class="w3-third w3-margin-bottom">

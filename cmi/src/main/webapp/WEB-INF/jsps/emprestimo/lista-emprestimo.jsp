@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags"%>
@@ -8,7 +7,7 @@
 
 <div class="w3-container">
 		<h2>
-			<i class="fa fa-cubes"></i> Meus Empréstimos
+			<i class="fa fa-cubes"></i> Meus EmprÃ©stimos
 		</h2>
 	</div>
 
@@ -34,7 +33,7 @@
 				<div class="w3-row">
 					<div class="w3-col m3">
 						<h4>
-							<i class="fa fa-handshake-o"></i> Empréstimo :
+							<i class="fa fa-handshake-o"></i> EmprÃ©stimo :
 							${emprestimo.idEmprestimo}
 						</h4>
 					</div>
@@ -46,7 +45,7 @@
 					<div class="w3-col m2">
 						<h4>
 							<i class="fa fa-search w3-text-${emprestimo.situacao.cor}"> </i>
-							Situação : ${emprestimo.situacao.descricao}
+							SituaÃ§Ã£o : ${emprestimo.situacao.descricao}
 						</h4>
 					</div>
 				</div>
@@ -151,11 +150,11 @@
 
 					<div class="w3-third w3-margin-bottom">
 						<ul class="w3-ul w3-border w3-hover-shadow">
-							<li class="w3-large w3-center"><b>Dados do empréstimo</b></li>
+							<li class="w3-large w3-center"><b>Dados do emprÃ©stimo</b></li>
 							<li>Loja: <b>${emprestimo.loja}</b></li>
 							<li>Impressora: <b>${emprestimo.impressora}</b></li>
 							<li>Chamado: <b>${emprestimo.num_chamado}</b></li>
-							<li>Prazo devolução: <b>${emprestimo.prazoDevolucaoFormatada}</b></li>
+							<li>Prazo devoluÃ§Ã£o: <b>${emprestimo.prazoDevolucaoFormatada}</b></li>
 						</ul>
 					</div>
 
@@ -173,8 +172,8 @@
 							<li class="w3-large w3-center w3-text-white"
 								style="background: #f4ab43">Transporte</li>
 							<li>Transportadora: <b>${transporte.nomeTransportadora}</b></li>
-							<li>Número de controle: <b>${transporte.numControle}</b></li>
-							<li>Número de NFe de envio: <b>${transporte.numNfeEnvio}</b></li>
+							<li>NÃºmero de controle: <b>${transporte.numControle}</b></li>
+							<li>NÃºmero de NFe de envio: <b>${transporte.numNfeEnvio}</b></li>
 							<li>Data de envio: <b>${transporte.dtEnvio}</b></li>
 						</ul>
 					</div>
@@ -191,10 +190,10 @@
 					<div class="w3-third w3-margin-bottom">
 						<ul class="w3-ul w3-border w3-hover-shadow">
 							<li class="w3-large w3-center w3-text-white"
-								style="background: #5ebf99">Devolução</li>
-							<li>Número da NFe: <b>${devolucao.numNfeDevolucao}</b></li>
+								style="background: #5ebf99">DevoluÃ§Ã£o</li>
+							<li>NÃºmero da NFe: <b>${devolucao.numNfeDevolucao}</b></li>
 							<li>Recebedor: <b>${devolucao.recebedor}</b></li>
-							<li>Data da devolução: <b>${devolucao.dtDevolucao}</b></li>
+							<li>Data da devoluÃ§Ã£o: <b>${devolucao.dtDevolucao}</b></li>
 						</ul>
 					</div>
 				</div>

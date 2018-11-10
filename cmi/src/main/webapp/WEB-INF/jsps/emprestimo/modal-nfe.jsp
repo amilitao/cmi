@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>	
 
 <button onclick="document.getElementById('idnfe${param.idEmprestimo}').style.display='block'"
@@ -10,26 +9,26 @@
 		<header class="w3-container w3-khaki">
 			<span onclick="document.getElementById('idnfe${param.idEmprestimo}').style.display='none'"
 				class="w3-button w3-display-topright w3-xlarge">&times;</span>
-			<h2>SolicitaÁ„o de NFE</h2>			
+			<h2>Solicita√ß√£o de NFE</h2>			
 		</header>
 
 		<div class="w3-panel w3-padding-large">
-			<h5><b>ASSUNTO:</b> SolicitaÁ„o de emiss„o de nota fiscal.</h5>
+			<h5><b>ASSUNTO:</b> Solicita√ß√£o de emiss√£o de nota fiscal.</h5>
 			
 			<form action="controle" method="post">
 								
-					<p>Poderia emitir uma nota fiscal para a devoluÁ„o de impressora para a filial ${param.nomeLoja} .</p>
+					<p>Poderia emitir uma nota fiscal para a devolu√ß√£o de impressora para a filial ${param.nomeLoja} .</p>
 					<br>	
-					<p><b>Emitir NFe tipo:</b> EmprÈstimo</p>
+					<p><b>Emitir NFe tipo:</b> Empr√©stimo</p>
 					<p><b>Empresa:</b> ${param.nomeLoja}</p>
 					<p><b>CNPJ:</b> ${param.cnpjLoja}</p>
 					<p><b>Valor:</b> </p>
 					<p><b>Quantidade:</b> 1</p>
 					<hr>
-					<h5><b>InformaÁıes</b></h5>
-					<p>1- O item est· registrado como ativo? R: </p>					
-					<p>2- Em qual raz„o social? R: </p>					
-					<p>3- Qual previs„o de retorno? R: ${param.prazo_devolucao}</p>					
+					<h5><b>Informa√ß√µes</b></h5>
+					<p>1- O item est√° registrado como ativo? R: </p>					
+					<p>2- Em qual raz√£o social? R: </p>					
+					<p>3- Qual previs√£o de retorno? R: ${param.prazo_devolucao}</p>					
 					
 			
 				<br> <input type="hidden" name="logica" value="AtualizarEmprestimo" />
@@ -47,7 +46,7 @@
 
 
 		<footer class="w3-container w3-khaki">
-			<p>O email ser· enviado pelo servidor</p>
+			<p>O email ser√° enviado pelo servidor</p>
 		</footer>
 	</div>
 </div>

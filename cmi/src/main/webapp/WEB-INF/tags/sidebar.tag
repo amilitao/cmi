@@ -7,7 +7,7 @@
    
   <form action="controle" method="post">
   
-  	<button class="w3-bar-item w3-button w3-padding w3-text-white w3-hover-white"  style="background:#78bd5d" name="logica" value="LoadDashboard"><i class="fa fa-dashboard"></i>  Dashboard</button>
+  	<button class="w3-bar-item w3-button w3-padding  w3-hover-white"  style="background:#78bd5d" name="logica" value="LoadDashboard"><i class="fa fa-dashboard"></i>  Dashboard</button>
   	<button class="w3-bar-item w3-button w3-padding" name="logica" value="EmprestimoPage"><i class="fa fa-handshake-o"></i>  Novo empréstimo</button> 
     <button class="w3-bar-item w3-button w3-padding" name="logica" value="ListarEmprestimo"><i class="fa fa-cubes"></i>  Meus empréstimos</button>
 

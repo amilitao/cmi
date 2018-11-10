@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags"%>
 
@@ -9,7 +8,7 @@
 
 	<div class="w3-container">
 		<h2>
-			<i class="fa fa-bed w3-margin-right"></i>Novo Empréstimo
+			<i class="fa fa-handshake-o"></i> Novo EmprÃ©stimo
 		</h2>
 	</div>
 
@@ -18,7 +17,7 @@
 		<c:if test="${empty impressoras}">
 			<c:set var="teste" value="disabled" />
 			<div class="w3-panel w3-pale-yellow w3-border w3-border-yellow">
-				<p>Nenhuma impressora disponível no momento!!!</p>
+				<p>Nenhuma impressora disponÃ­vel no momento!!!</p>
 			</div>
 
 		</c:if>
@@ -37,7 +36,7 @@
 
 			<div class="w3-row-padding" style="margin: 0 -16px;">
 				<div class="w3-third w3-margin-bottom">
-					<label><i class="fa fa-calendar-o"></i> Loja</label> <select
+					<label><i class="fa fa-home"></i> Loja</label> <select
 						class="w3-select w3-border" name="id_loja" required>
 						<option value="" disabled selected>Escolha a loja</option>
 						<c:forEach var="loja" items="${lojas}">
@@ -47,7 +46,7 @@
 
 				</div>
 				<div class="w3-third w3-margin-bottom">
-					<label><i class="fa fa-calendar-o"></i> Impressora</label> <select
+					<label><i class="fa fa-print"></i> Impressora</label> <select
 						class="w3-select w3-border" name="id_impressora" required>
 						<option value="" disabled selected>Escolha a impressora</option>
 						<c:forEach var="impressora" items="${impressoras}">
@@ -57,7 +56,7 @@
 
 				</div>
 				<div class="w3-third">
-					<label><i class="fa fa-calendar-o"></i> Número do chamado</label> <input
+					<label><i class="fa fa-pencil-square-o"></i> NÃºmero do chamado</label> <input
 						class="w3-input w3-border" type="text" name="num_chamado" required>
 				</div>
 			</div>
