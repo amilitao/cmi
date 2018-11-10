@@ -1,10 +1,8 @@
 package br.com.militao.cmi.controle;
 
-import java.time.LocalDateTime;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import br.com.militao.cmi.modelo.Emprestimo;
 import br.com.militao.cmi.modelo.StatusEmprestimo;
 import br.com.militao.cmi.modelo.dao.EmprestimoDao;

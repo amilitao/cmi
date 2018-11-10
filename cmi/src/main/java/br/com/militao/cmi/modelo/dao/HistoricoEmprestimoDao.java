@@ -6,7 +6,6 @@ import java.sql.SQLException;
 import java.util.List;
 
 import br.com.militao.cmi.conexao.ConnectionFactory;
-import br.com.militao.cmi.modelo.Emprestimo;
 import br.com.militao.cmi.modelo.HistoricoEmprestimo;
 
 

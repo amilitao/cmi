@@ -11,15 +11,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
 import br.com.militao.cmi.conexao.ConnectionFactory;
 import br.com.militao.cmi.modelo.Impressora;
-import br.com.militao.cmi.modelo.Loja;
 
-/**
- *
- * @author Adriano
- */
+
+
 public class ImpressoraDao implements GenericDao {
 
 	private boolean resultado;
@@ -112,10 +108,8 @@ public class ImpressoraDao implements GenericDao {
 				ResultSet rs = stmt.executeQuery();) {
 
 			while (rs.next()) {
-				Impressora imp = new Impressora();
-				Loja loja = new Loja();
-
-				// id_impressora, numero, modelo, pip, numero_serie, id_loja, nome
+				Impressora imp = new Impressora();				
+				
 				imp.setIdImpressora(rs.getInt("id_impressora"));
 				imp.setNumero(rs.getInt("numero"));
 				imp.setModelo(rs.getString("modelo"));

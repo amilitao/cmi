@@ -10,7 +10,6 @@ import br.com.militao.cmi.modelo.Emprestimo;
 import br.com.militao.cmi.modelo.StatusEmprestimo;
 import br.com.militao.cmi.modelo.dao.DevolucaoDao;
 import br.com.militao.cmi.modelo.dao.EmprestimoDao;
-import br.com.militao.cmi.modelo.dao.TransporteDao;
 
 
 public class SalvarDevolucao implements Logica{
@@ -18,8 +17,7 @@ public class SalvarDevolucao implements Logica{
 	@Override
 	public String executa(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		
-		EmprestimoDao emprestimoDao = new EmprestimoDao();
-		TransporteDao transporteDao = new TransporteDao();
+		EmprestimoDao emprestimoDao = new EmprestimoDao();		
 		DevolucaoDao devolucaoDao = new DevolucaoDao();
 		
 		Devolucao devolucao = new Devolucao(
