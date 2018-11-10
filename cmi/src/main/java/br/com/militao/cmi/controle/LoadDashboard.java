@@ -10,7 +10,6 @@ import br.com.militao.cmi.modelo.Dashboard;
 import br.com.militao.cmi.modelo.DashboardBuilder;
 import br.com.militao.cmi.modelo.componente.Componente;
 import br.com.militao.cmi.modelo.componente.ComponenteCreator;
-import br.com.militao.cmi.modelo.componente.PainelStatus;
 import br.com.militao.cmi.modelo.dao.ImpressoraDao;
 
 public class LoadDashboard implements Logica {
@@ -32,9 +31,10 @@ public class LoadDashboard implements Logica {
 			
 			dashboard = new DashboardBuilder().
 					comPainelStatus(painelStatus.criar(impressoras)).geraDashboard();
+					
 			
 			session.setAttribute("dashboard", dashboard);
-			//System.out.println("criando novo dashboard");
+			
 		} else {
 		
 			dashboard = (Dashboard) session.getAttribute("dashboard");			
