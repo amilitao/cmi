@@ -1,25 +1,19 @@
 package br.com.militao.cmi.modelo;
 
-import br.com.militao.cmi.modelo.componente.PainelStatus;
+import br.com.militao.cmi.modelo.componente.Componente;
 
 public class Dashboard {
 	
-	private PainelStatus painel;
+	private Componente painel;	
 	
 	
-	
-	public Dashboard(PainelStatus painel) {
+	public Dashboard(Componente painel) {
 		this.painel = painel;
 	}
 
 
-
-	public PainelStatus getPainel() {
+	public Componente getPainel() {
 		return painel;
-	}	
-	
-	
-
-	
+	}		
 
 }

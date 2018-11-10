@@ -8,6 +8,8 @@ import javax.servlet.http.HttpSession;
 
 import br.com.militao.cmi.modelo.Dashboard;
 import br.com.militao.cmi.modelo.DashboardBuilder;
+import br.com.militao.cmi.modelo.componente.Componente;
+import br.com.militao.cmi.modelo.componente.ComponenteCreator;
 import br.com.militao.cmi.modelo.componente.PainelStatus;
 import br.com.militao.cmi.modelo.dao.ImpressoraDao;
 
@@ -24,9 +26,13 @@ public class LoadDashboard implements Logica {
 		HttpSession session = req.getSession();	
 
 		if (session.getAttribute("dashboard") == null) {
+			ComponenteCreator creator = new ComponenteCreator();
+			Componente painelStatus = creator.create(ComponenteCreator.PAINEL_STATUS);
+			
 			
 			dashboard = new DashboardBuilder().
-					comPainelStatus(new PainelStatus(impressoras)).geraDashboard();
+					comPainelStatus(painelStatus.criar(impressoras)).geraDashboard();
+			
 			session.setAttribute("dashboard", dashboard);
 			//System.out.println("criando novo dashboard");
 		} else {
