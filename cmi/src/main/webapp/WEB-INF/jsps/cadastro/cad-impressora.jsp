@@ -58,14 +58,50 @@
 					</select>
 
 				</div>
-			</div>
-			<hr>
+			</div>			
 			<input type="hidden" name="logica" value="SalvarImpressora" />
 
 			<button class="w3-button w3-blue" type="submit"	>
 				<i class="fa fa-floppy-o w3-margin-right"></i>Salvar
 			</button>
 		</form>
+		<hr>
+		
+		<div class="w3-container" style="margin: 0 -16px;">
+  <div class="w3-center w3-gray w3-text-white">		
+  <h3>Lista de impressoras</h3>
+  </div>
+  <table class="w3-table-all">
+    <thead>
+      <tr class="w3-light-grey">
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Points</th>
+      </tr>
+    </thead>
+    <tr>
+      <td>Jill</td>
+      <td>Smith</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <td>Eve</td>
+      <td>Jackson</td>
+      <td>94</td>
+    </tr>
+    <tr>
+      <td>Adam</td>
+      <td>Johnson</td>
+      <td>67</td>
+    </tr>
+    <tr>
+      <td>Bo</td>
+      <td>Nilson</td>
+      <td>35</td>
+    </tr>
+  </table>
+</div>
+		
 	</div>
 
 
