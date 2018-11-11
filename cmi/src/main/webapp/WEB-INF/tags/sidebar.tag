@@ -15,7 +15,7 @@
     <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>  Lista de espera</a>
      <div class="w3-bar-item w3-button w3-padding" onclick="myAccFunc()"><i class="fa fa-bell fa-fw"></i> Cadastros</div>
  		 <div id="demoAcc" class="w3-hide w3-white w3-card-4">
-   			 <a href="#" class="w3-bar-item w3-button">Impressora</a>
+   			 <button class="w3-bar-item w3-button w3-padding" name="logica" value="ImpressoraPage"> Impressora</button>
    			 <a href="#" class="w3-bar-item w3-button">Loja</a>
  		 </div>   
     <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bank fa-fw"></i>  Historico</a>   	

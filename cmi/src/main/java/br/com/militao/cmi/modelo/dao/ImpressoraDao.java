@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import br.com.militao.cmi.conexao.ConnectionFactory;
 import br.com.militao.cmi.modelo.Impressora;
+import br.com.militao.cmi.modelo.StatusImpressora;
 
 
 
@@ -55,7 +56,7 @@ public class ImpressoraDao implements GenericDao {
 			stmt.setInt(3, impressora.getPip());
 			stmt.setString(4, impressora.getNumero_serie());
 			stmt.setString(5, impressora.getEstado());
-			stmt.setString(6, impressora.getSituacao());
+			stmt.setString(6, impressora.getSituacao().getDescricao());
 			stmt.setInt(7, impressora.getIdImpressora());
 
 			stmt.executeUpdate();
@@ -72,8 +73,8 @@ public class ImpressoraDao implements GenericDao {
 	public boolean insert(Object obj) {
 		Impressora impressora = (Impressora) obj;
 
-		String sql = "insert into impressora " + "(numero,modelo,pip,numero_serie,estado,situacao)"
-				+ " values (?,?,?,?,?)";
+		String sql = "insert into impressora (numero,modelo,pip,numero_serie,estado,situacao)"
+				+ " values (?,?,?,?,?,?)";
 
 		try (Connection con = new ConnectionFactory().getConnection();
 				PreparedStatement stmt = con.prepareStatement(sql);) {
@@ -84,7 +85,7 @@ public class ImpressoraDao implements GenericDao {
 			stmt.setInt(3, impressora.getPip());
 			stmt.setString(4, impressora.getNumero_serie());
 			stmt.setString(5, impressora.getEstado());
-			stmt.setString(6, impressora.getSituacao());
+			stmt.setString(6, impressora.getSituacao().getDescricao());
 
 			stmt.executeUpdate();
 			resultado = true;
@@ -115,7 +116,7 @@ public class ImpressoraDao implements GenericDao {
 				imp.setModelo(rs.getString("modelo"));
 				imp.setPip(rs.getInt("pip"));
 				imp.setNumero_serie(rs.getString("numero_serie"));
-				imp.setSituacao(rs.getString("situacao"));			
+				imp.setSituacao(StatusImpressora.getByDescricao(rs.getString("situacao")));			
 			
 
 				objImpressoras.add(imp);
@@ -149,7 +150,7 @@ public class ImpressoraDao implements GenericDao {
 		
 		for(Object obj : this.getList()) {
 			imp = (Impressora) obj;
-			if(imp.getSituacao().equals(status)) {
+			if(imp.getSituacao().getDescricao().equals(status)) {
 				listaDeImpressoras.add(obj);
 			}
 		}	
