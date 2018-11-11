@@ -38,13 +38,13 @@ public class PainelStatus implements Componente{
 
 			Impressora impressora = (Impressora) imp;
 			
-			if(impressora.getSituacao().equals(StatusImpressora.DISPONIVEL.getDescricao())) {
+			if(impressora.getSituacao().getDescricao().equals(StatusImpressora.DISPONIVEL.getDescricao())) {
 				qtdDisponivel++;
-			}else if(impressora.getSituacao().equals(StatusImpressora.EM_EMPRESTIMO.getDescricao())) {
+			}else if(impressora.getSituacao().getDescricao().equals(StatusImpressora.EM_EMPRESTIMO.getDescricao())) {
 				qtdEmprestimo++;
-			}else if(impressora.getSituacao().equals(StatusImpressora.EM_MANUTENCAO.getDescricao())) {
+			}else if(impressora.getSituacao().getDescricao().equals(StatusImpressora.EM_MANUTENCAO.getDescricao())) {
 				qtdManutencao++;
-			}else if(impressora.getSituacao().equals(StatusImpressora.COM_DEFEITO.getDescricao())) {
+			}else if(impressora.getSituacao().getDescricao().equals(StatusImpressora.COM_DEFEITO.getDescricao())) {
 				qtdDefeito++;
 			}else{
 				 throw new IllegalArgumentException("Situacao de impressora incorreta");
