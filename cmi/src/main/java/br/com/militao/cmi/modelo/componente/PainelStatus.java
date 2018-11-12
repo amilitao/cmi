@@ -4,6 +4,7 @@ import java.util.List;
 
 import br.com.militao.cmi.modelo.Impressora;
 import br.com.militao.cmi.modelo.StatusImpressora;
+import br.com.militao.cmi.modelo.dao.ImpressoraDao;
 
 public class PainelStatus implements Componente{
 
@@ -11,7 +12,16 @@ public class PainelStatus implements Componente{
 	private int qtdEmprestimo;
 	private int qtdManutencao;
 	private int qtdDefeito;
+	private ImpressoraDao dao;
+	private List<Object> impressoras;
 
+	public PainelStatus() {
+		this.qtdDisponivel = 0;
+		this.qtdEmprestimo = 0;
+		this.qtdManutencao = 0;
+		this.qtdDefeito = 0;
+		this.dao = new ImpressoraDao();		
+	}
 	
 	
 	public int getQtdDisponivel() {
@@ -32,7 +42,9 @@ public class PainelStatus implements Componente{
 
 
 	@Override
-	public Componente criar(List<Object> impressoras) {
+	public Componente criar() {
+		
+		impressoras = dao.getList();
 		
 		for (Object imp : impressoras) {
 

@@ -16,14 +16,17 @@ public class SalvarTransporte implements Logica{
 	@Override
 	public String executa(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		
+		Transporte transporte = new Transporte();				
+				
+		transporte.setEmprestimo(new Emprestimo(Integer.parseInt(req.getParameter("idEmprestimo")), StatusEmprestimo.ENVIADO));
+		transporte.setNomeTransportadora(req.getParameter("nomeTransportadora"));		 
+		transporte.setNumControle(req.getParameter("numControle"));		
+		transporte.setNumNfeEnvio(req.getParameter("nfeEnvio"));		
+		transporte.setDtEnvio(LocalDate.now());		
+		
+		
 		EmprestimoDao emprestimoDao = new EmprestimoDao();
 		TransporteDao transporteDao = new TransporteDao();
-		
-		Transporte transporte = new Transporte(
-				new Emprestimo(Integer.parseInt(req.getParameter("idEmprestimo")), 
-				StatusEmprestimo.ENVIADO), 
-				req.getParameter("nomeTransportadora"), req.getParameter("numControle"),
-				req.getParameter("nfeEnvio"), LocalDate.now());
 		
 		if (transporteDao.insert(transporte) && emprestimoDao.update(transporte.getEmprestimo())) {
 			req.setAttribute("confirmaDao", true);

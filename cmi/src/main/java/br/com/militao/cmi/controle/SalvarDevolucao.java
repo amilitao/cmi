@@ -1,6 +1,6 @@
 package br.com.militao.cmi.controle;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,17 +15,18 @@ import br.com.militao.cmi.modelo.dao.EmprestimoDao;
 public class SalvarDevolucao implements Logica{
 
 	@Override
-	public String executa(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+	public String executa(HttpServletRequest req, HttpServletResponse resp) throws Exception {		
+		
+		Devolucao devolucao = new Devolucao();
+		
+		devolucao.setEmprestimo(new Emprestimo(Integer.parseInt(req.getParameter("idEmprestimo")), StatusEmprestimo.ENCERRADO));
+		devolucao.setDtDevolucao(LocalDate.now());		
+		devolucao.setNumNfeDevolucao(req.getParameter("numNfeDevolucao"));		 
+		devolucao.setRecebedor( req.getParameter("recebedor"));		
+		
 		
 		EmprestimoDao emprestimoDao = new EmprestimoDao();		
 		DevolucaoDao devolucaoDao = new DevolucaoDao();
-		
-		Devolucao devolucao = new Devolucao(
-				new Emprestimo(Integer.parseInt(req.getParameter("idEmprestimo")),
-				StatusEmprestimo.ENCERRADO, LocalDateTime.now()), 
-				req.getParameter("numNfeDevolucao"), req.getParameter("recebedor"));				
-		
-		System.out.println(devolucao.getEmprestimo().getIdEmprestimo());
 		
 		if (devolucaoDao.insert(devolucao) && emprestimoDao.update(devolucao.getEmprestimo())) {
 			req.setAttribute("confirmaDao", true);
