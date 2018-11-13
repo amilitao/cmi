@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.com.militao.cmi.modelo.Devolucao;
 import br.com.militao.cmi.modelo.Emprestimo;
-import br.com.militao.cmi.modelo.StatusEmprestimo;
+import br.com.militao.cmi.modelo.StatusEmprestimoEnum;
 import br.com.militao.cmi.modelo.dao.DevolucaoDao;
 import br.com.militao.cmi.modelo.dao.EmprestimoDao;
 
@@ -19,7 +19,7 @@ public class SalvarDevolucao implements Logica{
 		
 		Devolucao devolucao = new Devolucao();
 		
-		devolucao.setEmprestimo(new Emprestimo(Integer.parseInt(req.getParameter("idEmprestimo")), StatusEmprestimo.ENCERRADO));
+		devolucao.setEmprestimo(new Emprestimo(Integer.parseInt(req.getParameter("idEmprestimo")), StatusEmprestimoEnum.ENCERRADO));
 		devolucao.setDtDevolucao(LocalDate.now());		
 		devolucao.setNumNfeDevolucao(req.getParameter("numNfeDevolucao"));		 
 		devolucao.setRecebedor( req.getParameter("recebedor"));		

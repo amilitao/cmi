@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import br.com.militao.cmi.conexao.ConnectionFactory;
 import br.com.militao.cmi.modelo.Impressora;
-import br.com.militao.cmi.modelo.StatusImpressora;
+import br.com.militao.cmi.modelo.StatusImpressoraEnum;
 
 
 
@@ -116,7 +116,7 @@ public class ImpressoraDao implements GenericDao {
 				imp.setModelo(rs.getString("modelo"));
 				imp.setPip(rs.getInt("pip"));
 				imp.setNumero_serie(rs.getString("numero_serie"));
-				imp.setSituacao(StatusImpressora.getByDescricao(rs.getString("situacao")));			
+				imp.setSituacao(StatusImpressoraEnum.getByDescricao(rs.getString("situacao")));			
 			
 
 				objImpressoras.add(imp);

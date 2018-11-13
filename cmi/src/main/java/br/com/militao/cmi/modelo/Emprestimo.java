@@ -21,7 +21,7 @@ public class Emprestimo {
     private Impressora impressora;
     private LocalDateTime dtInicio;
     private LocalDateTime dtFim;   
-    private StatusEmprestimo situacao;
+    private StatusEmprestimoEnum situacao;
     private String num_chamado; 
     private LocalDate prazoDevolucao;
     
@@ -29,12 +29,12 @@ public class Emprestimo {
     }
         
     
-    public Emprestimo(int id, StatusEmprestimo situacao) {  
+    public Emprestimo(int id, StatusEmprestimoEnum situacao) {  
     	this.idEmprestimo = id;
     	this.situacao = situacao;
     }
     
-    public Emprestimo(int id, StatusEmprestimo situacao, LocalDateTime dataHora) {  
+    public Emprestimo(int id, StatusEmprestimoEnum situacao, LocalDateTime dataHora) {  
     	this.idEmprestimo = id;
     	this.situacao = situacao;
     	this.dtFim = dataHora;
@@ -44,7 +44,7 @@ public class Emprestimo {
 		this.loja = loja;
 		this.impressora = impressora;
 		this.dtInicio = LocalDateTime.now();		
-		this.situacao = StatusEmprestimo.EMISSAO_NFE;
+		this.situacao = StatusEmprestimoEnum.EMISSAO_NFE;
 		this.num_chamado = num_chamado;
 		this.prazoDevolucao = calculaPrazoDevolucao();
 	}
@@ -121,12 +121,12 @@ public class Emprestimo {
 		return FormatadorDeData.formata(prazoDevolucao);
 	}	
 
-    public StatusEmprestimo getSituacao() {
+    public StatusEmprestimoEnum getSituacao() {
     	
 		return situacao;		
 	}
 
-	public void setSituacao(StatusEmprestimo situacao) {
+	public void setSituacao(StatusEmprestimoEnum situacao) {
 		this.situacao = situacao;
 	}
 

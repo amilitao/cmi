@@ -3,7 +3,7 @@ package br.com.militao.cmi.modelo.componente;
 import java.util.List;
 
 import br.com.militao.cmi.modelo.Impressora;
-import br.com.militao.cmi.modelo.StatusImpressora;
+import br.com.militao.cmi.modelo.StatusImpressoraEnum;
 import br.com.militao.cmi.modelo.dao.ImpressoraDao;
 
 public class PainelStatus implements Componente{
@@ -48,15 +48,15 @@ public class PainelStatus implements Componente{
 		
 		for (Object imp : impressoras) {
 
-			Impressora impressora = (Impressora) imp;
+			Impressora impressora = (Impressora) imp;			
 			
-			if(impressora.getSituacao() == StatusImpressora.DISPONIVEL) {
+			if(impressora.getSituacao() == StatusImpressoraEnum.DISPONIVEL) {
 				qtdDisponivel++;
-			}else if(impressora.getSituacao() == StatusImpressora.EM_EMPRESTIMO) {
+			}else if(impressora.getSituacao() == StatusImpressoraEnum.EM_EMPRESTIMO) {
 				qtdEmprestimo++;
-			}else if(impressora.getSituacao() == StatusImpressora.EM_MANUTENCAO) {
+			}else if(impressora.getSituacao() == StatusImpressoraEnum.EM_MANUTENCAO) {
 				qtdManutencao++;
-			}else if(impressora.getSituacao() == StatusImpressora.COM_DEFEITO) {
+			}else if(impressora.getSituacao() == StatusImpressoraEnum.COM_DEFEITO) {
 				qtdDefeito++;
 			}else{
 				 throw new IllegalArgumentException("Situacao de impressora incorreta");

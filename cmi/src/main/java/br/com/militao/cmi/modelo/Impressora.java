@@ -17,12 +17,12 @@ public class Impressora {
     private int pip;
     private String numero_serie;
     private String estado;
-    private StatusImpressora situacao;
+    private StatusImpressoraEnum situacao;
 
     public Impressora() {
     }
         
-    public Impressora(int id_impressora, int numero, String modelo, int pip, String numero_serie, String estado, StatusImpressora situacao) {
+    public Impressora(int id_impressora, int numero, String modelo, int pip, String numero_serie, String estado, StatusImpressoraEnum situacao) {
         this.idImpressora = id_impressora;       
         this.numero = numero;
         this.modelo = modelo;
@@ -85,11 +85,11 @@ public class Impressora {
 	}
 	
 
-	public StatusImpressora getSituacao() {
+	public StatusImpressoraEnum getSituacao() {
 		return situacao;
 	}
 
-	public void setSituacao(StatusImpressora situacao) {
+	public void setSituacao(StatusImpressoraEnum situacao) {
 		this.situacao = situacao;
 	}
 

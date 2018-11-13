@@ -4,7 +4,7 @@ package br.com.militao.cmi.controle;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import br.com.militao.cmi.modelo.Emprestimo;
-import br.com.militao.cmi.modelo.StatusEmprestimo;
+import br.com.militao.cmi.modelo.StatusEmprestimoEnum;
 import br.com.militao.cmi.modelo.dao.EmprestimoDao;
 
 public class AtualizarEmprestimo implements Logica{
@@ -17,7 +17,7 @@ public class AtualizarEmprestimo implements Logica{
 		
 		
 		emprestimo.setIdEmprestimo(Integer.parseInt(req.getParameter("idEmprestimo")));		
-		emprestimo.setSituacao(StatusEmprestimo.valueOf(req.getParameter("situacao")));	
+		emprestimo.setSituacao(StatusEmprestimoEnum.valueOf(req.getParameter("situacao")));	
 		
 		
 		if(emprestimoDao.update(emprestimo)) {

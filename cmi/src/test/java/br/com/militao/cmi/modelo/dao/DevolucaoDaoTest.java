@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import br.com.militao.cmi.modelo.Devolucao;
 import br.com.militao.cmi.modelo.Emprestimo;
-import br.com.militao.cmi.modelo.StatusEmprestimo;
+import br.com.militao.cmi.modelo.StatusEmprestimoEnum;
 
 class DevolucaoDaoTest {
 
@@ -22,7 +22,7 @@ class DevolucaoDaoTest {
 	@Test
 	void insereDevolucaoTest() {
 		DevolucaoDao devDao = new DevolucaoDao();
-		Devolucao dev = new Devolucao(new Emprestimo(3, StatusEmprestimo.ENCERRADO),
+		Devolucao dev = new Devolucao(new Emprestimo(3, StatusEmprestimoEnum.ENCERRADO),
 				"123", "adriano");		
 		
 		devDao.insert(dev);

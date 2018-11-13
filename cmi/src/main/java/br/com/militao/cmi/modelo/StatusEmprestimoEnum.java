@@ -1,6 +1,6 @@
 package br.com.militao.cmi.modelo;
 
-public enum StatusEmprestimo {
+public enum StatusEmprestimoEnum {
 	
 	INICIADO("1%", "iniciado", "brown"), EMISSAO_NFE("25%", "aguardando nfe", "green"), 
 	AGUARDANDO_TRANSPORTE("40%", "aguardando transporte", "deep-purple"), ENVIADO("60%", "em transporte", "amber"),
@@ -10,7 +10,7 @@ public enum StatusEmprestimo {
 	public String descricao;
 	public String cor; 
 	
-	StatusEmprestimo(String porcentagem, String descricao, String cor){
+	StatusEmprestimoEnum(String porcentagem, String descricao, String cor){
 		this.porcentagem = porcentagem;
 		this.descricao = descricao;
 		this.cor = cor;

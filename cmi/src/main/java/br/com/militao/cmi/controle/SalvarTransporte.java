@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.militao.cmi.modelo.Emprestimo;
-import br.com.militao.cmi.modelo.StatusEmprestimo;
+import br.com.militao.cmi.modelo.StatusEmprestimoEnum;
 import br.com.militao.cmi.modelo.Transporte;
 import br.com.militao.cmi.modelo.dao.EmprestimoDao;
 import br.com.militao.cmi.modelo.dao.TransporteDao;
@@ -18,7 +18,7 @@ public class SalvarTransporte implements Logica{
 		
 		Transporte transporte = new Transporte();				
 				
-		transporte.setEmprestimo(new Emprestimo(Integer.parseInt(req.getParameter("idEmprestimo")), StatusEmprestimo.ENVIADO));
+		transporte.setEmprestimo(new Emprestimo(Integer.parseInt(req.getParameter("idEmprestimo")), StatusEmprestimoEnum.ENVIADO));
 		transporte.setNomeTransportadora(req.getParameter("nomeTransportadora"));		 
 		transporte.setNumControle(req.getParameter("numControle"));		
 		transporte.setNumNfeEnvio(req.getParameter("nfeEnvio"));		

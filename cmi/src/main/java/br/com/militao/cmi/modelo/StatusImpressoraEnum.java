@@ -1,13 +1,13 @@
 package br.com.militao.cmi.modelo;
 
-public enum StatusImpressora {
+public enum StatusImpressoraEnum {
 	
 	DISPONIVEL("disponivel"), EM_EMPRESTIMO("emprestimo"),EM_MANUTENCAO("manutencao"),
 	COM_DEFEITO("defeito");	
 	
 	private final String descricao;
 	
-	StatusImpressora(String desc){
+	StatusImpressoraEnum(String desc){
 		descricao = desc;
 	}
 	
@@ -15,10 +15,10 @@ public enum StatusImpressora {
 		return descricao;
 	}
 	
-	public static StatusImpressora getByDescricao(String desc) {
+	public static StatusImpressoraEnum getByDescricao(String desc) {
 		if(desc == null) 
 			return null;		
-		for(StatusImpressora s : StatusImpressora.values()) {
+		for(StatusImpressoraEnum s : StatusImpressoraEnum.values()) {
 			if(s.descricao.equals(desc))
 			return s;
 		}

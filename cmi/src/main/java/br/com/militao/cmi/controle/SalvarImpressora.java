@@ -2,9 +2,10 @@ package br.com.militao.cmi.controle;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import br.com.militao.cmi.modelo.Impressora;
-import br.com.militao.cmi.modelo.StatusImpressora;
+import br.com.militao.cmi.modelo.StatusImpressoraEnum;
 import br.com.militao.cmi.modelo.dao.ImpressoraDao;
 
 public class SalvarImpressora implements Logica{
@@ -21,12 +22,16 @@ public class SalvarImpressora implements Logica{
 		impressora.setPip(numero_pip);
 		impressora.setNumero_serie(req.getParameter("num_serie"));
 		impressora.setEstado(req.getParameter("estado"));
-		impressora.setSituacao(StatusImpressora.valueOf(req.getParameter("situacao")));		
+		impressora.setSituacao(StatusImpressoraEnum.valueOf(req.getParameter("situacao")));		
 		
 		ImpressoraDao dao = new ImpressoraDao();	
 		
 		if(dao.insert(impressora)) {
+			HttpSession session = req.getSession();
+			
 			req.setAttribute("confirmaDao", true);
+			//atualiza dashboard
+			session.setAttribute("dashboard", null);
 		}		
 		
 		return "/WEB-INF/jsps/cadastro/cad-impressora.jsp";

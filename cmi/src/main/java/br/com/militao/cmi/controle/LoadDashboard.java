@@ -19,6 +19,7 @@ public class LoadDashboard implements Logica {
 		HttpSession session = req.getSession();
 
 		if (session.getAttribute("dashboard") == null) {
+		
 			ComponenteCreator creator = new ComponenteCreator();
 			Componente painelStatus = creator.create(ComponenteCreator.PAINEL_STATUS);
 
