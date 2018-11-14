@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import br.com.militao.cmi.conexao.ConnectionFactory;
+import br.com.militao.cmi.modelo.EstadoImpressoraEnum;
 import br.com.militao.cmi.modelo.Impressora;
 import br.com.militao.cmi.modelo.StatusImpressoraEnum;
 
@@ -55,7 +56,7 @@ public class ImpressoraDao implements GenericDao {
 			stmt.setString(2, impressora.getModelo());
 			stmt.setInt(3, impressora.getPip());
 			stmt.setString(4, impressora.getNumero_serie());
-			stmt.setString(5, impressora.getEstado());
+			stmt.setString(5, impressora.getEstado().getDescricao());
 			stmt.setString(6, impressora.getSituacao().getDescricao());
 			stmt.setInt(7, impressora.getIdImpressora());
 
@@ -84,7 +85,7 @@ public class ImpressoraDao implements GenericDao {
 			stmt.setString(2, impressora.getModelo());
 			stmt.setInt(3, impressora.getPip());
 			stmt.setString(4, impressora.getNumero_serie());
-			stmt.setString(5, impressora.getEstado());
+			stmt.setString(5, impressora.getEstado().getDescricao());
 			stmt.setString(6, impressora.getSituacao().getDescricao());
 
 			stmt.executeUpdate();
@@ -116,6 +117,7 @@ public class ImpressoraDao implements GenericDao {
 				imp.setModelo(rs.getString("modelo"));
 				imp.setPip(rs.getInt("pip"));
 				imp.setNumero_serie(rs.getString("numero_serie"));
+				imp.setEstado(EstadoImpressoraEnum.getByDescricao(rs.getString("estado")));
 				imp.setSituacao(StatusImpressoraEnum.getByDescricao(rs.getString("situacao")));			
 			
 

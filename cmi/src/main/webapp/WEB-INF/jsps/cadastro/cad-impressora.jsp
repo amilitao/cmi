@@ -45,8 +45,13 @@
 						class="w3-input w3-border" type="text" name="num_serie" required>
 				</div>
 				<div class="w3-third">
-					<label><i class="fa fa-pencil-square-o"></i> Estado</label> <input
-						class="w3-input w3-border" type="text" name="estado" required>
+					<label><i class="fa fa-home"></i> Estado</label> <select
+						class="w3-select w3-border" name="estado" required>
+						<option value="" disabled selected>Escolha o estado</option>
+						<c:forEach var="estado" items="${lista_estado}">
+							<option value="${estado}">${estado.descricao}</option>
+						</c:forEach>
+					</select>
 				</div>
 				<div class="w3-third w3-margin-bottom">
 					<label><i class="fa fa-home"></i> Situacao</label> <select
@@ -64,45 +69,40 @@
 			<button class="w3-button w3-blue" type="submit"	>
 				<i class="fa fa-floppy-o w3-margin-right"></i>Salvar
 			</button>
-		</form>
-		<hr>
+		</form>	
 		
-		<div class="w3-container" style="margin: 0 -16px;">
+  <div class="w3-container" style="margin: 0 -16px;">
+		
   <div class="w3-center w3-gray w3-text-white">		
-  <h3>Lista de impressoras</h3>
+  <h4>Lista de impressoras</h4>
   </div>
-  <table class="w3-table-all">
+  <div style="height: 370px; overflow: auto;">
+  <table class="w3-table-all w3-hoverable">
     <thead>
       <tr class="w3-light-grey">
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Points</th>
+        <th>Numero</th>
+        <th>Modelo</th>
+        <th>Pip</th>
+        <th>Nº Serie</th>
+        <th>Estado</th>
+        <th>Situacao</th>
       </tr>
     </thead>
+    <c:forEach var="i" items="${impressoras}">
     <tr>
-      <td>Jill</td>
-      <td>Smith</td>
-      <td>50</td>
-    </tr>
-    <tr>
-      <td>Eve</td>
-      <td>Jackson</td>
-      <td>94</td>
-    </tr>
-    <tr>
-      <td>Adam</td>
-      <td>Johnson</td>
-      <td>67</td>
-    </tr>
-    <tr>
-      <td>Bo</td>
-      <td>Nilson</td>
-      <td>35</td>
-    </tr>
+      <td>${i.numero}</td>
+      <td>${i.modelo}</td>
+      <td>${i.pip}</td>
+      <td>${i.numero_serie}</td>
+      <td>${i.estado.descricao}</td> 
+      <td>${i.situacao.descricao}</td>    
+    </tr>   
+    </c:forEach>
   </table>
+ </div> 
 </div>
 		
-	</div>
+</div>
 
 
 

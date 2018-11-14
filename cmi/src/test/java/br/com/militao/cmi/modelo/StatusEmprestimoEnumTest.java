@@ -13,6 +13,6 @@ class StatusEmprestimoEnumTest {
 		
 		
 		
-		System.out.println(e.porcentagem);
+		System.out.println(e.getPorcentagem());
 	}
 }

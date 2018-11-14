@@ -6,9 +6,9 @@ public enum StatusEmprestimoEnum {
 	AGUARDANDO_TRANSPORTE("40%", "aguardando transporte", "deep-purple"), ENVIADO("60%", "em transporte", "amber"),
 	EM_EMPRESTIMO("75%", "em emprestimo", "green"), ENCERRADO("100%", "encerrado", "red");
 	
-	public String porcentagem;
-	public String descricao;
-	public String cor; 
+	private String porcentagem;
+	private String descricao;
+	private String cor; 
 	
 	StatusEmprestimoEnum(String porcentagem, String descricao, String cor){
 		this.porcentagem = porcentagem;
