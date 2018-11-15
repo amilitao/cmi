@@ -28,7 +28,7 @@
 			<div class="w3-row-padding" style="margin: 0 -16px;">
 				<div class="w3-third">
 					<label><i class="fa fa-pencil-square-o"></i> Número da impressora</label> <input
-						class="w3-input w3-border" type="text" name="num_impressora" required>
+						class="w3-input w3-border" type="text" name="num_impressora" id="numero" required>
 				</div>
 				<div class="w3-third">
 					<label><i class="fa fa-pencil-square-o"></i> Modelo</label> <input

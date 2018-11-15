@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import br.com.militao.cmi.modelo.Emprestimo;
 import br.com.militao.cmi.modelo.StatusEmprestimoEnum;
@@ -29,7 +30,10 @@ public class SalvarTransporte implements Logica{
 		TransporteDao transporteDao = new TransporteDao();
 		
 		if (transporteDao.insert(transporte) && emprestimoDao.update(transporte.getEmprestimo())) {
+			HttpSession session = req.getSession();
+			
 			req.setAttribute("confirmaDao", true);
+			session.setAttribute("dashboard", null);
 		}					
 		
 		return new ListarEmprestimo().executa(req, resp);

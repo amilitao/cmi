@@ -16,7 +16,7 @@
      <div class="w3-bar-item w3-button w3-padding" onclick="myAccFunc()"><i class="fa fa-plus-square-o"></i> Cadastros</div>
  		 <div id="demoAcc" class="w3-hide w3-white w3-card-4">
    			 <button class="w3-bar-item w3-button w3-padding" name="logica" value="ImpressoraPage"><i class="fa fa-print"></i> Impressora</button>
-   			 <a href="#" class="w3-bar-item w3-button"><i class="fa fa-home"></i> Loja</a>
+   			 <button class="w3-bar-item w3-button w3-padding" name="logica" value="LojaPage"><i class="fa fa-home"></i> Loja</button>
  		 </div>   
     <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-database"></i> Historico</a>   	
     <br><br>
