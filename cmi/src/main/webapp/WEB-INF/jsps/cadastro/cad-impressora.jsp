@@ -90,12 +90,12 @@
     </thead>
     <c:forEach var="i" items="${impressoras}">
     <tr>
-      <td>${i.numero}</td>
+      <td><b>${i.numero}</b></td>
       <td>${i.modelo}</td>
       <td>${i.pip}</td>
       <td>${i.numero_serie}</td>
       <td>${i.estado.descricao}</td> 
-      <td>${i.situacao.descricao}</td>    
+      <td class="w3-text-${i.situacao.cor}"><b>${i.situacao.descricao}</b></td>    
     </tr>   
     </c:forEach>
   </table>
@@ -103,8 +103,6 @@
 </div>
 		
 </div>
-
-
 
 
 </t:mainpage>>

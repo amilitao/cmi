@@ -2,18 +2,27 @@ package br.com.militao.cmi.modelo;
 
 public enum StatusImpressoraEnum {
 	
-	DISPONIVEL("disponivel"), EM_EMPRESTIMO("emprestimo"),EM_MANUTENCAO("manutencao"),
-	COM_DEFEITO("defeito");	
+	DISPONIVEL("disponivel", "green"), EM_EMPRESTIMO("emprestimo", "orange"),
+	EM_MANUTENCAO("manutencao", "brown"),	COM_DEFEITO("defeito", "red"),
+	LOCADO_NA_REGIONAL("locado na regional", "purple");	
 	
 	private final String descricao;
+	private final String cor;
 	
-	StatusImpressoraEnum(String desc){
+	StatusImpressoraEnum(String desc, String c){
 		descricao = desc;
+		cor = c;
+		
 	}
 	
 	public String getDescricao() {
 		return descricao;
 	}
+	
+	public String getCor() {
+		return cor;
+	}
+	
 	
 	public static StatusImpressoraEnum getByDescricao(String desc) {
 		if(desc == null) 

@@ -88,7 +88,7 @@ public class EmprestimoDao implements GenericDao {
 			stmt.setInt(1, emprestimo.getLoja().getIdLoja());
 			stmt.setInt(2, emprestimo.getImpressora().getIdImpressora());
 			stmt.setString(3, emprestimo.getNum_chamado());
-			stmt.setString(4, emprestimo.getSituacao().name());
+			stmt.setString(4, emprestimo.getSituacao().getDescricao());
 			stmt.setTimestamp(5, FormatadorDeData.toTimeStamp(emprestimo.getDtInicio()));
 			stmt.setDate(6, FormatadorDeData.toDate(emprestimo.getPrazoDevolucao()));
 
@@ -144,7 +144,7 @@ public class EmprestimoDao implements GenericDao {
 				imp.setIdImpressora(rs.getInt("id_impressora"));
 				imp.setNumero(rs.getInt("numero"));
 				imp.setModelo(rs.getString("modelo"));
-				e.setSituacao(StatusEmprestimoEnum.valueOf(rs.getString("situacao")));
+				e.setSituacao(StatusEmprestimoEnum.getByDescricao(rs.getString("situacao")));
 				e.setNum_chamado(rs.getString("num_chamado"));
 				e.setPrazoDevolucao(FormatadorDeData.toLocalDate(rs.getDate("prazo_devolucao")));
 				e.setDtFim(FormatadorDeData.toLocalDateTime(rs.getTimestamp("dt_fim")));

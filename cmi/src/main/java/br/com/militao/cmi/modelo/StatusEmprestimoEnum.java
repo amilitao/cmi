@@ -28,6 +28,17 @@ public enum StatusEmprestimoEnum {
 		return cor;
 	}	
 	
+	public static StatusEmprestimoEnum getByDescricao(String desc) {
+		if(desc == null) 
+			return null;		
+		for(StatusEmprestimoEnum s : StatusEmprestimoEnum.values()) {
+			if(s.descricao.equals(desc))
+			return s;
+		}
+		return null;
+	}
+
+	
 	
 	
 	
