@@ -9,7 +9,7 @@
 
 <div class="w3-container">
 		<h2>
-			<i class="fa fa-print"></i> Cadastro de lojas
+			<i class="fa fa-home"></i> Cadastro de lojas
 		</h2>
 	</div>
 
@@ -30,54 +30,58 @@
 			<div class="w3-row-padding" style="margin: 0 -16px;">
 				<div class="w3-third">
 					<label><i class="fa fa-pencil-square-o"></i> Número da loja</label> <input
-						class="w3-input w3-border" type="text" name="num_loja" required>
+						class="w3-input w3-border" type="text" name="num_loja" id="inp_numero" disabled required>
 				</div>
 				<div class="w3-third">
 					<label><i class="fa fa-pencil-square-o"></i> Nome</label> <input
-						class="w3-input w3-border" type="text" name="nome" required>
+						class="w3-input w3-border" type="text" name="nome" id="inp_nome" disabled required>
 				</div>
 				<div class="w3-third">
 					<label><i class="fa fa-pencil-square-o"></i> cnpj</label> <input
-						class="w3-input w3-border" type="text" name="cnpj" required>
-				</div>
+						class="w3-input w3-border" type="text" name="cnpj" id="inp_cnpj" disabled required>
+				</div>    
 			</div>
 			<div class="w3-row-padding w3-margin-top" style="margin: 0 -16px;">
 				<div class="w3-third ">
 					<label><i class="fa fa-pencil-square-o"></i> telefone</label> <input
-						class="w3-input w3-border" type="text" name="telefone" required>
+						class="w3-input w3-border" type="text" name="telefone" id="inp_telefone" disabled required>
 				</div>			
 				<div class="w3-third w3-margin-bottom">
 					<label><i class="fa fa-pencil-square-o"></i> endereco</label> <input
-						class="w3-input w3-border" type="text" name="endereco" required>
+						class="w3-input w3-border" type="text" name="endereco" id="inp_endereco" disabled required>
 				</div>
 			</div>		
 			
-						
+			<input type="hidden" name="id_loja" id="inp_id" />		
 			<input type="hidden" name="logica" value="SalvarLoja" />
-
+			
+			<button class="w3-button w3-green" type="button" onclick="f_adicionar()" >Adicionar</button>
+			<button class="w3-button w3-deep-orange" type="button" onclick="f_alterar()" >Alterar</button>
 			<button class="w3-button w3-blue" type="submit"	>
 				<i class="fa fa-floppy-o w3-margin-right"></i>Salvar
 			</button>
-		</form>	
+		
+		</form>				
+		
 		
   <div class="w3-container" style="margin: 0 -16px;">
 		
-  <div class="w3-center w3-gray w3-text-white">		
+  <div class="w3-center w3-khaki">		
   <h4>Lista de Lojas</h4>
   </div>
   <div style="height: 370px; overflow: auto;">
   <table class="w3-table-all w3-hoverable">
     <thead>
       <tr class="w3-light-grey">
-        <th>Numero</th>
+        <th>Número</th>
         <th>Nome</th>
         <th>Cnpj</th>
         <th>Telefone</th>
-        <th>Endereco</th>        
+        <th>Endereço</th>        
       </tr>
     </thead>
     <c:forEach var="l" items="${lojas}">
-    <tr>
+    <tr onclick="f_selecionar(${l.idLoja}, ${l.numero_loja}, '${l.nome}', '${l.cnpj}', '${l.telefone}', '${l.endereco}')">
       <td><b>${l.numero_loja}</b></td>
       <td>${l.nome}</td>
       <td>${l.cnpj}</td>
@@ -90,6 +94,54 @@
 </div>
 		
 </div>
+
+
+<script>
+function f_selecionar(id, nu, no, c, t, e) {
+	
+	alterar_campos(id,nu,no,c,t,e);
+	 
+}
+
+function f_adicionar(){
+	
+	alterar_campos('','','','','','');
+	desabilitar_campos(false);
+	
+}
+
+function f_alterar(){
+	var id_loja = document.getElementById("inp_id").value;
+	
+	if(id_loja != ''){
+		
+		desabilitar_campos(false);
+		
+	}else{
+		alert("Nenhum registro foi selecionado!");
+	}	
+}
+
+function desabilitar_campos(opcao){
+	
+	document.getElementById("inp_numero").disabled = opcao;
+	document.getElementById("inp_nome").disabled = opcao;
+	document.getElementById("inp_cnpj").disabled = opcao;
+	document.getElementById("inp_telefone").disabled = opcao;
+	document.getElementById("inp_endereco").disabled = opcao;
+	
+}
+
+function alterar_campos(id, nu, no, c, t, e){
+	
+	document.getElementById("inp_id").value = id; 	
+	document.getElementById("inp_numero").value = nu; 	
+	document.getElementById("inp_nome").value = no; 	
+	document.getElementById("inp_cnpj").value = c;  	
+	document.getElementById("inp_telefone").value = t; 
+	document.getElementById("inp_endereco").value = e; 
+}
+</script>
 
 
 </t:mainpage>
