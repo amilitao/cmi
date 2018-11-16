@@ -99,6 +99,7 @@
 <script>
 function f_selecionar(id, nu, no, c, t, e) {
 	
+	desabilitar_campos(true);
 	alterar_campos(id,nu,no,c,t,e);
 	 
 }

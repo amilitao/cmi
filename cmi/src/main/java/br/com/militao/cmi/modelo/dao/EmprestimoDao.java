@@ -57,7 +57,7 @@ public class EmprestimoDao implements GenericDao {
 		try (Connection con = new ConnectionFactory().getConnection();
 				PreparedStatement stmt = con.prepareStatement(sql);) {
 
-			stmt.setString(1, emprestimo.getSituacao().name());
+			stmt.setString(1, emprestimo.getSituacao().getDescricao());
 			stmt.setTimestamp(2, FormatadorDeData.toTimeStamp(emprestimo.getDtFim()));
 			stmt.setInt(3, emprestimo.getIdEmprestimo());
 
