@@ -77,7 +77,7 @@
 		
   <div class="w3-container" style="margin: 0 -16px;">
 		
-  <div class="w3-center w3-gray w3-text-white">		
+  <div class="w3-center w3-khaki">		
   <h4>Lista de impressoras</h4>
   </div>
   <div style="height: 370px; overflow: auto;">
