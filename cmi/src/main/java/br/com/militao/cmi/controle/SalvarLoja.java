@@ -13,7 +13,7 @@ public class SalvarLoja implements Logica {
 	public String executa(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 
 		Loja loja = new Loja();
-		System.out.println(req.getParameter("id_loja"));
+		
 		loja.setNumero_loja(Integer.parseInt(req.getParameter("num_loja")));
 		loja.setNome(req.getParameter("nome"));
 		loja.setCnpj(req.getParameter("cnpj"));
