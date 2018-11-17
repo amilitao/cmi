@@ -84,11 +84,8 @@ public class DevolucaoDao implements GenericDao {
 			stmt.setString(3, devolucao.getNumNfeDevolucao());
 			stmt.setString(4, devolucao.getRecebedor());
 
-			stmt.executeUpdate();
+			stmt.executeUpdate();			
 			
-			String ocorrencia = "A impressora foi devolvida e foi recebida pelo "+ devolucao.getRecebedor();
-			historicoDao.insert(new HistoricoEmprestimo(devolucao.getEmprestimo(), ocorrencia));
-
 			resultado = true;
 
 		} catch (SQLException e) {

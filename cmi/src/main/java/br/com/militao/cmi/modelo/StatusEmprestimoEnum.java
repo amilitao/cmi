@@ -4,7 +4,7 @@ public enum StatusEmprestimoEnum {
 	
 	INICIADO("1%", "iniciado", "brown"), EMISSAO_NFE("25%", "aguardando nfe", "green"), 
 	AGUARDANDO_TRANSPORTE("40%", "aguardando transporte", "deep-purple"), ENVIADO("60%", "em transporte", "amber"),
-	EM_EMPRESTIMO("75%", "em emprestimo", "green"), ENCERRADO("100%", "encerrado", "red");
+	EM_EMPRESTIMO("75%", "em emprestimo", "indigo"), ENCERRADO("100%", "encerrado", "red");
 	
 	private String porcentagem;
 	private String descricao;

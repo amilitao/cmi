@@ -87,10 +87,7 @@ public class TransporteDao implements GenericDao{
 			stmt.setString(4, transporte.getNumNfeEnvio());
 			stmt.setDate(5, FormatadorDeData.toDate(transporte.getDtEnvio()));
 
-			stmt.executeUpdate();
-			
-			String ocorrencia = "A impressora foi enviada para a filial";
-			historicoDao.insert(new HistoricoEmprestimo(transporte.getEmprestimo(), ocorrencia));
+			stmt.executeUpdate();			
 
 			resultado = true;
 
