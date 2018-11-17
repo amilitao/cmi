@@ -10,17 +10,11 @@ import java.util.List;
 import br.com.militao.cmi.conexao.ConnectionFactory;
 import br.com.militao.cmi.modelo.Devolucao;
 import br.com.militao.cmi.modelo.Emprestimo;
-import br.com.militao.cmi.modelo.HistoricoEmprestimo;
 import br.com.militao.cmi.util.FormatadorDeData;
 
 public class DevolucaoDao implements GenericDao {
 
-	private boolean resultado;
-	private HistoricoEmprestimoDao historicoDao;
-	
-	public DevolucaoDao() {
-		historicoDao = new HistoricoEmprestimoDao();
-	}
+	private boolean resultado;	
 	
 	@Override
 	public boolean delete(Object obj) {
