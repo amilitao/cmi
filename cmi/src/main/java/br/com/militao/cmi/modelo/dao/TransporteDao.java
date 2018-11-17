@@ -9,12 +9,18 @@ import java.util.List;
 
 import br.com.militao.cmi.conexao.ConnectionFactory;
 import br.com.militao.cmi.modelo.Emprestimo;
+import br.com.militao.cmi.modelo.HistoricoEmprestimo;
 import br.com.militao.cmi.modelo.Transporte;
 import br.com.militao.cmi.util.FormatadorDeData;
 
 public class TransporteDao implements GenericDao{
 
 	private boolean resultado;
+	private HistoricoEmprestimoDao historicoDao;
+	
+	public TransporteDao() {
+		historicoDao = new HistoricoEmprestimoDao();
+	}
 	
 	@Override
 	public boolean delete(Object obj) {
@@ -70,7 +76,8 @@ public class TransporteDao implements GenericDao{
 		
 		String sql = "insert into transporte (emprestimo_id_emprestimo, nome_transportadora, "
 				+ "num_controle, num_nfe_envio, dt_envio)" + " values (?,?,?,?,?)";
-
+		
+		
 		try (Connection con = new ConnectionFactory().getConnection();
 				PreparedStatement stmt = con.prepareStatement(sql);) {
 
@@ -81,6 +88,9 @@ public class TransporteDao implements GenericDao{
 			stmt.setDate(5, FormatadorDeData.toDate(transporte.getDtEnvio()));
 
 			stmt.executeUpdate();
+			
+			String ocorrencia = "A impressora foi enviada para a filial";
+			historicoDao.insert(new HistoricoEmprestimo(transporte.getEmprestimo(), ocorrencia));
 
 			resultado = true;
 

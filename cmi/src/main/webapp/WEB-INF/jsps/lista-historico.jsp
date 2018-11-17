@@ -47,11 +47,8 @@
 
 						<ul class="w3-ul">
 							<li>
-								<div class="w3-row w3-text-indigo">
-									<div class="w3-col m1">
-										<b>Id:</b> ${historico.idHistoricoEmprestimo}
-									</div>
-									<div class="w3-col m8">
+								<div class="w3-row w3-text-indigo">									
+									<div class="w3-col m9">
 										<b>Ocorrencia:</b> ${historico.ocorrencia}
 									</div>
 									<div class="w3-col m3">

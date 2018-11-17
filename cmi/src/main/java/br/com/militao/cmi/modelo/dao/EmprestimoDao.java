@@ -27,6 +27,10 @@ public class EmprestimoDao implements GenericDao {
 
 	private boolean resultado;
 	private HistoricoEmprestimoDao historicoDao;
+	
+public EmprestimoDao() {
+	historicoDao = new HistoricoEmprestimoDao();
+}	
 
 	@Override
 	public boolean delete(Object obj) {
@@ -62,6 +66,9 @@ public class EmprestimoDao implements GenericDao {
 			stmt.setInt(3, emprestimo.getIdEmprestimo());
 
 			stmt.executeUpdate();
+			
+			String ocorrencia = "O status do emprestimo foi atualizado para: "+emprestimo.getSituacao().getDescricao();
+			historicoDao.insert(new HistoricoEmprestimo(emprestimo, ocorrencia));
 			
 			resultado = true;
 
@@ -102,7 +109,7 @@ public class EmprestimoDao implements GenericDao {
 
 				if (idEmp != 0) {
 					emprestimo.setIdEmprestimo(idEmp);
-					String ocorrencia = "O emprestimo numero " + idEmp + " foi criado em " + LocalDateTime.now();
+					String ocorrencia = "O emprestimo numero " + idEmp + " foi criado";
 					historicoDao.insert(new HistoricoEmprestimo(emprestimo, ocorrencia));
 				}
 			}
