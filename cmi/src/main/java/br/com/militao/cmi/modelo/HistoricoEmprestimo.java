@@ -1,21 +1,31 @@
 package br.com.militao.cmi.modelo;
 
+import java.time.LocalDateTime;
+
+import br.com.militao.cmi.util.FormatadorDeData;
+
 public class HistoricoEmprestimo {
 	
-	private int idHistorioEmprestimo;
+	private int idHistoricoEmprestimo;
 	private Emprestimo emprestimo;
 	private String ocorrencia;
+	private LocalDateTime dt_ocorrencia;
 		
+		
+	public HistoricoEmprestimo() {	
+	this.dt_ocorrencia = LocalDateTime.now();	
+	}	
 	
 	public HistoricoEmprestimo(Emprestimo emprestimo, String ocorrencia) {
 		this.emprestimo = emprestimo;
 		this.ocorrencia = ocorrencia;
+		this.dt_ocorrencia = LocalDateTime.now();				
 	}
-	public int getIdHistorioEmprestimo() {
-		return idHistorioEmprestimo;
+	public int getIdHistoricoEmprestimo() {
+		return idHistoricoEmprestimo;
 	}
-	public void setIdHistorioEmprestimo(int idHistorioEmprestimo) {
-		this.idHistorioEmprestimo = idHistorioEmprestimo;
+	public void setIdHistoricoEmprestimo(int idHistoricoEmprestimo) {
+		this.idHistoricoEmprestimo = idHistoricoEmprestimo;
 	}
 	public Emprestimo getEmprestimo() {
 		return emprestimo;
@@ -29,6 +39,15 @@ public class HistoricoEmprestimo {
 	public void setOcorrencia(String ocorrencia) {
 		this.ocorrencia = ocorrencia;
 	}
+	public LocalDateTime getDt_ocorrencia() {
+		return dt_ocorrencia;
+	}
+	public String getDtRegistroFormatada() {
+		return FormatadorDeData.formata(dt_ocorrencia);
+	}
+	
+	
+	
 	
 	
 
