@@ -1,6 +1,7 @@
 package br.com.militao.cmi.controle;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,7 +20,8 @@ public class SalvarDevolucao implements Logica{
 		
 		Devolucao devolucao = new Devolucao();
 		
-		devolucao.setEmprestimo(new Emprestimo(Integer.parseInt(req.getParameter("idEmprestimo")), StatusEmprestimoEnum.ENCERRADO));
+		devolucao.setEmprestimo(new Emprestimo(Integer.parseInt(req.getParameter("idEmprestimo")),
+				StatusEmprestimoEnum.ENCERRADO, LocalDateTime.now()));
 		devolucao.setDtDevolucao(LocalDate.now());		
 		devolucao.setNumNfeDevolucao(req.getParameter("numNfeDevolucao"));		 
 		devolucao.setRecebedor( req.getParameter("recebedor"));		

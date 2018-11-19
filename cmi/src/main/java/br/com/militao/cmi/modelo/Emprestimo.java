@@ -10,52 +10,48 @@ import java.time.LocalDateTime;
 import br.com.militao.cmi.util.FormatadorDeData;
 
 
-/**
- *
- * @author Adriano
- */
+
 public class Emprestimo {
     
     private int idEmprestimo;
     private Loja loja;
     private Impressora impressora;
     private LocalDateTime dtInicio;
-    private LocalDateTime dtFim;   
-    private StatusEmprestimoEnum situacao;
-    private String num_chamado; 
+    private LocalDateTime dtFim;  
     private LocalDate prazoDevolucao;
+    private StatusEmprestimoEnum situacao;
+    private String num_chamado;
     
-    public Emprestimo() {    	
+    
+	public Emprestimo() {    	
     }
         
-    
-    public Emprestimo(int id, StatusEmprestimoEnum situacao) {  
-    	this.idEmprestimo = id;
-    	this.situacao = situacao;
-    }
-    
-    public Emprestimo(int id, StatusEmprestimoEnum situacao, LocalDateTime dataHora) {  
-    	this.idEmprestimo = id;
-    	this.situacao = situacao;
-    	this.dtFim = dataHora;
-    }
+	 public Emprestimo(int id, StatusEmprestimoEnum situacao) {  
+	    	this.idEmprestimo = id;
+	    	this.situacao = situacao;
+	    }
+   
+	 public Emprestimo(int id, StatusEmprestimoEnum situacao, LocalDateTime dataHora) {  
+	    	this.idEmprestimo = id;
+	    	this.situacao = situacao;
+	    	this.dtFim = dataHora;
+	    }
+   
 
     public Emprestimo(Loja loja, Impressora impressora,  String num_chamado) {
 		this.loja = loja;
 		this.impressora = impressora;
 		this.dtInicio = LocalDateTime.now();		
 		this.situacao = StatusEmprestimoEnum.EMISSAO_NFE;
-		this.num_chamado = num_chamado;
-		this.prazoDevolucao = calculaPrazoDevolucao();
-	}
-    
+		this.num_chamado = num_chamado;	
+		calculaPrazoDevolucao();
+	}    
     
 
 	private LocalDate calculaPrazoDevolucao() {
 		LocalDate hoje = LocalDate.now();
 		return hoje.plusMonths(4);
-	}
-	
+	}	
 		
 
 	public int getIdEmprestimo() {
@@ -89,7 +85,6 @@ public class Emprestimo {
 	public void setDtFim(LocalDateTime dtFim) {
 		this.dtFim = dtFim;
 	}
-
 	
 	
 	public void setDtInicio(LocalDateTime dtInicio) {
@@ -100,29 +95,28 @@ public class Emprestimo {
 		return dtInicio;
 	}
 	
-	public String getDataInicioFormatada() {
+	public String getDtInicioFormatada() {
 		return FormatadorDeData.formata(dtInicio);
 	}
 	
-	public String getDataFimFormatada() {
+	public String getDtFimFormatada() {
 		return FormatadorDeData.formata(dtFim);
-	}
-    
-
-	public LocalDate getPrazoDevolucao() {
-		return prazoDevolucao;
-	}
-
-	public void setPrazoDevolucao(LocalDate prazoDevolucao) {
-		this.prazoDevolucao = prazoDevolucao;
 	}	
 	
+	public void setPrazoDevolucao(LocalDate prazoDevolucao) {
+		this.prazoDevolucao = prazoDevolucao;
+	}
+
+	public LocalDate getPrazoDevolucao() {
+		return calculaPrazoDevolucao();
+	}
+		
+	
 	public String getPrazoDevolucaoFormatada() {
-		return FormatadorDeData.formata(prazoDevolucao);
+		return FormatadorDeData.formata(this.getPrazoDevolucao());
 	}	
 
-    public StatusEmprestimoEnum getSituacao() {
-    	
+    public StatusEmprestimoEnum getSituacao() {    	
 		return situacao;		
 	}
 
@@ -136,9 +130,8 @@ public class Emprestimo {
 
     public void setNum_chamado(String num_chamado) {
         this.num_chamado = num_chamado;
-    }
-    
-    
+    } 
+   
     
     
     

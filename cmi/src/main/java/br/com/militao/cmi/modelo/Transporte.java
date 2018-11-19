@@ -2,6 +2,8 @@ package br.com.militao.cmi.modelo;
 
 import java.time.LocalDate;
 
+import br.com.militao.cmi.util.FormatadorDeData;
+
 public class Transporte {
 	
 	private int idTransporte;
@@ -61,6 +63,10 @@ public class Transporte {
 	}
 	public void setDtEnvio(LocalDate dtEnvio) {
 		this.dtEnvio = dtEnvio;
+	}
+	
+	public String getDtEnvioFormatada() {
+		return FormatadorDeData.formata(dtEnvio);
 	}
 	
 	@Override

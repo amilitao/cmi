@@ -2,6 +2,8 @@ package br.com.militao.cmi.modelo;
 
 import java.time.LocalDate;
 
+import br.com.militao.cmi.util.FormatadorDeData;
+
 public class Devolucao {
 
 	private int idDevolucao;
@@ -40,6 +42,11 @@ public class Devolucao {
 	public void setDtDevolucao(LocalDate dtDevolucao) {
 		this.dtDevolucao = dtDevolucao;
 	}
+	
+	public String getDtDevolucaoFormatada() {
+		return FormatadorDeData.formata(dtDevolucao);
+	}
+	
 	public String getNumNfeDevolucao() {
 		return numNfeDevolucao;
 	}

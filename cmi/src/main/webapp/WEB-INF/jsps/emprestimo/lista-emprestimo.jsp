@@ -1,9 +1,12 @@
+
 <%@ page language="java" contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags"%>
 
+
 <t:mainpage>
+
 
 <div class="w3-container">
 		<h2>
@@ -69,7 +72,7 @@
 						<div class="w3-col m2 w3-center">
 							<p>
 								Iniciado <br />
-								<b>${emprestimo.dataInicioFormatada}</b>
+								<b>${emprestimo.dtInicioFormatada}</b>
 							</p>
 						</div>
 						<div class="w3-col m2 w3-center">
@@ -89,8 +92,7 @@
 										value="${emprestimo.impressora.idImpressora}" />
 									<c:param name="impressora" value="${emprestimo.impressora}" />
 									<c:param name="dtFim" value="${emprestimo.dtFim}" />
-									<c:param name="prazo_devolucao"
-										value="${emprestimo.prazoDevolucao}" />
+									<c:param name="prazo_devolucao" value="${emprestimo.prazoDevolucaoFormatada}" />
 								</c:import>
 							</p>
 						</div>
@@ -136,7 +138,7 @@
 						</div>
 						<div class="w3-col m2 w3-center">
 							<p>
-								Encerrado <br /> <b>${emprestimo.dataFimFormatada}</b>
+								Encerrado <br /> <b>${emprestimo.dtFimFormatada}</b>
 							</p>
 						</div>
 					</div>
@@ -174,7 +176,7 @@
 							<li>Transportadora: <b>${transporte.nomeTransportadora}</b></li>
 							<li>Número de controle: <b>${transporte.numControle}</b></li>
 							<li>Número de NFe de envio: <b>${transporte.numNfeEnvio}</b></li>
-							<li>Data de envio: <b>${transporte.dtEnvio}</b></li>
+							<li>Data de envio: <b>${transporte.dtEnvioFormatada}</b></li>
 						</ul>
 					</div>
 
@@ -193,7 +195,7 @@
 								style="background: #5ebf99">Devolução</li>
 							<li>Número da NFe: <b>${devolucao.numNfeDevolucao}</b></li>
 							<li>Recebedor: <b>${devolucao.recebedor}</b></li>
-							<li>Data da devolução: <b>${devolucao.dtDevolucao}</b></li>
+							<li>Data da devolução: <b>${devolucao.dtDevolucaoFormatada}</b></li>
 						</ul>
 					</div>
 				</div>
