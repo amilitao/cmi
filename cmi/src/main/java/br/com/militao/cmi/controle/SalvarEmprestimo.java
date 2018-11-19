@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.militao.cmi.modelo.Emprestimo;
 import br.com.militao.cmi.modelo.Impressora;
 import br.com.militao.cmi.modelo.Loja;
+import br.com.militao.cmi.modelo.StatusImpressoraEnum;
 import br.com.militao.cmi.modelo.dao.EmprestimoDao;
 import br.com.militao.cmi.modelo.dao.ImpressoraDao;
 import br.com.militao.cmi.modelo.dao.LojaDao;
@@ -24,11 +25,13 @@ public class SalvarEmprestimo implements Logica {
 		Loja loja = lojaDao
 				.getLojaPorId(Integer.parseInt(req.getParameter("id_loja")));		
 		Impressora impressora = impDao
-				.getImpressoraPorId(Integer.parseInt(req.getParameter("id_impressora")));		
+				.getImpressoraPorId(Integer.parseInt(req.getParameter("id_impressora")));
+		impressora.setSituacao(StatusImpressoraEnum.EM_EMPRESTIMO);
+		
 		String numChamado = req.getParameter("num_chamado");
 		Emprestimo emprestimo = new Emprestimo(loja, impressora, numChamado);
 
-		if (empDao.insert(emprestimo)) {
+		if (empDao.insert(emprestimo) && impDao.update(impressora)) {
 			req.setAttribute("confirmaDao", true);				
 		}	
 		

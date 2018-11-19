@@ -66,7 +66,9 @@ public EmprestimoDao() {
 
 			stmt.executeUpdate();
 			
-			String ocorrencia = "O status do emprestimo foi atualizado para: "+emprestimo.getSituacao().getDescricao();
+			String ocorrencia = "O status do emprestimo foi atualizado para: "
+			+ emprestimo.getSituacao().getDescricao();
+			
 			historicoDao.insert(new HistoricoEmprestimo(emprestimo, ocorrencia));
 			
 			resultado = true;
@@ -109,6 +111,9 @@ public EmprestimoDao() {
 				if (idEmp != 0) {
 					emprestimo.setIdEmprestimo(idEmp);
 					String ocorrencia = "O emprestimo numero " + idEmp + " foi criado";
+					historicoDao.insert(new HistoricoEmprestimo(emprestimo, ocorrencia));
+					
+					ocorrencia = "Aguardando emissão de Nota fiscal para envio";
 					historicoDao.insert(new HistoricoEmprestimo(emprestimo, ocorrencia));
 				}
 			}
