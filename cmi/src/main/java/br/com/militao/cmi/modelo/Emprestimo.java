@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package br.com.militao.cmi.modelo;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -44,7 +45,7 @@ public class Emprestimo {
 		this.dtInicio = LocalDateTime.now();		
 		this.situacao = StatusEmprestimoEnum.EMISSAO_NFE;
 		this.num_chamado = num_chamado;	
-		calculaPrazoDevolucao();
+		this.prazoDevolucao = calculaPrazoDevolucao();
 	}    
     
 
