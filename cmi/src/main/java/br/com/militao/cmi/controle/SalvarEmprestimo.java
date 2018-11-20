@@ -29,7 +29,8 @@ public class SalvarEmprestimo implements Logica {
 		impressora.setSituacao(StatusImpressoraEnum.EM_EMPRESTIMO);
 		
 		String numChamado = req.getParameter("num_chamado");
-		Emprestimo emprestimo = new Emprestimo(loja, impressora, numChamado);
+		Emprestimo emprestimo = new Emprestimo(loja, impressora, numChamado);		
+		
 
 		if (empDao.insert(emprestimo) && impDao.update(impressora)) {
 			req.setAttribute("confirmaDao", true);				

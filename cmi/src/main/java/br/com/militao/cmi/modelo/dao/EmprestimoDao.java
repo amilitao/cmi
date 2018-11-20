@@ -174,5 +174,19 @@ public EmprestimoDao() {
 		return objEmprestimos;
 
 	}
+	
+	public Emprestimo getEmprestimoPorId(int id) {
+		Emprestimo emprestimoProcurado = new Emprestimo();
+		List<Object> emprestimos = this.getList();
+
+		for (Object e : emprestimos) {
+			Emprestimo emprestimo = (Emprestimo) e;
+			if (emprestimo.getIdEmprestimo() == id) {
+				emprestimoProcurado = emprestimo;
+			}
+
+		}
+		return emprestimoProcurado;
+	}
 
 }

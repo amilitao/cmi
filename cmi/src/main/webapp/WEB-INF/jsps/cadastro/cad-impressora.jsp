@@ -64,7 +64,7 @@
 
 				</div>
 			</div>	
-			<input type="hidden" name="id_impressora" id="inp_id" />			
+			<input type="hidden" name="id_impressora" id="inp_id"  />			
 			<input type="hidden" name="logica" value="SalvarImpressora" />
 
 

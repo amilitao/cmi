@@ -18,8 +18,8 @@ public class Emprestimo {
     private Loja loja;
     private Impressora impressora;
     private LocalDateTime dtInicio;
-    private LocalDateTime dtFim;  
-    private LocalDate prazoDevolucao;
+    private LocalDateTime dtFim;      
+   	private LocalDate prazoDevolucao;
     private StatusEmprestimoEnum situacao;
     private String num_chamado;
     
@@ -32,10 +32,10 @@ public class Emprestimo {
 	    	this.situacao = situacao;
 	    }
    
-	 public Emprestimo(int id, StatusEmprestimoEnum situacao, LocalDateTime dataHora) {  
+	 public Emprestimo(int id, StatusEmprestimoEnum situacao, LocalDateTime dtFim) {  
 	    	this.idEmprestimo = id;
 	    	this.situacao = situacao;
-	    	this.dtFim = dataHora;
+	    	this.dtFim = dtFim;
 	    }
    
 
@@ -109,7 +109,7 @@ public class Emprestimo {
 	}
 
 	public LocalDate getPrazoDevolucao() {
-		return calculaPrazoDevolucao();
+		return prazoDevolucao;
 	}
 		
 	
@@ -132,6 +132,8 @@ public class Emprestimo {
     public void setNum_chamado(String num_chamado) {
         this.num_chamado = num_chamado;
     } 
+    
+   
    
     
     
