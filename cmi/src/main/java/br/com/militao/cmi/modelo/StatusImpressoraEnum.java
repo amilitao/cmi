@@ -10,8 +10,8 @@ public enum StatusImpressoraEnum {
 	private final String cor;
 	
 	StatusImpressoraEnum(String desc, String c){
-		descricao = desc;
-		cor = c;
+		this.descricao = desc;
+		this.cor = c;
 		
 	}
 	

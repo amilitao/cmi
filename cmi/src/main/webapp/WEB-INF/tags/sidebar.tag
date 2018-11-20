@@ -12,7 +12,7 @@
     <button class="w3-bar-item w3-button w3-padding" name="logica" value="ListarEmprestimo"><i class="fa fa-cubes"></i> Meus empréstimos</button>
 
     <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-wrench"></i> Manutenção</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-edit"></i> Lista de espera</a>
+	<button class="w3-bar-item w3-button w3-padding" name="logica" value="ListaDeEsperaPage"><i class="fa fa-edit"></i> Lista de Espera</button>
      <div class="w3-bar-item w3-button w3-padding" onclick="myAccFunc()"><i class="fa fa-plus-square-o"></i> Cadastros</div>
  		 <div id="demoAcc" class="w3-hide w3-white w3-card-4">
    			 <button class="w3-bar-item w3-button w3-padding" name="logica" value="ImpressoraPage"><i class="fa fa-print"></i> Impressora</button>
