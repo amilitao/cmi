@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import br.com.militao.cmi.modelo.Devolucao;
 import br.com.militao.cmi.modelo.Emprestimo;
@@ -21,6 +22,7 @@ public class SalvarDevolucao implements Logica{
 	@Override
 	public String executa(HttpServletRequest req, HttpServletResponse resp) throws Exception {		
 		
+		HttpSession session = req.getSession();
 		EmprestimoDao emprestimoDao = new EmprestimoDao();		
 		DevolucaoDao devolucaoDao = new DevolucaoDao();	
 		ImpressoraDao impressoraDao = new ImpressoraDao();
@@ -42,7 +44,10 @@ public class SalvarDevolucao implements Logica{
 				
 		if (devolucaoDao.insert(devolucao) && emprestimoDao.update(devolucao.getEmprestimo()) && impressoraDao.update(impressora)) {
 			req.setAttribute("confirmaDao", true);
-		}			
+		}	
+		
+		// atualiza dashboard
+		session.setAttribute("dashboard", null);
 	
 		return new ListarEmprestimo().executa(req, resp);
 	}

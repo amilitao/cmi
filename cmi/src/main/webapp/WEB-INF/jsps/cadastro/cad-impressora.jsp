@@ -64,7 +64,7 @@
 
 				</div>
 			</div>	
-			<input type="hidden" name="id_impressora" id="inp_id"  />			
+			<input type="hidden" name="id_impressora" id="inp_id" value="0"/>			
 			<input type="hidden" name="logica" value="SalvarImpressora" />
 
 
@@ -120,14 +120,14 @@ function f_selecionar(id, nu, m, p, s, e, si) {
 function f_adicionar(){	
 	
 	desabilitar_campos(false);
-	alterar_campos('','','','','','','');
+	alterar_campos( '0' ,'','','','','','');
 	
 }
 
 function f_alterar(){
 	var id_impressora = document.getElementById("inp_id").value;
 	
-	if(id_impressora != ''){
+	if(id_impressora != '0'){
 		
 		desabilitar_campos(false);
 		
@@ -142,8 +142,8 @@ function desabilitar_campos(opcao){
 	document.getElementById("inp_modelo").disabled = opcao;
 	document.getElementById("inp_pip").disabled = opcao;
 	document.getElementById("inp_serie").disabled = opcao;
-	document.getElementById("inp_estado").disabled = opcao;
-	document.getElementById("inp_situacao").disabled = opcao;
+	document.getElementById("inp_estado").disabled = opcao;	
+	document.getElementById("inp_situacao").disabled = opcao;	
 	
 }
 

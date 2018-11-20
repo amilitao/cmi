@@ -15,7 +15,7 @@ String dataAtual = FormatadorDeData.formata(LocalDate.now());
 		<header class="w3-container w3-khaki">
 			<span onclick="document.getElementById('iddevolucao${param.idEmprestimo}').style.display='none'"
 				class="w3-button w3-display-topright">&times;</span>
-			<h2>Modal Header</h2>
+			<h2>Devolução</h2>
 		</header>
 
 		<div class="w3-panel w3-padding-large">
@@ -54,7 +54,7 @@ String dataAtual = FormatadorDeData.formata(LocalDate.now());
 		</div>
 
 		<footer class="w3-container w3-khaki">
-			<p> Footer</p>
+			<p>Obs.: Ao receber a impressora verificar o estado da mesma</p>
 		</footer>
 	</div>
 </div>

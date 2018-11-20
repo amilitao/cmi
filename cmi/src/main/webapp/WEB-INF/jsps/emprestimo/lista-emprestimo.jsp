@@ -156,7 +156,7 @@
 							<li>Loja: <b>${emprestimo.loja}</b></li>
 							<li>Impressora: <b>${emprestimo.impressora}</b></li>
 							<li>Chamado: <b>${emprestimo.num_chamado}</b></li>
-							<li>Prazo devolução: <b>${emprestimo.prazoDevolucaoFormatada}</b></li>
+							<li>Prazo devolução: <b><font color="green">${emprestimo.prazoDevolucaoFormatada}</font></b></li>
 						</ul>
 					</div>
 

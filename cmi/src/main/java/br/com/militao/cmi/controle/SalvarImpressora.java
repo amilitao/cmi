@@ -14,6 +14,7 @@ public class SalvarImpressora implements Logica {
 	@Override
 	public String executa(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 
+		HttpSession session = req.getSession();
 		Impressora impressora = new Impressora();
 		ImpressoraDao dao = new ImpressoraDao();
 
@@ -23,23 +24,25 @@ public class SalvarImpressora implements Logica {
 		int numero_pip = Integer.parseInt(req.getParameter("pip"));
 		impressora.setPip(numero_pip);
 		impressora.setNumero_serie(req.getParameter("num_serie"));
-		impressora.setEstado(EstadoImpressoraEnum.valueOf(req.getParameter("estado")));
-		impressora.setSituacao(StatusImpressoraEnum.valueOf(req.getParameter("situacao")));
-
-		System.out.println(req.getParameter("id_impressora"));
-		if (req.getParameter("id_impressora") != null || req.getParameter("id_impressora") != "") {
+		impressora.setEstado(EstadoImpressoraEnum.valueOf(req.getParameter("estado")));		
+		
+		
+		if (Integer.parseInt(req.getParameter("id_impressora")) != 0) {			
+			
+			impressora.setSituacao(StatusImpressoraEnum.valueOf(req.getParameter("situacao")));
 			impressora.setIdImpressora(Integer.parseInt(req.getParameter("id_impressora")));
 			dao.update(impressora);
-		} else {
-
-			dao.insert(impressora);
-			HttpSession session = req.getSession();
-
 			req.setAttribute("confirmaDao", true);
-			// atualiza dashboard
-			session.setAttribute("dashboard", null);
-
+			
+		} else {			
+			
+			System.out.println("adicionando");
+			dao.insert(impressora);
+			req.setAttribute("confirmaDao", true);
 		}
+		
+		// atualiza dashboard
+		session.setAttribute("dashboard", null);
 
 		req.setAttribute("lista_situacao", StatusImpressoraEnum.values());
 		req.setAttribute("lista_estado", EstadoImpressoraEnum.values());

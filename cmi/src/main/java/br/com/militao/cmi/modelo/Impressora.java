@@ -20,17 +20,9 @@ public class Impressora {
     private StatusImpressoraEnum situacao;
 
     public Impressora() {
-    }
-        
-    public Impressora(int id_impressora, int numero, String modelo, int pip, String numero_serie, EstadoImpressoraEnum estado, StatusImpressoraEnum situacao) {
-        this.idImpressora = id_impressora;       
-        this.numero = numero;
-        this.modelo = modelo;
-        this.pip = pip;
-        this.numero_serie = numero_serie;
-        this.estado = estado;
-        this.situacao = situacao;
-    }
+    	this.situacao = StatusImpressoraEnum.DISPONIVEL;
+    }       
+   
 
     public int getIdImpressora() {
         return idImpressora;

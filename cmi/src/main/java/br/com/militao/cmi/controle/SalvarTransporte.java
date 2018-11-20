@@ -17,6 +17,7 @@ public class SalvarTransporte implements Logica{
 	@Override
 	public String executa(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		
+		HttpSession session = req.getSession();
 		Transporte transporte = new Transporte();				
 				
 		transporte.setEmprestimo(new Emprestimo(Integer.parseInt(req.getParameter("idEmprestimo")), StatusEmprestimoEnum.ENVIADO));
@@ -30,11 +31,12 @@ public class SalvarTransporte implements Logica{
 		TransporteDao transporteDao = new TransporteDao();
 		
 		if (transporteDao.insert(transporte) && emprestimoDao.update(transporte.getEmprestimo())) {
-			HttpSession session = req.getSession();
 			
-			req.setAttribute("confirmaDao", true);
-			session.setAttribute("dashboard", null);
-		}					
+			req.setAttribute("confirmaDao", true);		
+		}	
+		
+		// atualiza dashboard
+		session.setAttribute("dashboard", null);
 		
 		return new ListarEmprestimo().executa(req, resp);
 	}

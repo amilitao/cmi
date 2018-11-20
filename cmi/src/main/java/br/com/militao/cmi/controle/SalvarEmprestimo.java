@@ -3,6 +3,7 @@ package br.com.militao.cmi.controle;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import br.com.militao.cmi.modelo.Emprestimo;
 import br.com.militao.cmi.modelo.Impressora;
@@ -17,6 +18,7 @@ public class SalvarEmprestimo implements Logica {
 	@Override
 	public String executa(HttpServletRequest req, HttpServletResponse resp) {
 
+		HttpSession session = req.getSession();
 		EmprestimoDao empDao = new EmprestimoDao();	
 		ImpressoraDao impDao = new ImpressoraDao();		
 		LojaDao lojaDao = new LojaDao();
@@ -36,6 +38,8 @@ public class SalvarEmprestimo implements Logica {
 			req.setAttribute("confirmaDao", true);				
 		}	
 		
+		// atualiza dashboard
+		session.setAttribute("dashboard", null);
 		req.setAttribute("lojas", lojaDao.getList());
 		req.setAttribute("impressoras", impDao.getListPorStatus("disponivel"));
 
