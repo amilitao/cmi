@@ -2,9 +2,9 @@ package br.com.militao.cmi.modelo;
 
 public enum StatusImpressoraEnum {
 	
-	DISPONIVEL("disponivel", "green"), EM_EMPRESTIMO("emprestimo", "orange"),
+	DISPONIVEL("disponivel", "green"), EM_EMPRESTIMO("emprestimo", "indigo"),
 	EM_MANUTENCAO("manutencao", "brown"),	COM_DEFEITO("defeito", "red"),
-	LOCADO_NA_REGIONAL("locado na regional", "purple");	
+	LOCADO_NA_REGIONAL("locado na regional", "orange");	
 	
 	private final String descricao;
 	private final String cor;

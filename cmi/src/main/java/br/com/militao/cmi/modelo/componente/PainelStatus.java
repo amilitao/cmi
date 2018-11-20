@@ -12,6 +12,7 @@ public class PainelStatus implements Componente{
 	private int qtdEmprestimo;
 	private int qtdManutencao;
 	private int qtdDefeito;
+	private int qtdLocadaRegional;
 	private ImpressoraDao dao;
 	private List<Object> impressoras;
 
@@ -20,6 +21,7 @@ public class PainelStatus implements Componente{
 		this.qtdEmprestimo = 0;
 		this.qtdManutencao = 0;
 		this.qtdDefeito = 0;
+		this.qtdLocadaRegional = 0;
 		this.dao = new ImpressoraDao();		
 	}
 	
@@ -38,6 +40,10 @@ public class PainelStatus implements Componente{
 
 	public int getQtdDefeito() {
 		return qtdDefeito;
+	}
+	
+	public int getQtdLocadaRegional() {
+		return qtdLocadaRegional;
 	}
 
 
@@ -58,8 +64,10 @@ public class PainelStatus implements Componente{
 				qtdManutencao++;
 			}else if(impressora.getSituacao() == StatusImpressoraEnum.COM_DEFEITO) {
 				qtdDefeito++;
-			}else{
-				 throw new IllegalArgumentException("Situacao de impressora incorreta");
+			}else if(impressora.getSituacao() == StatusImpressoraEnum.LOCADO_NA_REGIONAL){
+				 qtdLocadaRegional++;
+			}else {
+				throw new IllegalArgumentException("Situacao de impressora incorreta");
 			}	
 			
 		}

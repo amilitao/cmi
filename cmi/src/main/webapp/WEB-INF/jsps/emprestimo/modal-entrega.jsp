@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>	
 
 <button onclick="document.getElementById('identrega${param.idEmprestimo}').style.display='block'"
-	class="w3-button" style="background:#ffeead" <c:out value="${param.b3}" />>Entrega</button>
+	class="w3-button" style="background:#ffeead" <c:out value="${param.b3}" />><b>Entrega</b></button>
 
 <div id="identrega${param.idEmprestimo}" class="w3-modal">
 	<div class="w3-modal-content w3-animate-top w3-card-4 w3-left-align">

@@ -19,9 +19,7 @@ public class Impressora {
     private EstadoImpressoraEnum estado;
     private StatusImpressoraEnum situacao;
 
-    public Impressora() {
-    	this.situacao = StatusImpressoraEnum.DISPONIVEL;
-    }       
+    public Impressora() {}       
    
 
     public int getIdImpressora() {

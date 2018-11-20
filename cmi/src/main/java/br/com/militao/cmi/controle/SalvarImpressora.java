@@ -25,18 +25,16 @@ public class SalvarImpressora implements Logica {
 		impressora.setPip(numero_pip);
 		impressora.setNumero_serie(req.getParameter("num_serie"));
 		impressora.setEstado(EstadoImpressoraEnum.valueOf(req.getParameter("estado")));		
+		impressora.setSituacao(StatusImpressoraEnum.valueOf(req.getParameter("situacao")));
 		
-		
-		if (Integer.parseInt(req.getParameter("id_impressora")) != 0) {			
+		if (Integer.parseInt(req.getParameter("id_impressora")) != 0) {					
 			
-			impressora.setSituacao(StatusImpressoraEnum.valueOf(req.getParameter("situacao")));
 			impressora.setIdImpressora(Integer.parseInt(req.getParameter("id_impressora")));
 			dao.update(impressora);
 			req.setAttribute("confirmaDao", true);
 			
-		} else {			
+		} else {				
 			
-			System.out.println("adicionando");
 			dao.insert(impressora);
 			req.setAttribute("confirmaDao", true);
 		}

@@ -8,7 +8,7 @@ String dataAtual = FormatadorDeData.formata(LocalDate.now());
 %>
 
 <button onclick="document.getElementById('iddevolucao${param.idEmprestimo}').style.display='block'"
-	class="w3-button w3-khaki" <c:out value="${param.b4}" /> >Devolução</button>
+	class="w3-button w3-khaki" <c:out value="${param.b4}" /> ><b>Devolução</b></button>
 
 <div id="iddevolucao${param.idEmprestimo}" class="w3-modal">
 	<div class="w3-modal-content w3-animate-top w3-card-4">
