@@ -22,6 +22,15 @@ public enum StatusListaDeEsperaEnum {
 		return cor;
 	}
 	
+	public static StatusListaDeEsperaEnum getByDescricao(String desc) {
+		if(desc == null) 
+			return null;		
+		for(StatusListaDeEsperaEnum s : StatusListaDeEsperaEnum.values()) {
+			if(s.descricao.equals(desc))
+			return s;
+		}
+		return null;
+	}
 	
 
 }

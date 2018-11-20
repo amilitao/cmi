@@ -4,7 +4,6 @@
 
 
 <t:mainpage>
-	<c:set var="teste" value="" />
 
 	<div class="w3-container">
 		<h2>
@@ -12,17 +11,18 @@
 		</h2>
 	</div>
 
-	<div class="w3-panel w3-padding-large">		
+	<div class="w3-panel w3-padding-large">
 
 		<c:if test="${confirmaDao}">
-			<c:set var="teste" value="disabled" />
-			<div class="w3-panel w3-display-container" style="background:#b5e7a0">
+			<div class="w3-panel w3-display-container"
+				style="background: #b5e7a0">
 				<span onclick="this.parentElement.style.display='none'"
-					class="w3-button w3-display-topright w3-large" style="background:#b5e7a0">&times;</span>
+					class="w3-button w3-display-topright w3-large"
+					style="background: #b5e7a0">&times;</span>
 				<p>Os dados foram salvos com sucesso!!!</p>
 			</div>
 
-		</c:if>		
+		</c:if>
 
 		<form action="controle" method="post">
 
@@ -36,18 +36,44 @@
 						</c:forEach>
 					</select>
 
-				</div>				 
+				</div>
 			</div>
 			<hr>
 			<input type="hidden" name="logica" value="SalvarListaDeEspera" />
 
-			<button class="w3-button w3-blue" type="submit"
-				<c:out value="${teste}" />>
+			<button class="w3-button w3-blue" type="submit">
 				<i class="fa fa-floppy-o w3-margin-right"></i>Salvar
 			</button>
 		</form>
-	</div>
+		<hr>
+		
+		<div class="w3-container" style="margin: 0 -16px;">
 
+			<div class="w3-center w3-khaki">
+				<h4>Lista de Espera</h4>
+			</div>
+			<div style="height: 370px; overflow: auto;">
+				<table class="w3-table-all w3-hoverable">
+					<thead>
+						<tr class="w3-light-grey">
+							<th>Id</th>
+							<th>Numero</th>
+							<th>Filial</th>
+							<th>Status</th>
+						</tr>
+					</thead>
+					<c:forEach var="l" items="${listaDeEspera}">
+						<tr>
+							<td><b>${l.id_reserva}</b></td>
+							<td>${l.loja.numero_loja}</td>
+							<td>${l.loja.nome}</td>
+							<td>${l.status.descricao}</td>
+						</tr>
+					</c:forEach>
+				</table>
+			</div>
+		</div>
+	</div>
 
 
 
