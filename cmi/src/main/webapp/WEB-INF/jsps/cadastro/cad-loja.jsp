@@ -52,10 +52,10 @@
 				</div>
 				<div class="w3-third w3-margin-bottom">
 				<label><i class="fa fa-home"></i> Regional</label> <select
-						class="w3-select w3-border" name="id_regional" id="inp_regional"  required>
-						<option value="" selected>Escolha a regional</option>
+						class="w3-select w3-border" name="id_regional" id="inp_regional"  disabled required>
+						<option value="" disabled selected>Escolha a regional</option>
 						<c:forEach var="regional" items="${regionais}">
-							<option value="${regional.id_regional}">${regional.nome_regional}</option>
+							<option value="${regional.id_regional}" id="${regional.nome_regional}">${regional.nome_regional}</option>
 						</c:forEach>
 					</select>
 				</div>
@@ -92,7 +92,7 @@
       </tr>
     </thead>
     <c:forEach var="l" items="${lojas}">
-    <tr onclick="f_selecionar(${l.idLoja}, ${l.numero_loja}, '${l.nome}', '${l.cnpj}', '${l.telefone}', '${l.endereco}')">
+    <tr onclick="f_selecionar(${l.idLoja}, ${l.numero_loja}, '${l.nome}', '${l.cnpj}', '${l.telefone}', '${l.endereco}', '${l.regional.nome_regional}')">
       <td><b>${l.numero_loja}</b></td>
       <td>${l.nome}</td>
       <td>${l.cnpj}</td>
@@ -109,17 +109,18 @@
 
 
 <script>
-function f_selecionar(id, nu, no, c, t, e) {
+function f_selecionar(id, nu, no, c, t, e, r) {
 	
 	desabilitar_campos(true);
-	alterar_campos(id,nu,no,c,t,e);
+	alterar_campos(id,nu,no,c,t,e,r);
 	 
 }
 
 function f_adicionar(){
 	
-	alterar_campos('','','','','','');
 	desabilitar_campos(false);
+	alterar_campos('','','','','','','');
+	
 	
 }
 
@@ -142,10 +143,12 @@ function desabilitar_campos(opcao){
 	document.getElementById("inp_cnpj").disabled = opcao;
 	document.getElementById("inp_telefone").disabled = opcao;
 	document.getElementById("inp_endereco").disabled = opcao;
+	document.getElementById("inp_regional").disabled = opcao;	
+	
 	
 }
 
-function alterar_campos(id, nu, no, c, t, e){
+function alterar_campos(id, nu, no, c, t, e, r){
 	
 	document.getElementById("inp_id").value = id; 	
 	document.getElementById("inp_numero").value = nu; 	
@@ -153,6 +156,7 @@ function alterar_campos(id, nu, no, c, t, e){
 	document.getElementById("inp_cnpj").value = c;  	
 	document.getElementById("inp_telefone").value = t; 
 	document.getElementById("inp_endereco").value = e; 
+	document.getElementById(r).selected = true; 
 }
 </script>
 

@@ -64,11 +64,11 @@
 
 				</div>
 				<div class="w3-third w3-margin-bottom">
-					<label><i class="fa fa-home"></i> Loja</label> <select
+					<label><i class="fa fa-home"></i> Loja responsavel</label> <select
 						class="w3-select w3-border" name="id_loja" id="inp_loja" disabled required>
 						<option value="" disabled selected>Escolha a loja</option>
 						<c:forEach var="loja" items="${lojas}">
-							<option value="${loja.idLoja}">${loja}</option>
+							<option value="${loja.idLoja}" id="${loja}">${loja}</option>
 						</c:forEach>
 					</select>
 
@@ -100,11 +100,11 @@
         <th>Nº Serie</th>
         <th>Estado</th>
         <th>Situacao</th>
-        <th>Loja</th>
+        <th>Loja responsavel</th>
       </tr>
     </thead>
     <c:forEach var="i" items="${impressoras}">
-    <tr onclick="f_selecionar(${i.idImpressora}, ${i.numero}, '${i.modelo}', '${i.pip}', '${i.numero_serie}', '${i.estado.descricao}', '${i.situacao.descricao}', '${i.loja})">
+    <tr onclick="f_selecionar('${i.idImpressora}', '${i.numero}', '${i.modelo}', '${i.pip}', '${i.numero_serie}', '${i.estado.descricao}', '${i.situacao.descricao}', '${i.loja}')">
       <td><b>${i.numero}</b></td>
       <td>${i.modelo}</td>
       <td>${i.pip}</td>
@@ -171,7 +171,8 @@ function alterar_campos(id, nu, m, p, s, e, si, l){
 	document.getElementById(si).selected = true; 
 	document.getElementById(l).selected = true; 
 }	
+
 	
 </script>
 
-</t:mainpage>>
+</t:mainpage>

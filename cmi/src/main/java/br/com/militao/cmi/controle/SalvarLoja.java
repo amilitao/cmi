@@ -19,7 +19,7 @@ public class SalvarLoja implements Logica {
 		Loja loja = new Loja();
 		Regional regional = new Regional();
 		
-		regional.setId_regional(req.getIntHeader("id_regional"));
+		regional.setId_regional(Integer.parseInt(req.getParameter("id_regional")));
 		loja.setRegional(regional);
 		loja.setNumero_loja(Integer.parseInt(req.getParameter("num_loja")));
 		loja.setNome(req.getParameter("nome"));
