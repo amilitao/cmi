@@ -26,24 +26,24 @@
 		<form action="controle" method="post">
 
 			<div class="w3-row-padding" style="margin: 0 -16px;">
-				<div class="w3-third">
+				<div class="w3-col m3">
 					<label><i class="fa fa-pencil-square-o"></i> Número da impressora</label> <input
 						class="w3-input w3-border" type="text" name="num_impressora" id="inp_numero" disabled required>
 				</div>
-				<div class="w3-third">
+				<div class="w3-col m3">
 					<label><i class="fa fa-pencil-square-o"></i> Modelo</label> <input
 						class="w3-input w3-border" type="text" name="modelo" id="inp_modelo" disabled required>
 				</div>
-				<div class="w3-third">
+				<div class="w3-col m3">
 					<label><i class="fa fa-pencil-square-o"></i> Pip</label> <input
 						class="w3-input w3-border" type="text" name="pip" id="inp_pip" disabled required>
 				</div>
-			</div>
-			<div class="w3-row-padding w3-margin-top" style="margin: 0 -16px;">
-				<div class="w3-third ">
+				<div class="w3-col m3">
 					<label><i class="fa fa-pencil-square-o"></i> Número de serie</label> <input
 						class="w3-input w3-border" type="text" name="num_serie" id="inp_serie" disabled required>
 				</div>
+			</div>
+			<div class="w3-row-padding w3-margin-top" style="margin: 0 -16px;">				
 				<div class="w3-third">
 					<label><i class="fa fa-home"></i> Estado</label> <select
 						class="w3-select w3-border" name="estado" id="inp_estado" disabled required>
@@ -59,6 +59,16 @@
 						<option value="" disabled selected>Escolha a situacao</option>
 						<c:forEach var="situacao" items="${lista_situacao}" >
 							<option value="${situacao}" id="${situacao.descricao}">${situacao.descricao}</option>
+						</c:forEach>
+					</select>
+
+				</div>
+				<div class="w3-third w3-margin-bottom">
+					<label><i class="fa fa-home"></i> Loja</label> <select
+						class="w3-select w3-border" name="id_loja" id="inp_loja" disabled required>
+						<option value="" disabled selected>Escolha a loja</option>
+						<c:forEach var="loja" items="${lojas}">
+							<option value="${loja.idLoja}">${loja}</option>
 						</c:forEach>
 					</select>
 
@@ -90,16 +100,18 @@
         <th>Nº Serie</th>
         <th>Estado</th>
         <th>Situacao</th>
+        <th>Loja</th>
       </tr>
     </thead>
     <c:forEach var="i" items="${impressoras}">
-    <tr onclick="f_selecionar(${i.idImpressora}, ${i.numero}, '${i.modelo}', '${i.pip}', '${i.numero_serie}', '${i.estado.descricao}', '${i.situacao.descricao}')">
+    <tr onclick="f_selecionar(${i.idImpressora}, ${i.numero}, '${i.modelo}', '${i.pip}', '${i.numero_serie}', '${i.estado.descricao}', '${i.situacao.descricao}', '${i.loja})">
       <td><b>${i.numero}</b></td>
       <td>${i.modelo}</td>
       <td>${i.pip}</td>
       <td>${i.numero_serie}</td>
       <td>${i.estado.descricao}</td> 
-      <td class="w3-text-${i.situacao.cor}"><b>${i.situacao.descricao}</b></td>    
+      <td class="w3-text-${i.situacao.cor}"><b>${i.situacao.descricao}</b></td>   
+      <td>${i.loja}</td>
     </tr>   
     </c:forEach>
   </table>
@@ -110,17 +122,17 @@
 
 
 <script>
-function f_selecionar(id, nu, m, p, s, e, si) {
+function f_selecionar(id, nu, m, p, s, e, si,l) {
 	
 	desabilitar_campos(true);
-	alterar_campos(id,nu,m,p,s,e,si);
+	alterar_campos(id,nu,m,p,s,e,si,l);
 	 
 }
 
 function f_adicionar(){	
 	
 	desabilitar_campos(false);
-	alterar_campos( '0' ,'','','','','','');
+	alterar_campos( '0' ,'','','','','','','');
 	
 }
 
@@ -144,10 +156,11 @@ function desabilitar_campos(opcao){
 	document.getElementById("inp_serie").disabled = opcao;
 	document.getElementById("inp_estado").disabled = opcao;	
 	document.getElementById("inp_situacao").disabled = opcao;	
+	document.getElementById("inp_loja").disabled = opcao;	
 	
 }
 
-function alterar_campos(id, nu, m, p, s, e, si){
+function alterar_campos(id, nu, m, p, s, e, si, l){
 	
 	document.getElementById("inp_id").value = id; 	
 	document.getElementById("inp_numero").value = nu; 	
@@ -156,6 +169,7 @@ function alterar_campos(id, nu, m, p, s, e, si){
 	document.getElementById("inp_serie").value = s; 
 	document.getElementById(e).selected = true; 
 	document.getElementById(si).selected = true; 
+	document.getElementById(l).selected = true; 
 }	
 	
 </script>

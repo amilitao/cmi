@@ -11,9 +11,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
 import br.com.militao.cmi.conexao.ConnectionFactory;
 import br.com.militao.cmi.modelo.EstadoImpressoraEnum;
 import br.com.militao.cmi.modelo.Impressora;
+import br.com.militao.cmi.modelo.Loja;
 import br.com.militao.cmi.modelo.StatusImpressoraEnum;
 
 
@@ -45,20 +47,20 @@ public class ImpressoraDao implements GenericDao {
 	public boolean update(Object obj) {
 		Impressora impressora = (Impressora) obj;
 
-		String sql = "update impressora set numero=?, modelo=?,"
+		String sql = "update impressora set loja_id_loja=?, numero=?, modelo=?,"
 				+ "pip=?, numero_serie=?, estado=?, situacao=? where id_impressora=?";
 
 		try (Connection con = new ConnectionFactory().getConnection();
 				PreparedStatement stmt = con.prepareStatement(sql);) {
 
-			
-			stmt.setInt(1, impressora.getNumero());
-			stmt.setString(2, impressora.getModelo());
-			stmt.setInt(3, impressora.getPip());
-			stmt.setString(4, impressora.getNumero_serie());
-			stmt.setString(5, impressora.getEstado().getDescricao());
-			stmt.setString(6, impressora.getSituacao().getDescricao());
-			stmt.setInt(7, impressora.getIdImpressora());
+			stmt.setInt(1, impressora.getLoja().getIdLoja());
+			stmt.setInt(2, impressora.getNumero());
+			stmt.setString(3, impressora.getModelo());
+			stmt.setInt(4, impressora.getPip());
+			stmt.setString(5, impressora.getNumero_serie());
+			stmt.setString(6, impressora.getEstado().getDescricao());
+			stmt.setString(7, impressora.getSituacao().getDescricao());
+			stmt.setInt(8, impressora.getIdImpressora());
 
 			stmt.executeUpdate();
 			resultado = true;
@@ -74,19 +76,19 @@ public class ImpressoraDao implements GenericDao {
 	public boolean insert(Object obj) {
 		Impressora impressora = (Impressora) obj;
 
-		String sql = "insert into impressora (numero,modelo,pip,numero_serie,estado,situacao)"
-				+ " values (?,?,?,?,?,?)";
+		String sql = "insert into impressora (loja_id_loja,numero,modelo,pip,numero_serie,estado,situacao)"
+				+ " values (?,?,?,?,?,?,?)";
 
 		try (Connection con = new ConnectionFactory().getConnection();
 				PreparedStatement stmt = con.prepareStatement(sql);) {
 
-		
-			stmt.setInt(1, impressora.getNumero());
-			stmt.setString(2, impressora.getModelo());
-			stmt.setInt(3, impressora.getPip());
-			stmt.setString(4, impressora.getNumero_serie());
-			stmt.setString(5, impressora.getEstado().getDescricao());
-			stmt.setString(6, impressora.getSituacao().getDescricao());
+			stmt.setInt(1, impressora.getLoja().getIdLoja());
+			stmt.setInt(2, impressora.getNumero());
+			stmt.setString(3, impressora.getModelo());
+			stmt.setInt(4, impressora.getPip());
+			stmt.setString(5, impressora.getNumero_serie());
+			stmt.setString(6, impressora.getEstado().getDescricao());
+			stmt.setString(7, impressora.getSituacao().getDescricao());
 
 			stmt.executeUpdate();
 			resultado = true;
@@ -110,9 +112,14 @@ public class ImpressoraDao implements GenericDao {
 				ResultSet rs = stmt.executeQuery();) {
 
 			while (rs.next()) {
-				Impressora imp = new Impressora();				
+				Impressora imp = new Impressora();	
+				Loja loja = new Loja();
 				
 				imp.setIdImpressora(rs.getInt("id_impressora"));
+				loja.setIdLoja(rs.getInt("loja_id_loja"));
+				loja.setNumero_loja(rs.getInt("numero_loja"));
+				loja.setNome(rs.getString("nome"));
+				imp.setLoja(loja);
 				imp.setNumero(rs.getInt("numero"));
 				imp.setModelo(rs.getString("modelo"));
 				imp.setPip(rs.getInt("pip"));

@@ -18,8 +18,8 @@ public class Impressora {
     private String numero_serie;
     private EstadoImpressoraEnum estado;
     private StatusImpressoraEnum situacao;
-
-    public Impressora() {}       
+    private Loja loja;
+    
    
 
     public int getIdImpressora() {
@@ -78,6 +78,15 @@ public class Impressora {
 
 	public void setSituacao(StatusImpressoraEnum situacao) {
 		this.situacao = situacao;
+	}	
+	
+
+	public Loja getLoja() {
+		return loja;
+	}
+
+	public void setLoja(Loja loja) {
+		this.loja = loja;
 	}
 
 	@Override

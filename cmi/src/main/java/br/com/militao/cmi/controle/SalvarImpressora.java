@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 
 import br.com.militao.cmi.modelo.EstadoImpressoraEnum;
 import br.com.militao.cmi.modelo.Impressora;
+import br.com.militao.cmi.modelo.Loja;
 import br.com.militao.cmi.modelo.StatusImpressoraEnum;
 import br.com.militao.cmi.modelo.dao.ImpressoraDao;
 
@@ -16,9 +17,12 @@ public class SalvarImpressora implements Logica {
 
 		HttpSession session = req.getSession();
 		Impressora impressora = new Impressora();
+		Loja loja = new Loja();
 		ImpressoraDao dao = new ImpressoraDao();
-
-		int numero_impressora = Integer.parseInt(req.getParameter("num_impressora"));
+		
+		loja.setIdLoja(Integer.parseInt(req.getParameter("id_loja")));
+		impressora.setLoja(loja);
+		int numero_impressora = Integer.parseInt(req.getParameter("num_impressora"));		
 		impressora.setNumero(numero_impressora);
 		impressora.setModelo(req.getParameter("modelo"));
 		int numero_pip = Integer.parseInt(req.getParameter("pip"));
