@@ -50,6 +50,16 @@
 					<label><i class="fa fa-pencil-square-o"></i> endereco</label> <input
 						class="w3-input w3-border" type="text" name="endereco" id="inp_endereco" disabled required>
 				</div>
+				<div class="w3-third w3-margin-bottom">
+				<label><i class="fa fa-home"></i> Regional</label> <select
+						class="w3-select w3-border" name="id_regional" id="inp_regional"  required>
+						<option value="" selected>Escolha a regional</option>
+						<c:forEach var="regional" items="${regionais}">
+							<option value="${regional.id_regional}">${regional.nome_regional}</option>
+						</c:forEach>
+					</select>
+				</div>
+				
 			</div>		
 			
 			<input type="hidden" name="id_loja" id="inp_id" />		
@@ -77,7 +87,8 @@
         <th>Nome</th>
         <th>Cnpj</th>
         <th>Telefone</th>
-        <th>Endereço</th>        
+        <th>Endereço</th>  
+        <th>Regional<th>      
       </tr>
     </thead>
     <c:forEach var="l" items="${lojas}">
@@ -86,7 +97,8 @@
       <td>${l.nome}</td>
       <td>${l.cnpj}</td>
       <td>${l.telefone}</td>
-      <td>${l.endereco}</td>      
+      <td>${l.endereco}</td> 
+      <td>${l.regional.nome_regional}</td>     
     </tr>   
     </c:forEach>
   </table>

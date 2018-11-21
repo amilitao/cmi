@@ -105,7 +105,7 @@ public class ImpressoraDao implements GenericDao {
 
 		List<Object> objImpressoras = new ArrayList<>();
 
-		String sql = "select * from impressora order by numero;";
+		String sql = "select * from impressora inner join loja where loja_id_loja = id_loja order by numero;";
 
 		try (Connection con = new ConnectionFactory().getConnection();
 				PreparedStatement stmt = con.prepareStatement(sql);
@@ -116,7 +116,7 @@ public class ImpressoraDao implements GenericDao {
 				Loja loja = new Loja();
 				
 				imp.setIdImpressora(rs.getInt("id_impressora"));
-				loja.setIdLoja(rs.getInt("loja_id_loja"));
+				loja.setIdLoja(rs.getInt("id_loja"));
 				loja.setNumero_loja(rs.getInt("numero_loja"));
 				loja.setNome(rs.getString("nome"));
 				imp.setLoja(loja);

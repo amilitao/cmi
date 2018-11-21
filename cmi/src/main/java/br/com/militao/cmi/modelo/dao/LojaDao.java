@@ -11,8 +11,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
 import br.com.militao.cmi.conexao.ConnectionFactory;
 import br.com.militao.cmi.modelo.Loja;
+import br.com.militao.cmi.modelo.Regional;
 
 /**
  *
@@ -71,16 +73,18 @@ public class LojaDao implements GenericDao {
 	public boolean insert(Object obj) {
 		Loja loja = (Loja) obj;
 
-		String sql = "insert into loja " + "(numero_loja, nome, cnpj, telefone, endereco)" + " values (?,?,?,?,?)";
+		String sql = "insert into loja (regional_id_regional, numero_loja, nome, cnpj, telefone, endereco)"
+				+ " values (?,?,?,?,?,?)";
 
 		try (Connection con = new ConnectionFactory().getConnection();
 				PreparedStatement stmt = con.prepareStatement(sql);) {
-
-			stmt.setInt(1, loja.getNumero_loja());
-			stmt.setString(2, loja.getNome());
-			stmt.setString(3, loja.getCnpj());
-			stmt.setString(4, loja.getTelefone());
-			stmt.setString(5, loja.getEndereco());
+			
+			stmt.setInt(1, loja.getRegional().getId_regional());
+			stmt.setInt(2, loja.getNumero_loja());
+			stmt.setString(3, loja.getNome());
+			stmt.setString(4, loja.getCnpj());
+			stmt.setString(5, loja.getTelefone());
+			stmt.setString(6, loja.getEndereco());
 
 			stmt.executeUpdate();
 
@@ -96,7 +100,7 @@ public class LojaDao implements GenericDao {
 	public List<Object> getList() {
 
 		List<Object> objLojas = new ArrayList<>();
-		String sql = "select * from loja";
+		String sql = "select * from loja inner join regional where regional_id_regional = id_regional";
 
 		try (Connection con = new ConnectionFactory().getConnection();
 				PreparedStatement stmt = con.prepareStatement(sql);
@@ -105,8 +109,13 @@ public class LojaDao implements GenericDao {
 
 			while (rs.next()) {
 				Loja loja = new Loja();
+				Regional regional = new Regional();
 
 				loja.setIdLoja(rs.getInt("id_loja"));
+				regional.setId_regional(rs.getInt("id_regional"));
+				regional.setNome_regional(rs.getString("nome_regional"));
+				regional.setNum_filial_base(rs.getInt("num_filial_base"));
+				loja.setRegional(regional);
 				loja.setNumero_loja(rs.getInt("numero_loja"));
 				loja.setNome(rs.getString("nome"));
 				loja.setCnpj(rs.getString("cnpj"));

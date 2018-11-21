@@ -17,6 +17,7 @@ public class Loja {
     private String cnpj;
     private String telefone;
     private String endereco;
+    private Regional regional;
     
     
 
@@ -67,15 +68,23 @@ public class Loja {
 
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
+	}	
+
+    public Regional getRegional() {
+		return regional;
 	}
 
+	public void setRegional(Regional regional) {
+		this.regional = regional;
+	}
+	
 	@Override
     public String toString() {
         String numero = String.valueOf(this.getNumero_loja());
         return numero + " - " + this.getNome();
     }
 
-    @Override
+	@Override
     public boolean equals(Object o) {
         if (o == null) {
             return false;

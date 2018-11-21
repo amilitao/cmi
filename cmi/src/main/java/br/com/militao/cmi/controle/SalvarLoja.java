@@ -5,22 +5,27 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import br.com.militao.cmi.modelo.Loja;
+import br.com.militao.cmi.modelo.Regional;
 import br.com.militao.cmi.modelo.dao.LojaDao;
+import br.com.militao.cmi.modelo.dao.RegionalDao;
 
 public class SalvarLoja implements Logica {
 
 	@Override
 	public String executa(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-
-		Loja loja = new Loja();
 		
+		LojaDao dao = new LojaDao();
+		RegionalDao regDao = new RegionalDao();
+		Loja loja = new Loja();
+		Regional regional = new Regional();
+		
+		regional.setId_regional(req.getIntHeader("id_regional"));
+		loja.setRegional(regional);
 		loja.setNumero_loja(Integer.parseInt(req.getParameter("num_loja")));
 		loja.setNome(req.getParameter("nome"));
 		loja.setCnpj(req.getParameter("cnpj"));
 		loja.setTelefone(req.getParameter("telefone"));
-		loja.setEndereco(req.getParameter("endereco"));
-
-		LojaDao dao = new LojaDao();
+		loja.setEndereco(req.getParameter("endereco"));		
 
 		if (req.getParameter("id_loja") != "") {
 
@@ -45,6 +50,7 @@ public class SalvarLoja implements Logica {
 		}
 
 		req.setAttribute("lojas", dao.getList());
+		req.setAttribute("regionais", regDao.getList());
 
 		return "/WEB-INF/jsps/cadastro/cad-loja.jsp";
 	}
