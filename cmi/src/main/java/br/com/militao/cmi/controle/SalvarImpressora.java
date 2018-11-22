@@ -9,6 +9,7 @@ import br.com.militao.cmi.modelo.Impressora;
 import br.com.militao.cmi.modelo.Loja;
 import br.com.militao.cmi.modelo.StatusImpressoraEnum;
 import br.com.militao.cmi.modelo.dao.ImpressoraDao;
+import br.com.militao.cmi.modelo.dao.LojaDao;
 
 public class SalvarImpressora implements Logica {
 
@@ -18,7 +19,8 @@ public class SalvarImpressora implements Logica {
 		HttpSession session = req.getSession();
 		Impressora impressora = new Impressora();
 		Loja loja = new Loja();
-		ImpressoraDao dao = new ImpressoraDao();
+		ImpressoraDao impDao = new ImpressoraDao();
+		LojaDao lojaDao = new LojaDao();
 		
 		loja.setIdLoja(Integer.parseInt(req.getParameter("id_loja")));
 		impressora.setLoja(loja);
@@ -34,23 +36,20 @@ public class SalvarImpressora implements Logica {
 		if (Integer.parseInt(req.getParameter("id_impressora")) != 0) {					
 			
 			impressora.setIdImpressora(Integer.parseInt(req.getParameter("id_impressora")));
-			dao.update(impressora);
+			impDao.update(impressora);
 			req.setAttribute("confirmaDao", true);
 			
 		} else {				
 			
-			dao.insert(impressora);
+			impDao.insert(impressora);
 			req.setAttribute("confirmaDao", true);
 		}
 		
 		// atualiza dashboard
 		session.setAttribute("dashboard", null);
+		
 
-		req.setAttribute("lista_situacao", StatusImpressoraEnum.values());
-		req.setAttribute("lista_estado", EstadoImpressoraEnum.values());
-		req.setAttribute("impressoras", dao.getList());
-
-		return "/WEB-INF/jsps/cadastro/cad-impressora.jsp";
+		return new ImpressoraPage().executa(req, resp);
 	}
 
 }

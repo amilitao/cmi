@@ -14,8 +14,7 @@ public class ListarEmprestimo implements Logica{
 	
 	@Override
 	public String executa(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-		// TODO Auto-generated method stub		
-		
+				
 		EmprestimoDao emprestimoDao = new EmprestimoDao();
 		TransporteDao transporteDao = new TransporteDao();
 		DevolucaoDao devolucaoDao = new DevolucaoDao();			

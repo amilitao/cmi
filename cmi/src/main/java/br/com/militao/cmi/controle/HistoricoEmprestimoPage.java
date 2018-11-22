@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.militao.cmi.modelo.dao.EmprestimoDao;
 import br.com.militao.cmi.modelo.dao.HistoricoEmprestimoDao;
 
-public class ListarHistoricoEmprestimo implements Logica{
+public class HistoricoEmprestimoPage implements Logica{
 
 	@Override
 	public String executa(HttpServletRequest req, HttpServletResponse resp) throws Exception {

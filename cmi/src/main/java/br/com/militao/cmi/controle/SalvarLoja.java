@@ -47,12 +47,9 @@ public class SalvarLoja implements Logica {
 				req.setAttribute("confirmaDao", true);
 				session.setAttribute("dashboard", null);
 			}
-		}
+		}		
 
-		req.setAttribute("lojas", dao.getList());
-		req.setAttribute("regionais", regDao.getList());
-
-		return "/WEB-INF/jsps/cadastro/cad-loja.jsp";
+		return new LojaPage().executa(req, resp);
 	}
 
 }
