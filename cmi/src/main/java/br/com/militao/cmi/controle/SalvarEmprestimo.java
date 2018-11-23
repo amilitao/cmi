@@ -8,43 +8,33 @@ import javax.servlet.http.HttpSession;
 import br.com.militao.cmi.modelo.Emprestimo;
 import br.com.militao.cmi.modelo.Impressora;
 import br.com.militao.cmi.modelo.Loja;
-import br.com.militao.cmi.modelo.StatusImpressoraEnum;
 import br.com.militao.cmi.modelo.dao.EmprestimoDao;
-import br.com.militao.cmi.modelo.dao.ImpressoraDao;
-import br.com.militao.cmi.modelo.dao.LojaDao;
+
 
 public class SalvarEmprestimo implements Logica {
 
 	@Override
-	public String executa(HttpServletRequest req, HttpServletResponse resp) {
+	public String executa(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 
 		HttpSession session = req.getSession();
-		EmprestimoDao empDao = new EmprestimoDao();	
-		ImpressoraDao impDao = new ImpressoraDao();		
-		LojaDao lojaDao = new LojaDao();
-		
+		EmprestimoDao empDao = new EmprestimoDao();				
+		Impressora impressora = new Impressora();
+		Loja loja = new Loja();
 						
-		Loja loja = lojaDao
-				.getLojaPorId(Integer.parseInt(req.getParameter("id_loja")));		
-		Impressora impressora = impDao
-				.getImpressoraPorId(Integer.parseInt(req.getParameter("id_impressora")));
-		impressora.setSituacao(StatusImpressoraEnum.EM_EMPRESTIMO);
-		
+		loja.setIdLoja(Integer.parseInt(req.getParameter("id_loja")));		
+		impressora.setIdImpressora(Integer.parseInt(req.getParameter("id_impressora")));				
 		String numChamado = req.getParameter("num_chamado");
 		Emprestimo emprestimo = new Emprestimo(loja, impressora, numChamado);		
 		
 
-		if (empDao.insert(emprestimo) && impDao.update(impressora)) {
+		if (empDao.insert(emprestimo)) {
 			req.setAttribute("confirmaDao", true);				
 		}	
 		
 		// atualiza dashboard
-		session.setAttribute("dashboard", null);
-		req.setAttribute("lojas", lojaDao.getList());
-		req.setAttribute("impressoras", impDao.getListPorStatus("disponivel"));
+		session.setAttribute("dashboard", null);		
 
-		return "/WEB-INF/jsps/emprestimo/emprestimo.jsp";
-
+	    return new EmprestimoPage().executa(req, resp);
 	}
 
 }

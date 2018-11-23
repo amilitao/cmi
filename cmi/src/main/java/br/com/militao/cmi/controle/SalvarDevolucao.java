@@ -30,9 +30,7 @@ public class SalvarDevolucao implements Logica{
 		Devolucao devolucao = new Devolucao();
 		Emprestimo emprestimo = new Emprestimo();
 				
-		emprestimo = emprestimoDao.getEmprestimoPorId(Integer.parseInt(req.getParameter("idEmprestimo")));
-		emprestimo.setSituacao(StatusEmprestimoEnum.ENCERRADO);				
-		emprestimo.setDtFim(LocalDateTime.now());	
+		emprestimo.setIdEmprestimo(Integer.parseInt(req.getParameter("idEmprestimo")));	
 		
 		devolucao.setEmprestimo(emprestimo);
 		devolucao.setDtDevolucao(LocalDate.now());		
@@ -42,7 +40,7 @@ public class SalvarDevolucao implements Logica{
 		Impressora impressora = impressoraDao.getImpressoraPorId(emprestimo.getImpressora().getIdImpressora());
 		impressora.setSituacao(StatusImpressoraEnum.DISPONIVEL);
 				
-		if (devolucaoDao.insert(devolucao) && emprestimoDao.update(devolucao.getEmprestimo()) && impressoraDao.update(impressora)) {
+		if (devolucaoDao.insert(devolucao) && impressoraDao.update(impressora)) {
 			req.setAttribute("confirmaDao", true);
 		}	
 		
