@@ -11,7 +11,6 @@ import br.com.militao.cmi.conexao.ConnectionFactory;
 import br.com.militao.cmi.modelo.ListaDeEspera;
 import br.com.militao.cmi.modelo.Loja;
 import br.com.militao.cmi.modelo.StatusListaDeEsperaEnum;
-import br.com.militao.cmi.util.FormatadorDeData;
 
 public class ListaDeEsperaDao implements GenericDao {
 
