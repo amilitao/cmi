@@ -1,5 +1,7 @@
 package br.com.militao.cmi.controle;
 
+import java.sql.Connection;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -15,11 +17,11 @@ public class LoadDashboard implements Logica {
 	public String executa(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 
 		Dashboard dashboard;
-
+		
 		HttpSession session = req.getSession();
 
 		if (session.getAttribute("dashboard") == null) {
-		
+
 			ComponenteCreator creator = new ComponenteCreator();
 			Componente painelStatus = creator.create(ComponenteCreator.PAINEL_STATUS);
 

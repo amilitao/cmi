@@ -18,10 +18,8 @@ import br.com.militao.cmi.modelo.Impressora;
 import br.com.militao.cmi.modelo.Loja;
 import br.com.militao.cmi.modelo.StatusImpressoraEnum;
 
-
-
 public class ImpressoraDao implements GenericDao {
-
+	
 	private boolean resultado;
 
 	public boolean delete(Object obj) {
@@ -166,5 +164,6 @@ public class ImpressoraDao implements GenericDao {
 
 		return listaDeImpressoras;
 	}
+
 
 }

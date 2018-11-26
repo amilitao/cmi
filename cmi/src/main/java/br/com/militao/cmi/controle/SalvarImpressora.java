@@ -1,5 +1,7 @@
 package br.com.militao.cmi.controle;
 
+import java.sql.Connection;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -15,13 +17,12 @@ public class SalvarImpressora implements Logica {
 
 	@Override
 	public String executa(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-
+				
 		HttpSession session = req.getSession();
 		Impressora impressora = new Impressora();
 		Loja loja = new Loja();
 		ImpressoraDao impDao = new ImpressoraDao();
-		LojaDao lojaDao = new LojaDao();
-		
+				
 		loja.setIdLoja(Integer.parseInt(req.getParameter("id_loja")));
 		impressora.setLoja(loja);
 		int numero_impressora = Integer.parseInt(req.getParameter("num_impressora"));		

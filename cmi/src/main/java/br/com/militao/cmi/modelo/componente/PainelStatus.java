@@ -76,4 +76,5 @@ public class PainelStatus implements Componente{
 	}
 
 	
+	
 }

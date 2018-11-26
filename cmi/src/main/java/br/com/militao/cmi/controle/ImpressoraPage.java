@@ -1,5 +1,7 @@
 package br.com.militao.cmi.controle;
 
+import java.sql.Connection;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -14,6 +16,7 @@ public class ImpressoraPage implements Logica {
 	@Override
 	public String executa(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		
+				
 		ImpressoraDao impDao = new ImpressoraDao();
 		LojaDao lojaDao = new LojaDao();
 		

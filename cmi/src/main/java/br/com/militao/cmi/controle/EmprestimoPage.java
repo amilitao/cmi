@@ -14,6 +14,7 @@ public class EmprestimoPage implements Logica{
 	@Override
 	public String executa(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		
+				
 		LojaDao lojaDao = new LojaDao();
 		ImpressoraDao impDao = new ImpressoraDao();
 		

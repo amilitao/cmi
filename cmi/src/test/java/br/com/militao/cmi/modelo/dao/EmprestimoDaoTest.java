@@ -34,7 +34,7 @@ class EmprestimoDaoTest {
 	
 	void criarEmprestimo() {
 		
-
+/**
 		EmprestimoDao dao = new EmprestimoDao();	
 		ImpressoraDao impDao = new ImpressoraDao();		
 		LojaDao lojaDao = new LojaDao();
@@ -47,7 +47,7 @@ class EmprestimoDaoTest {
 		impressora.setSituacao(StatusImpressoraEnum.EM_EMPRESTIMO);
 		
 		dao.insert(new Emprestimo(loja, impressora, "123"));
-		
+		**/
 	}
 
 }
