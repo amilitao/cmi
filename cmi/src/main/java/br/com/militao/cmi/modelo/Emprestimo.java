@@ -12,7 +12,7 @@ import br.com.militao.cmi.util.FormatadorDeData;
 
 
 
-public class Emprestimo {
+public class Emprestimo{
     
     private int idEmprestimo;
     private Loja loja;
