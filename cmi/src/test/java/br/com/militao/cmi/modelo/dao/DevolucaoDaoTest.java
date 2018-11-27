@@ -22,11 +22,7 @@ class DevolucaoDaoTest {
 
 	@Test
 	void insereDevolucaoTest() {
-		DevolucaoDao devDao = new DevolucaoDao();
-		Devolucao dev = new Devolucao(new Emprestimo(3, StatusEmprestimoEnum.ENCERRADO),
-				"123", "adriano");		
-		
-		devDao.insert(dev);
+		DevolucaoDao devDao = new DevolucaoDao();		
 				
 	}
 

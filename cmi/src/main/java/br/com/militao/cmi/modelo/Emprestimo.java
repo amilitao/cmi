@@ -24,20 +24,8 @@ public class Emprestimo {
     private String num_chamado;
     
     
-	public Emprestimo() {    	
-    }
-        
-	 public Emprestimo(int id, StatusEmprestimoEnum situacao) {  
-	    	this.idEmprestimo = id;
-	    	this.situacao = situacao;
-	    }
-   
-	 public Emprestimo(int id, StatusEmprestimoEnum situacao, LocalDateTime dtFim) {  
-	    	this.idEmprestimo = id;
-	    	this.situacao = situacao;
-	    	this.dtFim = dtFim;
-	    }
-   
+	public Emprestimo() { }       
+	
 
     public Emprestimo(Loja loja, Impressora impressora,  String num_chamado) {
 		this.loja = loja;

@@ -18,9 +18,13 @@ public class SalvarTransporte implements Logica{
 	public String executa(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		
 		HttpSession session = req.getSession();
-		Transporte transporte = new Transporte();				
+		Transporte transporte = new Transporte();
+		Emprestimo emprestimo = new Emprestimo();
+		
+		emprestimo.setIdEmprestimo(Integer.parseInt(req.getParameter("idEmprestimo")));
+		emprestimo.setSituacao(StatusEmprestimoEnum.ENVIADO);
 				
-		transporte.setEmprestimo(new Emprestimo(Integer.parseInt(req.getParameter("idEmprestimo")), StatusEmprestimoEnum.ENVIADO));
+		transporte.setEmprestimo(emprestimo);
 		transporte.setNomeTransportadora(req.getParameter("nomeTransportadora"));		 
 		transporte.setNumControle(req.getParameter("numControle"));		
 		transporte.setNumNfeEnvio(req.getParameter("nfeEnvio"));		
