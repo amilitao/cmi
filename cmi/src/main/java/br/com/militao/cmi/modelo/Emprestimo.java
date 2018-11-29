@@ -10,88 +10,87 @@ import java.time.LocalDateTime;
 
 import br.com.militao.cmi.util.FormatadorDeData;
 
+public class Emprestimo {
 
+	private int idEmprestimo;
+	private Loja loja;
+	private Impressora impressora;
+	private LocalDateTime dtInicio;
+	private LocalDateTime dtFim;
+	private LocalDate prazoDevolucao;
+	private StatusEmprestimoEnum situacao;
+	private String num_chamado;
 
-public class Emprestimo{
-    
-    private int idEmprestimo;
-    private Loja loja;
-    private Impressora impressora;
-    private LocalDateTime dtInicio;
-    private LocalDateTime dtFim;      
-   	private LocalDate prazoDevolucao;
-    private StatusEmprestimoEnum situacao;
-    private String num_chamado;
-    
-    
-	public Emprestimo() { }       
+	public Emprestimo() {
+	}
 	
+public Emprestimo(int id) {
+		this.idEmprestimo = id;
+	}
 
-    public Emprestimo(Loja loja, Impressora impressora,  String num_chamado) {
+	public Emprestimo(Loja loja, Impressora impressora, String num_chamado) {
 		this.loja = loja;
 		this.impressora = impressora;
-		this.dtInicio = LocalDateTime.now();		
+		this.dtInicio = LocalDateTime.now();
 		this.situacao = StatusEmprestimoEnum.EMISSAO_NFE;
-		this.num_chamado = num_chamado;	
+		this.num_chamado = num_chamado;
 		this.prazoDevolucao = calculaPrazoDevolucao();
-	}    
-    
+	}	
+
 
 	private LocalDate calculaPrazoDevolucao() {
 		LocalDate hoje = LocalDate.now();
 		return hoje.plusMonths(4);
-	}	
-		
+	}
 
 	public int getIdEmprestimo() {
-        return idEmprestimo;
-    }
+		return idEmprestimo;
+	}
 
-    public void setIdEmprestimo(int idEmprestimo) {
-        this.idEmprestimo = idEmprestimo;
-    }
+	public void setIdEmprestimo(int idEmprestimo) {
+		this.idEmprestimo = idEmprestimo;
+	}
 
-    public Loja getLoja() {
-        return loja;
-    }
+	public Loja getLoja() {
+		return loja;
+	}
 
-    public void setLoja(Loja loja) {
-        this.loja = loja;
-    }
+	public void setLoja(Loja loja) {
+		this.loja = loja;
+	}
 
-    public Impressora getImpressora() {
-        return impressora;
-    }
+	public Impressora getImpressora() {
+		return impressora;
+	}
 
-    public void setImpressora(Impressora impressora) {
-        this.impressora = impressora;
-    }      
-    
-    public LocalDateTime getDtFim() {
+	public void setImpressora(Impressora impressora) {
+		this.impressora = impressora;
+	}
+
+	public LocalDateTime getDtFim() {
 		return dtFim;
 	}
 
 	public void setDtFim(LocalDateTime dtFim) {
 		this.dtFim = dtFim;
 	}
-	
-	
+
 	public void setDtInicio(LocalDateTime dtInicio) {
 		this.dtInicio = dtInicio;
 	}
 
-	public LocalDateTime getDtInicio() {	
+	public LocalDateTime getDtInicio() {
 		return dtInicio;
 	}
-	
+
 	public String getDtInicioFormatada() {
 		return FormatadorDeData.formata(dtInicio);
 	}
-	
+
 	public String getDtFimFormatada() {
 		return FormatadorDeData.formata(dtFim);
-	}	
-	
+	}
+
 	public void setPrazoDevolucao(LocalDate prazoDevolucao) {
 		this.prazoDevolucao = prazoDevolucao;
 	}
@@ -99,14 +98,13 @@ public class Emprestimo{
 	public LocalDate getPrazoDevolucao() {
 		return prazoDevolucao;
 	}
-		
-	
+
 	public String getPrazoDevolucaoFormatada() {
 		return FormatadorDeData.formata(this.getPrazoDevolucao());
-	}	
+	}
 
-    public StatusEmprestimoEnum getSituacao() {    	
-		return situacao;		
+	public StatusEmprestimoEnum getSituacao() {
+		return situacao;
 	}
 
 	public void setSituacao(StatusEmprestimoEnum situacao) {
@@ -114,16 +112,11 @@ public class Emprestimo{
 	}
 
 	public String getNum_chamado() {
-        return num_chamado;
-    }
+		return num_chamado;
+	}
 
-    public void setNum_chamado(String num_chamado) {
-        this.num_chamado = num_chamado;
-    } 
-    
-   
-   
-    
-    
-    
+	public void setNum_chamado(String num_chamado) {
+		this.num_chamado = num_chamado;
+	}
+
 }

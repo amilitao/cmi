@@ -20,16 +20,14 @@ public class SalvarDevolucao implements Logica{
 	@Override
 	public String executa(HttpServletRequest req, HttpServletResponse resp) throws Exception {		
 		
-		HttpSession session = req.getSession();
 		DevolucaoDao devolucaoDao = new DevolucaoDao();	
 		ImpressoraDao impressoraDao = new ImpressoraDao();
 		
 		Devolucao devolucao = new Devolucao();
-		Emprestimo emprestimo = new Emprestimo();
-				
-		emprestimo.setIdEmprestimo(Integer.parseInt(req.getParameter("idEmprestimo")));	
+		Emprestimo emprestimo = new Emprestimo();		
 		
-		devolucao.setEmprestimo(emprestimo);
+		
+		devolucao.setEmprestimo(new Emprestimo(Integer.parseInt(req.getParameter("idEmprestimo"))));
 		devolucao.setDtDevolucao(LocalDate.now());		
 		devolucao.setNumNfeDevolucao(req.getParameter("numNfeDevolucao"));		 
 		devolucao.setRecebedor( req.getParameter("recebedor"));
@@ -42,6 +40,7 @@ public class SalvarDevolucao implements Logica{
 		}	
 		
 		// atualiza dashboard
+		HttpSession session = req.getSession();
 		session.setAttribute("dashboard", null);
 	
 		return new ListarEmprestimo().executa(req, resp);

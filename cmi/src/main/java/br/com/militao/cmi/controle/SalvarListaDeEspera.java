@@ -8,29 +8,23 @@ import br.com.militao.cmi.modelo.ListaDeEspera;
 import br.com.militao.cmi.modelo.Loja;
 import br.com.militao.cmi.modelo.StatusListaDeEsperaEnum;
 import br.com.militao.cmi.modelo.dao.ListaDeEsperaDao;
-import br.com.militao.cmi.modelo.dao.LojaDao;
 
 public class SalvarListaDeEspera implements Logica {
 
 	@Override
 	public String executa(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-
 		
-		HttpSession session = req.getSession();
-		ListaDeEsperaDao dao = new ListaDeEsperaDao();
-		ListaDeEspera lista = new ListaDeEspera();
-		LojaDao lojaDao = new LojaDao();
+		ListaDeEsperaDao listaDao = new ListaDeEsperaDao();
+		ListaDeEspera lista = new ListaDeEspera(new Loja(Integer.parseInt(req.getParameter("id_loja"))),
+				StatusListaDeEsperaEnum.AGUARDANDO);
 
-		Loja loja = lojaDao.getLojaPorId(Integer.parseInt(req.getParameter("id_loja")));
-		
-		lista.setLoja(loja);
-		lista.setStatus(StatusListaDeEsperaEnum.AGUARDANDO);
-
-		if (dao.insert(lista)) {
+		if (listaDao.insert(lista)) {
 
 			req.setAttribute("confirmaDao", true);
 		}
 
+		//Atualiza dashboard
+		HttpSession session = req.getSession();
 		session.setAttribute("dashboard", null);
 
 		return new ListaDeEsperaPage().executa(req, resp);

@@ -14,21 +14,18 @@ public class SalvarEmprestimo implements Logica {
 	@Override
 	public String executa(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 
-		HttpSession session = req.getSession();
 		EmprestimoDao empDao = new EmprestimoDao();
-		Impressora impressora = new Impressora();
-		Loja loja = new Loja();
 
-		loja.setIdLoja(Integer.parseInt(req.getParameter("id_loja")));
-		impressora.setIdImpressora(Integer.parseInt(req.getParameter("id_impressora")));
 		String numChamado = req.getParameter("num_chamado");
-		Emprestimo emprestimo = new Emprestimo(loja, impressora, numChamado);
+		Emprestimo emprestimo = new Emprestimo(new Loja(Integer.parseInt(req.getParameter("id_loja"))),
+				new Impressora(Integer.parseInt(req.getParameter("id_impressora"))), numChamado);
 
 		if (empDao.insert(emprestimo)) {
 			req.setAttribute("confirmaDao", true);
 		}
 
 		// atualiza dashboard
+		HttpSession session = req.getSession();
 		session.setAttribute("dashboard", null);
 
 		return new EmprestimoPage().executa(req, resp);

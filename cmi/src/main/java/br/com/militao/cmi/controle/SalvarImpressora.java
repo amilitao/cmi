@@ -14,24 +14,19 @@ public class SalvarImpressora implements Logica {
 
 	@Override
 	public String executa(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-
-		HttpSession session = req.getSession();
-		Impressora impressora = new Impressora();
-		Loja loja = new Loja();
-		ImpressoraDao impDao = new ImpressoraDao();	
 		
-		loja.setIdLoja(Integer.parseInt(req.getParameter("id_loja")));
-		impressora.setLoja(loja);
-		int numero_impressora = Integer.parseInt(req.getParameter("num_impressora"));		
-		impressora.setNumero(numero_impressora);
-		impressora.setModelo(req.getParameter("modelo"));
-		int numero_pip = Integer.parseInt(req.getParameter("pip"));
-		impressora.setPip(numero_pip);
+		Impressora impressora = new Impressora();
+		ImpressoraDao impDao = new ImpressoraDao();			
+		
+		impressora.setLoja(new Loja(Integer.parseInt(req.getParameter("id_loja"))));				
+		impressora.setNumero(Integer.parseInt(req.getParameter("num_impressora")));
+		impressora.setModelo(req.getParameter("modelo"));		
+		impressora.setPip(Integer.parseInt(req.getParameter("pip")));
 		impressora.setNumero_serie(req.getParameter("num_serie"));
 		impressora.setEstado(EstadoImpressoraEnum.valueOf(req.getParameter("estado")));		
 		impressora.setSituacao(StatusImpressoraEnum.valueOf(req.getParameter("situacao")));
 		
-		if (Integer.parseInt(req.getParameter("id_impressora")) != 0) {					
+		if (Integer.parseInt(req.getParameter("id_impressora")) != 0) {				
 			
 			impressora.setIdImpressora(Integer.parseInt(req.getParameter("id_impressora")));
 			impDao.update(impressora);
@@ -44,8 +39,8 @@ public class SalvarImpressora implements Logica {
 		}
 		
 		// atualiza dashboard
-		session.setAttribute("dashboard", null);
-		
+		HttpSession session = req.getSession();
+		session.setAttribute("dashboard", null);		
 
 		return new ImpressoraPage().executa(req, resp);
 	}
