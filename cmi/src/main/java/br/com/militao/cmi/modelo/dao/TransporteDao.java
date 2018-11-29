@@ -42,16 +42,15 @@ public class TransporteDao implements GenericDao{
 	@Override
 	public boolean update(Object obj) {
 		Transporte transporte = (Transporte) obj;
-		String sql = "update transporte set nome_transportadora=?, num_controle=?,"
+		String sql = "update transporte set nome_transportadora=?,"
 				+ " num_nfe_envio=? where id_transporte=?";
 
 		try (Connection con = new ConnectionFactory().getConnection();
 				PreparedStatement stmt = con.prepareStatement(sql)) {
 
-			stmt.setString(1, transporte.getNomeTransportadora());		
-			stmt.setString(2, transporte.getNumControle());
-			stmt.setString(3, transporte.getNumNfeEnvio());
-			stmt.setInt(4, transporte.getIdTransporte());
+			stmt.setString(1, transporte.getNomeTransportadora());				
+			stmt.setString(2, transporte.getNumNfeEnvio());
+			stmt.setInt(3, transporte.getIdTransporte());
 			
 
 			stmt.executeUpdate();
@@ -70,17 +69,16 @@ public class TransporteDao implements GenericDao{
 		Transporte transporte = (Transporte) obj;
 		
 		String sql = "insert into transporte (emprestimo_id_emprestimo, nome_transportadora, "
-				+ "num_controle, num_nfe_envio, dt_envio)" + " values (?,?,?,?,?)";
+				+ "num_nfe_envio, dt_envio)" + " values (?,?,?,?,?)";
 		
 		
 		try (Connection con = new ConnectionFactory().getConnection();
 				PreparedStatement stmt = con.prepareStatement(sql);) {
 
 			stmt.setInt(1, transporte.getEmprestimo().getIdEmprestimo());
-			stmt.setString(2, transporte.getNomeTransportadora());		
-			stmt.setString(3, transporte.getNumControle());
-			stmt.setString(4, transporte.getNumNfeEnvio());
-			stmt.setDate(5, FormatadorDeData.toDate(transporte.getDtEnvio()));
+			stmt.setString(2, transporte.getNomeTransportadora());				
+			stmt.setString(3, transporte.getNumNfeEnvio());
+			stmt.setDate(4, FormatadorDeData.toDate(transporte.getDtEnvio()));
 
 			stmt.executeUpdate();			
 
@@ -110,8 +108,7 @@ public class TransporteDao implements GenericDao{
 				transporte.setIdTransporte(rs.getInt("id_transporte"));
 				emprestimo.setIdEmprestimo(rs.getInt("emprestimo_id_emprestimo"));
 				transporte.setEmprestimo(emprestimo);
-				transporte.setNomeTransportadora(rs.getString("nome_transportadora"));			
-				transporte.setNumControle(rs.getString("num_controle"));
+				transporte.setNomeTransportadora(rs.getString("nome_transportadora"));					
 				transporte.setNumNfeEnvio(rs.getString("num_nfe_envio"));
 				transporte.setDtEnvio(FormatadorDeData.toLocalDate(rs.getDate("dt_envio")));
 
@@ -119,7 +116,7 @@ public class TransporteDao implements GenericDao{
 
 			}
 
-		} catch (SQLException | NullPointerException e) {
+		} catch (SQLException e) {
 
 			throw new RuntimeException("Erro ao importar dados de transporte!!!", e);
 		}

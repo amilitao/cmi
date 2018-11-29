@@ -173,8 +173,7 @@
 						<ul class="w3-ul w3-border w3-hover-shadow">
 							<li class="w3-large w3-center w3-text-white"
 								style="background: #f4ab43">Transporte</li>
-							<li>Transportadora: <b>${transporte.nomeTransportadora}</b></li>
-							<li>Número de controle: <b>${transporte.numControle}</b></li>
+							<li>Transportadora: <b>${transporte.nomeTransportadora}</b></li>							
 							<li>Número de NFe de envio: <b>${transporte.numNfeEnvio}</b></li>
 							<li>Data de envio: <b>${transporte.dtEnvioFormatada}</b></li>
 						</ul>

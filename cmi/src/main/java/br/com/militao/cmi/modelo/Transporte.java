@@ -8,20 +8,18 @@ public class Transporte {
 
 	private int idTransporte;
 	private Emprestimo emprestimo;
-	private String nomeTransportadora;
-	private String numControle;
+	private String nomeTransportadora;	
 	private String numNfeEnvio;
 	private LocalDate dtEnvio;
 
 	public Transporte() {
 	}
 
-	public Transporte(Emprestimo emprestimo, String nomeTransportadora, String numControle, String numNfeEnvio,
+	public Transporte(Emprestimo emprestimo, String nomeTransportadora, String numNfeEnvio,
 			LocalDate dtEnvio) {
 
 		this.emprestimo = emprestimo;
 		this.nomeTransportadora = nomeTransportadora;
-		this.numControle = numControle;
 		this.numNfeEnvio = numNfeEnvio;
 		this.dtEnvio = dtEnvio;
 	}
@@ -50,14 +48,7 @@ public class Transporte {
 		this.nomeTransportadora = nomeTransportadora;
 	}
 
-	public String getNumControle() {
-		return numControle;
-	}
-
-	public void setNumControle(String numControle) {
-		this.numControle = numControle;
-	}
-
+	
 	public String getNumNfeEnvio() {
 		return numNfeEnvio;
 	}

@@ -24,8 +24,7 @@ public class SalvarTransporte implements Logica{
 		emprestimo.setSituacao(StatusEmprestimoEnum.ENVIADO);
 				
 		transporte.setEmprestimo(emprestimo);
-		transporte.setNomeTransportadora(req.getParameter("nomeTransportadora"));		 
-		transporte.setNumControle(req.getParameter("numControle"));		
+		transporte.setNomeTransportadora(req.getParameter("nomeTransportadora"));				
 		transporte.setNumNfeEnvio(req.getParameter("nfeEnvio"));		
 		transporte.setDtEnvio(LocalDate.now());			
 		
