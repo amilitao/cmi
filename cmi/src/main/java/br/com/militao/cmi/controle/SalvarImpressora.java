@@ -9,7 +9,6 @@ import br.com.militao.cmi.modelo.Impressora;
 import br.com.militao.cmi.modelo.Loja;
 import br.com.militao.cmi.modelo.StatusImpressoraEnum;
 import br.com.militao.cmi.modelo.dao.ImpressoraDao;
-import br.com.militao.cmi.modelo.dao.LojaDao;
 
 public class SalvarImpressora implements Logica {
 
@@ -19,8 +18,7 @@ public class SalvarImpressora implements Logica {
 		HttpSession session = req.getSession();
 		Impressora impressora = new Impressora();
 		Loja loja = new Loja();
-		ImpressoraDao impDao = new ImpressoraDao();
-		LojaDao lojaDao = new LojaDao();
+		ImpressoraDao impDao = new ImpressoraDao();	
 		
 		loja.setIdLoja(Integer.parseInt(req.getParameter("id_loja")));
 		impressora.setLoja(loja);
