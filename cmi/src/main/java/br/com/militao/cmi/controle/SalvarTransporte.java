@@ -7,43 +7,32 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import br.com.militao.cmi.modelo.Emprestimo;
-import br.com.militao.cmi.modelo.StatusEmprestimoEnum;
 import br.com.militao.cmi.modelo.Transporte;
-import br.com.militao.cmi.modelo.dao.EmprestimoDao;
 import br.com.militao.cmi.modelo.dao.TransporteDao;
 
-public class SalvarTransporte implements Logica{
+public class SalvarTransporte implements Logica {
 
 	@Override
 	public String executa(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-				
-		Transporte transporte = new Transporte();
-		Emprestimo emprestimo = new Emprestimo();
-		
-		emprestimo.setIdEmprestimo(Integer.parseInt(req.getParameter("idEmprestimo")));
-		emprestimo.setSituacao(StatusEmprestimoEnum.ENVIADO);
-				
-		transporte.setEmprestimo(emprestimo);
-		transporte.setNomeTransportadora(req.getParameter("nomeTransportadora"));				
-		transporte.setNumNfeEnvio(req.getParameter("nfeEnvio"));		
-		transporte.setDtEnvio(LocalDate.now());			
-		
-		
-		EmprestimoDao emprestimoDao = new EmprestimoDao();
+
 		TransporteDao transporteDao = new TransporteDao();
-		
-		if (transporteDao.insert(transporte) && emprestimoDao.update(transporte.getEmprestimo())) {
-			
-			req.setAttribute("confirmaDao", true);		
-		}	
-		
+		Transporte transporte = new Transporte();
+
+		transporte.setEmprestimo(new Emprestimo(Integer.parseInt(req.getParameter("idEmprestimo"))));
+		transporte.setNomeTransportadora(req.getParameter("nomeTransportadora"));
+		transporte.setNumNfeEnvio(req.getParameter("nfeEnvio"));
+		transporte.setDtEnvio(LocalDate.now());
+
+		if (transporteDao.insert(transporte)) {
+
+			req.setAttribute("confirmaDao", true);
+		}
+
 		// atualiza dashboard
 		HttpSession session = req.getSession();
 		session.setAttribute("dashboard", null);
-		
+
 		return new ListarEmprestimo().executa(req, resp);
 	}
-	
-	
 
 }

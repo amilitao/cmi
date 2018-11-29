@@ -9,7 +9,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,19 +52,10 @@ public EmprestimoDao() {
 
 	@Override
 	public boolean update(Object obj) {
-		Emprestimo emprestimo = (Emprestimo) obj;		
-
-		String sql = "update emprestimo set situacao=?, dt_fim=? where id_emprestimo=?";
-
-		try (Connection con = new ConnectionFactory().getConnection();
-				PreparedStatement stmt = con.prepareStatement(sql);) {
-
-			stmt.setString(1, emprestimo.getSituacao().getDescricao());
-			stmt.setTimestamp(2, FormatadorDeData.toTimeStamp(emprestimo.getDtFim()));
-			stmt.setInt(3, emprestimo.getIdEmprestimo());
-
-			stmt.executeUpdate();
-			
+		//Não implementado
+		
+		Emprestimo emprestimo = (Emprestimo) obj;	
+					
 			String ocorrencia = "O status do emprestimo foi atualizado para: "
 			+ emprestimo.getSituacao().getDescricao();
 			
@@ -73,13 +63,7 @@ public EmprestimoDao() {
 			
 			resultado = true;
 
-		} catch (
-
-		SQLException e) {
-			resultado = false;
-			throw new RuntimeException(e);
-		}
-
+		
 		return resultado;
 	}
 
@@ -91,7 +75,7 @@ public EmprestimoDao() {
 				+ "num_chamado, situacao, dt_inicio, prazo_devolucao)" + "values (?,?,?,?,?,?)";
 
 		try (Connection con = new ConnectionFactory().getConnection();
-				PreparedStatement stmt = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);) {
+				PreparedStatement stmt = con.prepareStatement(sql);) {
 
 			stmt.setInt(1, emprestimo.getLoja().getIdLoja());
 			stmt.setInt(2, emprestimo.getImpressora().getIdImpressora());
@@ -101,23 +85,7 @@ public EmprestimoDao() {
 			stmt.setDate(6, FormatadorDeData.toDate(emprestimo.getPrazoDevolucao()));
 
 			stmt.executeUpdate();
-
-			ResultSet rs = stmt.getGeneratedKeys();
-
-			if (rs.next()) {
-				historicoDao = new HistoricoEmprestimoDao();
-				int idEmp = rs.getInt(1);
-
-				if (idEmp != 0) {
-					emprestimo.setIdEmprestimo(idEmp);
-					String ocorrencia = "O emprestimo numero " + idEmp + " foi criado";
-					historicoDao.insert(new HistoricoEmprestimo(emprestimo, ocorrencia));
-					
-					ocorrencia = "Aguardando emissão de Nota fiscal para envio";
-					historicoDao.insert(new HistoricoEmprestimo(emprestimo, ocorrencia));
-				}
-			}
-
+			
 			resultado = true;
 
 		} catch (SQLException e) {
