@@ -6,8 +6,13 @@ public class ListaDeEspera {
 	private Loja loja;
 	private StatusListaDeEsperaEnum status;
 	
+
 	public ListaDeEspera() {
-		this.status = StatusListaDeEsperaEnum.AGUARDANDO;
+	}
+
+	public ListaDeEspera(Loja loja, StatusListaDeEsperaEnum status) {
+		this.loja = loja;
+		this.status = status;
 	}
 
 	public int getId_reserva() {

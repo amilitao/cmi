@@ -25,7 +25,8 @@ public class LoadDashboard implements Logica {
 			ComponenteCreator creator = new ComponenteCreator();
 			Componente painelStatus = creator.create(ComponenteCreator.PAINEL_STATUS);
 
-			dashboard = new DashboardBuilder().comPainelStatus(painelStatus.criar()).geraDashboard();
+			dashboard = new DashboardBuilder().
+					comPainelStatus(painelStatus.criar()).geraDashboard();
 
 			session.setAttribute("dashboard", dashboard);
 

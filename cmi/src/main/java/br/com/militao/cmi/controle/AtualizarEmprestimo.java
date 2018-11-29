@@ -13,8 +13,7 @@ public class AtualizarEmprestimo implements Logica{
 
 	@Override
 	public String executa(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-		
-		HttpSession session = req.getSession();
+				
 		EmprestimoDao emprestimoDao = new EmprestimoDao();
 		Emprestimo emprestimo = new Emprestimo();		
 		
@@ -28,6 +27,7 @@ public class AtualizarEmprestimo implements Logica{
 		}	
 		
 		// atualiza dashboard
+		HttpSession session = req.getSession();
 		session.setAttribute("dashboard", null);
 		
 		return new ListarEmprestimo().executa(req, resp);
