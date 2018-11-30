@@ -19,7 +19,7 @@ public class AtualizarEmprestimo implements Logica{
 		
 		
 		emprestimo.setIdEmprestimo(Integer.parseInt(req.getParameter("idEmprestimo")));			
-		emprestimo.setSituacao(StatusEmprestimoEnum.valueOf(req.getParameter("situacao")));	
+		emprestimo.setSituacao(StatusEmprestimoEnum.getByDescricao(req.getParameter("situacao")));	
 		
 		
 		if(emprestimoDao.update(emprestimo)) {

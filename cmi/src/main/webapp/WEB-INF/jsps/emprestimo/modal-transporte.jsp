@@ -33,12 +33,12 @@
 					<div class="w3-col m3 w3-margin-bottom">
 						<label><i class="fa fa-calendar-o"></i> Número do
 							empréstimo</label> <input class="w3-input w3-border" type="text"
-							value="${param.idEmprestimo}" name="idEmprestimo" required>
+							value="${param.idEmprestimo}" name="idEmprestimo" readonly required>
 					</div>
 					<div class="w3-col m3 w3-margin-bottom">
 						<label><i class="fa fa-calendar-o"></i> Data de envio</label> <input
 							class="w3-input w3-border" type="text" value="<%=dataAtual%>"
-							name="dtEnvio" required>
+							name="dtEnvio" readonly required>
 					</div>
 					<div class="w3-col m3 w3-margin-bottom">
 						<label><i class="fa fa-calendar-o"></i> Nome da

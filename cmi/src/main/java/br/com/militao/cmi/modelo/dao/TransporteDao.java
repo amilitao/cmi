@@ -69,7 +69,7 @@ public class TransporteDao implements GenericDao{
 		Transporte transporte = (Transporte) obj;
 		
 		String sql = "insert into transporte (emprestimo_id_emprestimo, nome_transportadora, "
-				+ "num_nfe_envio, dt_envio)" + " values (?,?,?,?,?)";
+				+ "num_nfe_envio, dt_envio)" + " values (?,?,?,?)";
 		
 		
 		try (Connection con = new ConnectionFactory().getConnection();

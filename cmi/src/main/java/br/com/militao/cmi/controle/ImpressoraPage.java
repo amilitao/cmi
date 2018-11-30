@@ -1,7 +1,5 @@
 package br.com.militao.cmi.controle;
 
-import java.sql.Connection;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 

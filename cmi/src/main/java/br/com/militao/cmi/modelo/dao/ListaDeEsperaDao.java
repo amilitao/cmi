@@ -12,11 +12,10 @@ import br.com.militao.cmi.modelo.ListaDeEspera;
 import br.com.militao.cmi.modelo.Loja;
 import br.com.militao.cmi.modelo.StatusListaDeEsperaEnum;
 
-
 public class ListaDeEsperaDao implements GenericDao {
 
 	private boolean resultado;
-	
+
 	@Override
 	public boolean delete(Object obj) {
 		// TODO Auto-generated method stub
@@ -32,19 +31,16 @@ public class ListaDeEsperaDao implements GenericDao {
 	@Override
 	public boolean insert(Object obj) {
 		ListaDeEspera lista = (ListaDeEspera) obj;
-		
-		String sql = "insert into lista_de_espera"
-				+ "(loja_id_loja, situacao) values (?,?)";
-		
-		
+
+		String sql = "insert into lista_de_espera" + "(loja_id_loja, situacao) values (?,?)";
+
 		try (Connection con = new ConnectionFactory().getConnection();
 				PreparedStatement stmt = con.prepareStatement(sql);) {
 
 			stmt.setInt(1, lista.getLoja().getIdLoja());
-			stmt.setString(2, lista.getStatus().getDescricao());		
-			
+			stmt.setString(2, lista.getStatus().getDescricao());
 
-			stmt.executeUpdate();			
+			stmt.executeUpdate();
 
 			resultado = true;
 
@@ -58,9 +54,9 @@ public class ListaDeEsperaDao implements GenericDao {
 	@Override
 	public List<Object> getList() {
 		List<Object> lista = new ArrayList<>();
-		String sql = "select lista.id_reserva, lo.numero_loja, lo.nome, lista.situacao "
-			+ "from lista_de_espera lista "
-			+ "inner join loja lo where lista.loja_id_loja = lo.id_loja and lista.situacao = 'aguardando' ";
+		String sql = "select lista.id_reserva, lo.numero_loja, lo.nome, lista.situacao from lista_de_espera lista "
+				+ "inner join loja lo where lista.loja_id_loja = lo.id_loja and lista.situacao = 'aguardando' "
+				+ "order by id_historico_emprestimo desc";
 
 		try (Connection con = new ConnectionFactory().getConnection();
 				PreparedStatement stmt = con.prepareStatement(sql);
@@ -73,7 +69,7 @@ public class ListaDeEsperaDao implements GenericDao {
 
 				listaDeEspera.setId_reserva(rs.getInt("id_reserva"));
 				loja.setNumero_loja(rs.getInt("numero_loja"));
-				loja.setNome(rs.getString("nome"));				
+				loja.setNome(rs.getString("nome"));
 				listaDeEspera.setLoja(loja);
 				listaDeEspera.setStatus(StatusListaDeEsperaEnum.getByDescricao(rs.getString("situacao")));
 

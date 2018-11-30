@@ -14,21 +14,16 @@ import java.util.List;
 
 import br.com.militao.cmi.conexao.ConnectionFactory;
 import br.com.militao.cmi.modelo.Emprestimo;
-import br.com.militao.cmi.modelo.HistoricoEmprestimo;
 import br.com.militao.cmi.modelo.Impressora;
 import br.com.militao.cmi.modelo.Loja;
 import br.com.militao.cmi.modelo.StatusEmprestimoEnum;
 import br.com.militao.cmi.util.FormatadorDeData;
 
-
 public class EmprestimoDao implements GenericDao {
 
 	private boolean resultado;
-	private HistoricoEmprestimoDao historicoDao;
+
 	
-public EmprestimoDao() {
-	historicoDao = new HistoricoEmprestimoDao();
-}	
 
 	@Override
 	public boolean delete(Object obj) {
@@ -52,18 +47,25 @@ public EmprestimoDao() {
 
 	@Override
 	public boolean update(Object obj) {
-		//Não implementado
 		
 		Emprestimo emprestimo = (Emprestimo) obj;	
-					
-			String ocorrencia = "O status do emprestimo foi atualizado para: "
-			+ emprestimo.getSituacao().getDescricao();
-			
-			historicoDao.insert(new HistoricoEmprestimo(emprestimo, ocorrencia));
-			
+
+		String sql = "update emprestimo set situacao=? where id_emprestimo=?";
+
+		try (Connection con = new ConnectionFactory().getConnection();
+				PreparedStatement stmt = con.prepareStatement(sql)) {
+		
+			stmt.setString(1, emprestimo.getSituacao().getDescricao());		
+			stmt.setInt(2, emprestimo.getIdEmprestimo());
+
+			stmt.executeUpdate();
+
 			resultado = true;
 
-		
+		} catch (SQLException e) {
+			resultado = false;
+			throw new RuntimeException("Erro ao atualizar emprestimo!!!" + e);
+		}
 		return resultado;
 	}
 
@@ -71,8 +73,8 @@ public EmprestimoDao() {
 	public boolean insert(Object obj) {
 		Emprestimo emprestimo = (Emprestimo) obj;
 
-		String sql = "insert into emprestimo " + "(loja_id_loja,impressora_id_impressora,"
-				+ "num_chamado, situacao, dt_inicio, prazo_devolucao)" + "values (?,?,?,?,?,?)";
+		String sql = "insert into emprestimo (loja_id_loja,impressora_id_impressora,"
+				+ "num_chamado, situacao, dt_inicio, prazo_devolucao) values (?,?,?,?,?,?)";
 
 		try (Connection con = new ConnectionFactory().getConnection();
 				PreparedStatement stmt = con.prepareStatement(sql);) {
@@ -85,7 +87,7 @@ public EmprestimoDao() {
 			stmt.setDate(6, FormatadorDeData.toDate(emprestimo.getPrazoDevolucao()));
 
 			stmt.executeUpdate();
-			
+
 			resultado = true;
 
 		} catch (SQLException e) {
@@ -103,7 +105,7 @@ public EmprestimoDao() {
 		String sql = "select e.id_emprestimo, e.dt_inicio, l.id_loja, l.numero_loja, l.nome, l.cnpj, i.id_impressora, "
 				+ "i.numero, i.modelo,  e.num_chamado, e.situacao, e.prazo_devolucao, dt_fim from emprestimo e\n"
 				+ "join loja l on e.loja_id_loja = l.id_loja \n"
-				+ "join impressora i on e.impressora_id_impressora = i.id_impressora " + "order by id_emprestimo desc;";
+				+ "join impressora i on e.impressora_id_impressora = i.id_impressora order by id_emprestimo desc;";
 
 		try (Connection con = new ConnectionFactory().getConnection();
 				PreparedStatement stmt = con.prepareStatement(sql);
@@ -142,7 +144,7 @@ public EmprestimoDao() {
 		return objEmprestimos;
 
 	}
-	
+
 	public Emprestimo getEmprestimoPorId(int id) {
 		Emprestimo emprestimoProcurado = new Emprestimo();
 		List<Object> emprestimos = this.getList();
