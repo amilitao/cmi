@@ -29,16 +29,16 @@ public class SalvarLoja implements Logica {
 
 			loja.setIdLoja(Integer.parseInt(req.getParameter("id_loja")));
 
-			dao.update(loja);			
+			dao.update(loja);
 
 		} else {
 
-			dao.insert(loja);				
+			dao.insert(loja);
 
 		}
-		
-		HttpSession session = req.getSession();		
-		
+
+		HttpSession session = req.getSession();
+
 		req.setAttribute("confirmaDao", true);
 		session.setAttribute("dashboard", null);
 
