@@ -11,7 +11,7 @@ import br.com.militao.cmi.modelo.dao.LojaDao;
 public class SalvarLoja implements Logica {
 
 	@Override
-	public String executa(HttpServletRequest req, HttpServletResponse resp){
+	public String executa(HttpServletRequest req, HttpServletResponse resp) {
 
 		LojaDao dao = new LojaDao();
 		Loja loja = new Loja();
@@ -29,23 +29,18 @@ public class SalvarLoja implements Logica {
 
 			loja.setIdLoja(Integer.parseInt(req.getParameter("id_loja")));
 
-			if (dao.update(loja)) {
-
-				HttpSession session = req.getSession();
-
-				req.setAttribute("confirmaDao", true);
-				session.setAttribute("dashboard", null);
-			}
+			dao.update(loja);			
 
 		} else {
 
-			if (dao.insert(loja)) {
-				HttpSession session = req.getSession();
+			dao.insert(loja);				
 
-				req.setAttribute("confirmaDao", true);
-				session.setAttribute("dashboard", null);
-			}
 		}
+		
+		HttpSession session = req.getSession();		
+		
+		req.setAttribute("confirmaDao", true);
+		session.setAttribute("dashboard", null);
 
 		return new LojaPage().executa(req, resp);
 	}

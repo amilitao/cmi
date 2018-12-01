@@ -12,13 +12,10 @@ import br.com.militao.cmi.modelo.Devolucao;
 import br.com.militao.cmi.modelo.Emprestimo;
 import br.com.militao.cmi.util.FormatadorDeData;
 
-public class DevolucaoDao implements GenericDao {
+public class DevolucaoDao {
 
-	private boolean resultado;	
-	
-	@Override
-	public boolean delete(Object obj) {
-		Devolucao devolucao = (Devolucao) obj;
+	public void delete(Devolucao devolucao) {
+
 		String sql = "delete from devolucao where id_devolucao=?";
 
 		try (Connection con = new ConnectionFactory().getConnection();
@@ -28,21 +25,17 @@ public class DevolucaoDao implements GenericDao {
 
 			stmt.executeUpdate();
 
-			resultado = true;
-
 		} catch (SQLException e) {
-			resultado = false;
+
 			throw new RuntimeException(e);
 		}
 
-		return resultado;
 	}
 
-	@Override
-	public boolean update(Object obj) {
-		Devolucao devolucao = (Devolucao) obj;
-		String sql = "update devolucao set emprestimo_id_emprestimo=?, dt_devolucao=?," 
-		+ "num_nfe_devolucao=?, recebedor=? where id_devolucao=?";
+	public void update(Devolucao devolucao) {
+
+		String sql = "update devolucao set emprestimo_id_emprestimo=?, dt_devolucao=?,"
+				+ "num_nfe_devolucao=?, recebedor=? where id_devolucao=?";
 
 		try (Connection con = new ConnectionFactory().getConnection();
 				PreparedStatement stmt = con.prepareStatement(sql)) {
@@ -55,20 +48,17 @@ public class DevolucaoDao implements GenericDao {
 
 			stmt.executeUpdate();
 
-			resultado = true;
-
 		} catch (SQLException e) {
-			resultado = false;
+
 			throw new RuntimeException(e);
 		}
-		return resultado;
+
 	}
 
-	@Override
-	public boolean insert(Object obj) {
-		Devolucao devolucao = (Devolucao) obj;
+	public void insert(Devolucao devolucao) {
+
 		String sql = "insert into devolucao (emprestimo_id_emprestimo, dt_devolucao,"
-		+ " num_nfe_devolucao, recebedor) values (?,?,?,?)";
+				+ " num_nfe_devolucao, recebedor) values (?,?,?,?)";
 
 		try (Connection con = new ConnectionFactory().getConnection();
 				PreparedStatement stmt = con.prepareStatement(sql);) {
@@ -78,22 +68,17 @@ public class DevolucaoDao implements GenericDao {
 			stmt.setString(3, devolucao.getNumNfeDevolucao());
 			stmt.setString(4, devolucao.getRecebedor());
 
-			stmt.executeUpdate();			
-			
-			resultado = true;
+			stmt.executeUpdate();
 
 		} catch (SQLException e) {
-			resultado = false;
+
 			throw new RuntimeException(e);
 		}
-		return resultado;
 
-		
 	}
 
-	@Override
-	public List<Object> getList() {
-		List<Object> objDevolucao = new ArrayList<>();
+	public List<Devolucao> getList() {
+		List<Devolucao> devolucoes = new ArrayList<>();
 		String sql = "select * from devolucao";
 
 		try (Connection con = new ConnectionFactory().getConnection();
@@ -104,15 +89,15 @@ public class DevolucaoDao implements GenericDao {
 			while (rs.next()) {
 				Devolucao devolucao = new Devolucao();
 				Emprestimo emprestimo = new Emprestimo();
-				
+
 				devolucao.setIdDevolucao(rs.getInt("id_devolucao"));
 				emprestimo.setIdEmprestimo(rs.getInt("emprestimo_id_emprestimo"));
 				devolucao.setEmprestimo(emprestimo);
 				devolucao.setDtDevolucao(FormatadorDeData.toLocalDate(rs.getDate("dt_devolucao")));
 				devolucao.setNumNfeDevolucao(rs.getString("num_nfe_devolucao"));
-				devolucao.setRecebedor(rs.getString("recebedor"));			
+				devolucao.setRecebedor(rs.getString("recebedor"));
 
-				objDevolucao.add(devolucao);
+				devolucoes.add(devolucao);
 
 			}
 
@@ -121,9 +106,8 @@ public class DevolucaoDao implements GenericDao {
 			throw new RuntimeException("Erro ao importar dados de Devolucao!!!", e);
 		}
 
-		return objDevolucao;
+		return devolucoes;
 
-	}	
-
+	}
 
 }

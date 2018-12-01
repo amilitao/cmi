@@ -12,14 +12,10 @@ import br.com.militao.cmi.modelo.Emprestimo;
 import br.com.militao.cmi.modelo.Transporte;
 import br.com.militao.cmi.util.FormatadorDeData;
 
-public class TransporteDao implements GenericDao{
+public class TransporteDao {
 
-	private boolean resultado;
-	
-	
-	@Override
-	public boolean delete(Object obj) {
-		Transporte transporte = (Transporte) obj;
+	public void delete(Transporte transporte) {
+
 		String sql = "delete from transporte where id_transporte=?";
 
 		try (Connection con = new ConnectionFactory().getConnection();
@@ -29,71 +25,59 @@ public class TransporteDao implements GenericDao{
 
 			stmt.executeUpdate();
 
-			resultado = true;
-
 		} catch (SQLException e) {
-			resultado = false;
+
 			throw new RuntimeException(e);
 		}
 
-		return resultado;
 	}
 
-	@Override
-	public boolean update(Object obj) {
-		Transporte transporte = (Transporte) obj;
-		String sql = "update transporte set nome_transportadora=?,"
-				+ " num_nfe_envio=? where id_transporte=?";
+	public void update(Transporte transporte) {
+
+		String sql = "update transporte set nome_transportadora=?," + " num_nfe_envio=? where id_transporte=?";
 
 		try (Connection con = new ConnectionFactory().getConnection();
 				PreparedStatement stmt = con.prepareStatement(sql)) {
 
-			stmt.setString(1, transporte.getNomeTransportadora());				
+			stmt.setString(1, transporte.getNomeTransportadora());
 			stmt.setString(2, transporte.getNumNfeEnvio());
 			stmt.setInt(3, transporte.getIdTransporte());
-			
 
 			stmt.executeUpdate();
 
-			resultado = true;
-
 		} catch (SQLException e) {
-			resultado = false;
+
 			throw new RuntimeException(e);
 		}
-		return resultado;
+
 	}
 
-	@Override
-	public boolean insert(Object obj) {
-		Transporte transporte = (Transporte) obj;
-		
+	public void insert(Transporte transporte) {
+
 		String sql = "insert into transporte (emprestimo_id_emprestimo, nome_transportadora, "
 				+ "num_nfe_envio, dt_envio)" + " values (?,?,?,?)";
-		
-		
+
 		try (Connection con = new ConnectionFactory().getConnection();
 				PreparedStatement stmt = con.prepareStatement(sql);) {
 
 			stmt.setInt(1, transporte.getEmprestimo().getIdEmprestimo());
-			stmt.setString(2, transporte.getNomeTransportadora());				
+			stmt.setString(2, transporte.getNomeTransportadora());
 			stmt.setString(3, transporte.getNumNfeEnvio());
 			stmt.setDate(4, FormatadorDeData.toDate(transporte.getDtEnvio()));
 
-			stmt.executeUpdate();			
-
-			resultado = true;
+			stmt.executeUpdate();
 
 		} catch (SQLException e) {
-			resultado = false;
+
 			throw new RuntimeException(e);
 		}
-		return resultado;
+
 	}
 
-	@Override
-	public List<Object> getList() {
-		List<Object> transportes = new ArrayList<>();
+	public List<Transporte> getList() {
+		
+		List<Transporte> transportes = new ArrayList<>();
+
 		String sql = "select * from transporte";
 
 		try (Connection con = new ConnectionFactory().getConnection();
@@ -108,7 +92,7 @@ public class TransporteDao implements GenericDao{
 				transporte.setIdTransporte(rs.getInt("id_transporte"));
 				emprestimo.setIdEmprestimo(rs.getInt("emprestimo_id_emprestimo"));
 				transporte.setEmprestimo(emprestimo);
-				transporte.setNomeTransportadora(rs.getString("nome_transportadora"));					
+				transporte.setNomeTransportadora(rs.getString("nome_transportadora"));
 				transporte.setNumNfeEnvio(rs.getString("num_nfe_envio"));
 				transporte.setDtEnvio(FormatadorDeData.toLocalDate(rs.getDate("dt_envio")));
 

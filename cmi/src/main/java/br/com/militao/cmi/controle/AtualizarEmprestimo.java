@@ -11,7 +11,7 @@ import br.com.militao.cmi.modelo.dao.EmprestimoDao;
 public class AtualizarEmprestimo implements Logica {
 
 	@Override
-	public String executa(HttpServletRequest req, HttpServletResponse resp){
+	public String executa(HttpServletRequest req, HttpServletResponse resp) {
 
 		EmprestimoDao emprestimoDao = new EmprestimoDao();
 		Emprestimo emprestimo = new Emprestimo();
@@ -19,9 +19,9 @@ public class AtualizarEmprestimo implements Logica {
 		emprestimo.setIdEmprestimo(Integer.parseInt(req.getParameter("idEmprestimo")));
 		emprestimo.setSituacao(StatusEmprestimoEnum.getByDescricao(req.getParameter("situacao")));
 
-		if (emprestimoDao.update(emprestimo)) {
-			req.setAttribute("confirmaDao", true);
-		}
+		emprestimoDao.update(emprestimo);
+		
+		req.setAttribute("confirmaDao", true);
 
 		// atualiza dashboard
 		HttpSession session = req.getSession();

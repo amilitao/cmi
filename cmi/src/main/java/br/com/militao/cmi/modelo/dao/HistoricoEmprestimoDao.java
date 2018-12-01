@@ -12,25 +12,9 @@ import br.com.militao.cmi.modelo.Emprestimo;
 import br.com.militao.cmi.modelo.HistoricoEmprestimo;
 import br.com.militao.cmi.util.FormatadorDeData;
 
+public class HistoricoEmprestimoDao {
 
-public class HistoricoEmprestimoDao implements GenericDao{
-	private boolean resultado;
-	
-	@Override
-	public boolean delete(Object obj) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean update(Object obj) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean insert(Object obj) {
-		HistoricoEmprestimo historico = (HistoricoEmprestimo) obj;
+	public void insert(HistoricoEmprestimo historico) {
 
 		String sql = "insert into historico_emprestimo (emprestimo_id_emprestimo, ocorrencia, dt_ocorrencia)"
 				+ " values (?,?,?)";
@@ -41,21 +25,19 @@ public class HistoricoEmprestimoDao implements GenericDao{
 			stmt.setInt(1, historico.getEmprestimo().getIdEmprestimo());
 			stmt.setString(2, historico.getOcorrencia());
 			stmt.setTimestamp(3, FormatadorDeData.toTimeStamp(historico.getDt_ocorrencia()));
-						
+
 			stmt.executeUpdate();
-			resultado = true;
 
 		} catch (SQLException e) {
-			resultado = false;
+
 			throw new RuntimeException("Erro ao gravar historico de emprestimo " + e);
 		}
 
-		return resultado;
 	}
 
-	@Override
-	public List<Object> getList() {
-		List<Object> historicos = new ArrayList<>();
+	public List<HistoricoEmprestimo> getList() {
+		List<HistoricoEmprestimo> historicos = new ArrayList<>();
+
 		String sql = "select * from historico_emprestimo order by id_historico_emprestimo desc";
 
 		try (Connection con = new ConnectionFactory().getConnection();
@@ -64,14 +46,14 @@ public class HistoricoEmprestimoDao implements GenericDao{
 				ResultSet rs = stmt.executeQuery();) {
 
 			while (rs.next()) {
-				HistoricoEmprestimo ocorrencia = new HistoricoEmprestimo();	
+				HistoricoEmprestimo ocorrencia = new HistoricoEmprestimo();
 				Emprestimo emprestimo = new Emprestimo();
-				
+
 				ocorrencia.setIdHistoricoEmprestimo(rs.getInt("id_historico_emprestimo"));
-				emprestimo.setIdEmprestimo(rs.getInt("emprestimo_id_emprestimo"));				
-				ocorrencia.setEmprestimo(emprestimo);		
+				emprestimo.setIdEmprestimo(rs.getInt("emprestimo_id_emprestimo"));
+				ocorrencia.setEmprestimo(emprestimo);
 				ocorrencia.setOcorrencia(rs.getString("ocorrencia"));
-				
+
 				historicos.add(ocorrencia);
 
 			}
@@ -84,7 +66,5 @@ public class HistoricoEmprestimoDao implements GenericDao{
 		return historicos;
 
 	}
-	
-	
 
 }

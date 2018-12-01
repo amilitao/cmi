@@ -13,7 +13,7 @@ import br.com.militao.cmi.modelo.dao.DevolucaoDao;
 public class SalvarDevolucao implements Logica {
 
 	@Override
-	public String executa(HttpServletRequest req, HttpServletResponse resp){
+	public String executa(HttpServletRequest req, HttpServletResponse resp) {
 
 		DevolucaoDao devolucaoDao = new DevolucaoDao();
 		Devolucao devolucao = new Devolucao();
@@ -23,10 +23,10 @@ public class SalvarDevolucao implements Logica {
 		devolucao.setNumNfeDevolucao(req.getParameter("numNfeDevolucao"));
 		devolucao.setRecebedor(req.getParameter("recebedor"));
 
-		if (devolucaoDao.insert(devolucao)) {
-			req.setAttribute("confirmaDao", true);
-		}
+		devolucaoDao.insert(devolucao);
 
+		req.setAttribute("confirmaDao", true);
+		
 		// atualiza dashboard
 		HttpSession session = req.getSession();
 		session.setAttribute("dashboard", null);

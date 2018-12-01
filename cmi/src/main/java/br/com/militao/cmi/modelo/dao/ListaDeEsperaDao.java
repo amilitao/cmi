@@ -12,26 +12,11 @@ import br.com.militao.cmi.modelo.ListaDeEspera;
 import br.com.militao.cmi.modelo.Loja;
 import br.com.militao.cmi.modelo.StatusListaDeEsperaEnum;
 
-public class ListaDeEsperaDao implements GenericDao {
+public class ListaDeEsperaDao{
 	
-	private boolean resultado;
-
-	@Override
-	public boolean delete(Object obj) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean update(Object obj) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean insert(Object obj) {
-		ListaDeEspera lista = (ListaDeEspera) obj;
-
+	
+	public void insert(ListaDeEspera lista) {
+	
 		String sql = "insert into lista_de_espera" + "(loja_id_loja, situacao) values (?,?)";
 
 		try (Connection con = new ConnectionFactory().getConnection();
@@ -42,18 +27,17 @@ public class ListaDeEsperaDao implements GenericDao {
 
 			stmt.executeUpdate();
 
-			resultado = true;
 
 		} catch (SQLException e) {
-			resultado = false;
+	
 			throw new RuntimeException("Erro ao salvar em lista de espera" + e);
 		}
-		return resultado;
+
 	}
 
-	@Override
-	public List<Object> getList() {
-		List<Object> lista = new ArrayList<>();
+
+	public List<ListaDeEspera> getList() {
+		List<ListaDeEspera> lista = new ArrayList<>();
 		
 		String sql = "select lista.id_reserva, lo.numero_loja, lo.nome, lista.situacao from lista_de_espera lista "
 				+ "inner join loja lo where lista.loja_id_loja = lo.id_loja and lista.situacao = 'aguardando' ";

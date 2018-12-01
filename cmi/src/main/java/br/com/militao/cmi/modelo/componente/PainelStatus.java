@@ -14,7 +14,7 @@ public class PainelStatus implements Componente{
 	private int qtdDefeito;
 	private int qtdLocadaRegional;
 	private ImpressoraDao dao;
-	private List<Object> impressoras;
+	private List<Impressora> impressoras;
 
 	public PainelStatus() {
 		this.qtdDisponivel = 0;
@@ -52,9 +52,7 @@ public class PainelStatus implements Componente{
 		
 		impressoras = dao.getList();
 		
-		for (Object imp : impressoras) {
-
-			Impressora impressora = (Impressora) imp;			
+		for (Impressora impressora : impressoras) {			
 			
 			if(impressora.getSituacao() == StatusImpressoraEnum.DISPONIVEL) {
 				qtdDisponivel++;

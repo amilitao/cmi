@@ -20,12 +20,11 @@ import br.com.militao.cmi.modelo.Regional;
  *
  * @author Adriano
  */
-public class LojaDao implements GenericDao {
+public class LojaDao {
 
-	private boolean resultado;
 
-	public boolean delete(Object obj) {
-		Loja loja = (Loja) obj;
+	public void delete(Loja loja) {
+	
 		String sql = "delete from loja where numero_loja=?";
 
 		try (Connection con = new ConnectionFactory().getConnection();
@@ -33,20 +32,17 @@ public class LojaDao implements GenericDao {
 
 			stmt.setInt(1, loja.getNumero_loja());
 
-			stmt.executeUpdate();
-
-			resultado = true;
+			stmt.executeUpdate();		
 
 		} catch (SQLException e) {
-			resultado = false;
+
 			throw new RuntimeException(e);
 		}
 
-		return resultado;
 	}
 
-	public boolean update(Object obj) {
-		Loja loja = (Loja) obj;
+	public void update(Loja loja) {
+	
 		String sql = "update loja set numero_loja=?, nome=?," + "cnpj=?, telefone=?, endereco=? where id_loja=?";
 
 		try (Connection con = new ConnectionFactory().getConnection();
@@ -61,17 +57,14 @@ public class LojaDao implements GenericDao {
 
 			stmt.executeUpdate();
 
-			resultado = true;
-
 		} catch (SQLException e) {
-			resultado = false;
+
 			throw new RuntimeException(e);
 		}
-		return resultado;
+
 	}
 
-	public boolean insert(Object obj) {
-		Loja loja = (Loja) obj;
+	public void insert(Loja loja) {		
 
 		String sql = "insert into loja (regional_id_regional, numero_loja, nome, cnpj, telefone, endereco)"
 				+ " values (?,?,?,?,?,?)";
@@ -88,18 +81,18 @@ public class LojaDao implements GenericDao {
 
 			stmt.executeUpdate();
 
-			resultado = true;
 
 		} catch (SQLException e) {
-			resultado = false;
+
 			throw new RuntimeException(e);
 		}
-		return resultado;
+
 	}
 
-	public List<Object> getList() {
+	public List<Loja> getList() {
 
-		List<Object> objLojas = new ArrayList<>();
+		List<Loja> lojas = new ArrayList<>();
+		
 		String sql = "select * from loja inner join regional where regional_id_regional = id_regional";
 
 		try (Connection con = new ConnectionFactory().getConnection();
@@ -122,7 +115,7 @@ public class LojaDao implements GenericDao {
 				loja.setTelefone(rs.getString("telefone"));
 				loja.setEndereco(rs.getString("endereco"));
 
-				objLojas.add(loja);
+				lojas.add(loja);
 
 			}
 
@@ -131,16 +124,16 @@ public class LojaDao implements GenericDao {
 			throw new RuntimeException("Erro ao importar dados de Loja!!!", e);
 		}
 
-		return objLojas;
+		return lojas;
 
 	}
 
 	public Loja getLojaPorId(int id) {
 		Loja lojaProcurada = new Loja();
-		List<Object> lojas = this.getList();
+		List<Loja> lojas = this.getList();
 
-		for (Object loj : lojas) {
-			Loja loja = (Loja) loj;
+		for (Loja loja : lojas) {
+	
 			if (loja.getIdLoja() == id) {
 				lojaProcurada = loja;
 			}

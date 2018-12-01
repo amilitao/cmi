@@ -13,17 +13,16 @@ public class SalvarListaDeEspera implements Logica {
 
 	@Override
 	public String executa(HttpServletRequest req, HttpServletResponse resp) {
-		
+
 		ListaDeEsperaDao listaDao = new ListaDeEsperaDao();
 		ListaDeEspera lista = new ListaDeEspera(new Loja(Integer.parseInt(req.getParameter("id_loja"))),
 				StatusListaDeEsperaEnum.AGUARDANDO);
 
-		if (listaDao.insert(lista)) {
+		listaDao.insert(lista);
 
-			req.setAttribute("confirmaDao", true);
-		}
+		req.setAttribute("confirmaDao", true);
 
-		//Atualiza dashboard
+		// Atualiza dashboard
 		HttpSession session = req.getSession();
 		session.setAttribute("dashboard", null);
 

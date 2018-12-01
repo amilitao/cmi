@@ -19,15 +19,10 @@ import br.com.militao.cmi.modelo.Loja;
 import br.com.militao.cmi.modelo.StatusEmprestimoEnum;
 import br.com.militao.cmi.util.FormatadorDeData;
 
-public class EmprestimoDao implements GenericDao {
+public class EmprestimoDao {
 
-	private boolean resultado;
+	public void delete(Emprestimo emprestimo) {
 
-	
-
-	@Override
-	public boolean delete(Object obj) {
-		Emprestimo emprestimo = (Emprestimo) obj;
 		String sql = "delete from emprestimo where id_emprestimo=?";
 
 		try (Connection con = new ConnectionFactory().getConnection();
@@ -35,43 +30,34 @@ public class EmprestimoDao implements GenericDao {
 
 			stmt.setInt(1, emprestimo.getIdEmprestimo());
 			stmt.executeUpdate();
-			resultado = true;
 
 		} catch (SQLException e) {
-			resultado = false;
+
 			throw new RuntimeException(e);
 		}
 
-		return resultado;
 	}
 
-	@Override
-	public boolean update(Object obj) {
-		
-		Emprestimo emprestimo = (Emprestimo) obj;	
+	public void update(Emprestimo emprestimo) {
 
 		String sql = "update emprestimo set situacao=? where id_emprestimo=?";
 
 		try (Connection con = new ConnectionFactory().getConnection();
 				PreparedStatement stmt = con.prepareStatement(sql)) {
-		
-			stmt.setString(1, emprestimo.getSituacao().getDescricao());		
+
+			stmt.setString(1, emprestimo.getSituacao().getDescricao());
 			stmt.setInt(2, emprestimo.getIdEmprestimo());
 
 			stmt.executeUpdate();
 
-			resultado = true;
-
 		} catch (SQLException e) {
-			resultado = false;
+
 			throw new RuntimeException("Erro ao atualizar emprestimo!!!" + e);
 		}
-		return resultado;
+
 	}
 
-	@Override
-	public boolean insert(Object obj) {
-		Emprestimo emprestimo = (Emprestimo) obj;
+	public void insert(Emprestimo emprestimo) {
 
 		String sql = "insert into emprestimo (loja_id_loja,impressora_id_impressora,"
 				+ "num_chamado, situacao, dt_inicio, prazo_devolucao) values (?,?,?,?,?,?)";
@@ -88,19 +74,15 @@ public class EmprestimoDao implements GenericDao {
 
 			stmt.executeUpdate();
 
-			resultado = true;
-
 		} catch (SQLException e) {
-			resultado = false;
+
 			throw new RuntimeException("Erro ao gravar emprestimo " + e);
 		}
 
-		return resultado;
 	}
 
-	@Override
-	public List<Object> getList() {
-		List<Object> objEmprestimos = new ArrayList<>();
+	public List<Emprestimo> getList() {
+		List<Emprestimo> emprestimos = new ArrayList<>();
 
 		String sql = "select e.id_emprestimo, e.dt_inicio, l.id_loja, l.numero_loja, l.nome, l.cnpj, i.id_impressora, "
 				+ "i.numero, i.modelo,  e.num_chamado, e.situacao, e.prazo_devolucao, dt_fim from emprestimo e\n"
@@ -132,7 +114,7 @@ public class EmprestimoDao implements GenericDao {
 				e.setLoja(loja);
 				e.setImpressora(imp);
 
-				objEmprestimos.add(e);
+				emprestimos.add(e);
 
 			}
 
@@ -141,16 +123,16 @@ public class EmprestimoDao implements GenericDao {
 			throw new RuntimeException(s);
 		}
 
-		return objEmprestimos;
+		return emprestimos;
 
 	}
 
 	public Emprestimo getEmprestimoPorId(int id) {
 		Emprestimo emprestimoProcurado = new Emprestimo();
-		List<Object> emprestimos = this.getList();
+		List<Emprestimo> emprestimos = this.getList();
 
-		for (Object e : emprestimos) {
-			Emprestimo emprestimo = (Emprestimo) e;
+		for (Emprestimo emprestimo : emprestimos) {
+
 			if (emprestimo.getIdEmprestimo() == id) {
 				emprestimoProcurado = emprestimo;
 			}

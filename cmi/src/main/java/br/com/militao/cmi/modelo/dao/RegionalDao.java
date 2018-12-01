@@ -10,29 +10,13 @@ import java.util.List;
 import br.com.militao.cmi.conexao.ConnectionFactory;
 import br.com.militao.cmi.modelo.Regional;
 
-public class RegionalDao implements GenericDao {
+public class RegionalDao{
 	
-	@Override
-	public boolean delete(Object obj) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean update(Object obj) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean insert(Object obj) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public List<Object> getList() {
-		List<Object> regionais = new ArrayList<>();
+	
+	public List<Regional> getList() {
+		
+		List<Regional> regionais = new ArrayList<>();
+		
 		String sql = "select * from regional";
 
 		try (Connection con = new ConnectionFactory().getConnection();

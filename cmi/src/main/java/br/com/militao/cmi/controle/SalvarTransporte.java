@@ -13,7 +13,7 @@ import br.com.militao.cmi.modelo.dao.TransporteDao;
 public class SalvarTransporte implements Logica {
 
 	@Override
-	public String executa(HttpServletRequest req, HttpServletResponse resp){
+	public String executa(HttpServletRequest req, HttpServletResponse resp) {
 
 		TransporteDao transporteDao = new TransporteDao();
 		Transporte transporte = new Transporte();
@@ -23,10 +23,9 @@ public class SalvarTransporte implements Logica {
 		transporte.setNumNfeEnvio(req.getParameter("nfeEnvio"));
 		transporte.setDtEnvio(LocalDate.now());
 
-		if (transporteDao.insert(transporte)) {
+		transporteDao.insert(transporte);
 
-			req.setAttribute("confirmaDao", true);
-		}
+		req.setAttribute("confirmaDao", true);
 
 		// atualiza dashboard
 		HttpSession session = req.getSession();
