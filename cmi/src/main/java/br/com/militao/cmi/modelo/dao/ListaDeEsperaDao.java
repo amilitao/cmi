@@ -13,7 +13,7 @@ import br.com.militao.cmi.modelo.Loja;
 import br.com.militao.cmi.modelo.StatusListaDeEsperaEnum;
 
 public class ListaDeEsperaDao implements GenericDao {
-
+	
 	private boolean resultado;
 
 	@Override
@@ -54,13 +54,12 @@ public class ListaDeEsperaDao implements GenericDao {
 	@Override
 	public List<Object> getList() {
 		List<Object> lista = new ArrayList<>();
+		
 		String sql = "select lista.id_reserva, lo.numero_loja, lo.nome, lista.situacao from lista_de_espera lista "
-				+ "inner join loja lo where lista.loja_id_loja = lo.id_loja and lista.situacao = 'aguardando' "
-				+ "order by id_historico_emprestimo desc";
-
+				+ "inner join loja lo where lista.loja_id_loja = lo.id_loja and lista.situacao = 'aguardando' ";
+		
 		try (Connection con = new ConnectionFactory().getConnection();
 				PreparedStatement stmt = con.prepareStatement(sql);
-
 				ResultSet rs = stmt.executeQuery();) {
 
 			while (rs.next()) {

@@ -56,7 +56,7 @@ public class HistoricoEmprestimoDao implements GenericDao{
 	@Override
 	public List<Object> getList() {
 		List<Object> historicos = new ArrayList<>();
-		String sql = "select * from historico_emprestimo";
+		String sql = "select * from historico_emprestimo order by id_historico_emprestimo desc";
 
 		try (Connection con = new ConnectionFactory().getConnection();
 				PreparedStatement stmt = con.prepareStatement(sql);
