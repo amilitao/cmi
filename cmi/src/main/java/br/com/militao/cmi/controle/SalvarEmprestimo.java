@@ -12,7 +12,7 @@ import br.com.militao.cmi.modelo.dao.EmprestimoDao;
 public class SalvarEmprestimo implements Logica {
 
 	@Override
-	public String executa(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+	public String executa(HttpServletRequest req, HttpServletResponse resp){
 
 		EmprestimoDao empDao = new EmprestimoDao();
 

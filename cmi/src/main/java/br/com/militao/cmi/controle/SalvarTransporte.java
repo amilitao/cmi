@@ -13,7 +13,7 @@ import br.com.militao.cmi.modelo.dao.TransporteDao;
 public class SalvarTransporte implements Logica {
 
 	@Override
-	public String executa(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+	public String executa(HttpServletRequest req, HttpServletResponse resp){
 
 		TransporteDao transporteDao = new TransporteDao();
 		Transporte transporte = new Transporte();

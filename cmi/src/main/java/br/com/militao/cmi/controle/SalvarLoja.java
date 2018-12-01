@@ -11,7 +11,7 @@ import br.com.militao.cmi.modelo.dao.LojaDao;
 public class SalvarLoja implements Logica {
 
 	@Override
-	public String executa(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+	public String executa(HttpServletRequest req, HttpServletResponse resp){
 
 		LojaDao dao = new LojaDao();
 		Loja loja = new Loja();

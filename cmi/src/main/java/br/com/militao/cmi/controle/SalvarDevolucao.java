@@ -13,7 +13,7 @@ import br.com.militao.cmi.modelo.dao.DevolucaoDao;
 public class SalvarDevolucao implements Logica {
 
 	@Override
-	public String executa(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+	public String executa(HttpServletRequest req, HttpServletResponse resp){
 
 		DevolucaoDao devolucaoDao = new DevolucaoDao();
 		Devolucao devolucao = new Devolucao();

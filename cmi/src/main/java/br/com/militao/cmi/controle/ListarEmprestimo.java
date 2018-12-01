@@ -13,7 +13,7 @@ public class ListarEmprestimo implements Logica{
 
 	
 	@Override
-	public String executa(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+	public String executa(HttpServletRequest req, HttpServletResponse resp){
 				
 		EmprestimoDao emprestimoDao = new EmprestimoDao();
 		TransporteDao transporteDao = new TransporteDao();

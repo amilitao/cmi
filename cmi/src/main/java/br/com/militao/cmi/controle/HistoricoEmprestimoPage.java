@@ -9,7 +9,7 @@ import br.com.militao.cmi.modelo.dao.HistoricoEmprestimoDao;
 public class HistoricoEmprestimoPage implements Logica{
 
 	@Override
-	public String executa(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+	public String executa(HttpServletRequest req, HttpServletResponse resp){
 		
 		HistoricoEmprestimoDao histDao = new HistoricoEmprestimoDao();
 		EmprestimoDao empDao = new EmprestimoDao();

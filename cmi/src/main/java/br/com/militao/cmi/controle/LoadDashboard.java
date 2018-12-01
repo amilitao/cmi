@@ -13,7 +13,7 @@ import br.com.militao.cmi.modelo.componente.ComponenteCreator;
 public class LoadDashboard implements Logica {
 
 	@Override
-	public String executa(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+	public String executa(HttpServletRequest req, HttpServletResponse resp){
 
 		Dashboard dashboard;
 		

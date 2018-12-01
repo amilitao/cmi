@@ -12,7 +12,7 @@ import br.com.militao.cmi.modelo.dao.LojaDao;
 public class ImpressoraPage implements Logica {
 
 	@Override
-	public String executa(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+	public String executa(HttpServletRequest req, HttpServletResponse resp){
 		
 				
 		ImpressoraDao impDao = new ImpressoraDao();

@@ -12,7 +12,7 @@ public class EmprestimoPage implements Logica{
 	
 
 	@Override
-	public String executa(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+	public String executa(HttpServletRequest req, HttpServletResponse resp) {
 		
 				
 		LojaDao lojaDao = new LojaDao();

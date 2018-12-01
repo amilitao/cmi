@@ -12,7 +12,7 @@ import br.com.militao.cmi.modelo.dao.ListaDeEsperaDao;
 public class SalvarListaDeEspera implements Logica {
 
 	@Override
-	public String executa(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+	public String executa(HttpServletRequest req, HttpServletResponse resp) {
 		
 		ListaDeEsperaDao listaDao = new ListaDeEsperaDao();
 		ListaDeEspera lista = new ListaDeEspera(new Loja(Integer.parseInt(req.getParameter("id_loja"))),
