@@ -27,10 +27,12 @@
 			</div>
 
 		</c:if>
+		
+		<hr>
 
 		<c:forEach var="emprestimo" items="${listaDeEmprestimos}">			
 
-				<div class="w3-row w3-border">
+				<div class="w3-row w3-border-bottom w3-border-green">
 					<div class="w3-col m3">
 						<h4>
 							<i class="fa fa-handshake-o"></i> Empréstimo :
@@ -48,7 +50,7 @@
 							Situação : ${emprestimo.situacao.descricao}
 						</h4>
 					</div>
-					<div class="w3-col m2 w3-right">
+					<div class="w3-col m3 w3-right w3-text-indigo">
 						<h4><i>Detalhes</i></h4>				
 					</div>
 				</div>	
