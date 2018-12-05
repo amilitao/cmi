@@ -38,9 +38,7 @@
 							${emprestimo.idEmprestimo}
 						</h4>
 					</div>
-
-					<div class="w3-col m3">
-
+					<div class="w3-col m4">
 						<h4>
 							<i class="fa fa-home"></i> Loja : ${emprestimo.loja}
 						</h4>
@@ -50,9 +48,11 @@
 							<i class="fa fa-search w3-text-${emprestimo.situacao.cor}"> </i>
 							Situação : ${emprestimo.situacao.descricao}
 						</h4>
-
-					</div>					
-				</div>			
+					</div>
+					<div class="w3-col m2 w3-text-indigo w3-center">
+						<h4><i><a href="">Detalhes</a></i></h4>				
+					</div>
+				</div>	
 		</c:forEach>
 
 	</div>
