@@ -40,17 +40,17 @@
 							${emprestimo.idEmprestimo}
 						</h4>
 					</div>
-					<div class="w3-col m5">
+					<div class="w3-col m6">
 						<h4>
 							<i class="fa fa-home"></i> Loja : ${emprestimo.loja}
 						</h4>
 					</div>
-					<div class="w3-col m2">
+					<div class="w3-col m3">
 						<h4>
 							<i class="fa fa-search w3-text-${emprestimo.situacao.cor}"> </i>
 							Situação : ${emprestimo.situacao.descricao}
 						</h4>
-					</div>
+					</div>					
 				</div>
 			</button>
 
@@ -145,9 +145,7 @@
 
 
 				</div>
-
-				<hr>
-
+			
 				<div class="w3-row-padding">
 
 					<div class="w3-third w3-margin-bottom">
@@ -197,8 +195,11 @@
 							<li>Data da devolução: <b>${devolucao.dtDevolucaoFormatada}</b></li>
 						</ul>
 					</div>
-				</div>
+				</div>				
+				
 			</div>
+			
+			
 
 		</c:forEach>
 
