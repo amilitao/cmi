@@ -16,11 +16,11 @@
 
 	<div class="w3-container w3-padding-large">
 
-		<div class="container w3-margin-bottom">
+		<div class="container w3-margin-bottom w3-right">
 
 			<form action="controle" method="post">
 				<button class="w3-button" name="logica"
-					value="ListarEmprestimo">Voltar</button>
+					value="ListarEmprestimo"><i class="fa fa-mail-reply"></i><b> Voltar</b></button>
 			</form>
 
 		</div>
