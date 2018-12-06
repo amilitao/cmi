@@ -8,7 +8,7 @@ import br.com.militao.cmi.modelo.StatusEmprestimoEnum;
 
 class DevolucaoDaoTest {
 
-	@Test
+
 	void testeListaDevolucao() {
 		DevolucaoDao devDao = new DevolucaoDao();
 
@@ -21,8 +21,12 @@ class DevolucaoDaoTest {
 	}
 
 	@Test
-	void insereDevolucaoTest() {
-		DevolucaoDao devDao = new DevolucaoDao();		
+	void buscaDevolucaoTest() {
+		DevolucaoDao devDao = new DevolucaoDao();	
+		
+		for(Devolucao dev : devDao.getDevolucaoPorIdEmprestimo(10)) {
+			System.out.println(dev.getIdDevolucao());
+		}
 				
 	}
 

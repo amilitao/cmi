@@ -7,7 +7,7 @@
 <t:mainpage>
 
 
-<div class="w3-container">
+	<div class="w3-container">
 		<h2>
 			<i class="fa fa-cubes"></i> Meus Empréstimos
 		</h2>
@@ -26,10 +26,11 @@
 			</div>
 
 		</c:if>
-		
-		<hr>
 
-		<c:forEach var="emprestimo" items="${listaDeEmprestimos}">			
+		<hr>
+		<c:forEach var="emprestimo" items="${listaDeEmprestimos}">
+
+			<form action="controle" method="post">
 
 				<div class="w3-row w3-border-bottom w3-border-green">
 					<div class="w3-col m3">
@@ -38,7 +39,7 @@
 							${emprestimo.idEmprestimo}
 						</h4>
 					</div>
-					<div class="w3-col m4">
+					<div class="w3-col m3">
 						<h4>
 							<i class="fa fa-home"></i> Loja : ${emprestimo.loja}
 						</h4>
@@ -50,11 +51,19 @@
 						</h4>
 					</div>
 					<div class="w3-col m2 w3-text-indigo w3-center">
-						<h4><i><a href="">Detalhes</a></i></h4>				
+
+						<input type="hidden" name="id_emprestimo"
+							value="${emprestimo.idEmprestimo}" />
+
+						<button class="w3-button w3-padding" name="logica"
+							value="EmprestimoDetalhado">
+							<i class="fa fa-print"></i> Detalhes
+						</button>
 					</div>
-				</div>	
+				</div>
+			</form>
 		</c:forEach>
 
 	</div>
-	
+
 </t:mainpage>

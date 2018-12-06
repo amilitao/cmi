@@ -110,4 +110,17 @@ public class DevolucaoDao {
 
 	}
 
+	public List<Devolucao> getDevolucaoPorIdEmprestimo(int id_emprestimo) {
+		List<Devolucao> devolucaoProcurada = new ArrayList<>();
+		List<Devolucao> devolucoes = this.getList();
+
+		for (Devolucao devolucao : devolucoes) {
+			if (devolucao.getEmprestimo().getIdEmprestimo() == id_emprestimo) {
+				devolucaoProcurada.add(devolucao);
+			}
+		}
+
+		return devolucaoProcurada;
+	}
+
 }

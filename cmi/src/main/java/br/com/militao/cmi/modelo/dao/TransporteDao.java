@@ -75,7 +75,7 @@ public class TransporteDao {
 	}
 
 	public List<Transporte> getList() {
-		
+
 		List<Transporte> transportes = new ArrayList<>();
 
 		String sql = "select * from transporte";
@@ -106,6 +106,19 @@ public class TransporteDao {
 		}
 
 		return transportes;
+	}
+
+	public List<Transporte> getTransportePorIdEmprestimo(int id_emprestimo) {
+		List<Transporte> transporteProcurado = new ArrayList<>();
+		List<Transporte> transportes = this.getList();
+
+		for (Transporte transporte : transportes) {
+			if (transporte.getEmprestimo().getIdEmprestimo() == id_emprestimo) {
+				transporteProcurado.add(transporte);
+			}
+		}
+
+		return transporteProcurado;
 	}
 
 }
