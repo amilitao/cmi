@@ -6,25 +6,23 @@
 
 <t:mainpage>
 
-	<div class="w3-container w3-border">
+	<div class="w3-container w3-margin-bottom">
 		<h2>
 			<i class="fa fa-cubes"></i> Detalhes de Empréstimo
 		</h2>
 	</div>
-	<hr>
-	<div class="w3-container w3-padding-large w3-border">
 
-		<div class="w3-panelw3-right">
+	<div class="w3-container">
 
-			<form action="controle" method="post">
-				<button class="w3-button" name="logica" value="ListarEmprestimo">
-					<i class="fa fa-mail-reply"></i><b> Voltar</b>
-				</button>
-			</form>
+		<form action="controle" method="post">
+			<button class="w3-button" name="logica" value="ListarEmprestimo">
+				<i class="fa fa-mail-reply"></i><b> Voltar</b>
+			</button>
+		</form>
 
-		</div>
 
-		<div class="container w3-padding-64 w3-border">
+
+		<div class="container">
 
 			<div class="w3-col m3">
 				<h4>
@@ -44,8 +42,8 @@
 				</h4>
 			</div>
 		</div>
-
-		<div class="container w3-border">
+		
+		<div class="container">
 			<div class="w3-row">
 
 				<div class="w3-container w3-center w3-text-white"
@@ -130,7 +128,7 @@
 			</div>
 		</div>
 
-		<div class="w3-row-padding w3-border">
+		<div class="w3-row-padding">
 
 			<div class="w3-third w3-margin-bottom">
 				<ul class="w3-ul w3-border w3-hover-shadow">
