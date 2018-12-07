@@ -6,26 +6,46 @@
 
 <t:mainpage>
 
-	<div class="w3-container">
+	<div class="w3-container w3-border">
 		<h2>
 			<i class="fa fa-cubes"></i> Detalhes de Empréstimo
 		</h2>
 	</div>
-
 	<hr>
+	<div class="w3-container w3-padding-large w3-border">
 
-	<div class="w3-container w3-padding-large">
-
-		<div class="container w3-margin-bottom w3-right">
+		<div class="w3-panelw3-right">
 
 			<form action="controle" method="post">
-				<button class="w3-button" name="logica"
-					value="ListarEmprestimo"><i class="fa fa-mail-reply"></i><b> Voltar</b></button>
+				<button class="w3-button" name="logica" value="ListarEmprestimo">
+					<i class="fa fa-mail-reply"></i><b> Voltar</b>
+				</button>
 			</form>
 
 		</div>
-		<div class="container">
 
+		<div class="container w3-padding-64 w3-border">
+
+			<div class="w3-col m3">
+				<h4>
+					<i class="fa fa-handshake-o"></i> Empréstimo :
+					${emprestimo.idEmprestimo}
+				</h4>
+			</div>
+			<div class="w3-col m6">
+				<h4>
+					<i class="fa fa-home"></i> Loja : ${emprestimo.loja}
+				</h4>
+			</div>
+			<div class="w3-col m3">
+				<h4>
+					<i class="fa fa-search w3-text-${emprestimo.situacao.cor}"> </i>
+					Situação : ${emprestimo.situacao.descricao}
+				</h4>
+			</div>
+		</div>
+
+		<div class="container w3-border">
 			<div class="w3-row">
 
 				<div class="w3-container w3-center w3-text-white"
@@ -108,60 +128,59 @@
 					</p>
 				</div>
 			</div>
+		</div>
 
-			<hr>
+		<div class="w3-row-padding w3-border">
 
-			<div class="w3-row-padding">
+			<div class="w3-third w3-margin-bottom">
+				<ul class="w3-ul w3-border w3-hover-shadow">
+					<li class="w3-large w3-center"><b>Dados do empréstimo</b></li>
+					<li>Loja: <b>${emprestimo.loja}</b></li>
+					<li>Impressora: <b>${emprestimo.impressora}</b></li>
+					<li>Chamado: <b>${emprestimo.num_chamado}</b></li>
+					<li>Prazo devolução: <b><font color="green">${emprestimo.prazoDevolucaoFormatada}</font></b></li>
+				</ul>
+			</div>
 
-				<div class="w3-third w3-margin-bottom">
-					<ul class="w3-ul w3-border w3-hover-shadow">
-						<li class="w3-large w3-center"><b>Dados do empréstimo</b></li>
-						<li>Loja: <b>${emprestimo.loja}</b></li>
-						<li>Impressora: <b>${emprestimo.impressora}</b></li>
-						<li>Chamado: <b>${emprestimo.num_chamado}</b></li>
-						<li>Prazo devolução: <b><font color="green">${emprestimo.prazoDevolucaoFormatada}</font></b></li>
-					</ul>
-				</div>
+			<c:set var="transporte" value="${null}" />
+			<c:if test="${not empty listaDeTransportes}">
+				<c:forEach var="transp" items="${listaDeTransportes}">
+					<c:set var="transporte" value="${transp}" />
+				</c:forEach>
+			</c:if>
 
-				<c:set var="transporte" value="${null}" />
-				<c:if test="${not empty listaDeTransportes}">
-					<c:forEach var="transp" items="${listaDeTransportes}">
-						<c:set var="transporte" value="${transp}" />
-					</c:forEach>
-				</c:if>
+			<div class="w3-third w3-margin-bottom">
 
-				<div class="w3-third w3-margin-bottom">
+				<ul class="w3-ul w3-border w3-hover-shadow">
+					<li class="w3-large w3-center w3-text-white"
+						style="background: #f4ab43">Transporte</li>
+					<li>Transportadora: <b>${transporte.nomeTransportadora}</b></li>
+					<li>Número de NFe de envio: <b>${transporte.numNfeEnvio}</b></li>
+					<li>Data de envio: <b>${transporte.dtEnvioFormatada}</b></li>
+				</ul>
+			</div>
 
-					<ul class="w3-ul w3-border w3-hover-shadow">
-						<li class="w3-large w3-center w3-text-white"
-							style="background: #f4ab43">Transporte</li>
-						<li>Transportadora: <b>${transporte.nomeTransportadora}</b></li>
-						<li>Número de NFe de envio: <b>${transporte.numNfeEnvio}</b></li>
-						<li>Data de envio: <b>${transporte.dtEnvioFormatada}</b></li>
-					</ul>
-				</div>
-
-				<c:set var="devolucao" value="${null}" />
-				<c:if test="${not empty listaDeDevolucoes}">
-					<c:forEach var="devol" items="${listaDeDevolucoes}">
-						<c:if
-							test="${devol.emprestimo.idEmprestimo == emprestimo.idEmprestimo}">
-							<c:set var="devolucao" value="${devol}" />
-						</c:if>
-					</c:forEach>
-				</c:if>
-				<div class="w3-third w3-margin-bottom">
-					<ul class="w3-ul w3-border w3-hover-shadow">
-						<li class="w3-large w3-center w3-text-white"
-							style="background: #5ebf99">Devolução</li>
-						<li>Número da NFe: <b>${devolucao.numNfeDevolucao}</b></li>
-						<li>Recebedor: <b>${devolucao.recebedor}</b></li>
-						<li>Data da devolução: <b>${devolucao.dtDevolucaoFormatada}</b></li>
-					</ul>
-				</div>
+			<c:set var="devolucao" value="${null}" />
+			<c:if test="${not empty listaDeDevolucoes}">
+				<c:forEach var="devol" items="${listaDeDevolucoes}">
+					<c:if
+						test="${devol.emprestimo.idEmprestimo == emprestimo.idEmprestimo}">
+						<c:set var="devolucao" value="${devol}" />
+					</c:if>
+				</c:forEach>
+			</c:if>
+			<div class="w3-third w3-margin-bottom">
+				<ul class="w3-ul w3-border w3-hover-shadow">
+					<li class="w3-large w3-center w3-text-white"
+						style="background: #5ebf99">Devolução</li>
+					<li>Número da NFe: <b>${devolucao.numNfeDevolucao}</b></li>
+					<li>Recebedor: <b>${devolucao.recebedor}</b></li>
+					<li>Data da devolução: <b>${devolucao.dtDevolucaoFormatada}</b></li>
+				</ul>
 			</div>
 		</div>
 	</div>
+
 </t:mainpage>
 
 
