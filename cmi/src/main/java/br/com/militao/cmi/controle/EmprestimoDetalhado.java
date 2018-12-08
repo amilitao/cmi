@@ -10,13 +10,13 @@ import br.com.militao.cmi.modelo.dao.TransporteDao;
 public class EmprestimoDetalhado implements Logica {
 
 	@Override
-	public String executa(HttpServletRequest req, HttpServletResponse resp) throws Exception {		
+	public String executa(HttpServletRequest req, HttpServletResponse resp) {		
 		
 		EmprestimoDao empDao = new EmprestimoDao();
 		TransporteDao transDao = new TransporteDao();
 		DevolucaoDao devDao = new DevolucaoDao();	
 		
-		int id_emprestimo = Integer.parseInt(req.getParameter("id_emprestimo"));		
+		int id_emprestimo = Integer.parseInt(req.getParameter("idEmprestimo"));		
 		
 		req.setAttribute("emprestimo", 
 				empDao.getEmprestimoPorId(id_emprestimo));		

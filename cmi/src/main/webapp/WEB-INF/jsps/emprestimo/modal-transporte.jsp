@@ -30,6 +30,7 @@
 			<form action="controle" method="post">
 
 				<div class="w3-row-padding" style="margin: 0 -16px;">
+				
 					<div class="w3-col m3 w3-margin-bottom">
 						<label><i class="fa fa-calendar-o"></i> Número do
 							empréstimo</label> <input class="w3-input w3-border" type="text"

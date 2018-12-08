@@ -4,10 +4,10 @@
 
 <t:mainpage>
 
-	<div class="w3-container">
-		<h2>
+	<div class="w3-panel w3-padding-large">
+		<h3>
 			<i class="fa fa-database"></i> Histórico de emprestimo
-		</h2>
+		</h3>
 	</div>
 
 	<div class="w3-panel w3-padding-large">

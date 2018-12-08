@@ -5,10 +5,10 @@
 
 <t:mainpage>
 
-	<div class="w3-container">
-		<h2>
+	<div class="w3-panel w3-padding-large">
+		<h3>
 			<i class="fa fa-hourglass-o"></i> Lista de Espera
-		</h2>
+		</h3>
 	</div>
 
 	<div class="w3-panel w3-padding-large">

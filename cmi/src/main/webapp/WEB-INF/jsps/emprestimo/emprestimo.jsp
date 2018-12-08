@@ -6,10 +6,10 @@
 <t:mainpage>
 	<c:set var="teste" value="" />
 
-	<div class="w3-container">
-		<h2>
+	<div class="w3-panel w3-padding-large">
+		<h3>
 			<i class="fa fa-handshake-o"></i> Novo Empréstimo
-		</h2>
+		</h3>
 	</div>
 
 	<div class="w3-panel w3-padding-large">

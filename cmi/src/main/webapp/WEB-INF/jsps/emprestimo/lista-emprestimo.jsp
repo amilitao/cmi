@@ -7,32 +7,19 @@
 <t:mainpage>
 
 
-	<div class="w3-container">
-		<h2>
+	<div class="w3-panel w3-padding-large">
+		<h3>
 			<i class="fa fa-cubes"></i> Meus Empréstimos
-		</h2>
+		</h3>
 	</div>
 
-	<div class="w3-container w3-padding-large">
+	<div class="w3-panel w3-padding-large">		
 
-		<c:if test="${confirmaDao}">
-			<c:set var="teste" value="disabled" />
-			<div class="w3-panel w3-display-container"
-				style="background: #b5e7a0">
-				<span onclick="this.parentElement.style.display='none'"
-					class="w3-button  w3-large w3-display-topright"
-					style="background: #b5e7a0">&times;</span>
-				<p>Os dados foram salvos com sucesso!!!</p>
-			</div>
-
-		</c:if>
-
-		<hr>
 		<c:forEach var="emprestimo" items="${listaDeEmprestimos}">
 
 			<form action="controle" method="post">
 
-				<div class="w3-row w3-border-bottom w3-border-green">
+				<div class="w3-row w3-border-bottom">
 					<div class="w3-col m3">
 						<h4>
 							<i class="fa fa-handshake-o"></i> Empréstimo :
@@ -44,7 +31,7 @@
 							<i class="fa fa-home"></i> Loja : ${emprestimo.loja}
 						</h4>
 					</div>
-					<div class="w3-col m3">
+					<div class="w3-col m4">
 						<h4>
 							<i class="fa fa-search w3-text-${emprestimo.situacao.cor}"> </i>
 							Situação : ${emprestimo.situacao.descricao}
@@ -52,7 +39,7 @@
 					</div>
 					<div class="w3-col m2 w3-text-indigo w3-center">
 
-						<input type="hidden" name="id_emprestimo"
+						<input type="hidden" name="idEmprestimo"
 							value="${emprestimo.idEmprestimo}" />
 
 						<button class="w3-button w3-padding" name="logica"
@@ -63,7 +50,6 @@
 				</div>
 			</form>
 		</c:forEach>
-
 	</div>
 
 </t:mainpage>

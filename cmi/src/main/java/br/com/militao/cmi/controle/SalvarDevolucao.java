@@ -31,7 +31,7 @@ public class SalvarDevolucao implements Logica {
 		HttpSession session = req.getSession();
 		session.setAttribute("dashboard", null);
 
-		return new ListarEmprestimo().executa(req, resp);
+		return new EmprestimoDetalhado().executa(req, resp);
 	}
 
 }

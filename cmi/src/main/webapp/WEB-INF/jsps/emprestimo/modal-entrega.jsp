@@ -14,7 +14,7 @@
 
 		<div class="w3-panel w3-padding-large">			
 			
-			<p>Deseja confirmar a entrega da impressora?</p><br>
+			<p>Deseja confirmar a entrega da impressora na filial?</p><br>
 			
 			<form action="controle" method="post">					
 			
