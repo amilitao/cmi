@@ -71,13 +71,13 @@
 				</div>
 
 			</div>
-			<div class="w3-row">
-				<div class="w3-col m2 w3-center">
+			<div class="w3-row w3-center">
+				<div class="w3-col m2">
 					<p>
 						Iniciado <br /> <b>${emprestimo.dtInicioFormatada}</b>
 					</p>
 				</div>
-				<div class="w3-col m2 w3-center">
+				<div class="w3-col m2">
 					<p>
 						<c:set var="btn1" value="" />
 						<c:if test="${emprestimo.situacao.porcentagem != '25%'}">
@@ -99,7 +99,7 @@
 						</c:import>
 					</p>
 				</div>
-				<div class="w3-col m2 w3-center">
+				<div class="w3-col m2">
 					<p>
 						<c:set var="btn2" value="" />
 						<c:if test="${emprestimo.situacao.porcentagem != '40%'}">
@@ -113,7 +113,7 @@
 						</c:import>
 					</p>
 				</div>
-				<div class="w3-col m2 w3-center">
+				<div class="w3-col m2">
 					<p>
 						<c:set var="btn3" value="" />
 						<c:if test="${emprestimo.situacao.porcentagem != '60%'}">
@@ -126,7 +126,7 @@
 						</c:import>
 					</p>
 				</div>
-				<div class="w3-col m2 w3-center">
+				<div class="w3-col m2">
 					<p>
 						<c:set var="btn4" value="" />
 						<c:if test="${emprestimo.situacao.porcentagem != '75%'}">
@@ -139,7 +139,7 @@
 						</c:import>
 					</p>
 				</div>
-				<div class="w3-col m2 w3-center w3-margin-bottom">
+				<div class="w3-col m2 w3-margin-bottom">
 					<p>
 						Encerrado <br /> <b>${emprestimo.dtFimFormatada}</b>
 					</p>

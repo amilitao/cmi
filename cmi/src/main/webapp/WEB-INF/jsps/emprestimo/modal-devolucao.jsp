@@ -14,7 +14,7 @@
 </button>
 
 <div id="iddevolucao${param.idEmprestimo}" class="w3-modal">
-	<div class="w3-modal-content w3-animate-top w3-card-4">
+	<div class="w3-modal-content w3-animate-top w3-card-4 w3-left-align">
 		<header class="w3-container w3-khaki">
 			<span
 				onclick="document.getElementById('iddevolucao${param.idEmprestimo}').style.display='none'"
