@@ -19,7 +19,6 @@
    			 <button class="w3-bar-item w3-button w3-padding" name="logica" value="LojaPage"><i class="fa fa-home"></i> Loja</button>
    			 <button class="w3-bar-item w3-button w3-padding" name="logica" value="RegionalPage"><i class="fa fa-home"></i> Regional</button>
  		 </div>   
-    <button class="w3-bar-item w3-button w3-padding" name="logica" value="HistoricoEmprestimoPage"><i class="fa fa-database"></i> Historico</button>
     <br><br>
     </form>
   </div>

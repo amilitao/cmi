@@ -192,6 +192,48 @@
 			</div>
 		</div>
 
+		<div class="w3-panel w3-padding-large">
+
+			<button onclick="myFunction('Demo1')"
+				class="w3-button w3-block w3-left-align w3-dark-grey w3-border w3-border-black w3-center"><b>Histórico do
+				empréstimo</b></button>
+
+			<div id="Demo1" class="w3-hide w3-container w3-pale-yellow">
+
+				<c:forEach var="historico" items="${historicos}">
+
+					<ul class="w3-ul">
+						<li>
+							<div class="w3-row">
+								<div class="w3-col m9">
+									<b>Ocorrencia:</b> ${historico.ocorrencia}
+								</div>
+								<div class="w3-col m3">
+									<b>Data:</b> ${historico.dtRegistroFormatada}
+								</div>
+							</div>
+						</li>
+					</ul>
+				</c:forEach>
+			</div>
+		</div>
+
+
+		<script>
+			function myFunction(id) {
+				var x = document.getElementById(id);
+				if (x.className.indexOf("w3-show") == -1) {
+					x.className += " w3-show";
+					x.previousElementSibling.className = x.previousElementSibling.className
+							.replace("w3-black", "w3-red");
+				} else {
+					x.className = x.className.replace(" w3-show", "");
+					x.previousElementSibling.className = x.previousElementSibling.className
+							.replace("w3-red", "w3-black");
+				}
+			}
+		</script>
+
 	</div>
 
 </t:mainpage>

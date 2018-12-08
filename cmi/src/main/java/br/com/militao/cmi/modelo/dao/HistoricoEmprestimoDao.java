@@ -53,6 +53,7 @@ public class HistoricoEmprestimoDao {
 				emprestimo.setIdEmprestimo(rs.getInt("emprestimo_id_emprestimo"));
 				ocorrencia.setEmprestimo(emprestimo);
 				ocorrencia.setOcorrencia(rs.getString("ocorrencia"));
+				ocorrencia.setDt_ocorrencia(FormatadorDeData.toLocalDateTime(rs.getTimestamp("dt_ocorrencia")));
 
 				historicos.add(ocorrencia);
 
@@ -64,6 +65,20 @@ public class HistoricoEmprestimoDao {
 		}
 
 		return historicos;
+
+	}
+	
+	public List<HistoricoEmprestimo> getHistoricoPorIdEmprestimo(int id) {
+		List<HistoricoEmprestimo> historicoProcurado = new ArrayList<>();
+		List<HistoricoEmprestimo> historicos = this.getList();
+
+		for (HistoricoEmprestimo historico : historicos) {
+	
+			if (historico.getEmprestimo().getIdEmprestimo() == id) {
+				historicoProcurado.add(historico);
+			}
+		}
+		return historicoProcurado;
 
 	}
 

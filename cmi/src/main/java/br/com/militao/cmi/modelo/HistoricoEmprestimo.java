@@ -12,15 +12,7 @@ public class HistoricoEmprestimo {
 	private LocalDateTime dt_ocorrencia;
 		
 		
-	public HistoricoEmprestimo() {	
-	this.dt_ocorrencia = LocalDateTime.now();	
-	}	
 	
-	public HistoricoEmprestimo(Emprestimo emprestimo, String ocorrencia) {
-		this.emprestimo = emprestimo;
-		this.ocorrencia = ocorrencia;
-		this.dt_ocorrencia = LocalDateTime.now();				
-	}
 	public int getIdHistoricoEmprestimo() {
 		return idHistoricoEmprestimo;
 	}
@@ -41,6 +33,10 @@ public class HistoricoEmprestimo {
 	}
 	public LocalDateTime getDt_ocorrencia() {
 		return dt_ocorrencia;
+	}	
+	
+	public void setDt_ocorrencia(LocalDateTime dt_ocorrencia) {
+		this.dt_ocorrencia = dt_ocorrencia;
 	}
 	public String getDtRegistroFormatada() {
 		return FormatadorDeData.formata(dt_ocorrencia);
