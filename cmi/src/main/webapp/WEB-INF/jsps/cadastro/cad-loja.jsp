@@ -71,6 +71,8 @@
 
 			</div>
 
+				<hr>
+
 			<input type="hidden" name="id_loja" id="inp_id" /> <input
 				type="hidden" name="logica" value="SalvarLoja" />
 
@@ -82,19 +84,17 @@
 				<i class="fa fa-floppy-o w3-margin-right"></i>Salvar
 			</button>
 
-		</form>
-
-		<hr>
+		</form>	
 
 		<div class="w3-container" style="margin: 0 -16px;">
 
-			<div class="w3-center w3-khaki">
-				<h4>Lista de Lojas</h4>
+			<div class="w3-center w3-white">
+				<h4><b>Lista de Lojas</b></h4>
 			</div>
 			<div style="height: 370px; overflow: auto;">
 				<table class="w3-table-all w3-hoverable">
 					<thead>
-						<tr class="w3-light-grey">
+						<tr class="w3-dark-grey">
 							<th>Número</th>
 							<th>Nome</th>
 							<th>Cnpj</th>
