@@ -39,21 +39,21 @@
 		<div class="container">
 			<div class="w3-col m3">
 				<ul class="w3-ul">
-					<li><i class="fa fa-cubes"></i> Empréstimo :<b>${emprestimo.idEmprestimo}</b></li>
-					<li><i class="fa fa-cubes"></i> Chamado: <b>${emprestimo.num_chamado}</b></li>
+					<li><i class="fa fa-handshake-o"></i> Empréstimo :<b>${emprestimo.idEmprestimo}</b></li>
+					<li><i class="fa fa-phone-square"></i> Chamado: <b>${emprestimo.num_chamado}</b></li>
 				</ul>
 			</div>
 			<div class="w3-col m3">
 				<ul class="w3-ul">
-					<li><i class="fa fa-cubes"></i> Loja: <b>${emprestimo.loja}</b></li>
-					<li><i class="fa fa-cubes"></i> Prazo devolução: <b><font
+					<li><i class="fa fa-home"></i> Loja: <b>${emprestimo.loja}</b></li>
+					<li><i class="fa fa-calendar"></i> Prazo devolução: <b><font
 							color="green">${emprestimo.prazoDevolucaoFormatada}</font></b></li>
 				</ul>
 			</div>
 			<div class="w3-col m3 w3-margin-bottom">
 				<ul class="w3-ul">
-					<li><i class="fa fa-cubes"></i> Impressora: <b>${emprestimo.impressora}</b></li>
-					<li><i class="fa fa-cubes"></i> Situação : <b>${emprestimo.situacao.descricao}</b></li>
+					<li><i class="fa fa-print"></i> Impressora: <b>${emprestimo.impressora}</b></li>
+					<li><i class="fa fa-search"></i> Situação : <b>${emprestimo.situacao.descricao}</b></li>
 				</ul>
 			</div>
 		</div>
