@@ -50,7 +50,13 @@
 				</div>
 			</div>
 			<div class="w3-row-padding w3-margin-top" style="margin: 0 -16px;">
-				<div class="w3-third">
+			
+				<div class="w3-col m3">
+					<label><i class="fa fa-pencil-square-o"></i> Valor
+					</label> <input class="w3-input w3-border" type="text"
+						name="valor" id="inp_valor" disabled required>
+				</div>			
+				<div class="w3-col m3">
 					<label><i class="fa fa-home"></i> Estado</label> <select
 						class="w3-select w3-border" name="estado" id="inp_estado" disabled
 						required>
@@ -60,7 +66,7 @@
 						</c:forEach>
 					</select>
 				</div>
-				<div class="w3-third w3-margin-bottom">
+				<div class="w3-col m3 w3-margin-bottom">
 					<label><i class="fa fa-home"></i> Situacao</label> <select
 						class="w3-select w3-border" name="situacao" id="inp_situacao"
 						disabled required>
@@ -71,7 +77,7 @@
 					</select>
 
 				</div>
-				<div class="w3-third w3-margin-bottom">
+				<div class="w3-col m3 w3-margin-bottom">
 					<label><i class="fa fa-home"></i> Loja responsavel</label> <select
 						class="w3-select w3-border" name="id_loja" id="inp_loja" disabled
 						required>
@@ -111,6 +117,7 @@
 							<th>Modelo</th>
 							<th>Pip</th>
 							<th>Nº Serie</th>
+							<th>Valor</th>
 							<th>Estado</th>
 							<th>Situacao</th>
 							<th>Loja responsavel</th>
@@ -118,11 +125,12 @@
 					</thead>
 					<c:forEach var="i" items="${impressoras}">
 						<tr
-							onclick="f_selecionar('${i.idImpressora}', '${i.numero}', '${i.modelo}', '${i.pip}', '${i.numero_serie}', '${i.estado.descricao}', '${i.situacao.descricao}', '${i.loja}')">
+							onclick="f_selecionar('${i.idImpressora}', '${i.numero}', '${i.modelo}', '${i.pip}', '${i.numero_serie}', '${i.valor}', '${i.estado.descricao}', '${i.situacao.descricao}', '${i.loja}')">
 							<td><b>${i.numero}</b></td>
 							<td>${i.modelo}</td>
 							<td>${i.pip}</td>
 							<td>${i.numero_serie}</td>
+							<td>${i.valor}</td>
 							<td>${i.estado.descricao}</td>
 							<td class="w3-text-${i.situacao.cor}"><b>${i.situacao.descricao}</b></td>
 							<td>${i.loja}</td>
@@ -136,17 +144,17 @@
 
 
 	<script>
-		function f_selecionar(id, nu, m, p, s, e, si, l) {
+		function f_selecionar(id, nu, m, p, s, v, e, si, l) {
 
 			desabilitar_campos(true);
-			alterar_campos(id, nu, m, p, s, e, si, l);
+			alterar_campos(id, nu, m, p, s, v, e, si, l);
 
 		}
 
 		function f_adicionar() {
 
 			desabilitar_campos(false);
-			alterar_campos('0', '', '', '', '', '', '', '');
+			alterar_campos('0', '', '', '', '', '', '', '', '');
 
 		}
 
@@ -168,19 +176,21 @@
 			document.getElementById("inp_modelo").disabled = opcao;
 			document.getElementById("inp_pip").disabled = opcao;
 			document.getElementById("inp_serie").disabled = opcao;
+			document.getElementById("inp_valor").disabled = opcao;
 			document.getElementById("inp_estado").disabled = opcao;
 			document.getElementById("inp_situacao").disabled = opcao;
 			document.getElementById("inp_loja").disabled = opcao;
 
 		}
 
-		function alterar_campos(id, nu, m, p, s, e, si, l) {
+		function alterar_campos(id, nu, m, p, s, v, e, si, l) {
 
 			document.getElementById("inp_id").value = id;
 			document.getElementById("inp_numero").value = nu;
 			document.getElementById("inp_modelo").value = m;
 			document.getElementById("inp_pip").value = p;
 			document.getElementById("inp_serie").value = s;
+			document.getElementById("inp_valor").value = v;			
 			document.getElementById(e).selected = true;
 			document.getElementById(si).selected = true;
 			document.getElementById(l).selected = true;
