@@ -16,9 +16,11 @@ public class Impressora {
 	private String modelo;
 	private int pip;
 	private String numero_serie;
+	private double valor;
 	private EstadoImpressoraEnum estado;
 	private StatusImpressoraEnum situacao;
 	private Loja loja;
+	
 
 	public Impressora() {
 	}
@@ -65,6 +67,14 @@ public class Impressora {
 
 	public void setNumero_serie(String numero_serie) {
 		this.numero_serie = numero_serie;
+	}		
+
+	public double getValor() {
+		return valor;
+	}
+
+	public void setValor(double valor) {
+		this.valor = valor;
 	}
 
 	public EstadoImpressoraEnum getEstado() {

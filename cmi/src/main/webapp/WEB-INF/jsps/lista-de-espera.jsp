@@ -49,13 +49,13 @@
 		
 		<div class="w3-container" style="margin: 0 -16px;">
 
-			<div class="w3-center w3-khaki">
-				<h4>Lista de Espera</h4>
+			<div class="w3-center w3-white">
+				<h4><b>Lista de Espera</b></h4>
 			</div>
 			<div style="height: 370px; overflow: auto;">
 				<table class="w3-table-all w3-hoverable">
 					<thead>
-						<tr class="w3-light-grey">
+						<tr class="w3-dark-grey"> 
 							<th>Id</th>
 							<th>Numero</th>
 							<th>Filial</th>

@@ -42,6 +42,8 @@
 				</div>
 			</div>
 
+			<hr>
+
 			<input type="hidden" name="id_regional" id="inp_id" /> <input
 				type="hidden" name="logica" value="SalvarRegional" />
 
@@ -54,17 +56,16 @@
 			</button>
 
 		</form>
-		<hr>
 
 		<div class="w3-container" style="margin: 0 -16px;">
 
-			<div class="w3-center w3-khaki">
-				<h4>Lista de Regionais</h4>
+			<div class="w3-center w3-white">
+				<h4><b>Lista de Regionais</b></h4>
 			</div>
 			<div style="height: 370px; overflow: auto;">
 				<table class="w3-table-all w3-hoverable">
 					<thead>
-						<tr class="w3-light-grey">
+						<tr class="w3-dark-grey">
 							<th>Nome</th>
 							<th>Numero da filial base</th>
 						</tr>

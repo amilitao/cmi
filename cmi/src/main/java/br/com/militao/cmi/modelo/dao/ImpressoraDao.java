@@ -41,7 +41,7 @@ public class ImpressoraDao {
 	public void update(Impressora impressora) {
 
 		String sql = "update impressora set loja_id_loja=?, numero=?, modelo=?,"
-				+ "pip=?, numero_serie=?, estado=?, situacao=? where id_impressora=?";
+				+ "pip=?, numero_serie=?, valor=?, estado=?, situacao=? where id_impressora=?";
 
 		try (Connection con = new ConnectionFactory().getConnection();
 				PreparedStatement stmt = con.prepareStatement(sql);) {
@@ -51,9 +51,10 @@ public class ImpressoraDao {
 			stmt.setString(3, impressora.getModelo());
 			stmt.setInt(4, impressora.getPip());
 			stmt.setString(5, impressora.getNumero_serie());
-			stmt.setString(6, impressora.getEstado().getDescricao());
-			stmt.setString(7, impressora.getSituacao().getDescricao());
-			stmt.setInt(8, impressora.getIdImpressora());
+			stmt.setDouble(6, impressora.getValor());
+			stmt.setString(7, impressora.getEstado().getDescricao());
+			stmt.setString(8, impressora.getSituacao().getDescricao());
+			stmt.setInt(9, impressora.getIdImpressora());
 
 			stmt.executeUpdate();
 
@@ -66,8 +67,8 @@ public class ImpressoraDao {
 
 	public void insert(Impressora impressora) {
 
-		String sql = "insert into impressora (loja_id_loja,numero,modelo,pip,numero_serie,estado,situacao)"
-				+ " values (?,?,?,?,?,?,?)";
+		String sql = "insert into impressora (loja_id_loja,numero,modelo,pip,numero_serie,valor,estado,situacao)"
+				+ " values (?,?,?,?,?,?,?,?)";
 
 		try (Connection con = new ConnectionFactory().getConnection();
 				PreparedStatement stmt = con.prepareStatement(sql);) {
@@ -77,8 +78,9 @@ public class ImpressoraDao {
 			stmt.setString(3, impressora.getModelo());
 			stmt.setInt(4, impressora.getPip());
 			stmt.setString(5, impressora.getNumero_serie());
-			stmt.setString(6, impressora.getEstado().getDescricao());
-			stmt.setString(7, impressora.getSituacao().getDescricao());
+			stmt.setDouble(6, impressora.getValor());
+			stmt.setString(7, impressora.getEstado().getDescricao());
+			stmt.setString(8, impressora.getSituacao().getDescricao());
 
 			stmt.executeUpdate();
 
@@ -112,6 +114,7 @@ public class ImpressoraDao {
 				imp.setModelo(rs.getString("modelo"));
 				imp.setPip(rs.getInt("pip"));
 				imp.setNumero_serie(rs.getString("numero_serie"));
+				imp.setValor(rs.getDouble("valor"));
 				imp.setEstado(EstadoImpressoraEnum.getByDescricao(rs.getString("estado")));
 				imp.setSituacao(StatusImpressoraEnum.getByDescricao(rs.getString("situacao")));
 
