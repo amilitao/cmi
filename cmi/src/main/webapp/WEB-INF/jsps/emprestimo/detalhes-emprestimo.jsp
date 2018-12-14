@@ -195,7 +195,7 @@
 		<div class="w3-panel w3-padding-large">
 
 			<button onclick="myFunction('Demo1')"
-				class="w3-button w3-block w3-left-align w3-dark-grey w3-border w3-border-black w3-center"><b>Histórico do
+				class="w3-button w3-block w3-left-align w3-dark-grey w3-center"><b>Histórico do
 				empréstimo</b></button>
 
 			<div id="Demo1" class="w3-hide w3-container w3-pale-yellow">

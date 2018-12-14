@@ -17,9 +17,6 @@ html, body, h1, h2, h3, h4, h5 {
 </style>
 <body class="w3-light-gray">
 
-	<div id="pageheader">
-		<jsp:invoke fragment="top" />
-	</div>
 	<div id="pagesidebar">
 		<jsp:invoke fragment="sidebar" />
 	</div>

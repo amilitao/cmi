@@ -4,10 +4,7 @@
 
 
 <t:genericpage>
-	<jsp:attribute name="top">     	
-		<t:top />	
-    </jsp:attribute>
-    
+	
 
 	<jsp:attribute name="sidebar">
       
