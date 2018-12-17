@@ -10,7 +10,12 @@
     <h5><b><i class="fa fa-dashboard"></i> Meu Dashboard</b></h5>
   </header>
 
-  <com:painel qtdDisponivel="${painelStatus.qtdDisponivel}" qtdEmprestimo="${painelStatus.qtdEmprestimo}" qtdManutencao="${painelStatus.qtdManutencao}" qtdDefeito="${painelStatus.qtdDefeito}"/>
+  <com:painel qtdDisponivel="${painelStatus.qtdDisponivel}" 
+  				qtdEmprestimo="${painelStatus.qtdEmprestimo}" 
+ 				qtdManutencao="${painelStatus.qtdManutencao}"
+  				qtdDefeito="${painelStatus.qtdDefeito}"/>
+  				
+  				
 
   <div class="w3-panel">
     <div class="w3-row-padding" style="margin:0 -16px">
