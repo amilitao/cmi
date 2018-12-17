@@ -38,17 +38,19 @@
 				</header>
 				<div class="w3-container">
 					<ul class="w3-ul">
-						<li class="w3-bar">
-							<div class="w3-bar-item">
-								<span class="w3-large"> <i class="fa fa-bell-o"
-									style="font-size: 25px"></i> descricao
-								</span>
-								<button class="w3-button w3-circle w3-green"
-									onclick="this.parentElement.style.display='none'">
-									<i class="fa fa-check" style="font-size: 15px"></i>
-								</button>
-							</div>
-						</li>
+						<c:forEach var="n" items="${sessionScope.notificacoes}">
+							<li class="w3-bar">
+								<div class="w3-bar-item">
+									<span class="w3-large"> <i class="fa fa-bell-o"
+										style="font-size: 25px"></i> ${n.descricao} 
+									</span>
+									<button class="w3-button w3-circle w3-green"
+										onclick="this.parentElement.style.display='none'">
+										<i class="fa fa-check" style="font-size: 15px"></i>
+									</button>
+								</div>
+							</li>
+						</c:forEach>
 					</ul>
 				</div>
 			</div>

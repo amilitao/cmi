@@ -4,12 +4,12 @@ package br.com.militao.cmi.controle;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.servlet.jsp.PageContext;
 
 import br.com.militao.cmi.modelo.Dashboard;
 import br.com.militao.cmi.modelo.DashboardBuilder;
 import br.com.militao.cmi.modelo.componente.Componente;
 import br.com.militao.cmi.modelo.componente.ComponenteCreator;
+import br.com.militao.cmi.modelo.dao.NotificacaoDao;
 
 public class LoadDashboard implements Logica {
 
@@ -34,7 +34,10 @@ public class LoadDashboard implements Logica {
 
 			dashboard = (Dashboard) session.getAttribute("dashboard");
 		}
-
+		
+		NotificacaoDao notDao = new NotificacaoDao();
+		session.setAttribute("notificacoes", notDao.getList());
+		
 		req.setAttribute("painelStatus", dashboard.getPainel());
 
 		return "/WEB-INF/jsps/dashboard.jsp";
