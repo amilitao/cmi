@@ -21,23 +21,35 @@
 				class="w3-badge w3-right w3-small w3-green">3</span>
 		</button>
 
-		<div id="id01" class="w3-modal">
-			<div class="w3-modal-content w3-card-4">
+		<div id="id01" class="w3-modal w3-text-black">
+			<div class="w3-modal-content">
+
 				<header class="w3-container w3-khaki">
 					<span
 						onclick="document.getElementById('id01').style.display='none'"
-						class="w3-button w3-large w3-display-topright">&times;</span>
-					<h2>Notificações</h2>
+						class="w3-button w3-display-topright">Fechar</span>
+					<h3>Notificações</h3>
 				</header>
-				<div class="w3-container w3-text-black">
-					<p>Some text..</p>
-					<p>Some text..</p>
+				<div class="w3-container">
+
+					<ul class="w3-ul">
+						<li class="w3-bar">
+
+							<div class="w3-bar-item">
+								<span class="w3-large"> <i class="fa fa-bell-o"
+									style="font-size: 25px"></i> Emprestimo fora do prazo para
+									devolução
+								</span>
+								<button class="w3-button w3-circle w3-green" onclick="this.parentElement.style.display='none'">	
+								<i class="fa fa-check" style="font-size:15px"></i>				
+								</button>
+							</div>
+						</li>						
+					</ul>
 				</div>
-				<footer class="w3-container w3-khaki">
-					<p>Modal Footer</p>
-				</footer>
 			</div>
 		</div>
+
 	</div>
 
 </div>
