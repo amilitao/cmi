@@ -1,4 +1,10 @@
+<%@ tag import="br.com.militao.cmi.modelo.dao.NotificacaoDao"%>
+<%@ tag import="br.com.militao.cmi.modelo.Notificacao"%>
+<%@ tag import="java.util.*;"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ tag language="java" pageEncoding="UTF-8"%>
+
+
 
 <div class="w3-bar w3-top w3-large w3-text-white"
 	style="background: #293949" style="z-index: 4">
@@ -31,20 +37,18 @@
 					<h3>Notificações</h3>
 				</header>
 				<div class="w3-container">
-
 					<ul class="w3-ul">
 						<li class="w3-bar">
-
 							<div class="w3-bar-item">
 								<span class="w3-large"> <i class="fa fa-bell-o"
-									style="font-size: 25px"></i> Emprestimo fora do prazo para
-									devolução
+									style="font-size: 25px"></i> descricao
 								</span>
-								<button class="w3-button w3-circle w3-green" onclick="this.parentElement.style.display='none'">	
-								<i class="fa fa-check" style="font-size:15px"></i>				
+								<button class="w3-button w3-circle w3-green"
+									onclick="this.parentElement.style.display='none'">
+									<i class="fa fa-check" style="font-size: 15px"></i>
 								</button>
 							</div>
-						</li>						
+						</li>
 					</ul>
 				</div>
 			</div>
