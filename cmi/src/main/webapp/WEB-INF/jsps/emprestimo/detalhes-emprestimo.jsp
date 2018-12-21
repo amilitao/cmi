@@ -36,14 +36,14 @@
 
 		</c:if>
 
-		<div class="container">
-			<div class="w3-col m3">
+		<div class="container w3-padding-large">
+			<div class="w3-col m3 w3-margin-bottom">
 				<ul class="w3-ul">
 					<li><i class="fa fa-handshake-o"></i> Empréstimo :<b>${emprestimo.idEmprestimo}</b></li>
 					<li><i class="fa fa-phone-square"></i> Chamado: <b>${emprestimo.num_chamado}</b></li>
 				</ul>
 			</div>
-			<div class="w3-col m3">
+			<div class="w3-col m3 w3-margin-bottom">
 				<ul class="w3-ul">
 					<li><i class="fa fa-home"></i> Loja: <b>${emprestimo.loja}</b></li>
 					<li><i class="fa fa-calendar"></i> Prazo devolução: <b><font
@@ -56,14 +56,21 @@
 					<li><i class="fa fa-search"></i> Situação : <b>${emprestimo.situacao.descricao}</b></li>
 				</ul>
 			</div>
-		</div>
+			<div class="w3-col m3 w3-margin-bottom">
+				<button class="w3-button w3-border w3-border-red w3-right">Cancelar
+					empréstimo</button>
+			</div>
+		</div>		
 
-		<div class="container  w3-padding-large">
+
+		<div class="container w3-padding-large">
+		
 			<div class="w3-row">
 				<p class="w3-center">
 					<b>Processo de empréstimo</b>
 				</p>
 			</div>
+
 			<div class="w3-row">
 				<div class="w3-container w3-center w3-text-white"
 					style="width:${emprestimo.situacao.porcentagem}; background:#ff6f69">
@@ -148,8 +155,7 @@
 		</div>
 
 
-
-		<div class="container">
+		<div class="container w3-padding-large">
 
 			<div class="w3-row-padding">
 
@@ -163,8 +169,7 @@
 				<div class="w3-third w3-margin-bottom">
 
 					<ul class="w3-ul w3-border w3-hover-shadow">
-						<li class="w3-large w3-center w3-text-white"
-							style="background: #f4ab43">Transporte</li>
+						<li class="w3-large w3-center" style="background: #f4ab43"><b>Transporte</b></li>
 						<li>Transportadora: <b>${transporte.nomeTransportadora}</b></li>
 						<li>Número de NFe de envio: <b>${transporte.numNfeEnvio}</b></li>
 						<li>Data de envio: <b>${transporte.dtEnvioFormatada}</b></li>
@@ -182,8 +187,7 @@
 				</c:if>
 				<div class="w3-third w3-margin-bottom">
 					<ul class="w3-ul w3-border w3-hover-shadow">
-						<li class="w3-large w3-center w3-text-white"
-							style="background: #5ebf99">Devolução</li>
+						<li class="w3-large w3-center" style="background: #5ebf99"><b>Devolução</b></li>
 						<li>Número da NFe: <b>${devolucao.numNfeDevolucao}</b></li>
 						<li>Recebedor: <b>${devolucao.recebedor}</b></li>
 						<li>Data da devolução: <b>${devolucao.dtDevolucaoFormatada}</b></li>
@@ -195,8 +199,9 @@
 		<div class="w3-panel w3-padding-large">
 
 			<button onclick="myFunction('Demo1')"
-				class="w3-button w3-block w3-left-align w3-dark-grey w3-border w3-border-black w3-center"><b>Histórico do
-				empréstimo</b></button>
+				class="w3-button w3-block w3-left-align w3-dark-grey w3-border w3-border-black w3-center">
+				<b>Histórico do empréstimo</b>
+			</button>
 
 			<div id="Demo1" class="w3-hide w3-container w3-pale-yellow">
 
