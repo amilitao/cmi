@@ -57,14 +57,21 @@
 				</ul>
 			</div>
 			<div class="w3-col m3 w3-margin-bottom">
-				<button class="w3-button w3-border w3-border-red w3-right">Cancelar
-					empréstimo</button>
+
+				<form action="controle" method="post">
+					<button class="w3-button w3-border w3-border-red w3-right">Cancelar
+						empréstimo</button>
+					<input type="hidden" name="idEmprestimo"
+						value="${emprestimo.idEmprestimo}" /> <input type="hidden"
+						name="situacao" value="cancelado" /> <input type="hidden"
+						name="logica" value="AtualizarEmprestimo" />
+				</form>
 			</div>
-		</div>		
+		</div>
 
 
 		<div class="container w3-padding-large">
-		
+
 			<div class="w3-row">
 				<p class="w3-center">
 					<b>Processo de empréstimo</b>
@@ -72,10 +79,28 @@
 			</div>
 
 			<div class="w3-row">
-				<div class="w3-container w3-center w3-text-white"
-					style="width:${emprestimo.situacao.porcentagem}; background:#ff6f69">
-					<c:out value="${emprestimo.situacao.porcentagem}" />
-				</div>
+
+				<c:choose>
+
+					<c:when test="${emprestimo.situacao.porcentagem == '0%'}">
+
+						<div class="w3-container w3-center w3-text-white"
+							style="width: 100%; background: gray">
+							<c:out value="${emprestimo.situacao.porcentagem}" />
+							- Cancelado
+						</div>
+
+					</c:when>
+
+					<c:otherwise>
+
+						<div class="w3-container w3-center w3-text-white"
+							style="width:${emprestimo.situacao.porcentagem}; background:#ff6f69">
+							<c:out value="${emprestimo.situacao.porcentagem}" />
+						</div>
+
+					</c:otherwise>
+				</c:choose>
 
 			</div>
 			<div class="w3-row w3-center">
