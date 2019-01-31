@@ -57,9 +57,14 @@
 				</ul>
 			</div>
 			<div class="w3-col m3 w3-margin-bottom">
+			
+			<c:set var="btnCancelar" value="" />
+						<c:if test="${emprestimo.situacao.porcentagem != '25%' && emprestimo.situacao.porcentagem != '40%'}">
+							<c:set var="btnCancelar" value="disabled" />
+						</c:if>
 
 				<form action="controle" method="post">
-					<button class="w3-button w3-border w3-border-red w3-right">Cancelar
+					<button class="w3-button w3-border w3-border-red w3-right" <c:out value="${btnCancelar}"></c:out> >Cancelar
 						empréstimo</button>
 					<input type="hidden" name="idEmprestimo"
 						value="${emprestimo.idEmprestimo}" /> <input type="hidden"
