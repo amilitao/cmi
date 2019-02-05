@@ -57,14 +57,16 @@
 				</ul>
 			</div>
 			<div class="w3-col m3 w3-margin-bottom">
-			
-			<c:set var="btnCancelar" value="" />
-						<c:if test="${emprestimo.situacao.porcentagem != '25%' && emprestimo.situacao.porcentagem != '40%'}">
-							<c:set var="btnCancelar" value="disabled" />
-						</c:if>
+
+				<c:set var="btnCancelar" value="" />
+				<c:if
+					test="${emprestimo.situacao.porcentagem != '25%' && emprestimo.situacao.porcentagem != '40%'}">
+					<c:set var="btnCancelar" value="disabled" />
+				</c:if>
 
 				<form action="controle" method="post">
-					<button class="w3-button w3-border w3-border-red w3-right" <c:out value="${btnCancelar}"></c:out> >Cancelar
+					<button class="w3-button w3-border w3-border-red w3-right"
+						<c:out value="${btnCancelar}"></c:out>>Cancelar
 						empréstimo</button>
 					<input type="hidden" name="idEmprestimo"
 						value="${emprestimo.idEmprestimo}" /> <input type="hidden"
@@ -222,6 +224,15 @@
 						<li>Recebedor: <b>${devolucao.recebedor}</b></li>
 						<li>Data da devolução: <b>${devolucao.dtDevolucaoFormatada}</b></li>
 					</ul>
+				</div>
+				<div class="w3-third w3-margin-bottom">
+					<form action="controle/pdf" method="post" target="_blank">
+						<input type="hidden" name="idEmprestimo"
+						value="${emprestimo.idEmprestimo}" />
+						<button class="w3-button w3-right">
+							<i class="fa fa-file-pdf-o"></i><b> PDF</b>
+						</button>
+					</form>
 				</div>
 			</div>
 		</div>
