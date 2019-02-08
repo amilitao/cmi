@@ -47,59 +47,23 @@ public class GerarPapeletaPdf extends HttpServlet {
 				table.addCell(cell);
 
 				// Destinatario
-
-				CellPapeleta cellDest = new CellPapeleta(4, 2, "DESTINATARIO:", req.getParameter("idEmprestimo"));
-				table.addCell(cellDest);
-
-				/*
-				 * cell = new PdfPCell(); cell.setColspan(4); cell.setRowspan(2);
-				 * cell.setPadding(5); cell.setUseAscender(true); cell.setUseDescender(true);
-				 * Paragraph p1 = new Paragraph("DESTINATARIO:"); cell.addElement(p1); p1 = new
-				 * Paragraph("variavel"); p1.setAlignment(Element.ALIGN_CENTER);
-				 * cell.addElement(p1); table.addCell(cell);
-				 */
+				CellPapeleta cellDest = new CellPapeleta(4, 2, "Destinatário:", "ATACADAO S.A");
+				table.addCell(cellDest);				
 
 				// Numero filial
-				cell = new PdfPCell();
-				cell.setRowspan(2);
-				cell.setPadding(5);
-				cell.setUseAscender(true);
-				cell.setUseDescender(true);
-				Paragraph p2 = new Paragraph("Nº FILIAL:");
-				cell.addElement(p2);
-				p2 = new Paragraph("variavel");
-				p2.setAlignment(Element.ALIGN_CENTER);
-				cell.addElement(p2);
-				table.addCell(cell);
+				CellPapeleta cellNumFilial = new CellPapeleta(1,2, "Nº filial:", req.getParameter("numero_loja"));
+				table.addCell(cellNumFilial);
+				
+				// Nome da filial
+				CellPapeleta cellNomeFilial = new CellPapeleta(3, 2, "Nome filial", req.getParameter("loja").toUpperCase());
+				table.addCell(cellNomeFilial);				
 
-				cell = new PdfPCell();
-				cell.setColspan(3);
-				cell.setRowspan(2);
-				cell.setPadding(5);
-				cell.setUseAscender(true);
-				cell.setUseDescender(true);
-				Paragraph p3 = new Paragraph("NOME FILIAL:");
-				cell.addElement(p3);
-				p3 = new Paragraph("variavel");
-				p3.setAlignment(Element.ALIGN_CENTER);
-				cell.addElement(p3);
-				table.addCell(cell);
-
-				// segunda linha
-
-				cell = new PdfPCell();
-				cell.setColspan(4);
-				cell.setRowspan(2);
-				cell.setPadding(5);
-				cell.setUseAscender(true);
-				cell.setUseDescender(true);
-				Paragraph p4 = new Paragraph("ENDEREÇO:");
-				cell.addElement(p4);
-				p4 = new Paragraph("variavel");
-				p4.setAlignment(Element.ALIGN_CENTER);
-				cell.addElement(p4);
-				table.addCell(cell);
-
+				// endereço
+				CellPapeleta cellEndereco = new CellPapeleta(8, 2, "Endereço:", req.getParameter("endereco").toUpperCase());
+				
+				table.addCell(cellEndereco);
+				
+				
 				cell = new PdfPCell();
 				cell.setColspan(4);
 				cell.setRowspan(2);

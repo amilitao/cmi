@@ -227,8 +227,11 @@
 				</div>
 				<div class="w3-third w3-margin-bottom">
 					<form action="controle/pdf" method="post" target="_blank">
-						<input type="hidden" name="idEmprestimo"
-						value="${emprestimo.idEmprestimo}" />
+						<input type="hidden" name="loja" value="${emprestimo.loja.nome}" />
+						<input type="hidden" name="numero_loja" value="${emprestimo.loja.numero_loja}" />
+						<input type ="hidden" name="endereco" value="${emprestimo.loja.endereco}" />
+						
+						
 						<button class="w3-button w3-right">
 							<i class="fa fa-file-pdf-o"></i><b> PDF</b>
 						</button>

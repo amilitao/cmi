@@ -84,10 +84,11 @@ public class EmprestimoDao {
 	public List<Emprestimo> getList() {
 		List<Emprestimo> emprestimos = new ArrayList<>();
 
-		String sql = "select e.id_emprestimo, e.dt_inicio, l.id_loja, l.numero_loja, l.nome, l.cnpj, i.id_impressora, "
-				+ "i.numero, i.modelo,  e.num_chamado, e.situacao, e.prazo_devolucao, dt_fim from emprestimo e\n"
-				+ "join loja l on e.loja_id_loja = l.id_loja \n"
-				+ "join impressora i on e.impressora_id_impressora = i.id_impressora order by id_emprestimo desc;";
+		String sql = "select e.id_emprestimo, e.dt_inicio, l.id_loja, l.numero_loja, l.nome, l.cnpj, l.endereco,"
+				+ " i.id_impressora, i.numero, i.modelo,  e.num_chamado, e.situacao, e.prazo_devolucao, dt_fim "
+				+ "from emprestimo e join loja l on e.loja_id_loja = l.id_loja \n"
+				+ "join impressora i on e.impressora_id_impressora = i.id_impressora "
+				+ "order by id_emprestimo desc;";
 
 		try (Connection con = new ConnectionFactory().getConnection();
 				PreparedStatement stmt = con.prepareStatement(sql);
@@ -104,6 +105,7 @@ public class EmprestimoDao {
 				loja.setNome(rs.getString("nome"));
 				loja.setNumero_loja(rs.getInt("numero_loja"));
 				loja.setCnpj(rs.getString("cnpj"));
+				loja.setEndereco(rs.getString("endereco"));
 				imp.setIdImpressora(rs.getInt("id_impressora"));
 				imp.setNumero(rs.getInt("numero"));
 				imp.setModelo(rs.getString("modelo"));
