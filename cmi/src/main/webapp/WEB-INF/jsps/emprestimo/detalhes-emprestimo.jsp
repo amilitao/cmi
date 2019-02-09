@@ -150,7 +150,8 @@
 							<c:param name="idEmprestimo" value="${emprestimo.idEmprestimo}" />
 							<c:param name="dtEnvio" value="now.getDate()" />
 						</c:import>
-					</p>
+					</p>			
+					
 				</div>
 				<div class="w3-col m2">
 					<p>
@@ -204,8 +205,9 @@
 						<li class="w3-large w3-center" style="background: #f4ab43"><b>Transporte</b></li>
 						<li>Transportadora: <b>${transporte.nomeTransportadora}</b></li>
 						<li>Número de NFe de envio: <b>${transporte.numNfeEnvio}</b></li>
-						<li>Data de envio: <b>${transporte.dtEnvioFormatada}</b></li>
-					</ul>
+						<li>Data de envio: <b>${transporte.dtEnvioFormatada}</b></li>					
+					
+					</ul>					
 				</div>
 
 				<c:set var="devolucao" value="${null}" />
@@ -226,18 +228,30 @@
 					</ul>
 				</div>
 				<div class="w3-third w3-margin-bottom">
+				
+				  <div class="w3-bar-block">	
+				  
+				 	    <c:set var="btnPdf" value="" />
+						<c:if test="${emprestimo.situacao.porcentagem == '25%' || emprestimo.situacao.porcentagem == '40%'}">
+							<c:set var="btnPdf" value="disabled" />
+						</c:if> 		
+					
 					<form action="controle/pdf" method="post" target="_blank">
-						<input type="hidden" name="loja" value="${emprestimo.loja.nome}" />
-						<input type="hidden" name="numero_loja" value="${emprestimo.loja.numero_loja}" />
-						<input type="hidden" name="endereco" value="${emprestimo.loja.endereco}" />
-						<input type="hidden" name="telefone" value="${emprestimo.loja.telefone}" />
-						<input type="hidden" name="modelo" value="${emprestimo.impressora}" />
-						<input type="hidden" name="nfe" value="${transporte.numNfeEnvio}" />
+								<input type="hidden" name="loja" value="${emprestimo.loja.nome}" />
+								<input type="hidden" name="numero_loja" value="${emprestimo.loja.numero_loja}" />
+								<input type="hidden" name="endereco" value="${emprestimo.loja.endereco}" />
+								<input type="hidden" name="telefone" value="${emprestimo.loja.telefone}" />
+								<input type="hidden" name="modelo" value="${emprestimo.impressora}" />
+								<input type="hidden" name="nfe" value="${transporte.numNfeEnvio}" />
 						
-						<button class="w3-button w3-right">
-							<i class="fa fa-file-pdf-o"></i><b> PDF</b>
-						</button>
-					</form>
+								<button class="w3-bar-item w3-button w3-padding w3-text-purple w3-margin-bottom" 
+									<c:out value="${btnPdf}" />>
+									<i class="fa fa-file-pdf-o"></i><b> Papeleta em PDF</b>
+								</button>
+						</form>				
+					
+					</div>
+					
 				</div>
 			</div>
 		</div>
