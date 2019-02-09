@@ -229,8 +229,10 @@
 					<form action="controle/pdf" method="post" target="_blank">
 						<input type="hidden" name="loja" value="${emprestimo.loja.nome}" />
 						<input type="hidden" name="numero_loja" value="${emprestimo.loja.numero_loja}" />
-						<input type ="hidden" name="endereco" value="${emprestimo.loja.endereco}" />
-						
+						<input type="hidden" name="endereco" value="${emprestimo.loja.endereco}" />
+						<input type="hidden" name="telefone" value="${emprestimo.loja.telefone}" />
+						<input type="hidden" name="modelo" value="${emprestimo.impressora}" />
+						<input type="hidden" name="nfe" value="${transporte.numNfeEnvio}" />
 						
 						<button class="w3-button w3-right">
 							<i class="fa fa-file-pdf-o"></i><b> PDF</b>

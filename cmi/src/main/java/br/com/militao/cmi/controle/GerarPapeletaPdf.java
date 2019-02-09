@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.itextpdf.text.Document;
 import com.itextpdf.text.Element;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.Font.FontFamily;
 import com.itextpdf.text.PageSize;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
@@ -34,7 +36,7 @@ public class GerarPapeletaPdf extends HttpServlet {
 
 		try {
 			try {
-				Document document = new Document(PageSize.A4.rotate(), 10f, 10f, 100f, 0f);
+				Document document = new Document(PageSize.A4.rotate());
 				PdfWriter.getInstance(document, out);
 				document.open();
 
@@ -59,24 +61,59 @@ public class GerarPapeletaPdf extends HttpServlet {
 				table.addCell(cellNomeFilial);				
 
 				// endereço
-				CellPapeleta cellEndereco = new CellPapeleta(8, 2, "Endereço:", req.getParameter("endereco").toUpperCase());
-				
+				CellPapeleta cellEndereco = new CellPapeleta(8, 2, "Endereço:", req.getParameter("endereco").toUpperCase());				
 				table.addCell(cellEndereco);
 				
+				// telefone
+				CellPapeleta cellTelefone = new CellPapeleta(3, 2, "Telefone:", req.getParameter("telefone").toUpperCase());
+				table.addCell(cellTelefone);				
 				
+				// Quantidade
+				CellPapeleta cellQtd = new CellPapeleta(3, 2, "Quantidade:", "1 " + req.getParameter("modelo").toUpperCase());
+				table.addCell(cellQtd);
+				
+				// Numero da nota fiscal
+				CellPapeleta cellNfe = new CellPapeleta(2, 2, "Numero Nfe:", req.getParameter("nfe").toUpperCase());
+				table.addCell(cellNfe);	
+
+				// Remetente
+				CellPapeleta cellRemetente = new CellPapeleta(8, 2, "Remetente:", "ATACADAO S.A");
+				table.addCell(cellRemetente);	
+				
+				// Endereço remetente
+				CellPapeleta cellEndRemetente = new CellPapeleta(8, 2, "Endereço:", "AV. MORVAN DIAS DE FIGUEIREDO, 6169");
+				table.addCell(cellEndRemetente);	
+				
+				// bairro remetente
+				CellPapeleta cellBairroRemetente = new CellPapeleta(3, 2, "Bairro:", "VILA MARIA");
+				table.addCell(cellBairroRemetente);
+				
+				// cidade remetente
+				CellPapeleta cellCidadeRemetente = new CellPapeleta(3, 2, "Cidade:", "SÃO PAULO - SP");
+				table.addCell(cellCidadeRemetente);
+				
+				// telefone remetente
+				CellPapeleta cellTelefoneRemetente = new CellPapeleta(2, 2, "Telefone:", "(11)2967-9570");
+				table.addCell(cellTelefoneRemetente);
+				
+				// telefone remetente
+				CellPapeleta cellCepRemetente = new CellPapeleta(8, 2, "Cep:", "02170-901");
+				table.addCell(cellCepRemetente);
+				
+				// Rodape
 				cell = new PdfPCell();
-				cell.setColspan(4);
-				cell.setRowspan(2);
+				cell.setColspan(8);		
 				cell.setPadding(5);
 				cell.setUseAscender(true);
 				cell.setUseDescender(true);
-				Paragraph p5 = new Paragraph("TELEFONE:");
-				cell.addElement(p5);
-				p5 = new Paragraph("variavel");
-				p5.setAlignment(Element.ALIGN_CENTER);
-				cell.addElement(p5);
+				Font font22pt = new Font(FontFamily.HELVETICA, 22 );
+				Paragraph rodape = new Paragraph();	
+				rodape = new Paragraph("ATENÇÃO!!! CUIDADO FRÁGIL", font22pt);				
+				rodape.setAlignment(Element.ALIGN_CENTER);
+				cell.addElement(rodape);
 				table.addCell(cell);
-
+				
+				
 				document.add(table);
 
 				document.close();
