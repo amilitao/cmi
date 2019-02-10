@@ -36,14 +36,14 @@
 
 		</c:if>
 
-		<div class="container">
-			<div class="w3-col m3">
+		<div class="container w3-padding-large">
+			<div class="w3-col m3 w3-margin-bottom">
 				<ul class="w3-ul">
 					<li><i class="fa fa-handshake-o"></i> Empréstimo :<b>${emprestimo.idEmprestimo}</b></li>
 					<li><i class="fa fa-phone-square"></i> Chamado: <b>${emprestimo.num_chamado}</b></li>
 				</ul>
 			</div>
-			<div class="w3-col m3">
+			<div class="w3-col m3 w3-margin-bottom">
 				<ul class="w3-ul">
 					<li><i class="fa fa-home"></i> Loja: <b>${emprestimo.loja}</b></li>
 					<li><i class="fa fa-calendar"></i> Prazo devolução: <b><font
@@ -56,19 +56,58 @@
 					<li><i class="fa fa-search"></i> Situação : <b>${emprestimo.situacao.descricao}</b></li>
 				</ul>
 			</div>
+			<div class="w3-col m3 w3-margin-bottom">
+
+				<c:set var="btnCancelar" value="" />
+				<c:if
+					test="${emprestimo.situacao.porcentagem != '25%' && emprestimo.situacao.porcentagem != '40%'}">
+					<c:set var="btnCancelar" value="disabled" />
+				</c:if>
+
+				<form action="controle" method="post">
+					<button class="w3-button w3-border w3-border-red w3-right"
+						<c:out value="${btnCancelar}"></c:out>>Cancelar
+						empréstimo</button>
+					<input type="hidden" name="idEmprestimo"
+						value="${emprestimo.idEmprestimo}" /> <input type="hidden"
+						name="situacao" value="cancelado" /> <input type="hidden"
+						name="logica" value="AtualizarEmprestimo" />
+				</form>
+			</div>
 		</div>
 
-		<div class="container  w3-padding-large">
+
+		<div class="container w3-padding-large">
+
 			<div class="w3-row">
 				<p class="w3-center">
 					<b>Processo de empréstimo</b>
 				</p>
 			</div>
+
 			<div class="w3-row">
-				<div class="w3-container w3-center w3-text-white"
-					style="width:${emprestimo.situacao.porcentagem}; background:#ff6f69">
-					<c:out value="${emprestimo.situacao.porcentagem}" />
-				</div>
+
+				<c:choose>
+
+					<c:when test="${emprestimo.situacao.porcentagem == '0%'}">
+
+						<div class="w3-container w3-center w3-text-white"
+							style="width: 100%; background: gray">
+							<c:out value="${emprestimo.situacao.porcentagem}" />
+							- Cancelado
+						</div>
+
+					</c:when>
+
+					<c:otherwise>
+
+						<div class="w3-container w3-center w3-text-white"
+							style="width:${emprestimo.situacao.porcentagem}; background:#ff6f69">
+							<c:out value="${emprestimo.situacao.porcentagem}" />
+						</div>
+
+					</c:otherwise>
+				</c:choose>
 
 			</div>
 			<div class="w3-row w3-center">
@@ -111,7 +150,8 @@
 							<c:param name="idEmprestimo" value="${emprestimo.idEmprestimo}" />
 							<c:param name="dtEnvio" value="now.getDate()" />
 						</c:import>
-					</p>
+					</p>			
+					
 				</div>
 				<div class="w3-col m2">
 					<p>
@@ -148,8 +188,7 @@
 		</div>
 
 
-
-		<div class="container">
+		<div class="container w3-padding-large">
 
 			<div class="w3-row-padding">
 
@@ -163,12 +202,12 @@
 				<div class="w3-third w3-margin-bottom">
 
 					<ul class="w3-ul w3-border w3-hover-shadow">
-						<li class="w3-large w3-center w3-text-white"
-							style="background: #f4ab43">Transporte</li>
+						<li class="w3-large w3-center" style="background: #f4ab43"><b>Transporte</b></li>
 						<li>Transportadora: <b>${transporte.nomeTransportadora}</b></li>
 						<li>Número de NFe de envio: <b>${transporte.numNfeEnvio}</b></li>
-						<li>Data de envio: <b>${transporte.dtEnvioFormatada}</b></li>
-					</ul>
+						<li>Data de envio: <b>${transporte.dtEnvioFormatada}</b></li>					
+					
+					</ul>					
 				</div>
 
 				<c:set var="devolucao" value="${null}" />
@@ -182,12 +221,37 @@
 				</c:if>
 				<div class="w3-third w3-margin-bottom">
 					<ul class="w3-ul w3-border w3-hover-shadow">
-						<li class="w3-large w3-center w3-text-white"
-							style="background: #5ebf99">Devolução</li>
+						<li class="w3-large w3-center" style="background: #5ebf99"><b>Devolução</b></li>
 						<li>Número da NFe: <b>${devolucao.numNfeDevolucao}</b></li>
 						<li>Recebedor: <b>${devolucao.recebedor}</b></li>
 						<li>Data da devolução: <b>${devolucao.dtDevolucaoFormatada}</b></li>
 					</ul>
+				</div>
+				<div class="w3-third w3-margin-bottom">
+				
+				  <div class="w3-bar-block">	
+				  
+				 	    <c:set var="btnPdf" value="" />
+						<c:if test="${emprestimo.situacao.porcentagem == '25%' || emprestimo.situacao.porcentagem == '40%'}">
+							<c:set var="btnPdf" value="disabled" />
+						</c:if> 		
+					
+					<form action="controle/pdf" method="post" target="_blank">
+								<input type="hidden" name="loja" value="${emprestimo.loja.nome}" />
+								<input type="hidden" name="numero_loja" value="${emprestimo.loja.numero_loja}" />
+								<input type="hidden" name="endereco" value="${emprestimo.loja.endereco}" />
+								<input type="hidden" name="telefone" value="${emprestimo.loja.telefone}" />
+								<input type="hidden" name="modelo" value="${emprestimo.impressora}" />
+								<input type="hidden" name="nfe" value="${transporte.numNfeEnvio}" />
+						
+								<button class="w3-bar-item w3-button w3-padding w3-text-purple w3-margin-bottom" 
+									<c:out value="${btnPdf}" />>
+									<i class="fa fa-file-pdf-o"></i><b> Papeleta em PDF</b>
+								</button>
+						</form>				
+					
+					</div>
+					
 				</div>
 			</div>
 		</div>
@@ -195,8 +259,9 @@
 		<div class="w3-panel w3-padding-large">
 
 			<button onclick="myFunction('Demo1')"
-				class="w3-button w3-block w3-left-align w3-dark-grey w3-center"><b>Histórico do
-				empréstimo</b></button>
+				class="w3-button w3-block w3-left-align w3-dark-grey w3-border w3-border-black w3-center">
+				<b>Histórico do empréstimo</b>
+			</button>
 
 			<div id="Demo1" class="w3-hide w3-container w3-pale-yellow">
 
@@ -237,5 +302,4 @@
 	</div>
 
 </t:mainpage>
-
 
