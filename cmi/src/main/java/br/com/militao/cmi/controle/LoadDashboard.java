@@ -9,7 +9,7 @@ import br.com.militao.cmi.modelo.Dashboard;
 import br.com.militao.cmi.modelo.DashboardBuilder;
 import br.com.militao.cmi.modelo.componente.Componente;
 import br.com.militao.cmi.modelo.componente.ComponenteCreator;
-import br.com.militao.cmi.modelo.dao.NotificacaoDao;
+
 
 public class LoadDashboard implements Logica {
 
@@ -35,8 +35,10 @@ public class LoadDashboard implements Logica {
 			dashboard = (Dashboard) session.getAttribute("dashboard");
 		}
 		
-		NotificacaoDao notDao = new NotificacaoDao();
-		session.setAttribute("notificacoes", notDao.getList());
+		
+		//criar tabela no banco de dados
+		/*NotificacaoDao notDao = new NotificacaoDao();
+		session.setAttribute("notificacoes", notDao.getList());*/
 		
 		req.setAttribute("painelStatus", dashboard.getPainel());
 

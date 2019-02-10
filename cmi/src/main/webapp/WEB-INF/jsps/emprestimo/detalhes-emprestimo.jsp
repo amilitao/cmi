@@ -232,7 +232,7 @@
 				  <div class="w3-bar-block">	
 				  
 				 	    <c:set var="btnPdf" value="" />
-						<c:if test="${emprestimo.situacao.porcentagem == '25%' || emprestimo.situacao.porcentagem == '40%'}">
+						<c:if test="${emprestimo.situacao.porcentagem != '60%'}">
 							<c:set var="btnPdf" value="disabled" />
 						</c:if> 		
 					
