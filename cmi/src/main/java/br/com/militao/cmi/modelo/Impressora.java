@@ -5,6 +5,7 @@
  */
 package br.com.militao.cmi.modelo;
 
+
 /**
  *
  * @author Adriano
@@ -20,7 +21,6 @@ public class Impressora {
 	private EstadoImpressoraEnum estado;
 	private StatusImpressoraEnum situacao;
 	private Loja loja;
-	
 
 	public Impressora() {
 	}
@@ -67,10 +67,10 @@ public class Impressora {
 
 	public void setNumero_serie(String numero_serie) {
 		this.numero_serie = numero_serie;
-	}		
+	}
 
-	public double getValor() {
-		return valor;
+	public double getValor() {	
+		return this.valor;
 	}
 
 	public void setValor(double valor) {

@@ -2,7 +2,7 @@ package br.com.militao.cmi.modelo;
 
 public enum StatusEmprestimoEnum {
 	
-	INICIADO("1%", "iniciado", "brown"), EMISSAO_NFE("25%", "aguardando nfe", "green"), 
+	CANCELADO("0%","cancelado", "gray"), INICIADO("1%", "iniciado", "brown"), EMISSAO_NFE("25%", "aguardando nfe", "green"), 
 	AGUARDANDO_TRANSPORTE("40%", "aguardando transporte", "deep-purple"), ENVIADO("60%", "em transporte", "amber"),
 	EM_EMPRESTIMO("75%", "em emprestimo", "indigo"), ENCERRADO("100%", "encerrado", "red");
 	
