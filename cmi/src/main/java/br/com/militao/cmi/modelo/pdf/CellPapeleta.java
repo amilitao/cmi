@@ -1,4 +1,4 @@
-package br.com.militao.cmi.modelo;
+package br.com.militao.cmi.modelo.pdf;
 
 
 import com.itextpdf.text.Paragraph;
