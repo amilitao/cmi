@@ -1,7 +1,6 @@
 package br.com.militao.cmi.controle;
 
 import java.io.IOException;
-import java.io.OutputStream;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,10 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.itextpdf.text.Document;
-import com.itextpdf.text.PageSize;
 import com.itextpdf.text.pdf.PdfPTable;
-import com.itextpdf.text.pdf.PdfWriter;
+
 
 import br.com.militao.cmi.modelo.pdf.TabelaPapeletaBuilder;
 
