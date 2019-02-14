@@ -96,7 +96,7 @@
 
 
 			<button class="w3-button w3-green" type="button"
-				onclick="f_adicionar()">Adicionar</button>
+				onclick="f_adicionar()">Nova impressora</button>
 			<button class="w3-button w3-deep-orange" type="button"
 				onclick="f_alterar()">Alterar</button>
 			<button class="w3-button w3-blue" type="submit">

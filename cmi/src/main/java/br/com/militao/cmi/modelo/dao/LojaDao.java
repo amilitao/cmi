@@ -43,17 +43,18 @@ public class LojaDao {
 
 	public void update(Loja loja) {
 	
-		String sql = "update loja set numero_loja=?, nome=?," + "cnpj=?, telefone=?, endereco=? where id_loja=?";
+		String sql = "update loja set regional_id_regional=?, numero_loja=?, nome=?," + "cnpj=?, telefone=?, endereco=? where id_loja=?";
 
 		try (Connection con = new ConnectionFactory().getConnection();
 				PreparedStatement stmt = con.prepareStatement(sql)) {
 
-			stmt.setInt(1, loja.getNumero_loja());
-			stmt.setString(2, loja.getNome());
-			stmt.setString(3, loja.getCnpj());
-			stmt.setString(4, loja.getTelefone());
-			stmt.setString(5, loja.getEndereco());
-			stmt.setInt(6, loja.getIdLoja());
+			stmt.setInt(1, loja.getRegional().getId_regional());
+			stmt.setInt(2, loja.getNumero_loja());
+			stmt.setString(3, loja.getNome());
+			stmt.setString(4, loja.getCnpj());
+			stmt.setString(5, loja.getTelefone());
+			stmt.setString(6, loja.getEndereco());
+			stmt.setInt(7, loja.getIdLoja());
 
 			stmt.executeUpdate();
 

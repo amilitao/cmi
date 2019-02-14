@@ -17,8 +17,7 @@ public class ConnectionFactory {
 
 	private final String url_bd = "jdbc:mysql://localhost/db_cmi2?useSSL=false";
 	private final String login = "root";
-	private final String senha = "admin";
-	
+	private final String senha = "admin";	
 	
 	public Connection getConnection(){
 
