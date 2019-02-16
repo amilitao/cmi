@@ -1,4 +1,4 @@
-package br.com.militao.cmi.controle;
+package br.com.militao.cmi.modelo.pdf;
 
 import java.io.IOException;
 import java.io.OutputStream;

@@ -79,7 +79,7 @@ public class TabelaPapeletaBuilder {
 		return this;
 	}
 	public TabelaPapeletaBuilder comRodape(String var) {
-		cellRodape = new CellRodPapeleta(8, 2, "", var.toUpperCase());
+		cellRodape = new CellRodPapeleta(8, 4, "", var.toUpperCase());
 		return this;
 	}
 	

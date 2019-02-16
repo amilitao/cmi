@@ -69,8 +69,7 @@
 					<button class="w3-button w3-border w3-border-red w3-right"
 						<c:out value="${btnCancelar}"></c:out>>Cancelar
 						empréstimo</button>
-					<input type="hidden" name="idEmprestimo"
-						value="${emprestimo.idEmprestimo}" /> <input type="hidden"
+					<input type="hidden" name="idEmprestimo" value="${emprestimo.idEmprestimo}" /> <input type="hidden"
 						name="situacao" value="cancelado" /> <input type="hidden"
 						name="logica" value="AtualizarEmprestimo" />
 				</form>
@@ -235,7 +234,7 @@
 
 						<c:set var="btnPdf" value="" />
 						<c:if
-							test="${emprestimo.situacao.porcentagem == '25%' || emprestimo.situacao.porcentagem == '40%'}">
+							test="${emprestimo.situacao.porcentagem != '60%'}">
 							<c:set var="btnPdf" value="disabled" />
 						</c:if>
 
@@ -264,10 +263,10 @@
 		
 		<br>
 
-		<div class="container">
+		<div class="container w3-border">
 			<div class="w3-row-padding">
 
-				<div class="w3-bar w3-khaki">
+				<div class="w3-bar">
 					<button class="w3-bar-item w3-button tablink w3-light-blue"
 						onclick="openCity(event,'London')">
 						<b>Comentário</b>
@@ -284,12 +283,13 @@
 
 				<div class="container">
 					<div id="London" class="city">
-						<form>
+						<form action="controle" method="post">
 							<div class="w3-row w3-padding-16">
 
 								<div class="w3-col m8">
-									<textarea class="w3-threequarter" rows="2"></textarea>
-									<button class="w3-button w3-margin-left w3-border">
+									<textarea class="w3-threequarter" rows="2" name="comentario"></textarea>
+									<input type="hidden" name="idEmprestimo" value="${emprestimo.idEmprestimo}" />
+									<button class="w3-button w3-margin-left w3-dark-grey" name="logica" value="SalvarComentario">
 										<b>Salvar</b>
 									</button>
 								</div>								

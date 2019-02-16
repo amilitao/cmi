@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.itextpdf.text.pdf.PdfPTable;
 
-
+import br.com.militao.cmi.modelo.pdf.PapeletaPdf;
 import br.com.militao.cmi.modelo.pdf.TabelaPapeletaBuilder;
 
 @WebServlet(urlPatterns = "/controle/pdf")
@@ -27,21 +27,21 @@ public class GerarPapeletaPdf extends HttpServlet {
 		
 				
 				PdfPTable table = new TabelaPapeletaBuilder()
-						.comCabecalho("ENDEREÇAMENTO")
-						.comDestinatario("ATACADAO S.A")
+						.comCabecalho("endereçamento")
+						.comDestinatario("atacadao s.a")
 						.comNumeroDaFilial(req.getParameter("numero_loja"))
 						.comNomeDaFilial(req.getParameter("loja"))
 						.comEndereco(req.getParameter("endereco"))
 						.comTelefone(req.getParameter("telefone"))
 						.comQuantidade(req.getParameter("modelo"))
 						.comNfe(req.getParameter("nfe"))
-						.comRemetente("ATACADAO S.A")
-						.comEnderecoRemetente("AV. MORVAN DIAS DE FIGUEIREDO, 6169")
-						.comBairroRemetente("VILA MARIA")
-						.comCidadeRemetente("SÃO PAULO - SP")
+						.comRemetente("atacadao s.a")
+						.comEnderecoRemetente("av. morvan dias de figueiredo, 6169")
+						.comBairroRemetente("vila maria")
+						.comCidadeRemetente("são paulo - sp")
 						.comTelefoneRemetente("(11)2967-9570")
 						.comCepRemetente("02170-901")
-						.comRodape("ATENÇÃO!!! CUIDADO FRÁGIL")
+						.comRodape("atenção - cuidado frágil!!!")
 						.geraTabela();
 						
 				papeleta.criar(table);
