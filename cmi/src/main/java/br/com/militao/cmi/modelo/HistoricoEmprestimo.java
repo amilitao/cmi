@@ -10,6 +10,7 @@ public class HistoricoEmprestimo {
 	private Emprestimo emprestimo;
 	private String ocorrencia;
 	private LocalDateTime dt_ocorrencia;
+	private Usuario usuario;
 		
 		
 	
@@ -32,8 +33,7 @@ public class HistoricoEmprestimo {
 		this.ocorrencia = ocorrencia;
 	}
 	public LocalDateTime getDt_ocorrencia() {
-		return dt_ocorrencia;
-	}	
+		return dt_ocorrencia;	}	
 	
 	public void setDt_ocorrencia(LocalDateTime dt_ocorrencia) {
 		this.dt_ocorrencia = dt_ocorrencia;
@@ -41,6 +41,17 @@ public class HistoricoEmprestimo {
 	public String getDtRegistroFormatada() {
 		return FormatadorDeData.formata(dt_ocorrencia);
 	}
+	
+	public Usuario getUsuario() {
+		return usuario;
+	}
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+	
+	
+	
+	
 	
 	
 	

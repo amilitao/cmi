@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 
 import br.com.militao.cmi.modelo.Emprestimo;
 import br.com.militao.cmi.modelo.HistoricoEmprestimo;
+import br.com.militao.cmi.modelo.Usuario;
 import br.com.militao.cmi.modelo.dao.HistoricoEmprestimoDao;
 
 public class SalvarComentario implements Logica{
@@ -21,6 +22,9 @@ public class SalvarComentario implements Logica{
 		historico.setEmprestimo(new Emprestimo(Integer.parseInt(req.getParameter("idEmprestimo"))));  
 		historico.setOcorrencia(req.getParameter("comentario"));
 		historico.setDt_ocorrencia(LocalDateTime.now());
+		
+		//apos implantar tela de login importar o usuario da Sessão
+		historico.setUsuario(new Usuario("producao"));
 		
 		histEmpDao.insert(historico);
 		
