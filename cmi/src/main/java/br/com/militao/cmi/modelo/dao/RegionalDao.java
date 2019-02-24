@@ -32,14 +32,16 @@ public class RegionalDao {
 
 	public void update(Regional regional) {
 
-		String sql = "update regional set nome_regional=?, num_filial_base=? where id_regional=?";
+		String sql = "update regional set nome_regional=?, num_filial_base=?, qtd_impressora=?"
+				+ " where id_regional=?";
 
 		try (Connection con = new ConnectionFactory().getConnection();
 				PreparedStatement stmt = con.prepareStatement(sql)) {
 
 			stmt.setString(1, regional.getNome_regional());
 			stmt.setInt(2, regional.getNum_filial_base());
-			stmt.setInt(3, regional.getId_regional());
+			stmt.setInt(3, regional.getQtd_impressora());
+			stmt.setInt(4, regional.getId_regional());
 
 			stmt.executeUpdate();
 
@@ -52,13 +54,14 @@ public class RegionalDao {
 
 	public void insert(Regional regional) {
 
-		String sql = "insert into regional (nome_regional, num_filial_base) values (?,?)";
+		String sql = "insert into regional (nome_regional, num_filial_base, qtd_impressora) values (?,?,?)";
 
 		try (Connection con = new ConnectionFactory().getConnection();
 				PreparedStatement stmt = con.prepareStatement(sql);) {
 
 			stmt.setString(1, regional.getNome_regional());
 			stmt.setInt(2, regional.getNum_filial_base());
+			stmt.setInt(3, regional.getQtd_impressora());
 
 			stmt.executeUpdate();
 
@@ -86,6 +89,7 @@ public class RegionalDao {
 				regional.setId_regional(rs.getInt("id_regional"));
 				regional.setNome_regional(rs.getString("nome_regional"));
 				regional.setNum_filial_base(rs.getInt("num_filial_base"));
+				regional.setQtd_impressora(rs.getInt("qtd_impressora"));
 
 				regionais.add(regional);
 			}

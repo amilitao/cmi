@@ -5,6 +5,7 @@ public class Regional {
 	private int id_regional;
 	private String nome_regional;
 	private int num_filial_base;
+	private int qtd_impressora;
 	
 	
 	
@@ -27,6 +28,14 @@ public class Regional {
 	public void setNum_filial_base(int num_filial_base) {
 		this.num_filial_base = num_filial_base;
 	}
+	public int getQtd_impressora() {
+		return qtd_impressora;
+	}
+	public void setQtd_impressora(int qtd_impressora) {
+		this.qtd_impressora = qtd_impressora;
+	}
+	
+	
 	
 	
 
