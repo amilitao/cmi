@@ -1,4 +1,4 @@
-package br.com.militao.cmi.modelo;
+ package br.com.militao.cmi.modelo;
 
 public class Usuario {
 	

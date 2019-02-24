@@ -13,14 +13,15 @@
 		</h5>
 	</header>
 
-	<com:painel-status qtdDisponivel="${painelStatus.qtdDisponivel}"
-		qtdEmprestimo="${painelStatus.qtdEmprestimo}"
-		qtdManutencao="${painelStatus.qtdManutencao}"
-		qtdDefeito="${painelStatus.qtdDefeito}" />
-	
-	
+	<com:painel-status
+		qtdDisponivel="${painelStatusImpressora.qtdDisponivel}"
+		qtdEmprestimo="${painelStatusImpressora.qtdEmprestimo}"
+		qtdManutencao="${painelStatusImpressora.qtdManutencao}"
+		qtdDefeito="${painelStatusImpressora.qtdDefeito}" />
+
+
 	<div class="w3-container">
-		<h5>Status de atendimento</h5>
+		<h5>Status de atendimentos finalizados</h5>
 		<p>Empréstimos</p>
 		<div class="w3-grey">
 			<div class="w3-container w3-center w3-padding w3-green"
@@ -32,18 +33,39 @@
 			<div class="w3-container w3-center w3-padding w3-orange"
 				style="width: 50%">50%</div>
 		</div>
-
-		<p>Lista de espera</p>
-		<div class="w3-grey">
-			<div class="w3-container w3-center w3-padding w3-red"
-				style="width: 75%">75%</div>
-		</div>
 	</div>
-	<hr>	
-	
+	<hr>
+	<div class="w3-container">
+		<h5>Countries</h5>
+		<table
+			class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
+			<tr>
+				<td>United States</td>
+				<td>65%</td>
+			</tr>
+			<tr>
+				<td>UK</td>
+				<td>15.7%</td>
+			</tr>
+			<tr>
+				<td>Russia</td>
+				<td>5.6%</td>
+			</tr>	
+			<tr>
+				<td>Russia</td>
+				<td>5.6%</td>
+			</tr>		
+		</table>
+		<br>
+		<button class="w3-button w3-dark-grey">
+			More Countries  <i class="fa fa-arrow-right"></i>
+		</button>
+	</div>
+	<hr>
+
 
 	<div class="w3-container">
-		<h5>Comentários recentes</h5>
+		<h5>Atualizações recentes</h5>
 		<div class="w3-row">
 			<div class="w3-col m2 text-center">
 				<img class="w3-circle" src="resources/style/images/user_system.png"
@@ -102,7 +124,7 @@
 	</div>
 
 	<!-- Footer -->
-	<footer class="w3-container w3-padding-16 w3-light-grey">	
+	<footer class="w3-container w3-padding-16 w3-light-grey">
 		<p>
 			Powered by <a href="https://www.w3schools.com/w3css/default.asp"
 				target="_blank">w3.css</a>

@@ -24,12 +24,12 @@ public class LoadDashboard implements Logica {
 		if (session.getAttribute("dashboard") == null) {
 
 			ComponenteCreator creator = new ComponenteCreator();
-			Componente painelStatus = creator.create(ComponenteCreator.PAINEL_STATUS);
-			Componente painelRegionais = creator.create(ComponenteCreator.PAINEL_REGIONAL);
+			Componente painelStatusImpressora = creator.create(ComponenteCreator.PAINEL_STATUS);
+			Componente painelStatusAtendimento = creator.create(ComponenteCreator.PAINEL_ATENDIMENTO);
 
 			dashboard = new DashboardBuilder().
-					comPainelStatus(painelStatus.criar()).
-					comPainelRegionais(painelRegionais.criar()).geraDashboard();
+					comPainelStatus(painelStatusImpressora.criar()).
+					comPainelRegionais(painelStatusAtendimento.criar()).geraDashboard();
 
 			session.setAttribute("dashboard", dashboard);
 
@@ -41,8 +41,8 @@ public class LoadDashboard implements Logica {
 		NotificacaoDao notDao = new NotificacaoDao();
 		session.setAttribute("notificacoes", notDao.getList());
 		
-		req.setAttribute("painelStatus", dashboard.getPainel());
-		req.setAttribute("painelRegionais", dashboard.getPainelRegionais());
+		req.setAttribute("painelStatusImpressora", dashboard.getPainelStatusImpressora());
+		req.setAttribute("painelStatusAtendimento", dashboard.getPainelStatusAtendimento());
 
 		return "/WEB-INF/jsps/dashboard.jsp";
 	}
