@@ -26,18 +26,18 @@
 				<h5>
 					<b>Status de movimentação</b>
 				</h5>
-				<p>Empréstimos finalizados</p>
-				<div class="w3-grey">
+				Empréstimos finalizados
+				<div class="w3-grey w3-margin-bottom">
 					<div class="w3-container w3-center w3-padding"
 						style="width: 95%; background: #59c4e4">95%</div>
 				</div>
-				<p>Manutenções finalizadas</p>
-				<div class="w3-grey">
+				Manutenções finalizadas
+				<div class="w3-grey w3-margin-bottom">
 					<div class="w3-container w3-center w3-padding"
 						style="width: 100%; background: #f4ab43">100%</div>
 				</div>
-				<p>Impressoras devolvidas no prazo</p>
-				<div class="w3-grey">
+				Impressoras devolvidas no prazo
+				<div class="w3-grey w3-margin-bottom">
 					<div class="w3-container w3-center w3-padding"
 						style="width: 80%; background: #92A8D1">80%</div>
 				</div>
@@ -74,19 +74,14 @@
 						<td><i class="fa fa-laptop w3-text-red w3-large"></i></td>
 						<td>Total de custo com manunteção</td>
 						<td><i>35</i></td>
-					</tr>
-					<tr>
-						<td><i class="fa fa-share-alt w3-text-green w3-large"></i></td>
-						<td>New shares.</td>
-						<td><i>39</i></td>
-					</tr>
+					</tr>					
 				</table>
 			</div>
 		</div>
 	</div>
 
 	<hr>
-	<div class="w3-container">
+	<div class="w3-container w3-white">
 		<h5>Ultimas atualizações</h5>
 		<div class="w3-row">
 			<div class="w3-col m2 text-center">
