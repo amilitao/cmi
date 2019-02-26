@@ -50,13 +50,15 @@ public class HistoricoEmprestimoDao {
 			while (rs.next()) {
 				HistoricoEmprestimo ocorrencia = new HistoricoEmprestimo();
 				Emprestimo emprestimo = new Emprestimo();
+				Usuario user = new Usuario();
 
 				ocorrencia.setIdHistoricoEmprestimo(rs.getInt("id_historico_emprestimo"));
 				emprestimo.setIdEmprestimo(rs.getInt("emprestimo_id_emprestimo"));
 				ocorrencia.setEmprestimo(emprestimo);
 				ocorrencia.setOcorrencia(rs.getString("ocorrencia"));
 				ocorrencia.setDt_ocorrencia(FormatadorDeData.toLocalDateTime(rs.getTimestamp("dt_ocorrencia")));
-				ocorrencia.setUsuario(new Usuario(rs.getString("usuario")));
+				user.setLogin(rs.getString("usuario"));
+				ocorrencia.setUsuario(user);
 
 				historicos.add(ocorrencia);
 

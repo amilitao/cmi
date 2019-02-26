@@ -2,14 +2,17 @@
 
 public class Usuario {
 	
+	private int id_usuario;
 	private String login;
-	private String senha;
+	private String senha;	
+		
 	
-	public Usuario(String login) {
-		this.login = login;
+	public int getId_usuario() {
+		return id_usuario;
 	}
-	
-	
+	public void setId_usuario(int id_usuario) {
+		this.id_usuario = id_usuario;
+	}
 	public String getLogin() {
 		return login;
 	}
@@ -18,6 +21,9 @@ public class Usuario {
 	}
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+	public String getSenha() {
+		return senha;
 	}
 	
 	

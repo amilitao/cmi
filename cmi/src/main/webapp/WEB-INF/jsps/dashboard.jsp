@@ -12,7 +12,7 @@
 			<b><i class="fa fa-dashboard"></i> Meu Dashboard</b>
 		</h5>
 	</header>
-
+	
 	<com:painel-status
 		qtdDisponivel="${painelStatusImpressora.qtdDisponivel}"
 		qtdEmprestimo="${painelStatusImpressora.qtdEmprestimo}"
