@@ -54,7 +54,7 @@ public class FiltroControle implements Filter {
 			resp.setHeader("Pragma", "no-cache");
 			resp.setHeader("Expires", "-1");
 			chain.doFilter(req, resp);
-		}else {
+		}else {			
 			
 			req.setAttribute("logica", "LoadDashboard");
 			chain.doFilter(req, resp);

@@ -38,10 +38,18 @@ public class AutenticarUsuarioServlet extends HttpServlet {
 			dispatcher.forward(req, resp);
 			
 		} else {
+			req.setAttribute("confirmaDao", false);
 			dispatcher = req.getRequestDispatcher("index.jsp");
 			dispatcher.forward(req, resp);
 		}
 	}	
+	
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		resp.sendRedirect("index.jsp");
+	}
+	
 	
 	
 }
