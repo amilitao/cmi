@@ -12,7 +12,7 @@
 
 <body class="w3-light-grey">
 
-	<div class="w3-card-4 w3-col m3 w3-white w3-display-middle">
+	<div class="w3-card-4 w3-col m3 w3-white w3-display-middle w3-padding-large">
 		<div class="w3-center">
 
 			<h1 class="w3-xxxlarge" >
@@ -21,16 +21,15 @@
 
 		</div>
 
-		<form class="w3-container" action="controle" method="post">
+		<form class="w3-container" action="acesso" method="post">
 			<div class="w3-section">
 				<label><b>Login</b></label> <input
 					class="w3-input w3-border w3-margin-bottom" type="text"	name="login" required> <label><b>Senha</b></label>
 				<input class="w3-input w3-border" type="password" name="senha" required>
-				<button class="w3-button w3-block w3-section w3-padding" name="logica" value="AutenticarUsuario" style="background:#78bd5d">Entrar</button>
-				<input class="w3-check w3-margin-top" type="checkbox" checked="checked"> Lembre-me
+				<button class="w3-button w3-block w3-section w3-padding" style="background:#78bd5d">Entrar</button>				
 			</div>
 		</form>
-
+		<hr>
 
 	</div>
 
