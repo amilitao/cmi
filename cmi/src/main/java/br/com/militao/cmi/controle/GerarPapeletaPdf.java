@@ -2,27 +2,21 @@ package br.com.militao.cmi.controle;
 
 import java.io.IOException;
 
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-<<<<<<< HEAD
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;
 import com.itextpdf.text.Font.FontFamily;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
 import com.itextpdf.text.pdf.PdfPCell;
-=======
-import com.itextpdf.text.Document;
-import com.itextpdf.text.PageSize;
->>>>>>> branch 'master' of https://github.com/amilitao/cmi.git
 import com.itextpdf.text.pdf.PdfPTable;
 
-
+import br.com.militao.cmi.modelo.pdf.CellPapeleta;
 import br.com.militao.cmi.modelo.pdf.TabelaPapeletaBuilder;
 
 @WebServlet(urlPatterns = "/controle/pdf")
@@ -34,7 +28,6 @@ public class GerarPapeletaPdf extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		resp.setContentType("application/pdf");
-<<<<<<< HEAD
 
 		DocumentoPdf papeleta = new DocumentoPdf(resp.getOutputStream());
 
@@ -113,7 +106,7 @@ public class GerarPapeletaPdf extends HttpServlet {
 
 		papeleta.criar(table);
 
-=======
+
 		
 		PapeletaPdf papeleta = new PapeletaPdf(resp.getOutputStream());	
 		
@@ -137,7 +130,7 @@ public class GerarPapeletaPdf extends HttpServlet {
 						.geraTabela();
 						
 				papeleta.criar(table);
->>>>>>> branch 'master' of https://github.com/amilitao/cmi.git
+
 	}
 
 }
