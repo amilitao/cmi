@@ -46,16 +46,18 @@
 			</button>
 		</form>
 		<hr>
-		
+
 		<div class="w3-container" style="margin: 0 -16px;">
 
 			<div class="w3-center w3-white">
-				<h4><b>Lista de Espera</b></h4>
+				<h4>
+					<b>Lista de Espera</b>
+				</h4>
 			</div>
 			<div style="height: 370px; overflow: auto;">
 				<table class="w3-table-all w3-hoverable">
 					<thead>
-						<tr class="w3-dark-grey"> 
+						<tr class="w3-dark-grey">
 							<th>Id</th>
 							<th>Numero</th>
 							<th>Filial</th>
@@ -63,7 +65,8 @@
 						</tr>
 					</thead>
 					<c:forEach var="l" items="${listaDeEspera}">
-						<tr>
+						<tr
+							onclick="document.getElementById('idListaEspera').style.display='block'">
 							<td><b>${l.id_reserva}</b></td>
 							<td>${l.loja.numero_loja}</td>
 							<td>${l.loja.nome}</td>
@@ -75,6 +78,46 @@
 		</div>
 	</div>
 
+
+	<div id="idListaEspera" class="w3-modal">
+		<div class="w3-modal-content w3-khaki">
+			<header class="w3-container">
+				<span
+					onclick="document.getElementById('idListaEspera').style.display='none'"
+					class="w3-button w3-display-topright">&times;</span>
+				<h4>Lista de espera</h4>
+			</header>
+			<div class="w3-container w3-white">
+				<c:if test="${empty impressoras}">
+					<div class="w3-panel w3-pale-yellow w3-border w3-border-yellow">
+						<p>Nenhuma impressora disponível no momento!!!</p>
+					</div>
+				</c:if>
+				<c:if test="${not empty impressoras}">
+					<div class="w3-panel">
+					<h4>Lista de impressoras disponíveis:</h4>
+					<c:forEach var="lista" items="${impressoras}">
+						<p>${lista}</p>					
+					</c:forEach>
+					
+					</div>
+				
+				
+					<div class="w3-panel">
+						<p>Deseja realmente o emprestimo de uma impressora?</p>
+						<button class="w3-button w3-green">SIM</button>
+						<button class="w3-button w3-red">NÃO</button>
+					</div>
+
+				</c:if>
+
+
+			</div>
+			<footer class="w3-container">
+				<p>Obs.: Você será direcionada para a página de emprestimo e deverá escolher a impressora desejada</p>
+			</footer>			
+		</div>
+	</div>
 
 
 </t:mainpage>

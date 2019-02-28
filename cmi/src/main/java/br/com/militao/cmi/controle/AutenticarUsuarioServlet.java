@@ -38,7 +38,7 @@ public class AutenticarUsuarioServlet extends HttpServlet {
 			dispatcher.forward(req, resp);
 			
 		} else {
-			req.setAttribute("confirmaDao", false);
+			req.setAttribute("erroLogin", true);
 			dispatcher = req.getRequestDispatcher("index.jsp");
 			dispatcher.forward(req, resp);
 		}
