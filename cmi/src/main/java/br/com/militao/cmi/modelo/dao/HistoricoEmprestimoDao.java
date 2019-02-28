@@ -10,14 +10,15 @@ import java.util.List;
 import br.com.militao.cmi.conexao.ConnectionFactory;
 import br.com.militao.cmi.modelo.Emprestimo;
 import br.com.militao.cmi.modelo.HistoricoEmprestimo;
+import br.com.militao.cmi.modelo.Usuario;
 import br.com.militao.cmi.util.FormatadorDeData;
 
 public class HistoricoEmprestimoDao {
 
 	public void insert(HistoricoEmprestimo historico) {
 
-		String sql = "insert into historico_emprestimo (emprestimo_id_emprestimo, ocorrencia, dt_ocorrencia)"
-				+ " values (?,?,?)";
+		String sql = "insert into historico_emprestimo (emprestimo_id_emprestimo, ocorrencia, dt_ocorrencia, usuario)"
+				+ " values (?,?,?,?)";
 
 		try (Connection con = new ConnectionFactory().getConnection();
 				PreparedStatement stmt = con.prepareStatement(sql);) {
@@ -25,6 +26,7 @@ public class HistoricoEmprestimoDao {
 			stmt.setInt(1, historico.getEmprestimo().getIdEmprestimo());
 			stmt.setString(2, historico.getOcorrencia());
 			stmt.setTimestamp(3, FormatadorDeData.toTimeStamp(historico.getDt_ocorrencia()));
+			stmt.setString(4, historico.getUsuario().getLogin());
 
 			stmt.executeUpdate();
 
@@ -48,12 +50,15 @@ public class HistoricoEmprestimoDao {
 			while (rs.next()) {
 				HistoricoEmprestimo ocorrencia = new HistoricoEmprestimo();
 				Emprestimo emprestimo = new Emprestimo();
+				Usuario user = new Usuario();
 
 				ocorrencia.setIdHistoricoEmprestimo(rs.getInt("id_historico_emprestimo"));
 				emprestimo.setIdEmprestimo(rs.getInt("emprestimo_id_emprestimo"));
 				ocorrencia.setEmprestimo(emprestimo);
 				ocorrencia.setOcorrencia(rs.getString("ocorrencia"));
 				ocorrencia.setDt_ocorrencia(FormatadorDeData.toLocalDateTime(rs.getTimestamp("dt_ocorrencia")));
+				user.setLogin(rs.getString("usuario"));
+				ocorrencia.setUsuario(user);
 
 				historicos.add(ocorrencia);
 

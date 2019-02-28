@@ -6,7 +6,7 @@
 
 <t:mainpage>
 
-	<div class="w3-panel w3-padding-large">
+	<div class="w3-panel">
 		<div class="w3-col m9">
 			<h3>
 				<i class="fa fa-cubes"></i> Detalhes de Empréstimo
@@ -36,7 +36,7 @@
 
 		</c:if>
 
-		<div class="container w3-padding-large">
+		<div class="container">
 			<div class="w3-col m3 w3-margin-bottom">
 				<ul class="w3-ul">
 					<li><i class="fa fa-handshake-o"></i> Empréstimo :<b>${emprestimo.idEmprestimo}</b></li>
@@ -53,7 +53,8 @@
 			<div class="w3-col m3 w3-margin-bottom">
 				<ul class="w3-ul">
 					<li><i class="fa fa-print"></i> Impressora: <b>${emprestimo.impressora}</b></li>
-					<li><i class="fa fa-search"></i> Situação : <b>${emprestimo.situacao.descricao}</b></li>
+					<li class="w3-border w3-border-${emprestimo.situacao.cor}"><i
+						class="fa fa-search"></i> Situação : <b>${emprestimo.situacao.descricao}</b></li>
 				</ul>
 			</div>
 			<div class="w3-col m3 w3-margin-bottom">
@@ -77,10 +78,10 @@
 		</div>
 
 
-		<div class="container w3-padding-large">
+		<div class="container">
 
 			<div class="w3-row">
-				<p class="w3-center">
+				<p class="w3-center w3-border">
 					<b>Processo de empréstimo</b>
 				</p>
 			</div>
@@ -150,8 +151,8 @@
 							<c:param name="idEmprestimo" value="${emprestimo.idEmprestimo}" />
 							<c:param name="dtEnvio" value="now.getDate()" />
 						</c:import>
-					</p>			
-					
+					</p>
+
 				</div>
 				<div class="w3-col m2">
 					<p>
@@ -187,119 +188,161 @@
 			</div>
 		</div>
 
+		<br>
 
-		<div class="container w3-padding-large">
 
+		<div class="w3-row-padding">
+
+			<c:set var="transporte" value="${null}" />
+			<c:if test="${not empty listaDeTransportes}">
+				<c:forEach var="transp" items="${listaDeTransportes}">
+					<c:set var="transporte" value="${transp}" />
+				</c:forEach>
+			</c:if>
+
+			<div class="w3-third w3-margin-bottom">
+
+				<ul class="w3-ul w3-border w3-hover-shadow">
+					<li class="w3-large w3-center" style="background: #f4ab43"><b>Transporte</b></li>
+					<li>Transportadora: <b>${transporte.nomeTransportadora}</b></li>
+					<li>Número de NFe de envio: <b>${transporte.numNfeEnvio}</b></li>
+					<li>Data de envio: <b>${transporte.dtEnvioFormatada}</b></li>
+
+				</ul>
+			</div>
+
+			<c:set var="devolucao" value="${null}" />
+			<c:if test="${not empty listaDeDevolucoes}">
+				<c:forEach var="devol" items="${listaDeDevolucoes}">
+					<c:if
+						test="${devol.emprestimo.idEmprestimo == emprestimo.idEmprestimo}">
+						<c:set var="devolucao" value="${devol}" />
+					</c:if>
+				</c:forEach>
+			</c:if>
+			<div class="w3-third w3-margin-bottom">
+				<ul class="w3-ul w3-border w3-hover-shadow">
+					<li class="w3-large w3-center" style="background: #5ebf99"><b>Devolução</b></li>
+					<li>Número da NFe: <b>${devolucao.numNfeDevolucao}</b></li>
+					<li>Recebedor: <b>${devolucao.recebedor}</b></li>
+					<li>Data da devolução: <b>${devolucao.dtDevolucaoFormatada}</b></li>
+				</ul>
+			</div>
+			<div class="w3-third w3-margin-bottom">
+
+				<div class="w3-bar-block">
+
+					<c:set var="btnPdf" value="" />
+					<c:if test="${emprestimo.situacao.porcentagem != '60%'}">
+						<c:set var="btnPdf" value="disabled" />
+					</c:if>
+
+					<form action="controle/pdf" method="post" target="_blank">
+						<input type="hidden" name="loja" value="${emprestimo.loja.nome}" />
+						<input type="hidden" name="numero_loja"
+							value="${emprestimo.loja.numero_loja}" /> <input type="hidden"
+							name="endereco" value="${emprestimo.loja.endereco}" /> <input
+							type="hidden" name="telefone" value="${emprestimo.loja.telefone}" />
+						<input type="hidden" name="modelo"
+							value="${emprestimo.impressora}" /> <input type="hidden"
+							name="nfe" value="${transporte.numNfeEnvio}" />
+
+						<button
+							class="w3-bar-item w3-button w3-padding w3-text-purple w3-margin-bottom"
+							<c:out value="${btnPdf}" />>
+							<i class="fa fa-file-pdf-o"></i><b> Papeleta em PDF</b>
+						</button>
+					</form>
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<br>
+
+		<div class="container w3-border">
 			<div class="w3-row-padding">
 
-				<c:set var="transporte" value="${null}" />
-				<c:if test="${not empty listaDeTransportes}">
-					<c:forEach var="transp" items="${listaDeTransportes}">
-						<c:set var="transporte" value="${transp}" />
-					</c:forEach>
-				</c:if>
-
-				<div class="w3-third w3-margin-bottom">
-
-					<ul class="w3-ul w3-border w3-hover-shadow">
-						<li class="w3-large w3-center" style="background: #f4ab43"><b>Transporte</b></li>
-						<li>Transportadora: <b>${transporte.nomeTransportadora}</b></li>
-						<li>Número de NFe de envio: <b>${transporte.numNfeEnvio}</b></li>
-						<li>Data de envio: <b>${transporte.dtEnvioFormatada}</b></li>					
-					
-					</ul>					
+				<div class="w3-bar">
+					<button class="w3-bar-item w3-button tablink w3-light-blue"
+						onclick="openCity(event,'London')">
+						<b>Comentário</b>
+					</button>
+					<button class="w3-bar-item w3-button tablink"
+						onclick="openCity(event,'Paris')">
+						<b>Histórico</b>
+					</button>
+					<button class="w3-bar-item w3-button tablink"
+						onclick="openCity(event,'Tokyo')">
+						<b>Vazio</b>
+					</button>
 				</div>
 
-				<c:set var="devolucao" value="${null}" />
-				<c:if test="${not empty listaDeDevolucoes}">
-					<c:forEach var="devol" items="${listaDeDevolucoes}">
-						<c:if
-							test="${devol.emprestimo.idEmprestimo == emprestimo.idEmprestimo}">
-							<c:set var="devolucao" value="${devol}" />
-						</c:if>
-					</c:forEach>
-				</c:if>
-				<div class="w3-third w3-margin-bottom">
-					<ul class="w3-ul w3-border w3-hover-shadow">
-						<li class="w3-large w3-center" style="background: #5ebf99"><b>Devolução</b></li>
-						<li>Número da NFe: <b>${devolucao.numNfeDevolucao}</b></li>
-						<li>Recebedor: <b>${devolucao.recebedor}</b></li>
-						<li>Data da devolução: <b>${devolucao.dtDevolucaoFormatada}</b></li>
-					</ul>
-				</div>
-				<div class="w3-third w3-margin-bottom">
-				
-				  <div class="w3-bar-block">	
-				  
-				 	    <c:set var="btnPdf" value="" />
-						<c:if test="${emprestimo.situacao.porcentagem != '60%'}">
-							<c:set var="btnPdf" value="disabled" />
-						</c:if> 		
-					
-					<form action="controle/pdf" method="post" target="_blank">
-								<input type="hidden" name="loja" value="${emprestimo.loja.nome}" />
-								<input type="hidden" name="numero_loja" value="${emprestimo.loja.numero_loja}" />
-								<input type="hidden" name="endereco" value="${emprestimo.loja.endereco}" />
-								<input type="hidden" name="telefone" value="${emprestimo.loja.telefone}" />
-								<input type="hidden" name="modelo" value="${emprestimo.impressora}" />
-								<input type="hidden" name="nfe" value="${transporte.numNfeEnvio}" />
-						
-								<button class="w3-bar-item w3-button w3-padding w3-text-purple w3-margin-bottom" 
-									<c:out value="${btnPdf}" />>
-									<i class="fa fa-file-pdf-o"></i><b> Papeleta em PDF</b>
-								</button>
-						</form>				
-					
-					</div>
-					
-				</div>
-			</div>
-		</div>
+				<div class="container">
+					<div id="London" class="city">
+						<form action="controle" method="post">
+							<div class="w3-row w3-padding-16">
 
-		<div class="w3-panel w3-padding-large">
-
-			<button onclick="myFunction('Demo1')"
-				class="w3-button w3-block w3-left-align w3-dark-grey w3-border w3-border-black w3-center">
-				<b>Histórico do empréstimo</b>
-			</button>
-
-			<div id="Demo1" class="w3-hide w3-container w3-pale-yellow">
-
-				<c:forEach var="historico" items="${historicos}">
-
-					<ul class="w3-ul">
-						<li>
-							<div class="w3-row">
-								<div class="w3-col m9">
-									<b>Ocorrencia:</b> ${historico.ocorrencia}
+								<div class="w3-col m8">
+									<textarea class="w3-col" style="width:100%" rows="3" name="comentario"></textarea>
+									<input type="hidden" name="idEmprestimo"
+										value="${emprestimo.idEmprestimo}" />									
 								</div>
-								<div class="w3-col m3">
-									<b>Data:</b> ${historico.dtRegistroFormatada}
+								<div class="w3-col m1 w3-row-padding w3-margin-top w3-center">
+									<button class="w3-button w3-margin-left w3-dark-grey"
+										name="logica" value="SalvarComentario">
+										<b>Salvar</b>
+									</button>
 								</div>
 							</div>
-						</li>
-					</ul>
-				</c:forEach>
+						</form>
+					</div>
+				</div>
+
+				<div id="Paris" class="w3-border city" style="display: none">
+					<c:forEach var="historico" items="${historicos}">
+						<ul class="w3-ul">
+							<li>
+								<div class="w3-row">
+									<div class="w3-col m8">
+										<b>Ocorrência:</b> ${historico.ocorrencia}
+									</div>
+									<div class="w3-col m2">
+										<b>Data:</b> ${historico.dtRegistroFormatada}
+									</div>
+									<div class="w3-col m2">
+										<b>Usuario:</b> ${historico.usuario.login}
+									</div>
+								</div>
+							</li>
+						</ul>
+					</c:forEach>
+				</div>
+
+				<div id="Tokyo" class="w3-border city" style="display: none">
+					<h2>Vazio</h2>
+				</div>
 			</div>
 		</div>
-
-
-		<script>
-			function myFunction(id) {
-				var x = document.getElementById(id);
-				if (x.className.indexOf("w3-show") == -1) {
-					x.className += " w3-show";
-					x.previousElementSibling.className = x.previousElementSibling.className
-							.replace("w3-black", "w3-red");
-				} else {
-					x.className = x.className.replace(" w3-show", "");
-					x.previousElementSibling.className = x.previousElementSibling.className
-							.replace("w3-red", "w3-black");
-				}
-			}
-		</script>
-
 	</div>
 
-</t:mainpage>
 
+	<script>
+		function openCity(evt, cityName) {
+			var i, x, tablinks;
+			x = document.getElementsByClassName("city");
+			for (i = 0; i < x.length; i++) {
+				x[i].style.display = "none";
+			}
+			tablinks = document.getElementsByClassName("tablink");
+			for (i = 0; i < x.length; i++) {
+				tablinks[i].className = tablinks[i].className.replace(
+						" w3-light-blue", "");
+			}
+			document.getElementById(cityName).style.display = "block";
+			evt.currentTarget.className += " w3-light-blue";
+		}
+	</script>
+</t:mainpage>

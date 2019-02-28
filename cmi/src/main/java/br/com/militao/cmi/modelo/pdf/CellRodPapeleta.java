@@ -10,9 +10,9 @@ public class CellRodPapeleta extends CellPapeleta{
 	public CellRodPapeleta(int col, int row, String titulo, String valor) {
 		super(col, row, titulo, "");
 		this.setPadding(5);
-		Font font22pt = new Font(FontFamily.HELVETICA, 22 );
+		Font font30pt = new Font(FontFamily.HELVETICA, 30 );
 		Paragraph rodape = new Paragraph();	
-		rodape = new Paragraph(valor, font22pt);				
+		rodape = new Paragraph(valor, font30pt);				
 		rodape.setAlignment(Element.ALIGN_CENTER);
 		this.addElement(rodape);
 		

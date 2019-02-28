@@ -11,6 +11,7 @@ import br.com.militao.cmi.modelo.componente.Componente;
 import br.com.militao.cmi.modelo.componente.ComponenteCreator;
 
 
+
 public class LoadDashboard implements Logica {
 
 	@Override
@@ -23,10 +24,12 @@ public class LoadDashboard implements Logica {
 		if (session.getAttribute("dashboard") == null) {
 
 			ComponenteCreator creator = new ComponenteCreator();
-			Componente painelStatus = creator.create(ComponenteCreator.PAINEL_STATUS);
+			Componente painelStatusImpressora = creator.create(ComponenteCreator.PAINEL_STATUS);
+			Componente painelStatusAtendimento = creator.create(ComponenteCreator.PAINEL_ATENDIMENTO);
 
 			dashboard = new DashboardBuilder().
-					comPainelStatus(painelStatus.criar()).geraDashboard();
+					comPainelStatus(painelStatusImpressora.criar()).
+					comPainelRegionais(painelStatusAtendimento.criar()).geraDashboard();
 
 			session.setAttribute("dashboard", dashboard);
 
@@ -40,7 +43,8 @@ public class LoadDashboard implements Logica {
 		/*NotificacaoDao notDao = new NotificacaoDao();
 		session.setAttribute("notificacoes", notDao.getList());*/
 		
-		req.setAttribute("painelStatus", dashboard.getPainel());
+		req.setAttribute("painelStatusImpressora", dashboard.getPainelStatusImpressora());
+		req.setAttribute("painelStatusAtendimento", dashboard.getPainelStatusAtendimento());
 
 		return "/WEB-INF/jsps/dashboard.jsp";
 	}

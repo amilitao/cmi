@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags"%>
 
 <t:mainpage>
@@ -95,7 +96,7 @@
 
 
 			<button class="w3-button w3-green" type="button"
-				onclick="f_adicionar()">Adicionar</button>
+				onclick="f_adicionar()">Nova impressora</button>
 			<button class="w3-button w3-deep-orange" type="button"
 				onclick="f_alterar()">Alterar</button>
 			<button class="w3-button w3-blue" type="submit">
@@ -124,12 +125,15 @@
 					</thead>
 					<c:forEach var="i" items="${impressoras}">
 						<tr
-							onclick="f_selecionar('${i.idImpressora}', '${i.numero}', '${i.modelo}', '${i.pip}', '${i.numero_serie}', '${i.valor}', '${i.estado.descricao}', '${i.situacao.descricao}', '${i.loja}')">
+							onclick="f_selecionar('${i.idImpressora}', '${i.numero}', '${i.modelo}', '${i.pip}', '${i.numero_serie}', 
+							'<fmt:formatNumber type="number" maxFractionDigits = "2" value="${i.valor}" />',
+							'${i.estado.descricao}','${i.situacao.descricao}', '${i.loja}')">
+							
 							<td><b>${i.numero}</b></td>
 							<td>${i.modelo}</td>
 							<td>${i.pip}</td>
 							<td>${i.numero_serie}</td>
-							<td>${i.valor}</td>
+							<td><fmt:formatNumber type="number" maxFractionDigits = "2" value="${i.valor}" /></td>
 							<td>${i.estado.descricao}</td>
 							<td class="w3-text-${i.situacao.cor}"><b>${i.situacao.descricao}</b></td>
 							<td>${i.loja}</td>

@@ -31,6 +31,7 @@ public class SalvarImpressora implements Logica {
 			
 			impressora.setIdImpressora(Integer.parseInt(req.getParameter("id_impressora")));
 			impDao.update(impressora);
+			
 			req.setAttribute("confirmaDao", true);
 			
 		} else {				

@@ -6,17 +6,17 @@ import br.com.militao.cmi.modelo.Impressora;
 import br.com.militao.cmi.modelo.StatusImpressoraEnum;
 import br.com.militao.cmi.modelo.dao.ImpressoraDao;
 
-public class PainelStatus implements Componente{
+public class PainelStatusImpressora implements Componente{
 
 	private int qtdDisponivel;
 	private int qtdEmprestimo;
 	private int qtdManutencao;
 	private int qtdDefeito;
 	private int qtdLocadaRegional;
-	private ImpressoraDao dao;
+	private ImpressoraDao dao;	
 	private List<Impressora> impressoras;
 
-	public PainelStatus() {
+	public PainelStatusImpressora() {
 		this.qtdDisponivel = 0;
 		this.qtdEmprestimo = 0;
 		this.qtdManutencao = 0;

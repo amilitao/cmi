@@ -5,17 +5,17 @@ import java.io.IOException;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import br.com.militao.cmi.modelo.Usuario;
 
-
-@WebFilter(urlPatterns = "/controle")
+@WebFilter(urlPatterns = { "/controle" })
 public class FiltroControle implements Filter {
 
 	/**
@@ -37,25 +37,36 @@ public class FiltroControle implements Filter {
 	 */
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
-		
+
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse resp = (HttpServletResponse) response;
-		
-		if(req.getParameter("logica") == null) {				
-				RequestDispatcher rd = req.getRequestDispatcher("controle?logica=LoadDashboard");
-				rd.forward(req, resp);
-		}else {
-			chain.doFilter(request, response);
-		}		
-		
-		
-		
+		HttpSession session = req.getSession();
+
+		Usuario user = (Usuario) session.getAttribute("usuarioLogado");
+
+		if (user == null) {
+
+			session.invalidate();
+			resp.sendRedirect("index.jsp");
+
+		} else {
+
+			if (req.getParameter("logica") == null) {
+				
+				resp.sendRedirect("controle?logica=LoadDashboard");
+				
+			} else {
+				
+				chain.doFilter(req, resp);
+			}
+		}
 	}
 
 	/**
 	 * @see Filter#init(FilterConfig)
 	 */
-	public void init(FilterConfig fConfig) throws ServletException {		
+	public void init(FilterConfig fConfig) throws ServletException {
+		// TODO Auto-generated method stub
 	}
 
 }

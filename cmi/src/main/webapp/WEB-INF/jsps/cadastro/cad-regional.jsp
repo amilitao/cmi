@@ -40,6 +40,11 @@
 						filial base</label> <input class="w3-input w3-border" type="text"
 						name="num_filial_base" id="inp_num_filial_base" disabled required>
 				</div>
+				<div class="w3-col m3 w3-margin-bottom">
+					<label><i class="fa fa-pencil-square-o"></i> Quantidade de
+						impressora</label> <input class="w3-input w3-border" type="text"
+						name="qtd_impressora" id="inp_qtd_impressora" disabled required>
+				</div>
 			</div>
 
 			<hr>
@@ -48,7 +53,7 @@
 				type="hidden" name="logica" value="SalvarRegional" />
 
 			<button class="w3-button w3-green" type="button"
-				onclick="f_adicionar()">Adicionar</button>
+				onclick="f_adicionar()">Nova regional</button>
 			<button class="w3-button w3-deep-orange" type="button"
 				onclick="f_alterar()">Alterar</button>
 			<button class="w3-button w3-blue" type="submit">
@@ -68,13 +73,15 @@
 						<tr class="w3-dark-grey">
 							<th>Nome</th>
 							<th>Numero da filial base</th>
+							<th>Quantidade de impressora</th>
 						</tr>
 					</thead>
 					<c:forEach var="r" items="${regionais}">
 						<tr
-							onclick="f_selecionar('${r.id_regional}','${r.nome_regional}', '${r.num_filial_base}')">
+							onclick="f_selecionar('${r.id_regional}','${r.nome_regional}', '${r.num_filial_base}', '${r.qtd_impressora}')">
 							<td>${r.nome_regional}</td>
 							<td>${r.num_filial_base}</td>
+							<td>${r.qtd_impressora}</td> 
 						</tr>
 					</c:forEach>
 				</table>
@@ -85,17 +92,17 @@
 
 
 	<script>
-		function f_selecionar(id, no, nu) {
+		function f_selecionar(id, no, nu, qtd) {
 
 			desabilitar_campos(true);
-			alterar_campos(id, no, nu);
+			alterar_campos(id, no, nu, qtd);
 
 		}
 
 		function f_adicionar() {
 
 			desabilitar_campos(false);
-			alterar_campos('', '', '');
+			alterar_campos('', '', '', '');
 
 		}
 
@@ -115,14 +122,16 @@
 
 			document.getElementById("inp_nome").disabled = opcao;
 			document.getElementById("inp_num_filial_base").disabled = opcao;
+			document.getElementById("inp_qtd_impressora").disabled = opcao;
 
 		}
 
-		function alterar_campos(id, no, nu) {
+		function alterar_campos(id, no, nu, qtd) {
 
 			document.getElementById("inp_id").value = id;
 			document.getElementById("inp_nome").value = no;
 			document.getElementById("inp_num_filial_base").value = nu;
+			document.getElementById("inp_qtd_impressora").value = qtd;
 
 		}
 	</script>

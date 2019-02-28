@@ -8,15 +8,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.itextpdf.text.Element;
-import com.itextpdf.text.Font;
-import com.itextpdf.text.Font.FontFamily;
-import com.itextpdf.text.Paragraph;
-import com.itextpdf.text.Phrase;
-import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 
-import br.com.militao.cmi.modelo.pdf.CellPapeleta;
+import br.com.militao.cmi.modelo.pdf.PapeletaPdf;
 import br.com.militao.cmi.modelo.pdf.TabelaPapeletaBuilder;
 
 @WebServlet(urlPatterns = "/controle/pdf")
@@ -28,109 +22,29 @@ public class GerarPapeletaPdf extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		resp.setContentType("application/pdf");
-
-		DocumentoPdf papeleta = new DocumentoPdf(resp.getOutputStream());
-
-		PdfPTable table = new PdfPTable(8);
-
-		// Cabeçalho
-		PdfPCell cell = new PdfPCell(new Phrase("ENDEREÇAMENTO"));
-		cell.setColspan(8);
-		cell.setHorizontalAlignment(Element.ALIGN_CENTER);
-		table.addCell(cell);
-
-		// Destinatario
-		CellPapeleta cellDest = new CellPapeleta(4, 2, "Destinatário:", "ATACADAO S.A");
-		table.addCell(cellDest);
-
-		// Numero filial
-		CellPapeleta cellNumFilial = new CellPapeleta(1, 2, "Nº filial:", req.getParameter("numero_loja"));
-		table.addCell(cellNumFilial);
-
-		// Nome da filial
-		CellPapeleta cellNomeFilial = new CellPapeleta(3, 2, "Nome filial", req.getParameter("loja").toUpperCase());
-		table.addCell(cellNomeFilial);
-
-		// endereço
-		CellPapeleta cellEndereco = new CellPapeleta(8, 2, "Endereço:", req.getParameter("endereco").toUpperCase());
-		table.addCell(cellEndereco);
-
-		// telefone
-		CellPapeleta cellTelefone = new CellPapeleta(3, 2, "Telefone:", req.getParameter("telefone").toUpperCase());
-		table.addCell(cellTelefone);
-
-		// Quantidade
-		CellPapeleta cellQtd = new CellPapeleta(3, 2, "Quantidade:", "1 " + req.getParameter("modelo").toUpperCase());
-		table.addCell(cellQtd);
-
-		// Numero da nota fiscal
-		CellPapeleta cellNfe = new CellPapeleta(2, 2, "Numero Nfe:", req.getParameter("nfe").toUpperCase());
-		table.addCell(cellNfe);
-
-		// Remetente
-		CellPapeleta cellRemetente = new CellPapeleta(8, 2, "Remetente:", "ATACADAO S.A");
-		table.addCell(cellRemetente);
-
-		// Endereço remetente
-		CellPapeleta cellEndRemetente = new CellPapeleta(8, 2, "Endereço:", "AV. MORVAN DIAS DE FIGUEIREDO, 6169");
-		table.addCell(cellEndRemetente);
-
-		// bairro remetente
-		CellPapeleta cellBairroRemetente = new CellPapeleta(3, 2, "Bairro:", "VILA MARIA");
-		table.addCell(cellBairroRemetente);
-
-		// cidade remetente
-		CellPapeleta cellCidadeRemetente = new CellPapeleta(3, 2, "Cidade:", "SÃO PAULO - SP");
-		table.addCell(cellCidadeRemetente);
-
-		// telefone remetente
-		CellPapeleta cellTelefoneRemetente = new CellPapeleta(2, 2, "Telefone:", "(11)2967-9570");
-		table.addCell(cellTelefoneRemetente);
-
-		// telefone remetente
-		CellPapeleta cellCepRemetente = new CellPapeleta(8, 2, "Cep:", "02170-901");
-		table.addCell(cellCepRemetente);
-
-		// Rodape
-		cell = new PdfPCell();
-		cell.setColspan(8);
-		cell.setPadding(5);
-		cell.setUseAscender(true);
-		cell.setUseDescender(true);
-		Font font22pt = new Font(FontFamily.HELVETICA, 22);
-		Paragraph rodape = new Paragraph();
-		rodape = new Paragraph("ATENÇÃO!!! CUIDADO FRÁGIL", font22pt);
-		rodape.setAlignment(Element.ALIGN_CENTER);
-		cell.addElement(rodape);
-		table.addCell(cell);
-
-		papeleta.criar(table);
-
-
 		
 		PapeletaPdf papeleta = new PapeletaPdf(resp.getOutputStream());	
 		
 				
 				PdfPTable table = new TabelaPapeletaBuilder()
-						.comCabecalho("ENDEREÇAMENTO")
-						.comDestinatario("ATACADAO S.A")
+						.comCabecalho("endereçamento")
+						.comDestinatario("atacadao s.a")
 						.comNumeroDaFilial(req.getParameter("numero_loja"))
 						.comNomeDaFilial(req.getParameter("loja"))
 						.comEndereco(req.getParameter("endereco"))
 						.comTelefone(req.getParameter("telefone"))
 						.comQuantidade(req.getParameter("modelo"))
 						.comNfe(req.getParameter("nfe"))
-						.comRemetente("ATACADAO S.A")
-						.comEnderecoRemetente("AV. MORVAN DIAS DE FIGUEIREDO, 6169")
-						.comBairroRemetente("VILA MARIA")
-						.comCidadeRemetente("SÃO PAULO - SP")
+						.comRemetente("atacadao s.a")
+						.comEnderecoRemetente("av. morvan dias de figueiredo, 6169")
+						.comBairroRemetente("vila maria")
+						.comCidadeRemetente("são paulo - sp")
 						.comTelefoneRemetente("(11)2967-9570")
 						.comCepRemetente("02170-901")
-						.comRodape("ATENÇÃO!!! CUIDADO FRÁGIL")
+						.comRodape("atenção - cuidado frágil!!!")
 						.geraTabela();
 						
 				papeleta.criar(table);
-
 	}
 
 }
