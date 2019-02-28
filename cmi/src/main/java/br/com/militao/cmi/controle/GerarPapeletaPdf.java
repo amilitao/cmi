@@ -9,16 +9,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+<<<<<<< HEAD
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;
 import com.itextpdf.text.Font.FontFamily;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
 import com.itextpdf.text.pdf.PdfPCell;
+=======
+import com.itextpdf.text.Document;
+import com.itextpdf.text.PageSize;
+>>>>>>> branch 'master' of https://github.com/amilitao/cmi.git
 import com.itextpdf.text.pdf.PdfPTable;
 
 
-import br.com.militao.cmi.modelo.CellPapeleta;
+import br.com.militao.cmi.modelo.pdf.TabelaPapeletaBuilder;
 
 @WebServlet(urlPatterns = "/controle/pdf")
 public class GerarPapeletaPdf extends HttpServlet {
@@ -29,6 +34,7 @@ public class GerarPapeletaPdf extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		resp.setContentType("application/pdf");
+<<<<<<< HEAD
 
 		DocumentoPdf papeleta = new DocumentoPdf(resp.getOutputStream());
 
@@ -107,6 +113,31 @@ public class GerarPapeletaPdf extends HttpServlet {
 
 		papeleta.criar(table);
 
+=======
+		
+		PapeletaPdf papeleta = new PapeletaPdf(resp.getOutputStream());	
+		
+				
+				PdfPTable table = new TabelaPapeletaBuilder()
+						.comCabecalho("ENDEREÇAMENTO")
+						.comDestinatario("ATACADAO S.A")
+						.comNumeroDaFilial(req.getParameter("numero_loja"))
+						.comNomeDaFilial(req.getParameter("loja"))
+						.comEndereco(req.getParameter("endereco"))
+						.comTelefone(req.getParameter("telefone"))
+						.comQuantidade(req.getParameter("modelo"))
+						.comNfe(req.getParameter("nfe"))
+						.comRemetente("ATACADAO S.A")
+						.comEnderecoRemetente("AV. MORVAN DIAS DE FIGUEIREDO, 6169")
+						.comBairroRemetente("VILA MARIA")
+						.comCidadeRemetente("SÃO PAULO - SP")
+						.comTelefoneRemetente("(11)2967-9570")
+						.comCepRemetente("02170-901")
+						.comRodape("ATENÇÃO!!! CUIDADO FRÁGIL")
+						.geraTabela();
+						
+				papeleta.criar(table);
+>>>>>>> branch 'master' of https://github.com/amilitao/cmi.git
 	}
 
 }
