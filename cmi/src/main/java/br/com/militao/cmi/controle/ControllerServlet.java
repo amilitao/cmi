@@ -18,8 +18,8 @@ public class ControllerServlet extends HttpServlet {
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		
-		String nomeDaClasse = req.getParameter("logica");
-
+		String nomeDaClasse = req.getParameter("logica");	
+		
 		try {
 			Class<?> classe = Class.forName("br.com.militao.cmi.controle." + nomeDaClasse);
 

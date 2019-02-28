@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 
 import br.com.militao.cmi.modelo.Usuario;
 
-@WebFilter(urlPatterns="/controle")
+@WebFilter(urlPatterns = { "/controle" })
 public class FiltroControle implements Filter {
 
 	/**
@@ -43,21 +43,22 @@ public class FiltroControle implements Filter {
 		HttpSession session = req.getSession();
 
 		Usuario user = (Usuario) session.getAttribute("usuarioLogado");
-		
+
 		if (user == null) {
-	
+
 			session.invalidate();
 			resp.sendRedirect("index.jsp");
-			
-		} else if (req.getParameter("logica") != null){
-			resp.setHeader("Cache-control", "no-cache, no-store");
-			resp.setHeader("Pragma", "no-cache");
-			resp.setHeader("Expires", "-1");
-			chain.doFilter(req, resp);
-		}else {			
-			
-			req.setAttribute("logica", "LoadDashboard");
-			chain.doFilter(req, resp);
+
+		} else {
+
+			if (req.getParameter("logica") == null) {
+				
+				resp.sendRedirect("controle?logica=LoadDashboard");
+				
+			} else {
+				
+				chain.doFilter(req, resp);
+			}
 		}
 	}
 
