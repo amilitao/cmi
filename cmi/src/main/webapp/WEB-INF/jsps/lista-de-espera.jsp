@@ -104,9 +104,9 @@
 				
 				
 					<div class="w3-panel">
-						<p>Deseja realmente o emprestimo de uma impressora?</p>
+						<p>Existe impressora disponível no momento. Deseja ser transferido para tela de empréstimos?</p>
 						<button class="w3-button w3-green">SIM</button>
-						<button class="w3-button w3-red">NÃO</button>
+						<button onclick="document.getElementById('idListaEspera').style.display='none'" class="w3-button w3-red">NÃO</button>
 					</div>
 
 				</c:if>
