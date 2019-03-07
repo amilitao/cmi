@@ -39,7 +39,7 @@ public class ListaDeEsperaDao{
 	public List<ListaDeEspera> getList() {
 		List<ListaDeEspera> lista = new ArrayList<>();
 		
-		String sql = "select lista.id_reserva, lo.numero_loja, lo.nome, lista.situacao from lista_de_espera lista "
+		String sql = "select lista.id_reserva, lo.id_loja, lo.numero_loja, lo.nome, lista.situacao from lista_de_espera lista "
 				+ "inner join loja lo where lista.loja_id_loja = lo.id_loja and lista.situacao = 'aguardando' ";
 		
 		try (Connection con = new ConnectionFactory().getConnection();
@@ -51,6 +51,7 @@ public class ListaDeEsperaDao{
 				Loja loja = new Loja();
 
 				listaDeEspera.setId_reserva(rs.getInt("id_reserva"));
+				loja.setIdLoja(rs.getInt("id_loja"));
 				loja.setNumero_loja(rs.getInt("numero_loja"));
 				loja.setNome(rs.getString("nome"));
 				listaDeEspera.setLoja(loja);
@@ -66,6 +67,21 @@ public class ListaDeEsperaDao{
 		}
 
 		return lista;
+	}
+
+
+	public ListaDeEspera getByNumberLoja(int numero) {
+		ListaDeEspera lojaProcurada = null;
+		List<ListaDeEspera> registros = this.getList();
+
+		for (ListaDeEspera loja : registros) {
+	
+			if (loja.getLoja().getIdLoja() == numero && loja.getStatus().getDescricao() == "aguardando" ) {
+				lojaProcurada = loja;
+			}
+
+		}
+		return lojaProcurada;
 	}
 
 }
