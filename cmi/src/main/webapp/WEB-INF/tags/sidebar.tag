@@ -18,8 +18,7 @@
    			 <button class="w3-bar-item w3-button w3-padding" name="logica" value="ImpressoraPage"><i class="fa fa-print"></i> Impressora</button>
    			 <button class="w3-bar-item w3-button w3-padding" name="logica" value="LojaPage"><i class="fa fa-home"></i> Loja</button>
    			 <button class="w3-bar-item w3-button w3-padding" name="logica" value="RegionalPage"><i class="fa fa-home"></i> Regional</button>
- 		 </div>  	 	  
-    <br><br>
+ 		 </div>     
     </form>
     <form action="logout" method="post">
      <button class="w3-bar-item w3-button w3-padding" ><i class="fa fa-sign-out"></i> Sair</button>

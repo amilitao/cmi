@@ -26,6 +26,10 @@ public class Usuario {
 		return senha;
 	}
 	
-	
+	@Override
+	public String toString() {
+		
+		return this.getLogin();
+	}
 
 }
