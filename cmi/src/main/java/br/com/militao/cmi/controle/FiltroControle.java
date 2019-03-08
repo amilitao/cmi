@@ -41,9 +41,15 @@ public class FiltroControle implements Filter {
 
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse resp = (HttpServletResponse) response;
+		HttpSession session = req.getSession();
 
-		chain.doFilter(req, resp);
-							
+		if (session.getAttribute("usuarioLogado") == null) {
+
+			resp.sendRedirect("index.jsp");
+
+		} else {
+			chain.doFilter(req, resp);
+		}
 
 	}
 

@@ -13,43 +13,32 @@ import javax.servlet.http.HttpSession;
 import br.com.militao.cmi.modelo.ControleDeAcesso;
 import br.com.militao.cmi.modelo.Usuario;
 
+@WebServlet(urlPatterns = "/acesso")
+public class AutenticarUsuarioServlet extends HttpServlet {
 
-@WebServlet(urlPatterns="/acesso")
-public class AutenticarUsuarioServlet extends HttpServlet {	
-	
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
 		RequestDispatcher dispatcher;
 		HttpSession session = req.getSession();
-		
+
 		Usuario user = new Usuario();
 		user.setLogin(req.getParameter("login"));
 		user.setSenha(req.getParameter("senha"));
-	
-		
-		if(ControleDeAcesso.autentica(user)) {
-			
+
+		if (ControleDeAcesso.autentica(user)) {
+
 			session.setAttribute("usuarioLogado", user);
-			
+
 			dispatcher = req.getRequestDispatcher("/controle?logica=LoadDashboard");
 			dispatcher.forward(req, resp);
-			
+
 		} else {
 			req.setAttribute("erroLogin", true);
-			dispatcher = req.getRequestDispatcher("index.jsp");
-			dispatcher.forward(req, resp);
+			resp.sendRedirect("index.jsp");
 		}
-	}	
-	
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		resp.sendRedirect("index.jsp");
 	}
-	
-	
-	
+
 }
