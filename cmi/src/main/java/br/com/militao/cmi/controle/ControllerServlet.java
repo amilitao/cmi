@@ -17,8 +17,7 @@ public class ControllerServlet extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		
-		String nomeDaClasse = req.getParameter("logica");	
+		String nomeDaClasse = req.getParameter("logica");
 		
 		try {
 			Class<?> classe = Class.forName("br.com.militao.cmi.controle." + nomeDaClasse);
@@ -34,5 +33,4 @@ public class ControllerServlet extends HttpServlet {
 			throw new ServletException("Encontrou erro " + e);
 		}
 	}
-
 }

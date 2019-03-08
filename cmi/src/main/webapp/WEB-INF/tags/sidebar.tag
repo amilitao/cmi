@@ -13,12 +13,13 @@
 
     <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-wrench"></i> Manutenção</a>
 	<button class="w3-bar-item w3-button w3-padding" name="logica" value="ListaDeEsperaPage"><i class="fa fa-edit"></i> Lista de Espera</button>
-     <div class="w3-bar-item w3-button w3-padding" onclick="myAccFunc()"><i class="fa fa-plus-square-o"></i> Cadastros</div>
+    <div class="w3-bar-item w3-button w3-padding" onclick="myAccFunc()"><i class="fa fa-plus-square-o"></i> Cadastros</div>
  		 <div id="demoAcc" class="w3-hide w3-white w3-card-4">
    			 <button class="w3-bar-item w3-button w3-padding" name="logica" value="ImpressoraPage"><i class="fa fa-print"></i> Impressora</button>
    			 <button class="w3-bar-item w3-button w3-padding" name="logica" value="LojaPage"><i class="fa fa-home"></i> Loja</button>
    			 <button class="w3-bar-item w3-button w3-padding" name="logica" value="RegionalPage"><i class="fa fa-home"></i> Regional</button>
- 		 </div>   
+ 		 </div> 
+ 	  <button class="w3-bar-item w3-button w3-padding" name="logica" value="Logout"><i class="fa fa-sign-out"></i> Sair</button>	  
     <br><br>
     </form>
   </div>

@@ -34,13 +34,16 @@
 
 		</div>
 
-		<form class="w3-container" action="acesso" method="post">
+		<form class="w3-container" action="controle" method="post">
 			<div class="w3-section">
 				<label><b>Login</b></label> <input
 					class="w3-input w3-border w3-margin-bottom" type="text"
 					name="login" required> <label><b>Senha</b></label> <input
 					class="w3-input w3-border" type="password" name="senha" required>
-				<button class="w3-button w3-block w3-section w3-padding"
+					
+				<input type="hidden" name="logica" value="AutenticarUsuario" />
+					
+				<button class="w3-button w3-block w3-section w3-padding" type="submit"
 					style="background: #78bd5d">Entrar</button>
 			</div>
 		</form>

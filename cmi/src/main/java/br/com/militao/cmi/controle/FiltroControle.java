@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -40,26 +41,10 @@ public class FiltroControle implements Filter {
 
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse resp = (HttpServletResponse) response;
-		HttpSession session = req.getSession();
 
-		Usuario user = (Usuario) session.getAttribute("usuarioLogado");
+		chain.doFilter(req, resp);
+							
 
-		if (user == null) {
-
-			session.invalidate();
-			resp.sendRedirect("index.jsp");
-
-		} else {
-
-			if (req.getParameter("logica") == null) {
-				
-				resp.sendRedirect("controle?logica=LoadDashboard");
-				
-			} else {
-				
-				chain.doFilter(req, resp);
-			}
-		}
 	}
 
 	/**
