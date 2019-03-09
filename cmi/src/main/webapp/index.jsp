@@ -76,7 +76,6 @@
 					<h1 class="w3-xxxlarge" style="color:#293949">
 						<i class="fa fa-exchange" style="color:#293949"></i> CMI
 					</h1>
-
 				</div>
 
 				<form class="w3-container" action="acesso" method="post">
