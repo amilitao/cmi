@@ -5,7 +5,14 @@
 
 <t:mainpage>
 
-	<div class="w3-container">
+	<div class="w3-panel w3-padding-large">
+		<h3>
+			<i class="fa fa-bell"></i> Notificações
+		</h3>
+	</div>
+
+	<div class="w3-panel w3-padding-large">
+
 		<ul class="w3-ul">
 			<c:forEach var="n" items="${notificacoes}">
 				<li class="w3-bar">

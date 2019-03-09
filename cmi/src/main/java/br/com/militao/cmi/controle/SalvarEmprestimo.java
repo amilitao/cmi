@@ -1,6 +1,5 @@
 package br.com.militao.cmi.controle;
 
-import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

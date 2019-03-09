@@ -125,19 +125,19 @@
 			
 			
 			
-			 <span style="position: absolute; top: 580px; left: 40px"> <img
+			 <span style="position: absolute; top: 500px; left: 40px"> <img
 				src="resources/style/images/icons-index/icon4.png" class="img2">
 			</span> 
-			<span style="position: absolute; top: 520px; left: 250px"> <img
+			<span style="position: absolute; top: 480px; left: 250px"> <img
 				src="resources/style/images/icons-index/icon5.png" class="img-p2">
 			</span>
-			<span style="position: absolute; top: 580px; left: 400px"> <img
+			<span style="position: absolute; top: 500px; left: 400px"> <img
 				src="resources/style/images/icons-index/icon7.png" class="img1">
 			</span>
-			<span style="position: absolute; top: 500px; left: 600px"> <img
+			<span style="position: absolute; top: 450px; left: 600px"> <img
 				src="resources/style/images/icons-index/icon1.png" class="img-p1">
 			</span>
-			 <span style="position: absolute; top: 580px; left: 850px"> <img
+			 <span style="position: absolute; top: 500px; left: 900px"> <img
 				src="resources/style/images/icons-index/icon8.png" class="img2">
 			</span>
 		</div>
