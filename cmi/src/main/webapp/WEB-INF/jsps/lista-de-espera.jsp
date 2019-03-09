@@ -7,7 +7,7 @@
 
 	<div class="w3-panel w3-padding-large">
 		<h3>
-			<i class="fa fa-hourglass-o"></i> Lista de Espera
+			<i class="fa fa-hourglass-o"></i><b> Lista de Espera</b>
 		</h3>
 	</div>
 
@@ -80,11 +80,11 @@
 
 
 	<div id="idListaEspera" class="w3-modal">
-		<div class="w3-modal-content w3-khaki">
+		<div class="w3-modal-content" style="background: #d8dddf">
 			<header class="w3-container">
 				<span
 					onclick="document.getElementById('idListaEspera').style.display='none'"
-					class="w3-button w3-display-topright">&times;</span>
+					class="w3-button w3-display-topright  w3-large">&times;</span>
 				<h4>Lista de espera</h4>
 			</header>
 			<div class="w3-container w3-white">
@@ -95,18 +95,25 @@
 				</c:if>
 				<c:if test="${not empty impressoras}">
 					<div class="w3-panel">
-					<h4>Lista de impressoras disponíveis:</h4>
-					<c:forEach var="lista" items="${impressoras}">
-						<p>${lista}</p>					
-					</c:forEach>
-					
+						<h4>Lista de impressoras disponíveis:</h4>
+						<c:forEach var="lista" items="${impressoras}">
+							<p>${lista}</p>
+						</c:forEach>
+
 					</div>
-				
-				
+
+
 					<div class="w3-panel">
-						<p>Existe impressora disponível no momento. Deseja ser transferido para tela de empréstimos?</p>
-						<button class="w3-button w3-green">SIM</button>
-						<button onclick="document.getElementById('idListaEspera').style.display='none'" class="w3-button w3-red">NÃO</button>
+						<p>Existe impressora disponível no momento. Deseja ser
+							transferido para tela de empréstimos?</p>
+							
+						<form action="controle" method="post">	
+						<input type="hidden" name="logica" value="EmprestimoPage">
+						<button class="w3-button w3-green" type="submit">SIM</button>
+						<button
+							onclick="document.getElementById('idListaEspera').style.display='none'"
+							class="w3-button w3-red">NÃO</button>
+						</form>						
 					</div>
 
 				</c:if>
@@ -114,8 +121,9 @@
 
 			</div>
 			<footer class="w3-container">
-				<p>Obs.: Você será direcionada para a página de emprestimo e deverá escolher a impressora desejada</p>
-			</footer>			
+				<p>Obs.: Você será direcionada para a página de emprestimo e
+					deverá escolher a impressora desejada</p>
+			</footer>
 		</div>
 	</div>
 

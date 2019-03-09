@@ -11,18 +11,22 @@
 		<button
 			class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey"
 			onclick="w3_open();">
-			<i class="fa fa-bars"></i>  Menu
+			<i class="fa fa-bars"></i> Menu
 		</button>
 
 		<span class="w3-bar-item w3-margin-left w3-margin-right w3-theme-d4"><i
-			class="fa fa-exchange"></i><b> CMI</b></span> <a href="#"
-			class="w3-bar-item w3-button "><i class="fa fa-user"></i></a> <a
-			href="#" class="w3-bar-item w3-button"><i class="fa fa-cog"></i></a>
-		<button	class="w3-button w3-bar-item">
-			<i class="fa fa-bell"></i><span
-				class="w3-badge w3-right w3-small w3-green">3</span>
-		</button>		
+			class="fa fa-exchange"></i><b> CMI</b></span>
 
+
+		<form action="controle" method="post">
+			<a href="#" class="w3-bar-item w3-button "><i class="fa fa-user"></i></a>
+			<a href="#" class="w3-bar-item w3-button"><i class="fa fa-cog"></i></a>
+			<button class="w3-button w3-bar-item" name="logica"
+				value="ListarNotificacoes">
+				<i class="fa fa-bell"></i><span
+					class="w3-badge w3-right w3-small w3-green">3</span>
+			</button>
+		</form>
 	</div>
 
 </div>
