@@ -32,25 +32,24 @@
 			<div class="w3-row-padding" style="margin: 0 -16px;">
 				<div class="w3-third">
 					<label><i class="fa fa-pencil-square-o"></i> Número da loja</label>
-					<input class="w3-input w3-border" type="text" name="num_loja"
-						id="inp_numero" disabled required>
+					<input class="w3-input w3-border" type="number"  pattern="[0-9]+$" 
+					title="O campo deve conter somente numeros" name="num_loja" id="inp_numero" disabled required>
 				</div>
 				<div class="w3-third">
 					<label><i class="fa fa-pencil-square-o"></i> Nome</label> <input
-						class="w3-input w3-border" type="text" name="nome" id="inp_nome"
-						disabled required>
+						class="w3-input w3-border" type="text" pattern="[a-zA-Z\s]+$"
+						 title="O campo deve conter somente letras" name="nome" id="inp_nome" disabled required>
 				</div>
 				<div class="w3-third">
 					<label><i class="fa fa-pencil-square-o"></i> cnpj</label> <input
-						class="w3-input w3-border" type="text" name="cnpj" id="inp_cnpj"
-						disabled required>
+						class="w3-input w3-border" type="text" name="cnpj" id="inp_cnpj" disabled required>
 				</div>
 			</div>
 			<div class="w3-row-padding w3-margin-top" style="margin: 0 -16px;">
 				<div class="w3-third ">
 					<label><i class="fa fa-pencil-square-o"></i> telefone</label> <input
-						class="w3-input w3-border" type="text" name="telefone"
-						id="inp_telefone" disabled required>
+						pattern="^(\d{2})\d{4}-\d{4}$" class="w3-input w3-border" type="text" 
+						name="telefone" placeholder="(XX) XXXX-XXXX" id="inp_telefone" disabled required>
 				</div>
 				<div class="w3-third w3-margin-bottom">
 					<label><i class="fa fa-pencil-square-o"></i> endereco</label> <input
