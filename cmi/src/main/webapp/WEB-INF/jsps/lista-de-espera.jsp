@@ -42,7 +42,7 @@
 			<input type="hidden" name="logica" value="SalvarListaDeEspera" />
 
 			<button class="w3-button w3-blue" type="submit">
-				<i class="fa fa-floppy-o w3-margin-right"></i>Salvar
+				<i class="fa fa-floppy-o w3-margin-right"></i>Adicionar
 			</button>
 		</form>
 		<hr>

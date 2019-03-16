@@ -15,9 +15,27 @@ import br.com.militao.cmi.modelo.StatusListaDeEsperaEnum;
 public class ListaDeEsperaDao{
 	
 	
+	public void update(ListaDeEspera lojaEmLista) {
+		
+		String sql = "update lista_de_espera set situacao=? where id_reserva=?";
+
+		try (Connection con = new ConnectionFactory().getConnection();
+				PreparedStatement stmt = con.prepareStatement(sql)) {
+			
+			stmt.setString(1, lojaEmLista.getStatus().getDescricao());
+			stmt.setInt(2, lojaEmLista.getId_reserva());
+			
+			stmt.executeUpdate();
+	
+		} catch (SQLException e) {
+
+			throw new RuntimeException("Erro ao salvar em lista de espera" + e);
+		}
+	}
+	
 	public void insert(ListaDeEspera lista) {
 	
-		String sql = "insert into lista_de_espera" + "(loja_id_loja, situacao) values (?,?)";
+		String sql = "insert into lista_de_espera (loja_id_loja, situacao) values (?,?)";
 
 		try (Connection con = new ConnectionFactory().getConnection();
 				PreparedStatement stmt = con.prepareStatement(sql);) {

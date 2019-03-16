@@ -71,8 +71,10 @@
 						empréstimo</button>
 					<input type="hidden" name="idEmprestimo"
 						value="${emprestimo.idEmprestimo}" /> <input type="hidden"
-						name="situacao" value="cancelado" /> <input type="hidden"
-						name="logica" value="AtualizarEmprestimo" />
+						name="idImpressora" value="${emprestimo.impressora.idImpressora}" /> <input type="hidden"
+						name="situacao" value="cancelado" /><input type="hidden"
+						name="statusImpressora" value="disponivel" /> <input type="hidden"
+						name="logica" value="CancelarEmprestimo" />
 				</form>
 			</div>
 		</div>

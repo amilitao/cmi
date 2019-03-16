@@ -9,6 +9,7 @@ import br.com.militao.cmi.modelo.Emprestimo;
 import br.com.militao.cmi.modelo.Impressora;
 import br.com.militao.cmi.modelo.ListaDeEspera;
 import br.com.militao.cmi.modelo.Loja;
+import br.com.militao.cmi.modelo.StatusListaDeEsperaEnum;
 import br.com.militao.cmi.modelo.dao.EmprestimoDao;
 import br.com.militao.cmi.modelo.dao.ListaDeEsperaDao;
 
@@ -26,13 +27,14 @@ public class SalvarEmprestimo implements Logica {
 				new Impressora(Integer.parseInt(req.getParameter("id_impressora"))), 
 				numChamado);
 
-		empDao.insert(emprestimo);		
-		
+		empDao.insert(emprestimo);				
 		
 		ListaDeEspera lojaAguardando = listaEsperaDao.getByNumberLoja(Integer.parseInt(req.getParameter("id_loja")));
-		
-		if(lojaAguardando != null) {	
-			//listaEsperaDao.update();
+				
+		if(lojaAguardando != null) {
+			
+			lojaAguardando.setStatus(StatusListaDeEsperaEnum.getByDescricao("atendido"));
+			listaEsperaDao.update(lojaAguardando);
 		}
 		
 		req.setAttribute("confirmaDao", true);
