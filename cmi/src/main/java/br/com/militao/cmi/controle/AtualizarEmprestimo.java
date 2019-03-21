@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import br.com.militao.cmi.modelo.Emprestimo;
+import br.com.militao.cmi.modelo.Impressora;
 import br.com.militao.cmi.modelo.StatusEmprestimoEnum;
 import br.com.militao.cmi.modelo.dao.EmprestimoDao;
 
@@ -15,10 +16,14 @@ public class AtualizarEmprestimo implements Logica {
 
 		EmprestimoDao emprestimoDao = new EmprestimoDao();
 		Emprestimo emprestimo = new Emprestimo();
+		Impressora impressora = new Impressora();
 
 		emprestimo.setIdEmprestimo(Integer.parseInt(req.getParameter("idEmprestimo")));
 		emprestimo.setSituacao(StatusEmprestimoEnum.getByDescricao(req.getParameter("situacao")));
-
+		impressora.setIdImpressora(Integer.parseInt(req.getParameter("idImpressora")));
+		emprestimo.setImpressora(impressora);		
+		
+		
 		emprestimoDao.update(emprestimo);
 		
 		req.setAttribute("confirmaDao", true);

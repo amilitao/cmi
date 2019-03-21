@@ -63,28 +63,7 @@ public class ImpressoraDao {
 			throw new RuntimeException(e);
 		}
 
-	}
-	
-	public void updateSituacao(Impressora impressora) {
-
-		String sql = "update impressora set situacao=? where id_impressora=?";
-
-		try (Connection con = new ConnectionFactory().getConnection();
-				PreparedStatement stmt = con.prepareStatement(sql);) {
-
-			
-			stmt.setString(1, impressora.getSituacao().getDescricao());
-			stmt.setInt(2, impressora.getIdImpressora());
-
-			stmt.executeUpdate();
-
-		} catch (SQLException e) {
-
-			throw new RuntimeException("Erro ao atualizar situação da impressora" + e);
-		}
-
-	}
-
+	}	
 
 	public void insert(Impressora impressora) {
 

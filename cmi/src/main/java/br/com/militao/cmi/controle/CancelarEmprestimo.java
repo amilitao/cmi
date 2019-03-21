@@ -7,9 +7,7 @@ import javax.servlet.http.HttpSession;
 import br.com.militao.cmi.modelo.Emprestimo;
 import br.com.militao.cmi.modelo.Impressora;
 import br.com.militao.cmi.modelo.StatusEmprestimoEnum;
-import br.com.militao.cmi.modelo.StatusImpressoraEnum;
 import br.com.militao.cmi.modelo.dao.EmprestimoDao;
-import br.com.militao.cmi.modelo.dao.ImpressoraDao;
 
 public class CancelarEmprestimo implements Logica {
 
@@ -18,18 +16,14 @@ public class CancelarEmprestimo implements Logica {
 
 		EmprestimoDao emprestimoDao = new EmprestimoDao();
 		Emprestimo emprestimo = new Emprestimo();
-		ImpressoraDao impressoraDao = new ImpressoraDao();
 		Impressora impressora = new Impressora();
 
 		emprestimo.setIdEmprestimo(Integer.parseInt(req.getParameter("idEmprestimo")));
 		emprestimo.setSituacao(StatusEmprestimoEnum.getByDescricao(req.getParameter("situacao")));
-
 		impressora.setIdImpressora(Integer.parseInt(req.getParameter("idImpressora")));
-		impressora.setSituacao(StatusImpressoraEnum.getByDescricao(req.getParameter("statusImpressora")));
+		emprestimo.setImpressora(impressora);		
 
-		emprestimoDao.update(emprestimo);
-
-		impressoraDao.updateSituacao(impressora);
+		emprestimoDao.update(emprestimo);		
 
 		req.setAttribute("confirmaDao", true);
 

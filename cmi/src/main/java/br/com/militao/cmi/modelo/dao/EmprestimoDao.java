@@ -40,13 +40,14 @@ public class EmprestimoDao {
 
 	public void update(Emprestimo emprestimo) {
 
-		String sql = "update emprestimo set situacao=? where id_emprestimo=?";
+		String sql = "update emprestimo set situacao=?, impressora_id_impressora=? where id_emprestimo=?";
 
 		try (Connection con = new ConnectionFactory().getConnection();
 				PreparedStatement stmt = con.prepareStatement(sql)) {
 
-			stmt.setString(1, emprestimo.getSituacao().getDescricao());
-			stmt.setInt(2, emprestimo.getIdEmprestimo());
+			stmt.setString(1, emprestimo.getSituacao().getDescricao());		
+			stmt.setInt(2, emprestimo.getImpressora().getIdImpressora());
+			stmt.setInt(3, emprestimo.getIdEmprestimo());
 
 			stmt.executeUpdate();
 

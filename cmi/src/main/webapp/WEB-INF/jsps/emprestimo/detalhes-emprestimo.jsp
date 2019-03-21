@@ -65,17 +65,43 @@
 					<c:set var="btnCancelar" value="disabled" />
 				</c:if>
 
-				<form action="controle" method="post">
-					<button class="w3-button w3-border w3-border-red w3-right"
-						<c:out value="${btnCancelar}"></c:out>>Cancelar
-						empréstimo</button>
-					<input type="hidden" name="idEmprestimo"
-						value="${emprestimo.idEmprestimo}" /> <input type="hidden"
-						name="idImpressora" value="${emprestimo.impressora.idImpressora}" /> <input type="hidden"
-						name="situacao" value="cancelado" /><input type="hidden"
-						name="statusImpressora" value="disponivel" /> <input type="hidden"
-						name="logica" value="CancelarEmprestimo" />
-				</form>
+				<button
+					onclick="document.getElementById('idCancel').style.display='block'"
+					class="w3-button w3-border w3-border-red w3-right"
+					<c:out value="${btnCancelar}"></c:out>>Cancelar empréstimo</button>
+
+				<div id="idCancel" class="w3-modal">
+					<div class="w3-modal-content  w3-padding-large w3-khaki">
+						<div class="w3-container">
+							<span
+								onclick="document.getElementById('idCancel').style.display='none'"
+								class="w3-button w3-display-topright">&times;</span>
+							<h4><b>Deseja realmente cancelar o emprestimo?</b></h4>
+							<hr>
+						</div>	
+
+							<div class="w3-bar">
+
+								<form action="controle" method="post">
+
+									<input type="hidden" name="idEmprestimo"
+										value="${emprestimo.idEmprestimo}" /> <input type="hidden"
+										name="idImpressora"
+										value="${emprestimo.impressora.idImpressora}" /> <input
+										type="hidden" name="situacao" value="cancelado" /><input
+										type="hidden" name="statusImpressora" value="disponivel" /> <input
+										type="hidden" name="logica" value="CancelarEmprestimo" />
+
+									<button class="w3-button w3-white" type="submit">Cancelar empréstimo</button>
+									<button	onclick="document.getElementById('idCancel').style.display='none'"
+									class="w3-button w3-white w3-right" type="button">Voltar</button>
+
+								</form>								
+
+							</div>
+
+					</div>
+				</div>
 			</div>
 		</div>
 
@@ -166,6 +192,8 @@
 						<c:import url="modal-entrega.jsp">
 							<c:param name="b3" value="${btn3}" />
 							<c:param name="idEmprestimo" value="${emprestimo.idEmprestimo}" />
+							<c:param name="idImpressora"
+								value="${emprestimo.impressora.idImpressora}" />
 						</c:import>
 					</p>
 				</div>
@@ -288,9 +316,10 @@
 							<div class="w3-row w3-padding-16">
 
 								<div class="w3-col m8">
-									<textarea class="w3-col" style="width:100%" rows="3" name="comentario"></textarea>
+									<textarea class="w3-col" style="width: 100%" rows="3"
+										name="comentario"></textarea>
 									<input type="hidden" name="idEmprestimo"
-										value="${emprestimo.idEmprestimo}" />									
+										value="${emprestimo.idEmprestimo}" />
 								</div>
 								<div class="w3-col m1 w3-row-padding w3-margin-top w3-center">
 									<button class="w3-button w3-margin-left w3-dark-grey"

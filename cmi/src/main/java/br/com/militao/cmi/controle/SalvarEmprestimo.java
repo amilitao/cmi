@@ -7,11 +7,8 @@ import javax.servlet.http.HttpSession;
 
 import br.com.militao.cmi.modelo.Emprestimo;
 import br.com.militao.cmi.modelo.Impressora;
-import br.com.militao.cmi.modelo.ListaDeEspera;
 import br.com.militao.cmi.modelo.Loja;
-import br.com.militao.cmi.modelo.StatusListaDeEsperaEnum;
 import br.com.militao.cmi.modelo.dao.EmprestimoDao;
-import br.com.militao.cmi.modelo.dao.ListaDeEsperaDao;
 
 public class SalvarEmprestimo implements Logica {
 
@@ -19,7 +16,7 @@ public class SalvarEmprestimo implements Logica {
 	public String executa(HttpServletRequest req, HttpServletResponse resp) {
 
 		EmprestimoDao empDao = new EmprestimoDao();
-		ListaDeEsperaDao listaEsperaDao = new ListaDeEsperaDao();		
+	/*	ListaDeEsperaDao listaEsperaDao = new ListaDeEsperaDao();	*/	
 
 		String numChamado = req.getParameter("num_chamado");
 		Emprestimo emprestimo = new Emprestimo(
@@ -29,13 +26,13 @@ public class SalvarEmprestimo implements Logica {
 
 		empDao.insert(emprestimo);				
 		
-		ListaDeEspera lojaAguardando = listaEsperaDao.getByNumberLoja(Integer.parseInt(req.getParameter("id_loja")));
+		/*ListaDeEspera lojaAguardando = listaEsperaDao.getByNumberLoja(Integer.parseInt(req.getParameter("id_loja")));
 				
 		if(lojaAguardando != null) {
 			
 			lojaAguardando.setStatus(StatusListaDeEsperaEnum.getByDescricao("atendido"));
 			listaEsperaDao.update(lojaAguardando);
-		}
+		}*/
 		
 		req.setAttribute("confirmaDao", true);
 
