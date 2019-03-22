@@ -6,7 +6,7 @@
 
 <t:mainpage>
 
-	<div class="w3-panel">
+	<div class="w3-panel w3-padding-large">
 		<div class="w3-col m9">
 			<h3>
 				<i class="fa fa-cubes"></i> Detalhes de Empréstimo
@@ -24,6 +24,8 @@
 
 	<div class="w3-panel w3-padding-large">
 
+		<!--  Mensagem de gravação de dados no banco --------------------------------------------------------------------->
+
 		<c:if test="${confirmaDao}">
 			<c:set var="teste" value="disabled" />
 			<div class="w3-panel w3-display-container"
@@ -35,6 +37,8 @@
 			</div>
 
 		</c:if>
+
+		<!----------------------------------------------------------------------------------------------------------------->
 
 		<div class="container">
 			<div class="w3-col m3 w3-margin-bottom">
@@ -59,6 +63,8 @@
 			</div>
 			<div class="w3-col m3 w3-margin-bottom">
 
+				<!-- botão CANCELAR emprestimo ------------------------------------------------------------------------------->
+
 				<c:set var="btnCancelar" value="" />
 				<c:if
 					test="${emprestimo.situacao.porcentagem != '25%' && emprestimo.situacao.porcentagem != '40%'}">
@@ -71,37 +77,39 @@
 					<c:out value="${btnCancelar}"></c:out>>Cancelar empréstimo</button>
 
 				<div id="idCancel" class="w3-modal">
-					<div class="w3-modal-content  w3-padding-large w3-khaki">
-						<div class="w3-container">
-							<span
-								onclick="document.getElementById('idCancel').style.display='none'"
-								class="w3-button w3-display-topright">&times;</span>
-							<h4><b>Deseja realmente cancelar o emprestimo?</b></h4>
-							<hr>
-						</div>	
+					<div class="w3-modal-content w3-padding-large w3-khaki">
+						<div class="w3-container w3-padding-large">							
+							<h4>
+								Deseja realmente cancelar o empréstimo?
+							</h4>						
+						</div>
 
-							<div class="w3-bar">
+						<div class="w3-bar">
 
-								<form action="controle" method="post">
+							<form action="controle" method="post">
 
-									<input type="hidden" name="idEmprestimo"
-										value="${emprestimo.idEmprestimo}" /> <input type="hidden"
-										name="idImpressora"
-										value="${emprestimo.impressora.idImpressora}" /> <input
-										type="hidden" name="situacao" value="cancelado" /><input
-										type="hidden" name="statusImpressora" value="disponivel" /> <input
-										type="hidden" name="logica" value="CancelarEmprestimo" />
+								<input type="hidden" name="idEmprestimo"
+									value="${emprestimo.idEmprestimo}" /> <input type="hidden"
+									name="idImpressora"
+									value="${emprestimo.impressora.idImpressora}" /> <input
+									type="hidden" name="situacao" value="cancelado" /><input
+									type="hidden" name="statusImpressora" value="disponivel" /> <input
+									type="hidden" name="logica" value="CancelarEmprestimo" />
 
-									<button class="w3-button w3-white" type="submit">Cancelar empréstimo</button>
-									<button	onclick="document.getElementById('idCancel').style.display='none'"
-									class="w3-button w3-white w3-right" type="button">Voltar</button>
+								<button class="w3-button w3-text-white" type="submit" style="background:#ff6f69"><b>Cancelar
+									empréstimo</b></button>
+								<button
+									onclick="document.getElementById('idCancel').style.display='none'"
+									class="w3-button w3-gray w3-text-white w3-right" type="button"><b>Voltar</b></button>
 
-								</form>								
+							</form>
 
-							</div>
-
+						</div>
 					</div>
 				</div>
+
+				<!------------------------------------------------------------------------------------------------------------>
+
 			</div>
 		</div>
 
@@ -290,8 +298,6 @@
 
 		</div>
 
-		<br>
-
 		<div class="container w3-border">
 			<div class="w3-row-padding">
 
@@ -303,11 +309,7 @@
 					<button class="w3-bar-item w3-button tablink"
 						onclick="openCity(event,'Paris')">
 						<b>Histórico</b>
-					</button>
-					<button class="w3-bar-item w3-button tablink"
-						onclick="openCity(event,'Tokyo')">
-						<b>Vazio</b>
-					</button>
+					</button>					
 				</div>
 
 				<div class="container">
@@ -350,11 +352,7 @@
 							</li>
 						</ul>
 					</c:forEach>
-				</div>
-
-				<div id="Tokyo" class="w3-border city" style="display: none">
-					<h2>Vazio</h2>
-				</div>
+				</div>				
 			</div>
 		</div>
 	</div>

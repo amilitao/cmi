@@ -7,7 +7,7 @@
 
 	<div class="w3-panel w3-padding-large">
 		<h3>
-			<i class="fa fa-hourglass-o"></i><b> Lista de Espera</b>
+			<i class="fa fa-hourglass-o"></i> Lista de Espera
 		</h3>
 	</div>
 
