@@ -10,6 +10,7 @@ public class Manutencao {
 	private LocalDateTime dt_envio;
 	private String nfe_envio;
 	private LocalDateTime dt_devolucao;
+	private String nfe_devolucao;
 	private StatusManutencaoEnum status_manutencao;
 	private int numero_despesa;
 	private String nfe_pagamento;
@@ -50,7 +51,15 @@ public class Manutencao {
 		return dt_devolucao;
 	}
 	public void setDt_devolucao(LocalDateTime dt_devolucao) {
-		this.dt_devolucao = dt_devolucao;
+		this.dt_devolucao = dt_devolucao;		
+	}
+	
+	public String getNfe_devolucao() {
+		return nfe_devolucao;
+	}
+	
+	public void setNfe_devolucao(String nfe_devolucao) {
+		this.nfe_devolucao = nfe_devolucao;
 	}
 	public StatusManutencaoEnum getStatus_manutencao() {
 		return status_manutencao;
