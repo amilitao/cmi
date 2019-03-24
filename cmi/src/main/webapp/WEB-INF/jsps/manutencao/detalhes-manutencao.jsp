@@ -187,7 +187,7 @@
 				<div class="w3-third w3-margin-bottom">
 
 					<ul class="w3-ul w3-border w3-hover-shadow">
-						<li class="w3-large w3-center" style="background: #f4ab43"><b>Orçamento</b></li>
+						<li class="w3-large w3-center" style="background: #5ebf99"><b>Orçamento</b></li>
 						<li><b>Orçamento 1</b><h6 class="w3-green w3-right">Aprovado</h6></li>
 						<li><b>Orçamento 2</b></li>
 						<li><b>Orçamento 3</b></li>
@@ -196,7 +196,7 @@
 				<div class="w3-third w3-margin-bottom">
 
 					<ul class="w3-ul w3-border w3-hover-shadow">
-						<li class="w3-large w3-center" style="background: #f4ab43"><b>Despesa</b></li>
+						<li class="w3-large w3-center w3-light-blue"><b>Despesa</b></li>
 						<li><b>Numero: </b></li>
 						<li><b>Valor: </b></li>
 						<li><b>Data: </b></li>
