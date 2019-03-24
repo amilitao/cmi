@@ -1,6 +1,9 @@
 package br.com.militao.cmi.modelo;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+
+import br.com.militao.cmi.util.FormatadorDeData;
 
 public class Manutencao {
 	
@@ -14,6 +17,9 @@ public class Manutencao {
 	private StatusManutencaoEnum status_manutencao;
 	private int numero_despesa;
 	private String nfe_pagamento;
+	private LocalDate dt_inicio;
+	private LocalDate dt_fim;
+	
 	
 	
 	
@@ -79,6 +85,28 @@ public class Manutencao {
 	public void setNfe_pagamento(String nfe_pagamento) {
 		this.nfe_pagamento = nfe_pagamento;
 	}
+	public LocalDate getDt_inicio() {
+		return dt_inicio;
+	}
+	public void setDt_inicio(LocalDate dt_inicio) {
+		this.dt_inicio = dt_inicio;
+	}
+	
+	public String getDtInicioFormatada() {
+		return FormatadorDeData.formata(dt_inicio);
+	}
+
+	public String getDtFimFormatada() {
+		return FormatadorDeData.formata(dt_fim);
+	}
+
+	public LocalDate getDt_fim() {
+		return dt_fim;
+	}
+	public void setDt_fim(LocalDate dt_fim) {
+		this.dt_fim = dt_fim;
+	}
+	
 	
 	
 	

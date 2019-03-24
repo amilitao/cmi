@@ -128,7 +128,7 @@ public class ImpressoraDao {
 		return impressoras;
 	}
 
-	public Impressora getImpressoraPorId(int id) {
+	public Impressora getImpressoraById(int id) {
 		Impressora impressoraProcurada = new Impressora();
 		List<Impressora> impressoras = this.getList();
 

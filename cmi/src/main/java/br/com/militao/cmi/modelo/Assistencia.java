@@ -6,7 +6,7 @@ public class Assistencia {
 	private String razao_social;
 	private String cnpj;
 	private String email;
-	private String varchar;
+	private String telefone;
 	private String endereco;
 	
 	
@@ -33,12 +33,13 @@ public class Assistencia {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}	
+	
+	public String getTelefone() {
+		return telefone;
 	}
-	public String getVarchar() {
-		return varchar;
-	}
-	public void setVarchar(String varchar) {
-		this.varchar = varchar;
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
 	}
 	public String getEndereco() {
 		return endereco;

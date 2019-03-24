@@ -20,32 +20,32 @@
 			<form action="controle" method="post">
 
 				<div class="w3-row w3-border-bottom">
-					<div class="w3-col m3">
-						<h4>
+					<div class="w3-col m2">
+						<h5>
 							<i class="fa fa-handshake-o"></i> Manutencao :
-							${manutencao.idManutencao}
-						</h4>
+							${manutencao.id_manutencao}
+						</h5>
+					</div>
+					<div class="w3-col m2">
+						<h5>
+							<i class="fa fa-home"></i> Assistência : ${manutencao.assistencia.razao_social}
+						</h5>
 					</div>
 					<div class="w3-col m3">
-						<h4>
-							<i class="fa fa-home"></i> Assistência : ${manutencao.assistencia}
-						</h4>
+						<h5>
+							<i class="fa fa-print"></i> Impressora : ${manutencao.impressora.modelo}
+						</h5>
 					</div>
-					<div class="w3-col m3">
-						<h4>
-							<i class="fa fa-home"></i> Impressora : ${manutencao.impressora}
-						</h4>
-					</div>
-					<div class="w3-col m3">
-						<h4>
+					<div class="w3-col m4">
+						<h5>
 							<i class="fa fa-search w3-text-${manutencao.status_manutencao.cor}"> </i>
 							Situação : ${manutencao.status_manutencao.descricao}
-						</h4>
+						</h5>
 					</div>
-					<div class="w3-col m2 w3-text-indigo w3-center">
+					<div class="w3-col m1 w3-text-indigo w3-center">
 
-						<input type="hidden" name="idManutencao"
-							value="${manutencao.idManutencao}" />
+						<input type="hidden" name="id_manutencao"
+							value="${manutencao.id_manutencao}" />
 
 						<button class="w3-button w3-padding" name="logica"
 							value="ManutencaoDetalhada">

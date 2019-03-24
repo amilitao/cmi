@@ -37,6 +37,10 @@ class ManutencaoDaoTest {
 		
 		for(Manutencao m : manu.getList()) {
 			System.out.println(m.getId_manutencao());
+			System.out.println(m.getAssistencia().getRazao_social());
+			System.out.println(m.getImpressora().getModelo());
+			System.out.println(m.getStatus_manutencao().getDescricao());
+			System.out.println(m.getStatus_manutencao().getCor());
 		}
 		
 	}
