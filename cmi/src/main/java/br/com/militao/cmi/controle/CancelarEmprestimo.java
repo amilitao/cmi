@@ -18,7 +18,7 @@ public class CancelarEmprestimo implements Logica {
 		Emprestimo emprestimo = new Emprestimo();
 		Impressora impressora = new Impressora();
 
-		emprestimo.setIdEmprestimo(Integer.parseInt(req.getParameter("idEmprestimo")));
+		emprestimo.setId_emprestimo(Integer.parseInt(req.getParameter("id_emprestimo")));
 		emprestimo.setSituacao(StatusEmprestimoEnum.getByDescricao(req.getParameter("situacao")));
 		impressora.setIdImpressora(Integer.parseInt(req.getParameter("idImpressora")));
 		emprestimo.setImpressora(impressora);		

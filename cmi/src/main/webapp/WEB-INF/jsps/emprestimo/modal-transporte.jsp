@@ -9,16 +9,16 @@
 %>
 
 <button
-	onclick="document.getElementById('idtransporte${param.idEmprestimo}').style.display='block'"
+	onclick="document.getElementById('idtransporte${param.id_emprestimo}').style.display='block'"
 	class="w3-button w3-khaki" <c:out value="${param.b2}" />>
 	<b>Transporte</b>
 </button>
 
-<div id="idtransporte${param.idEmprestimo}" class="w3-modal">
+<div id="idtransporte${param.id_emprestimo}" class="w3-modal">
 	<div class="w3-modal-content w3-animate-top w3-card-4 w3-left-align">
 		<header class="w3-container w3-khaki">
 			<span
-				onclick="document.getElementById('idtransporte${param.idEmprestimo}').style.display='none'"
+				onclick="document.getElementById('idtransporte${param.id_emprestimo}').style.display='none'"
 				class="w3-button w3-display-topright w3-xlarge">&times;</span>
 			<h2>Transporte</h2>
 		</header>
@@ -34,7 +34,7 @@
 					<div class="w3-col m3 w3-margin-bottom">
 						<label><i class="fa fa-calendar-o"></i> Número do
 							empréstimo</label> <input class="w3-input w3-border" type="text"
-							value="${param.idEmprestimo}" name="idEmprestimo" readonly required>
+							value="${param.id_emprestimo}" name="id_emprestimo" readonly required>
 					</div>
 					<div class="w3-col m3 w3-margin-bottom">
 						<label><i class="fa fa-calendar-o"></i> Data de envio</label> <input

@@ -8,16 +8,16 @@
 %>
 
 <button
-	onclick="document.getElementById('iddevolucao${param.idEmprestimo}').style.display='block'"
+	onclick="document.getElementById('iddevolucao${param.id_emprestimo}').style.display='block'"
 	class="w3-button w3-khaki" <c:out value="${param.b4}" />>
 	<b>Devolução</b>
 </button>
 
-<div id="iddevolucao${param.idEmprestimo}" class="w3-modal">
+<div id="iddevolucao${param.id_emprestimo}" class="w3-modal">
 	<div class="w3-modal-content w3-animate-top w3-card-4 w3-left-align">
 		<header class="w3-container w3-khaki">
 			<span
-				onclick="document.getElementById('iddevolucao${param.idEmprestimo}').style.display='none'"
+				onclick="document.getElementById('iddevolucao${param.id_emprestimo}').style.display='none'"
 				class="w3-button w3-display-topright">&times;</span>
 			<h2>Devolução</h2>
 		</header>
@@ -31,7 +31,7 @@
 					<div class="w3-col m3 w3-margin-bottom">
 						<label><i class="fa fa-calendar-o"></i> Número do
 							empréstimo</label> <input class="w3-input w3-border" type="text"
-							value="${param.idEmprestimo}" name="idEmprestimo" readonly
+							value="${param.id_emprestimo}" name="id_emprestimo" readonly
 							required>
 					</div>
 					<div class="w3-col m3 w3-margin-bottom">

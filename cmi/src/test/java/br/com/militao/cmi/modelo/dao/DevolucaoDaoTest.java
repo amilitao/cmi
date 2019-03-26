@@ -15,7 +15,7 @@ class DevolucaoDaoTest {
 		for (Object dev : devDao.getList()) {
 			Devolucao devolucao = (Devolucao) dev;
 			System.out.println(devolucao.getIdDevolucao());
-			System.out.println(devolucao.getEmprestimo().getIdEmprestimo());
+			System.out.println(devolucao.getEmprestimo().getId_emprestimo());
 			System.out.println(devolucao.getDtDevolucaoFormatada());
 		}
 	}

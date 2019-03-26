@@ -15,7 +15,7 @@ class HistoricoEmprestimoDaoTest {
 		HistoricoEmprestimoDao hdao = new HistoricoEmprestimoDao();
 		
 		for(HistoricoEmprestimo ocorrencia : hdao.getHistoricoPorIdEmprestimo(2)) {
-			System.out.println(ocorrencia.getEmprestimo().getIdEmprestimo());
+			System.out.println(ocorrencia.getEmprestimo().getId_emprestimo());
 		}
 		
 		

@@ -41,14 +41,14 @@ public Emprestimo(int id) {
 	private LocalDate calculaPrazoDevolucao() {
 		LocalDate hoje = LocalDate.now();
 		return hoje.plusMonths(4);
-	}
+	}	
 
-	public int getIdEmprestimo() {
+	public int getId_emprestimo() {
 		return id_emprestimo;
 	}
 
-	public void setIdEmprestimo(int idEmprestimo) {
-		this.id_emprestimo = idEmprestimo;
+	public void setId_emprestimo(int id_emprestimo) {
+		this.id_emprestimo = id_emprestimo;
 	}
 
 	public Loja getLoja() {

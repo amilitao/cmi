@@ -23,7 +23,7 @@
 					<div class="w3-col m3">
 						<h4>
 							<i class="fa fa-handshake-o"></i> Empréstimo :
-							${emprestimo.idEmprestimo}
+							${emprestimo.id_emprestimo}
 						</h4>
 					</div>
 					<div class="w3-col m3">
@@ -39,8 +39,8 @@
 					</div>
 					<div class="w3-col m2 w3-text-indigo w3-center">
 
-						<input type="hidden" name="idEmprestimo"
-							value="${emprestimo.idEmprestimo}" />
+						<input type="hidden" name="id_emprestimo"
+							value="${emprestimo.id_emprestimo}" />
 
 						<button class="w3-button w3-padding" name="logica"
 							value="EmprestimoDetalhado">

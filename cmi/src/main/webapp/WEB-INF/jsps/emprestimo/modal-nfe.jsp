@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>	
 
-<button onclick="document.getElementById('idnfe${param.idEmprestimo}').style.display='block'"
+<button onclick="document.getElementById('idnfe${param.id_emprestimo}').style.display='block'"
 	class="w3-button" style="background:#ffeead" <c:out value="${param.b1}" />><b>Solicitar Nfe</b></button>
 
-<div id="idnfe${param.idEmprestimo}" class="w3-modal">
+<div id="idnfe${param.id_emprestimo}" class="w3-modal">
 	<div class="w3-modal-content w3-animate-top w3-card-4 w3-left-align">
 		<header class="w3-container w3-khaki">
-			<span onclick="document.getElementById('idnfe${param.idEmprestimo}').style.display='none'"
+			<span onclick="document.getElementById('idnfe${param.id_emprestimo}').style.display='none'"
 				class="w3-button w3-display-topright w3-xlarge">&times;</span>
 			<h2>Solicitação de NFE</h2>			
 		</header>
@@ -33,7 +33,7 @@
 			
 				<br> <input type="hidden" name="logica" value="AtualizarEmprestimo" />
 				
-				<input type="hidden" name="idEmprestimo" value="${param.idEmprestimo}" />
+				<input type="hidden" name="id_emprestimo" value="${param.id_emprestimo}" />
 				<input type="hidden" name="idImpressora" value="${param.idImpressora}" />
 				<input type="hidden" name="situacao" value="aguardando transporte" />
 				<input type="hidden" name="dtFim" value="${param.dtFim}" />

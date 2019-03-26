@@ -17,7 +17,7 @@ class EmprestimoDaoTest {
 		
 		for(Object o : dao.getList()) {
 			Emprestimo e = (Emprestimo) o;
-			System.out.println("emprestimo: "+e.getIdEmprestimo());
+			System.out.println("emprestimo: "+e.getId_emprestimo());
 			System.out.println(e.getDtInicioFormatada());
 			System.out.println(e.getDtFimFormatada());
 			System.out.println(e.getLoja());

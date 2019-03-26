@@ -34,7 +34,7 @@ public class TransporteDao {
 
 	public void update(Transporte transporte) {
 
-		String sql = "update transporte set nome_transportadora=?," + " num_nfe_envio=? where id_transporte=?";
+		String sql = "update transporte set nome_transportadora=?, num_nfe_envio=? where id_transporte=?";
 
 		try (Connection con = new ConnectionFactory().getConnection();
 				PreparedStatement stmt = con.prepareStatement(sql)) {
@@ -60,7 +60,7 @@ public class TransporteDao {
 		try (Connection con = new ConnectionFactory().getConnection();
 				PreparedStatement stmt = con.prepareStatement(sql);) {
 
-			stmt.setInt(1, transporte.getEmprestimo().getIdEmprestimo());
+			stmt.setInt(1, transporte.getEmprestimo().getId_emprestimo());
 			stmt.setString(2, transporte.getNomeTransportadora());
 			stmt.setString(3, transporte.getNumNfeEnvio());
 			stmt.setDate(4, FormatadorDeData.toDate(transporte.getDtEnvio()));
@@ -90,7 +90,7 @@ public class TransporteDao {
 				Emprestimo emprestimo = new Emprestimo();
 
 				transporte.setIdTransporte(rs.getInt("id_transporte"));
-				emprestimo.setIdEmprestimo(rs.getInt("emprestimo_id_emprestimo"));
+				emprestimo.setId_emprestimo(rs.getInt("emprestimo_id_emprestimo"));
 				transporte.setEmprestimo(emprestimo);
 				transporte.setNomeTransportadora(rs.getString("nome_transportadora"));
 				transporte.setNumNfeEnvio(rs.getString("num_nfe_envio"));
@@ -113,7 +113,7 @@ public class TransporteDao {
 		List<Transporte> transportes = this.getList();
 
 		for (Transporte transporte : transportes) {
-			if (transporte.getEmprestimo().getIdEmprestimo() == id_emprestimo) {
+			if (transporte.getEmprestimo().getId_emprestimo() == id_emprestimo) {
 				transporteProcurado.add(transporte);
 			}
 		}

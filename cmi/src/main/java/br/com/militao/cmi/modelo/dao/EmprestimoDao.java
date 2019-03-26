@@ -28,7 +28,7 @@ public class EmprestimoDao {
 		try (Connection con = new ConnectionFactory().getConnection();
 				PreparedStatement stmt = con.prepareStatement(sql);) {
 
-			stmt.setInt(1, emprestimo.getIdEmprestimo());
+			stmt.setInt(1, emprestimo.getId_emprestimo());
 			stmt.executeUpdate();
 
 		} catch (SQLException e) {
@@ -47,7 +47,7 @@ public class EmprestimoDao {
 
 			stmt.setString(1, emprestimo.getSituacao().getDescricao());		
 			stmt.setInt(2, emprestimo.getImpressora().getIdImpressora());
-			stmt.setInt(3, emprestimo.getIdEmprestimo());
+			stmt.setInt(3, emprestimo.getId_emprestimo());
 
 			stmt.executeUpdate();
 
@@ -100,7 +100,7 @@ public class EmprestimoDao {
 				Loja loja = new Loja();
 				Impressora imp = new Impressora();
 
-				e.setIdEmprestimo(rs.getInt("id_emprestimo"));
+				e.setId_emprestimo(rs.getInt("id_emprestimo"));
 				e.setDtInicio(FormatadorDeData.toLocalDateTime(rs.getTimestamp("dt_inicio")));
 				loja.setIdLoja(rs.getInt("id_loja"));
 				loja.setNome(rs.getString("nome"));
@@ -137,7 +137,7 @@ public class EmprestimoDao {
 
 		for (Emprestimo emprestimo : emprestimos) {
 
-			if (emprestimo.getIdEmprestimo() == id) {
+			if (emprestimo.getId_emprestimo() == id) {
 				emprestimoProcurado = emprestimo;
 			}
 

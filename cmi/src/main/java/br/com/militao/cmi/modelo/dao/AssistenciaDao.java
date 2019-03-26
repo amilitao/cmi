@@ -1,4 +1,4 @@
-package br.com.militao.cmi.controle;
+package br.com.militao.cmi.modelo.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

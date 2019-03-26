@@ -18,7 +18,7 @@ public class SalvarDevolucao implements Logica {
 		DevolucaoDao devolucaoDao = new DevolucaoDao();
 		Devolucao devolucao = new Devolucao();
 
-		devolucao.setEmprestimo(new Emprestimo(Integer.parseInt(req.getParameter("idEmprestimo"))));
+		devolucao.setEmprestimo(new Emprestimo(Integer.parseInt(req.getParameter("id_emprestimo"))));
 		devolucao.setDtDevolucao(LocalDate.now());
 		devolucao.setNumNfeDevolucao(req.getParameter("numNfeDevolucao"));
 		devolucao.setRecebedor(req.getParameter("recebedor"));

@@ -18,7 +18,7 @@ public class EmprestimoDetalhado implements Logica {
 		DevolucaoDao devDao = new DevolucaoDao();	
 		HistoricoEmprestimoDao histDao = new HistoricoEmprestimoDao();
 		
-		int id_emprestimo = Integer.parseInt(req.getParameter("idEmprestimo"));		
+		int id_emprestimo = Integer.parseInt(req.getParameter("id_emprestimo"));		
 		
 		req.setAttribute("emprestimo", 
 				empDao.getEmprestimoPorId(id_emprestimo));		

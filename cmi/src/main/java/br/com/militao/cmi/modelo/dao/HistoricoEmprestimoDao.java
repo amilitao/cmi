@@ -23,7 +23,7 @@ public class HistoricoEmprestimoDao {
 		try (Connection con = new ConnectionFactory().getConnection();
 				PreparedStatement stmt = con.prepareStatement(sql);) {
 
-			stmt.setInt(1, historico.getEmprestimo().getIdEmprestimo());
+			stmt.setInt(1, historico.getEmprestimo().getId_emprestimo());
 			stmt.setString(2, historico.getOcorrencia());
 			stmt.setTimestamp(3, FormatadorDeData.toTimeStamp(historico.getDt_ocorrencia()));
 			stmt.setString(4, historico.getUsuario().getLogin());
@@ -53,7 +53,7 @@ public class HistoricoEmprestimoDao {
 				Usuario user = new Usuario();
 
 				ocorrencia.setIdHistoricoEmprestimo(rs.getInt("id_historico_emprestimo"));
-				emprestimo.setIdEmprestimo(rs.getInt("emprestimo_id_emprestimo"));
+				emprestimo.setId_emprestimo(rs.getInt("emprestimo_id_emprestimo"));
 				ocorrencia.setEmprestimo(emprestimo);
 				ocorrencia.setOcorrencia(rs.getString("ocorrencia"));
 				ocorrencia.setDt_ocorrencia(FormatadorDeData.toLocalDateTime(rs.getTimestamp("dt_ocorrencia")));
@@ -79,7 +79,7 @@ public class HistoricoEmprestimoDao {
 
 		for (HistoricoEmprestimo historico : historicos) {
 	
-			if (historico.getEmprestimo().getIdEmprestimo() == id) {
+			if (historico.getEmprestimo().getId_emprestimo() == id) {
 				historicoProcurado.add(historico);
 			}
 		}

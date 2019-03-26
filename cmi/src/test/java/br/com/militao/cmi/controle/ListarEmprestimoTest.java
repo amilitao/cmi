@@ -16,7 +16,7 @@ class ListarEmprestimoTest {
 		EmprestimoDao dao = new EmprestimoDao();
 		for(Object o : dao.getList()) {
 			Emprestimo e = (Emprestimo) o;
-			System.out.println(e.getIdEmprestimo());
+			System.out.println(e.getId_emprestimo());
 		}
 	}
 

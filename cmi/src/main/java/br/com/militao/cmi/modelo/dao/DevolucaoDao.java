@@ -40,7 +40,7 @@ public class DevolucaoDao {
 		try (Connection con = new ConnectionFactory().getConnection();
 				PreparedStatement stmt = con.prepareStatement(sql)) {
 
-			stmt.setInt(1, devolucao.getEmprestimo().getIdEmprestimo());
+			stmt.setInt(1, devolucao.getEmprestimo().getId_emprestimo());
 			stmt.setDate(2, FormatadorDeData.toDate(devolucao.getDtDevolucao()));
 			stmt.setString(3, devolucao.getNumNfeDevolucao());
 			stmt.setString(4, devolucao.getRecebedor());
@@ -63,7 +63,7 @@ public class DevolucaoDao {
 		try (Connection con = new ConnectionFactory().getConnection();
 				PreparedStatement stmt = con.prepareStatement(sql);) {
 
-			stmt.setInt(1, devolucao.getEmprestimo().getIdEmprestimo());
+			stmt.setInt(1, devolucao.getEmprestimo().getId_emprestimo());
 			stmt.setDate(2, FormatadorDeData.toDate(devolucao.getDtDevolucao()));
 			stmt.setString(3, devolucao.getNumNfeDevolucao());
 			stmt.setString(4, devolucao.getRecebedor());
@@ -91,7 +91,7 @@ public class DevolucaoDao {
 				Emprestimo emprestimo = new Emprestimo();
 
 				devolucao.setIdDevolucao(rs.getInt("id_devolucao"));
-				emprestimo.setIdEmprestimo(rs.getInt("emprestimo_id_emprestimo"));
+				emprestimo.setId_emprestimo(rs.getInt("emprestimo_id_emprestimo"));
 				devolucao.setEmprestimo(emprestimo);
 				devolucao.setDtDevolucao(FormatadorDeData.toLocalDate(rs.getDate("dt_devolucao")));
 				devolucao.setNumNfeDevolucao(rs.getString("num_nfe_devolucao"));
@@ -115,7 +115,7 @@ public class DevolucaoDao {
 		List<Devolucao> devolucoes = this.getList();
 
 		for (Devolucao devolucao : devolucoes) {
-			if (devolucao.getEmprestimo().getIdEmprestimo() == id_emprestimo) {
+			if (devolucao.getEmprestimo().getId_emprestimo() == id_emprestimo) {
 				devolucaoProcurada.add(devolucao);
 			}
 		}

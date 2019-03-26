@@ -43,7 +43,7 @@
 		<div class="container">
 			<div class="w3-col m3 w3-margin-bottom">
 				<ul class="w3-ul">
-					<li><i class="fa fa-handshake-o"></i> Empréstimo :<b>${emprestimo.idEmprestimo}</b></li>
+					<li><i class="fa fa-handshake-o"></i> Empréstimo :<b>${emprestimo.id_emprestimo}</b></li>
 					<li><i class="fa fa-phone-square"></i> Chamado: <b>${emprestimo.num_chamado}</b></li>
 				</ul>
 			</div>
@@ -88,8 +88,8 @@
 
 							<form action="controle" method="post">
 
-								<input type="hidden" name="idEmprestimo"
-									value="${emprestimo.idEmprestimo}" /> <input type="hidden"
+								<input type="hidden" name="id_emprestimo"
+									value="${emprestimo.id_emprestimo}" /> <input type="hidden"
 									name="idImpressora"
 									value="${emprestimo.impressora.idImpressora}" /> <input
 									type="hidden" name="situacao" value="cancelado" /><input
@@ -162,7 +162,7 @@
 
 						<c:import url="modal-nfe.jsp">
 							<c:param name="b1" value="${btn1}" />
-							<c:param name="idEmprestimo" value="${emprestimo.idEmprestimo}" />
+							<c:param name="id_emprestimo" value="${emprestimo.id_emprestimo}" />
 							<c:param name="idLoja" value="${emprestimo.loja.idLoja}" />
 							<c:param name="nomeLoja" value="${emprestimo.loja.nome}" />
 							<c:param name="cnpjLoja" value="${emprestimo.loja.cnpj}" />
@@ -184,7 +184,7 @@
 
 						<c:import url="modal-transporte.jsp">
 							<c:param name="b2" value="${btn2}" />
-							<c:param name="idEmprestimo" value="${emprestimo.idEmprestimo}" />
+							<c:param name="id_emprestimo" value="${emprestimo.id_emprestimo}" />
 							<c:param name="dtEnvio" value="now.getDate()" />
 						</c:import>
 					</p>
@@ -199,7 +199,7 @@
 
 						<c:import url="modal-entrega.jsp">
 							<c:param name="b3" value="${btn3}" />
-							<c:param name="idEmprestimo" value="${emprestimo.idEmprestimo}" />
+							<c:param name="id_emprestimo" value="${emprestimo.id_emprestimo}" />
 							<c:param name="idImpressora"
 								value="${emprestimo.impressora.idImpressora}" />
 						</c:import>
@@ -214,7 +214,7 @@
 
 						<c:import url="modal-devolucao.jsp">
 							<c:param name="b4" value="${btn4}" />
-							<c:param name="idEmprestimo" value="${emprestimo.idEmprestimo}" />
+							<c:param name="id_emprestimo" value="${emprestimo.id_emprestimo}" />
 						</c:import>
 					</p>
 				</div>
@@ -253,7 +253,7 @@
 			<c:if test="${not empty listaDeDevolucoes}">
 				<c:forEach var="devol" items="${listaDeDevolucoes}">
 					<c:if
-						test="${devol.emprestimo.idEmprestimo == emprestimo.idEmprestimo}">
+						test="${devol.emprestimo.id_emprestimo == emprestimo.id_emprestimo}">
 						<c:set var="devolucao" value="${devol}" />
 					</c:if>
 				</c:forEach>
@@ -320,8 +320,8 @@
 								<div class="w3-col m8">
 									<textarea class="w3-col" style="width: 100%" rows="3"
 										name="comentario"></textarea>
-									<input type="hidden" name="idEmprestimo"
-										value="${emprestimo.idEmprestimo}" />
+									<input type="hidden" name="id_emprestimo"
+										value="${emprestimo.id_emprestimo}" />
 								</div>
 								<div class="w3-col m1 w3-row-padding w3-margin-top w3-center">
 									<button class="w3-button w3-margin-left w3-dark-grey"
