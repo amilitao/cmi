@@ -108,8 +108,17 @@
 				</div>
 				<div class="w3-col m1">
 					<p>
-						<button class="w3-button w3-circle w3-border w3-gray">+</button>
-						<br /> <b>Teste local</b>
+						<c:set var="btn1" value="" />					
+						<c:if test="${manutencao.status_manutencao.porcentagem != '20%'}">
+							<c:set var="btn1" value="disabled" />										
+						</c:if>
+
+						<c:import url="modal-teste.jsp">
+							<c:param name="cor" value="${manutencao.status_manutencao.cor}" />
+							<c:param name="b1" value="${btn1}" />
+							<c:param name="id_manutencao" value="${manutencao.id_manutencao}" />
+						</c:import>
+
 					</p>
 				</div>
 				<div class="w3-col m1">
@@ -155,10 +164,10 @@
 						<button class="w3-button w3-circle w3-gray">+</button>
 						<br /> <b>Nota fiscal de pagamento</b>
 					</p>
-				</div>				
+				</div>
 				<div class="w3-col m1">
 					<p>
-					<i class="fa fa-chevron-right"></i>
+						<i class="fa fa-chevron-right"></i>
 					</p>
 				</div>
 				<div class="w3-col m1">
@@ -168,46 +177,44 @@
 				</div>
 
 			</div>
+		</div>
 
-			<br>
-
-
-			<div class="w3-row-padding">
-
-				<div class="w3-third w3-margin-bottom">
-
-					<ul class="w3-ul w3-border w3-hover-shadow">
-						<li class="w3-large w3-center" style="background: #f4ab43"><b>Problema da impressora</b></li>
-						<li><b>Problema  1</b></li>
-						<li><b>Problema  2</b></li>
-						<li><b>Problema  3</b></li>
-
-					</ul>
-				</div>
-				<div class="w3-third w3-margin-bottom">
-
-					<ul class="w3-ul w3-border w3-hover-shadow">
-						<li class="w3-large w3-center" style="background: #5ebf99"><b>Orçamento</b></li>
-						<li><b>Orçamento 1</b><h6 class="w3-green w3-right">Aprovado</h6></li>
-						<li><b>Orçamento 2</b></li>
-						<li><b>Orçamento 3</b></li>
-					</ul>
-				</div>
-				<div class="w3-third w3-margin-bottom">
-
-					<ul class="w3-ul w3-border w3-hover-shadow">
-						<li class="w3-large w3-center w3-light-blue"><b>Despesa</b></li>
-						<li><b>Numero: </b></li>
-						<li><b>Valor: </b></li>
-						<li><b>Data: </b></li>
-
-					</ul>
-				</div>
+		<br>
 
 
+		<div class="w3-row-padding">
 
+			<div class="w3-third w3-margin-bottom">
 
+				<ul class="w3-ul w3-border w3-hover-shadow">
+					<li class="w3-large w3-center" style="background: #f4ab43"><b>Problema
+							da impressora</b></li>
+					<li><b>Problema 1</b></li>
+					<li><b>Problema 2</b></li>
+					<li><b>Problema 3</b></li>
 
-
+				</ul>
 			</div>
+			<div class="w3-third w3-margin-bottom">
+
+				<ul class="w3-ul w3-border w3-hover-shadow">
+					<li class="w3-large w3-center" style="background: #5ebf99"><b>Orçamento</b></li>
+					<li><b>Orçamento 1</b>
+						<h6 class="w3-green w3-right">Aprovado</h6></li>
+					<li><b>Orçamento 2</b></li>
+					<li><b>Orçamento 3</b></li>
+				</ul>
+			</div>
+			<div class="w3-third w3-margin-bottom">
+
+				<ul class="w3-ul w3-border w3-hover-shadow">
+					<li class="w3-large w3-center w3-light-blue"><b>Despesa</b></li>
+					<li><b>Numero: </b></li>
+					<li><b>Valor: </b></li>
+					<li><b>Data: </b></li>
+
+				</ul>
+			</div>
+		</div>
+	</div>
 </t:mainpage>
