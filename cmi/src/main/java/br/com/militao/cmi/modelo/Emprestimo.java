@@ -12,7 +12,7 @@ import br.com.militao.cmi.util.FormatadorDeData;
 
 public class Emprestimo {
 
-	private int idEmprestimo;
+	private int id_emprestimo;
 	private Loja loja;
 	private Impressora impressora;
 	private LocalDateTime dtInicio;
@@ -25,7 +25,7 @@ public class Emprestimo {
 	}
 	
 public Emprestimo(int id) {
-		this.idEmprestimo = id;
+		this.id_emprestimo = id;
 	}
 
 	public Emprestimo(Loja loja, Impressora impressora, String num_chamado) {
@@ -44,11 +44,11 @@ public Emprestimo(int id) {
 	}
 
 	public int getIdEmprestimo() {
-		return idEmprestimo;
+		return id_emprestimo;
 	}
 
 	public void setIdEmprestimo(int idEmprestimo) {
-		this.idEmprestimo = idEmprestimo;
+		this.id_emprestimo = idEmprestimo;
 	}
 
 	public Loja getLoja() {
