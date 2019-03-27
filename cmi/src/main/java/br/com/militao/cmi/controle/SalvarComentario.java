@@ -25,8 +25,8 @@ public class SalvarComentario implements Logica{
 		historico.setEmprestimo(new Emprestimo(Integer.parseInt(req.getParameter("id_emprestimo"))));  
 		historico.setOcorrencia(req.getParameter("comentario"));
 		historico.setDt_ocorrencia(LocalDateTime.now());
-		
-		user = (Usuario)session.getAttribute("usuario");
+
+		user = (Usuario)session.getAttribute("usuarioLogado");
 	
 		historico.setUsuario(user);
 		

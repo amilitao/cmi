@@ -1,4 +1,4 @@
-<%@tag description="Generic Page template" pageEncoding="UTF-8"%>
+<%@tag description="Generic Page template" pageEncoding="UTF-8" %>
 <%@attribute name="top" fragment="true"%>
 <%@attribute name="sidebar" fragment="true"%>
 
