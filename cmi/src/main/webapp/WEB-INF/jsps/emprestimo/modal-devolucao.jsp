@@ -4,7 +4,7 @@
 <%@page import="br.com.militao.cmi.util.FormatadorDeData"%>
 
 <%
-	String dataAtual = FormatadorDeData.formata(LocalDate.now());
+	String hoje = FormatadorDeData.formata(LocalDate.now());
 %>
 
 <button
@@ -36,7 +36,7 @@
 					</div>
 					<div class="w3-col m3 w3-margin-bottom">
 						<label><i class="fa fa-calendar-o"></i> Data de envio</label> <input
-							class="w3-input w3-border" type="text" value="<%=dataAtual%>"
+							class="w3-input w3-border" type="text" value="<%=hoje%>"
 							name="dtDevolucao" readonly required>
 					</div>
 
