@@ -9,12 +9,16 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  *
  * @author Adriano
  */
 public class ConnectionFactory {
 
+	final Logger LOGGER = LoggerFactory.getLogger(ConnectionFactory.class);
 	private final String url_bd = "jdbc:mysql://localhost/db_cmi2?useSSL=false";
 	private final String login = "root";
 	private final String senha = "admin";	
@@ -28,7 +32,8 @@ public class ConnectionFactory {
 			return conexao;
 
 		} catch (SQLException | ClassNotFoundException ex) {
-			throw new RuntimeException("Erro na criação da conexao", ex);
+			LOGGER.error("error");
+			throw new RuntimeException("Erro na criação da conexao", ex);			
 		}
 	}
 }
