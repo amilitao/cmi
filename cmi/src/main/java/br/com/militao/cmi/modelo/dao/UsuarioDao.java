@@ -5,10 +5,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import br.com.militao.cmi.conexao.ConnectionFactory;
 import br.com.militao.cmi.modelo.Usuario;
 
 public class UsuarioDao {
+	
+	final Logger LOGGER = LoggerFactory.getLogger(UsuarioDao.class);
 
 	public void delete(Usuario user) {
 
@@ -22,7 +27,7 @@ public class UsuarioDao {
 			stmt.executeUpdate();
 
 		} catch (SQLException e) {
-
+			LOGGER.error("Erro ao deletar usuario: Id ", user.getId_usuario());
 			throw new RuntimeException(e);
 		}
 
@@ -41,7 +46,7 @@ public class UsuarioDao {
 			stmt.executeUpdate();
 
 		} catch (SQLException e) {
-
+			LOGGER.error("Erro ao atualizar cadastro de usuario: ", user.getLogin());
 			throw new RuntimeException(e);
 		}
 
@@ -60,7 +65,7 @@ public class UsuarioDao {
 			stmt.executeUpdate();
 
 		} catch (SQLException e) {
-
+			LOGGER.error("Erro ao inserir dados do usuario: ", user.getLogin());
 			throw new RuntimeException(e);
 		}
 
@@ -88,8 +93,8 @@ public class UsuarioDao {
 			}
 
 		} catch (SQLException | NullPointerException e) {
-
-			throw new RuntimeException("Erro ao importar dados de usuario!!!", e);
+			LOGGER.error("Erro ao buscar usuario por login. Login informado foi: ", lgn);
+			throw new RuntimeException(e);
 		}
 
 		return null;

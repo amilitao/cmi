@@ -12,6 +12,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import br.com.militao.cmi.conexao.ConnectionFactory;
 import br.com.militao.cmi.modelo.EstadoImpressoraEnum;
 import br.com.militao.cmi.modelo.Impressora;
@@ -20,6 +23,8 @@ import br.com.militao.cmi.modelo.StatusImpressoraEnum;
 
 public class ImpressoraDao {
 
+	final Logger LOGGER = LoggerFactory.getLogger(ImpressoraDao.class);
+	
 	public void delete(Impressora impressora) {
 
 		String sql = "delete from impressora where numero=?";

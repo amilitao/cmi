@@ -6,10 +6,15 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import br.com.militao.cmi.conexao.ConnectionFactory;
 import br.com.militao.cmi.modelo.Assistencia;
 
 public class AssistenciaDao {
+	
+	final Logger LOGGER = LoggerFactory.getLogger(AssistenciaDao.class);
 
 	public List<Assistencia> getList() {
 

@@ -7,11 +7,16 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import br.com.militao.cmi.conexao.ConnectionFactory;
 import br.com.militao.cmi.modelo.Regional;
 
 public class RegionalDao {
 
+	final Logger LOGGER = LoggerFactory.getLogger(RegionalDao.class);
+	
 	public void delete(Regional regional) {
 
 		String sql = "delete from regional where nome_regional=?";
