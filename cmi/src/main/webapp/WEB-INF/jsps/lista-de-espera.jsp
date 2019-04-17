@@ -80,7 +80,7 @@
 
 
 	<div id="idListaEspera" class="w3-modal">
-		<div class="w3-modal-content" style="background: #d8dddf">
+		<div class="w3-modal-content w3-animate-top" style="background: #d8dddf">
 			<header class="w3-container">
 				<span
 					onclick="document.getElementById('idListaEspera').style.display='none'"

@@ -12,6 +12,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import br.com.militao.cmi.conexao.ConnectionFactory;
 import br.com.militao.cmi.modelo.Loja;
 import br.com.militao.cmi.modelo.Regional;
@@ -22,6 +25,7 @@ import br.com.militao.cmi.modelo.Regional;
  */
 public class LojaDao {
 
+	final Logger LOGGER = LoggerFactory.getLogger(LojaDao.class);
 
 	public void delete(Loja loja) {
 	

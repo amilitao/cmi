@@ -7,6 +7,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import br.com.militao.cmi.conexao.ConnectionFactory;
 import br.com.militao.cmi.modelo.Emprestimo;
 import br.com.militao.cmi.modelo.Transporte;
@@ -14,6 +17,8 @@ import br.com.militao.cmi.util.FormatadorDeData;
 
 public class TransporteDao {
 
+	final Logger LOGGER = LoggerFactory.getLogger(TransporteDao.class);
+	
 	public void delete(Transporte transporte) {
 
 		String sql = "delete from transporte where id_transporte=?";

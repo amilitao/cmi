@@ -7,6 +7,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import br.com.militao.cmi.conexao.ConnectionFactory;
 import br.com.militao.cmi.modelo.ListaDeEspera;
 import br.com.militao.cmi.modelo.Loja;
@@ -14,6 +17,7 @@ import br.com.militao.cmi.modelo.StatusListaDeEsperaEnum;
 
 public class ListaDeEsperaDao{
 	
+	final Logger LOGGER = LoggerFactory.getLogger(ListaDeEsperaDao.class);
 	
 	public void update(ListaDeEspera lojaEmLista) {
 		

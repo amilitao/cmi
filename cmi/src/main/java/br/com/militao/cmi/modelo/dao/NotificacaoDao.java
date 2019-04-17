@@ -7,12 +7,16 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import br.com.militao.cmi.conexao.ConnectionFactory;
 import br.com.militao.cmi.modelo.Notificacao;
 import br.com.militao.cmi.util.FormatadorDeData;
 
 public class NotificacaoDao {
 	
+	final Logger LOGGER = LoggerFactory.getLogger(NotificacaoDao.class);
 	
 	public void insert(Notificacao notificacao) {		
 

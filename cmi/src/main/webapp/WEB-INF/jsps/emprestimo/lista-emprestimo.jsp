@@ -33,7 +33,7 @@
 					</div>
 					<div class="w3-col m4">
 						<h4>
-							<i class="fa fa-search w3-text-${emprestimo.situacao.cor}"> </i>
+							<i class="fa fa-rss w3-text-${emprestimo.situacao.cor}"> </i>
 							Situação : ${emprestimo.situacao.descricao}
 						</h4>
 					</div>
@@ -44,7 +44,7 @@
 
 						<button class="w3-button w3-padding" name="logica"
 							value="EmprestimoDetalhado">
-							<i class="fa fa-print"></i> Detalhes
+							<i class="fa fa-search"></i> Detalhes
 						</button>
 					</div>
 				</div>

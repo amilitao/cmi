@@ -20,7 +20,18 @@ public class Manutencao {
 	private LocalDate dt_inicio;
 	private LocalDate dt_fim;
 	
+	public Manutencao() {}
 	
+	
+	public Manutencao(Assistencia assistencia, Impressora impressora) {
+		
+		this.assistencia = assistencia;
+		this.impressora = impressora;
+		this.status_manutencao = StatusManutencaoEnum.TESTE;
+		this.dt_inicio = LocalDate.now();				
+		
+		
+	}
 	
 	
 	public int getId_manutencao() {

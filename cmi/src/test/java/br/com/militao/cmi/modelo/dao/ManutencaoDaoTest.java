@@ -11,24 +11,21 @@ import br.com.militao.cmi.modelo.StatusManutencaoEnum;
 
 class ManutencaoDaoTest {
 
-	/*@Test
+	@Test
 	void salvarManutencao() {
 			
-		ManutencaoDao manuDao = new ManutencaoDao();
-		Manutencao manutencao = new Manutencao();
+		ManutencaoDao manuDao = new ManutencaoDao();		
 		Assistencia assistencia = new Assistencia();
 		Impressora impressora = new Impressora();
 		
 		assistencia.setId_assistencia(1);
 		impressora.setIdImpressora(2);
 		
-		manutencao.setAssistencia(assistencia);
-		manutencao.setImpressora(impressora);
-		manutencao.setStatus_manutencao(StatusManutencaoEnum.getByDescricao("iniciado"));
-		
+		Manutencao manutencao = new Manutencao(assistencia, impressora );
+				
 		manuDao.insert(manutencao);		
 		
-	}*/
+	}
 	
 	@Test
 	void listarManutencao() {
@@ -38,9 +35,7 @@ class ManutencaoDaoTest {
 		for(Manutencao m : manu.getList()) {
 			System.out.println(m.getId_manutencao());
 			System.out.println(m.getAssistencia().getRazao_social());
-			System.out.println(m.getImpressora().getModelo());
-			System.out.println(m.getStatus_manutencao().getDescricao());
-			System.out.println(m.getStatus_manutencao().getCor());
+			System.out.println(m.getImpressora().getModelo());			
 		}
 		
 	}

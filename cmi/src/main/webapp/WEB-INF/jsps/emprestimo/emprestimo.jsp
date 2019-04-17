@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags"%>
 
@@ -10,9 +11,6 @@
 		<h3>
 			<i class="fa fa-handshake-o"></i> Novo Empréstimo
 		</h3>
-	</div>
-
-	<div class="w3-panel w3-padding-large">
 
 		<c:if test="${empty impressoras}">
 			<c:set var="teste" value="disabled" />
@@ -24,13 +22,20 @@
 
 		<c:if test="${confirmaDao}">
 			<c:set var="teste" value="disabled" />
-			<div class="w3-panel w3-display-container" style="background:#b5e7a0">
+			<div class="w3-panel w3-display-container"
+				style="background: #b5e7a0">
 				<span onclick="this.parentElement.style.display='none'"
-					class="w3-button w3-display-topright w3-large" style="background:#b5e7a0">&times;</span>
+					class="w3-button w3-display-topright w3-large"
+					style="background: #b5e7a0">&times;</span>
 				<p>Os dados foram salvos com sucesso!!!</p>
 			</div>
 
-		</c:if>		
+		</c:if>
+
+
+	</div>
+
+	<div class="w3-panel w3-padding-large">
 
 		<form action="controle" method="post">
 
@@ -56,8 +61,9 @@
 
 				</div>
 				<div class="w3-third">
-					<label><i class="fa fa-pencil-square-o"></i> Número do chamado</label> <input
-						class="w3-input w3-border" type="text" name="num_chamado" required>
+					<label><i class="fa fa-pencil-square-o"></i> Número do
+						chamado</label> <input class="w3-input w3-border" type="text"
+						name="num_chamado" required>
 				</div>
 			</div>
 			<hr>
