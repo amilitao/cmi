@@ -112,7 +112,7 @@
 						<button class="w3-button w3-green" type="submit">SIM</button>
 						<button
 							onclick="document.getElementById('idListaEspera').style.display='none'"
-							class="w3-button w3-red">NÃO</button>
+							class="w3-button w3-red" type="button">NÃO</button>
 						</form>						
 					</div>
 
