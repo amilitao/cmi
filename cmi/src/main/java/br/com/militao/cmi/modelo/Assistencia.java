@@ -48,6 +48,10 @@ public class Assistencia {
 		this.endereco = endereco;
 	}
 	
+	@Override
+	public String toString() {		
+		return this.razao_social;
+	}
 	
 	
 	
