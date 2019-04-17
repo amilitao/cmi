@@ -28,7 +28,7 @@
 		</encoder>
 	</appender>
 
-	<logger name="br.com.atacadao.reports.modelo.dao" level="ERROR"
+	<logger name="br.com.militao.cmi.modelo.dao" level="ERROR"
 		additivity="false">
 		<appender-ref ref="FILE" />
 	</logger>

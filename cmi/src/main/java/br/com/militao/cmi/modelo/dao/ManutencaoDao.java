@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,20 +26,25 @@ public class ManutencaoDao {
 	
 	public void insert(Manutencao manutencao) {
 
-		String sql = "insert into manutencao (assistencia_id_assistencia,impressora_id_impressora,"
-				+ "status_manutencao) values (?,?,?)";
+		String sql = "insert into manutencao ("
+				+ "assistencia_id_assistencia,impressora_id_impressora, "
+				+ "status_manutencao, "
+				+ "dt_inicio) "
+				+ "values (?,?,?,?)";
 
 		try (Connection con = new ConnectionFactory().getConnection();
 				PreparedStatement stmt = con.prepareStatement(sql);) {
 
 			stmt.setInt(1, manutencao.getAssistencia().getId_assistencia());
-			stmt.setInt(2, manutencao.getImpressora().getIdImpressora());			
-			stmt.setString(3, manutencao.getStatus_manutencao().getDescricao());			
+			stmt.setInt(2, manutencao.getImpressora().getIdImpressora());	
+			stmt.setString(3, manutencao.getStatus_manutencao().getDescricao());
+			stmt.setDate(4, FormatadorDeData.toDate(manutencao.getDt_inicio()));
+			
 
 			stmt.executeUpdate();
 
 		} catch (SQLException e) {
-
+			LOGGER.error("Erro ao gravar manutencao ", manutencao.getId_manutencao());
 			throw new RuntimeException("Erro ao gravar manutencao " + e);
 		}
 
