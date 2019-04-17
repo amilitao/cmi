@@ -125,7 +125,7 @@
 					</thead>
 					<c:forEach var="i" items="${impressoras}">
 						<tr
-							onclick="f_selecionar('${i.idImpressora}', '${i.numero}', '${i.modelo}', '${i.pip}', '${i.numero_serie}', 
+							onclick="f_selecionar('${i.id_impressora}', '${i.numero}', '${i.modelo}', '${i.pip}', '${i.numero_serie}', 
 							'<fmt:formatNumber type="number" maxFractionDigits = "2" value="${i.valor}" />',
 							'${i.estado.descricao}','${i.situacao.descricao}', '${i.loja}')">
 							

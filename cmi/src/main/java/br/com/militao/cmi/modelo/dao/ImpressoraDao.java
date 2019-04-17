@@ -59,7 +59,7 @@ public class ImpressoraDao {
 			stmt.setDouble(6, impressora.getValor());
 			stmt.setString(7, impressora.getEstado().getDescricao());
 			stmt.setString(8, impressora.getSituacao().getDescricao());
-			stmt.setInt(9, impressora.getIdImpressora());
+			stmt.setInt(9, impressora.getId_impressora());
 
 			stmt.executeUpdate();
 
@@ -110,7 +110,7 @@ public class ImpressoraDao {
 				Impressora imp = new Impressora();
 				Loja loja = new Loja();
 
-				imp.setIdImpressora(rs.getInt("id_impressora"));
+				imp.setId_impressora(rs.getInt("id_impressora"));
 				loja.setIdLoja(rs.getInt("id_loja"));
 				loja.setNumero_loja(rs.getInt("numero_loja"));
 				loja.setNome(rs.getString("nome"));
@@ -139,7 +139,7 @@ public class ImpressoraDao {
 
 		for (Impressora impressora : impressoras) {
 
-			if (impressora.getIdImpressora() == id) {
+			if (impressora.getId_impressora() == id) {
 				impressoraProcurada = impressora;
 			}
 

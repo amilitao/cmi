@@ -29,7 +29,7 @@ public class SalvarImpressora implements Logica {
 		
 		if (Integer.parseInt(req.getParameter("id_impressora")) != 0) {				
 			
-			impressora.setIdImpressora(Integer.parseInt(req.getParameter("id_impressora")));
+			impressora.setId_impressora(Integer.parseInt(req.getParameter("id_impressora")));
 			impDao.update(impressora);
 			
 			req.setAttribute("confirmaDao", true);

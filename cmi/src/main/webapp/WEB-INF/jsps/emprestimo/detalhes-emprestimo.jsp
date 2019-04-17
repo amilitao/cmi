@@ -88,8 +88,8 @@
 
 								<input type="hidden" name="id_emprestimo"
 									value="${emprestimo.id_emprestimo}" /> <input type="hidden"
-									name="idImpressora"
-									value="${emprestimo.impressora.idImpressora}" /> <input
+									name="id_impressora"
+									value="${emprestimo.impressora.id_impressora}" /> <input
 									type="hidden" name="situacao" value="cancelado" /><input
 									type="hidden" name="statusImpressora" value="disponivel" /> <input
 									type="hidden" name="logica" value="CancelarEmprestimo" />
@@ -168,8 +168,8 @@
 							<c:param name="idLoja" value="${emprestimo.loja.idLoja}" />
 							<c:param name="nomeLoja" value="${emprestimo.loja.nome}" />
 							<c:param name="cnpjLoja" value="${emprestimo.loja.cnpj}" />
-							<c:param name="idImpressora"
-								value="${emprestimo.impressora.idImpressora}" />
+							<c:param name="id_impressora"
+								value="${emprestimo.impressora.id_impressora}" />
 							<c:param name="impressora" value="${emprestimo.impressora}" />
 							<c:param name="dtFim" value="${emprestimo.dtFim}" />
 							<c:param name="prazo_devolucao"
@@ -202,8 +202,8 @@
 						<c:import url="modal-entrega.jsp">
 							<c:param name="b3" value="${btn3}" />
 							<c:param name="id_emprestimo" value="${emprestimo.id_emprestimo}" />
-							<c:param name="idImpressora"
-								value="${emprestimo.impressora.idImpressora}" />
+							<c:param name="id_impressora"
+								value="${emprestimo.impressora.id_impressora}" />
 						</c:import>
 					</p>
 				</div>

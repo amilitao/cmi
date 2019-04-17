@@ -20,7 +20,7 @@
 			
 				<input type="hidden" name="logica" value="AtualizarEmprestimo" />
 				<input type="hidden" name="id_emprestimo" value="${param.id_emprestimo}" />
-				<input type="hidden" name="idImpressora" value="${param.idImpressora}" />
+				<input type="hidden" name="id_impressora" value="${param.id_impressora}" />
 				<input type="hidden" name="situacao" value="em emprestimo" />				
 
 				<button class="w3-button w3-khaki" type="submit">

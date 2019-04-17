@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,7 +35,7 @@ public class ManutencaoDao {
 				PreparedStatement stmt = con.prepareStatement(sql);) {
 
 			stmt.setInt(1, manutencao.getAssistencia().getId_assistencia());
-			stmt.setInt(2, manutencao.getImpressora().getIdImpressora());	
+			stmt.setInt(2, manutencao.getImpressora().getId_impressora());	
 			stmt.setString(3, manutencao.getStatus_manutencao().getDescricao());
 			stmt.setDate(4, FormatadorDeData.toDate(manutencao.getDt_inicio()));
 			
@@ -80,7 +79,7 @@ public class ManutencaoDao {
 				
 				manutencao.setAssistencia(assistencia);
 				
-				impressora.setIdImpressora(rs.getInt("id_impressora"));				
+				impressora.setId_impressora(rs.getInt("id_impressora"));				
 				impressora.setNumero(rs.getInt("numero"));
 				impressora.setModelo(rs.getString("modelo"));
 				impressora.setPip(rs.getInt("pip"));

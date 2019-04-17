@@ -55,7 +55,7 @@
 						class="w3-select w3-border" name="id_impressora" required>
 						<option value="" disabled selected>Escolha a impressora</option>
 						<c:forEach var="impressora" items="${impressoras}">
-							<option value="${impressora.idImpressora}">${impressora}</option>
+							<option value="${impressora.id_impressora}">${impressora}</option>
 						</c:forEach>
 					</select>
 

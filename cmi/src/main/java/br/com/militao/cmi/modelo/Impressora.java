@@ -12,7 +12,7 @@ package br.com.militao.cmi.modelo;
  */
 public class Impressora {
 
-	private int idImpressora;
+	private int id_impressora;
 	private int numero;
 	private String modelo;
 	private int pip;
@@ -25,15 +25,15 @@ public class Impressora {
 	public Impressora() {}
 
 	public Impressora(int id) {
-		this.idImpressora = id;
+		this.id_impressora = id;
+	}	
+
+	public int getId_impressora() {
+		return id_impressora;
 	}
 
-	public int getIdImpressora() {
-		return idImpressora;
-	}
-
-	public void setIdImpressora(int id_impressora) {
-		this.idImpressora = id_impressora;
+	public void setId_impressora(int id_impressora) {
+		this.id_impressora = id_impressora;
 	}
 
 	public int getNumero() {

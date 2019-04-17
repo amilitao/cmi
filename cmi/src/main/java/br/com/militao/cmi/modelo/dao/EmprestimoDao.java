@@ -51,7 +51,7 @@ public class EmprestimoDao {
 				PreparedStatement stmt = con.prepareStatement(sql)) {
 
 			stmt.setString(1, emprestimo.getSituacao().getDescricao());		
-			stmt.setInt(2, emprestimo.getImpressora().getIdImpressora());
+			stmt.setInt(2, emprestimo.getImpressora().getId_impressora());
 			stmt.setInt(3, emprestimo.getId_emprestimo());
 
 			stmt.executeUpdate();
@@ -72,7 +72,7 @@ public class EmprestimoDao {
 				PreparedStatement stmt = con.prepareStatement(sql);) {
 
 			stmt.setInt(1, emprestimo.getLoja().getIdLoja());
-			stmt.setInt(2, emprestimo.getImpressora().getIdImpressora());
+			stmt.setInt(2, emprestimo.getImpressora().getId_impressora());
 			stmt.setString(3, emprestimo.getNum_chamado());
 			stmt.setString(4, emprestimo.getSituacao().getDescricao());
 			stmt.setTimestamp(5, FormatadorDeData.toTimeStamp(emprestimo.getDtInicio()));
@@ -113,7 +113,7 @@ public class EmprestimoDao {
 				loja.setCnpj(rs.getString("cnpj"));
 				loja.setEndereco(rs.getString("endereco"));
 				loja.setTelefone(rs.getString("telefone"));
-				imp.setIdImpressora(rs.getInt("id_impressora"));
+				imp.setId_impressora(rs.getInt("id_impressora"));
 				imp.setNumero(rs.getInt("numero"));
 				imp.setModelo(rs.getString("modelo"));
 				e.setSituacao(StatusEmprestimoEnum.getByDescricao(rs.getString("situacao")));

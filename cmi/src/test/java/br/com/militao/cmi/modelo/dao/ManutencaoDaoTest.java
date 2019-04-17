@@ -19,7 +19,7 @@ class ManutencaoDaoTest {
 		Impressora impressora = new Impressora();
 		
 		assistencia.setId_assistencia(1);
-		impressora.setIdImpressora(2);
+		impressora.setId_impressora(2);
 		
 		Manutencao manutencao = new Manutencao(assistencia, impressora );
 				
