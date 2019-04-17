@@ -22,8 +22,7 @@ public class Impressora {
 	private StatusImpressoraEnum situacao;
 	private Loja loja;
 
-	public Impressora() {
-	}
+	public Impressora() {}
 
 	public Impressora(int id) {
 		this.idImpressora = id;

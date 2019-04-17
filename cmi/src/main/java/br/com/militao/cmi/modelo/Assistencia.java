@@ -9,6 +9,11 @@ public class Assistencia {
 	private String telefone;
 	private String endereco;
 	
+	public Assistencia() {}
+	
+	public Assistencia(int id) {
+		this.id_assistencia = id;
+	}
 	
 	public int getId_assistencia() {
 		return id_assistencia;

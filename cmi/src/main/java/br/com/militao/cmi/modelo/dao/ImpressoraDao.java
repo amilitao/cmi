@@ -147,12 +147,12 @@ public class ImpressoraDao {
 		return impressoraProcurada;
 	}
 
-	public List<Impressora> getListPorStatus(String status) {
+	public List<Impressora> getListPorStatus(StatusImpressoraEnum status) {
 		List<Impressora> listaDeImpressoras = new ArrayList<>();
 
 		for (Impressora imp : this.getList()) {
 
-			if (imp.getSituacao().getDescricao().equals(status)) {
+			if (imp.getSituacao().equals(status)) {
 				listaDeImpressoras.add(imp);
 			}
 		}

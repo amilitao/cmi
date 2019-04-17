@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags"%>
@@ -37,7 +38,6 @@
 			</div>
 
 		</c:if>
-
 		<!----------------------------------------------------------------------------------------------------------------->
 
 		<div class="container">
@@ -78,10 +78,8 @@
 
 				<div id="idCancel" class="w3-modal">
 					<div class="w3-modal-content w3-padding-large w3-khaki">
-						<div class="w3-container w3-padding-large">							
-							<h4>
-								Deseja realmente cancelar o empréstimo?
-							</h4>						
+						<div class="w3-container w3-padding-large">
+							<h4>Deseja realmente cancelar o empréstimo?</h4>
 						</div>
 
 						<div class="w3-bar">
@@ -96,11 +94,15 @@
 									type="hidden" name="statusImpressora" value="disponivel" /> <input
 									type="hidden" name="logica" value="CancelarEmprestimo" />
 
-								<button class="w3-button w3-text-white" type="submit" style="background:#ff6f69"><b>Cancelar
-									empréstimo</b></button>
+								<button class="w3-button w3-text-white" type="submit"
+									style="background: #ff6f69">
+									<b>Cancelar empréstimo</b>
+								</button>
 								<button
 									onclick="document.getElementById('idCancel').style.display='none'"
-									class="w3-button w3-gray w3-text-white w3-right" type="button"><b>Voltar</b></button>
+									class="w3-button w3-gray w3-text-white w3-right" type="button">
+									<b>Voltar</b>
+								</button>
 
 							</form>
 
@@ -309,7 +311,7 @@
 					<button class="w3-bar-item w3-button tablink"
 						onclick="openCity(event,'Paris')">
 						<b>Histórico</b>
-					</button>					
+					</button>
 				</div>
 
 				<div class="container">
@@ -352,7 +354,7 @@
 							</li>
 						</ul>
 					</c:forEach>
-				</div>				
+				</div>
 			</div>
 		</div>
 	</div>
