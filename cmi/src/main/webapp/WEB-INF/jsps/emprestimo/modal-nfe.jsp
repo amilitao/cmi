@@ -40,14 +40,10 @@
 				
 
 				<button class="w3-button w3-khaki" type="submit">
-					<i class="fa fa-floppy-o w3-margin-right"></i>Enviar
+					<i class="fa fa-floppy-o w3-margin-right"></i>OK
 				</button>
 			</form>
 		</div>
-
-
-		<footer class="w3-container w3-khaki">
-			<p>O email será enviado pelo servidor</p>
-		</footer>
+		
 	</div>
 </div>
