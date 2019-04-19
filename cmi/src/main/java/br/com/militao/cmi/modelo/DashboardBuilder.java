@@ -6,6 +6,7 @@ public class DashboardBuilder {
 	
 	private Componente painelStatus;
 	private Componente painelRegionais;
+	private Componente painelUltimasAtualizacoes;
 
 	public DashboardBuilder comPainelStatus(Componente painelStatus) {
 		
@@ -19,8 +20,13 @@ public class DashboardBuilder {
 		return this;
 	}
 	
+	public DashboardBuilder comPainelUltimasAtualizacoes(Componente painelUltimasAtualizacoes) {
+		this.painelUltimasAtualizacoes = painelUltimasAtualizacoes;
+		return this;
+	}
+	
 	public Dashboard geraDashboard() {
-		return new Dashboard(painelStatus, painelRegionais );
+		return new Dashboard(painelStatus, painelRegionais, painelUltimasAtualizacoes);
 	}
 
 }

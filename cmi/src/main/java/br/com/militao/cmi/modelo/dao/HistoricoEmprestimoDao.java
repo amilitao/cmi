@@ -51,7 +51,7 @@ public class HistoricoEmprestimoDao {
 				PreparedStatement stmt = con.prepareStatement(sql);
 
 				ResultSet rs = stmt.executeQuery();) {
-
+			
 			while (rs.next()) {
 				HistoricoEmprestimo ocorrencia = new HistoricoEmprestimo();
 				Emprestimo emprestimo = new Emprestimo();
@@ -76,7 +76,8 @@ public class HistoricoEmprestimoDao {
 
 		return historicos;
 
-	}
+	}	
+	
 	
 	public List<HistoricoEmprestimo> getHistoricoPorIdEmprestimo(int id) {
 		List<HistoricoEmprestimo> historicoProcurado = new ArrayList<>();
