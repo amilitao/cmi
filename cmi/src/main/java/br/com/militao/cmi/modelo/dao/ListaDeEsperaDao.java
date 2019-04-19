@@ -44,7 +44,7 @@ public class ListaDeEsperaDao{
 		try (Connection con = new ConnectionFactory().getConnection();
 				PreparedStatement stmt = con.prepareStatement(sql);) {
 
-			stmt.setInt(1, lista.getLoja().getIdLoja());
+			stmt.setInt(1, lista.getLoja().getId_loja());
 			stmt.setString(2, lista.getStatus().getDescricao());
 
 			stmt.executeUpdate();
@@ -73,7 +73,7 @@ public class ListaDeEsperaDao{
 				Loja loja = new Loja();
 
 				listaDeEspera.setId_reserva(rs.getInt("id_reserva"));
-				loja.setIdLoja(rs.getInt("id_loja"));
+				loja.setId_loja(rs.getInt("id_loja"));
 				loja.setNumero_loja(rs.getInt("numero_loja"));
 				loja.setNome(rs.getString("nome"));
 				listaDeEspera.setLoja(loja);
@@ -98,7 +98,7 @@ public class ListaDeEsperaDao{
 
 		for (ListaDeEspera loja : registros) {
 	
-			if (loja.getLoja().getIdLoja() == numero && loja.getStatus().getDescricao() == "aguardando" ) {
+			if (loja.getLoja().getId_loja() == numero && loja.getStatus().getDescricao() == "aguardando" ) {
 				lojaProcurada = loja;
 			}
 

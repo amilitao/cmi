@@ -32,7 +32,7 @@
 						class="w3-select w3-border" name="id_loja" required>
 						<option value="" disabled selected>Escolha a loja</option>
 						<c:forEach var="loja" items="${lojas}">
-							<option value="${loja.idLoja}">${loja}</option>
+							<option value="${loja.id_loja}">${loja}</option>
 						</c:forEach>
 					</select>
 

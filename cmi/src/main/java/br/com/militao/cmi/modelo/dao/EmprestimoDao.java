@@ -71,7 +71,7 @@ public class EmprestimoDao {
 		try (Connection con = new ConnectionFactory().getConnection();
 				PreparedStatement stmt = con.prepareStatement(sql);) {
 
-			stmt.setInt(1, emprestimo.getLoja().getIdLoja());
+			stmt.setInt(1, emprestimo.getLoja().getId_loja());
 			stmt.setInt(2, emprestimo.getImpressora().getId_impressora());
 			stmt.setString(3, emprestimo.getNum_chamado());
 			stmt.setString(4, emprestimo.getSituacao().getDescricao());
@@ -107,7 +107,7 @@ public class EmprestimoDao {
 
 				e.setId_emprestimo(rs.getInt("id_emprestimo"));
 				e.setDtInicio(FormatadorDeData.toLocalDateTime(rs.getTimestamp("dt_inicio")));
-				loja.setIdLoja(rs.getInt("id_loja"));
+				loja.setId_loja(rs.getInt("id_loja"));
 				loja.setNome(rs.getString("nome"));
 				loja.setNumero_loja(rs.getInt("numero_loja"));
 				loja.setCnpj(rs.getString("cnpj"));

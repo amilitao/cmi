@@ -58,7 +58,7 @@ public class LojaDao {
 			stmt.setString(4, loja.getCnpj());
 			stmt.setString(5, loja.getTelefone());
 			stmt.setString(6, loja.getEndereco());
-			stmt.setInt(7, loja.getIdLoja());
+			stmt.setInt(7, loja.getId_loja());
 
 			stmt.executeUpdate();
 
@@ -109,7 +109,7 @@ public class LojaDao {
 				Loja loja = new Loja();
 				Regional regional = new Regional();
 
-				loja.setIdLoja(rs.getInt("id_loja"));
+				loja.setId_loja(rs.getInt("id_loja"));
 				regional.setId_regional(rs.getInt("id_regional"));
 				regional.setNome_regional(rs.getString("nome_regional"));
 				regional.setNum_filial_base(rs.getInt("num_filial_base"));
@@ -139,7 +139,7 @@ public class LojaDao {
 
 		for (Loja loja : lojas) {
 	
-			if (loja.getIdLoja() == id) {
+			if (loja.getId_loja() == id) {
 				lojaProcurada = loja;
 			}
 

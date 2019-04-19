@@ -51,7 +51,7 @@ public class ImpressoraDao {
 		try (Connection con = new ConnectionFactory().getConnection();
 				PreparedStatement stmt = con.prepareStatement(sql);) {
 
-			stmt.setInt(1, impressora.getLoja().getIdLoja());
+			stmt.setInt(1, impressora.getLoja().getId_loja());
 			stmt.setInt(2, impressora.getNumero());
 			stmt.setString(3, impressora.getModelo());
 			stmt.setInt(4, impressora.getPip());
@@ -78,7 +78,7 @@ public class ImpressoraDao {
 		try (Connection con = new ConnectionFactory().getConnection();
 				PreparedStatement stmt = con.prepareStatement(sql);) {
 
-			stmt.setInt(1, impressora.getLoja().getIdLoja());
+			stmt.setInt(1, impressora.getLoja().getId_loja());
 			stmt.setInt(2, impressora.getNumero());
 			stmt.setString(3, impressora.getModelo());
 			stmt.setInt(4, impressora.getPip());
@@ -111,7 +111,7 @@ public class ImpressoraDao {
 				Loja loja = new Loja();
 
 				imp.setId_impressora(rs.getInt("id_impressora"));
-				loja.setIdLoja(rs.getInt("id_loja"));
+				loja.setId_loja(rs.getInt("id_loja"));
 				loja.setNumero_loja(rs.getInt("numero_loja"));
 				loja.setNome(rs.getString("nome"));
 				imp.setLoja(loja);

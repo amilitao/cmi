@@ -165,7 +165,7 @@
 						<c:import url="modal-nfe.jsp">
 							<c:param name="b1" value="${btn1}" />
 							<c:param name="id_emprestimo" value="${emprestimo.id_emprestimo}" />
-							<c:param name="idLoja" value="${emprestimo.loja.idLoja}" />
+							<c:param name="id_loja" value="${emprestimo.loja.id_loja}" />
 							<c:param name="nomeLoja" value="${emprestimo.loja.nome}" />
 							<c:param name="cnpjLoja" value="${emprestimo.loja.cnpj}" />
 							<c:param name="id_impressora"

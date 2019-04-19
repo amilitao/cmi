@@ -105,7 +105,7 @@
 					</thead>
 					<c:forEach var="l" items="${lojas}">
 						<tr
-							onclick="f_selecionar(${l.idLoja}, ${l.numero_loja}, '${l.nome}', '${l.cnpj}', '${l.telefone}', '${l.endereco}', '${l.regional.nome_regional}')">
+							onclick="f_selecionar(${l.id_loja}, ${l.numero_loja}, '${l.nome}', '${l.cnpj}', '${l.telefone}', '${l.endereco}', '${l.regional.nome_regional}')">
 							<td><b>${l.numero_loja}</b></td>
 							<td>${l.nome}</td>
 							<td>${l.cnpj}</td>

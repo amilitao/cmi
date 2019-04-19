@@ -83,7 +83,7 @@
 						required>
 						<option value="" disabled selected>Escolha a loja</option>
 						<c:forEach var="loja" items="${lojas}">
-							<option value="${loja.idLoja}" id="${loja}">${loja}</option>
+							<option value="${loja.id_loja}" id="${loja}">${loja}</option>
 						</c:forEach>
 					</select>
 
