@@ -88,7 +88,7 @@ public class LojaDao {
 
 
 		} catch (SQLException e) {
-
+			LOGGER.error("Erro ao inserir loja ", loja.getNome());
 			throw new RuntimeException(e);
 		}
 

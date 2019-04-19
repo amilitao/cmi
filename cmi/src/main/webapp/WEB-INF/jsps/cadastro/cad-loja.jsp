@@ -48,7 +48,7 @@
 			<div class="w3-row-padding w3-margin-top" style="margin: 0 -16px;">
 				<div class="w3-third ">
 					<label><i class="fa fa-pencil-square-o"></i> telefone</label> <input
-						pattern="^(\d{2})\d{4}-\d{4}$" class="w3-input w3-border" type="text" 
+						pattern="\([0-9]{2}\) [0-9]{4,6}-[0-9]{3,4}$" class="w3-input w3-border" type="tel" 
 						name="telefone" placeholder="(XX) XXXX-XXXX" id="inp_telefone" disabled required>
 				</div>
 				<div class="w3-third w3-margin-bottom">

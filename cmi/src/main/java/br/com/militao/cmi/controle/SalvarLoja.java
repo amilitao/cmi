@@ -25,7 +25,7 @@ public class SalvarLoja implements Logica {
 		loja.setTelefone(req.getParameter("telefone"));
 		loja.setEndereco(req.getParameter("endereco"));
 
-		if (Integer.parseInt(req.getParameter("id_loja")) != 0) {
+		if (req.getParameter("id_loja") != "") {
 
 			loja.setIdLoja(Integer.parseInt(req.getParameter("id_loja")));
 			dao.update(loja);
