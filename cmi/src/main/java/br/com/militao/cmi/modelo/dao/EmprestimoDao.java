@@ -91,7 +91,7 @@ public class EmprestimoDao {
 		List<Emprestimo> emprestimos = new ArrayList<>();
 
 		String sql = "select e.id_emprestimo, e.dt_inicio, l.id_loja, l.numero_loja, l.nome, l.cnpj, l.endereco,"
-				+ " l.telefone, i.id_impressora, i.numero, i.modelo,  e.num_chamado, e.situacao, e.prazo_devolucao, dt_fim "
+				+ " l.telefone, i.id_impressora, i.numero, i.modelo, i.valor, e.num_chamado, e.situacao, e.prazo_devolucao, dt_fim "
 				+ "from emprestimo e join loja l on e.loja_id_loja = l.id_loja \n"
 				+ "join impressora i on e.impressora_id_impressora = i.id_impressora "
 				+ "order by id_emprestimo desc;";
@@ -116,6 +116,7 @@ public class EmprestimoDao {
 				imp.setId_impressora(rs.getInt("id_impressora"));
 				imp.setNumero(rs.getInt("numero"));
 				imp.setModelo(rs.getString("modelo"));
+				imp.setValor(rs.getDouble("valor"));
 				e.setSituacao(StatusEmprestimoEnum.getByDescricao(rs.getString("situacao")));
 				e.setNum_chamado(rs.getString("num_chamado"));
 				e.setPrazoDevolucao(FormatadorDeData.toLocalDate(rs.getDate("prazo_devolucao")));

@@ -5,13 +5,12 @@ import br.com.militao.cmi.modelo.componente.Componente;
 public class Dashboard {
 	
 	private Componente painelStatusImpressora;	
-	private Componente painelStatusAtendimento;
+
 	private Componente painelUltimasAtualizacoes;
 	
 	
-	public Dashboard(Componente painelStat, Componente painelAtend, Componente painelUltimasAtu) {
-		this.painelStatusImpressora = painelStat;
-		this.painelStatusAtendimento = painelAtend;
+	public Dashboard(Componente painelStat, Componente painelUltimasAtu) {
+		this.painelStatusImpressora = painelStat;		
 		this.painelUltimasAtualizacoes = painelUltimasAtu;
 	}
 
@@ -20,11 +19,7 @@ public class Dashboard {
 		return painelStatusImpressora;
 	}
 
-
-	public Componente getPainelStatusAtendimento() {
-		return painelStatusAtendimento;
-	}
-
+	
 
 	public Componente getPainelUltimasAtualizacoes() {
 		return painelUltimasAtualizacoes;

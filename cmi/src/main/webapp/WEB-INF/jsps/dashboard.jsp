@@ -87,10 +87,12 @@
 	ultima_usuario="${painelUltimasAtualizacoes.ultima_usuario}" 
 	ultima_ocorrencia="${painelUltimasAtualizacoes.ultima_ocorrencia}" 
 	ultima_data="${painelUltimasAtualizacoes.ultima_dt_ocorrencia}" 
+	ultima_avatar="${painelUltimasAtualizacoes.ultima_avatar}" 
 	penultima_id_emprestimo="${painelUltimasAtualizacoes.penultima_id_emprestimo}" 
 	penultima_usuario="${painelUltimasAtualizacoes.penultima_usuario}" 
 	penultima_ocorrencia="${painelUltimasAtualizacoes.penultima_ocorrencia}" 
-	penultima_data="${painelUltimasAtualizacoes.penultima_dt_ocorrencia}" />
+	penultima_data="${painelUltimasAtualizacoes.penultima_dt_ocorrencia}"
+	penultima_avatar="${painelUltimasAtualizacoes.penultima_avatar}" />
 	
 	<!-- Footer -->
 	<footer class="w3-container w3-padding-16 w3-light-grey">

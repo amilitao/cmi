@@ -4,8 +4,7 @@ import br.com.militao.cmi.modelo.componente.Componente;
 
 public class DashboardBuilder {
 	
-	private Componente painelStatus;
-	private Componente painelRegionais;
+	private Componente painelStatus;	
 	private Componente painelUltimasAtualizacoes;
 
 	public DashboardBuilder comPainelStatus(Componente painelStatus) {
@@ -14,11 +13,6 @@ public class DashboardBuilder {
 		return this;
 	}
 	
-	public DashboardBuilder comPainelRegionais(Componente painelRegionais) {
-		
-		this.painelRegionais = painelRegionais; 
-		return this;
-	}
 	
 	public DashboardBuilder comPainelUltimasAtualizacoes(Componente painelUltimasAtualizacoes) {
 		this.painelUltimasAtualizacoes = painelUltimasAtualizacoes;
@@ -26,7 +20,7 @@ public class DashboardBuilder {
 	}
 	
 	public Dashboard geraDashboard() {
-		return new Dashboard(painelStatus, painelRegionais, painelUltimasAtualizacoes);
+		return new Dashboard(painelStatus, painelUltimasAtualizacoes);
 	}
 
 }

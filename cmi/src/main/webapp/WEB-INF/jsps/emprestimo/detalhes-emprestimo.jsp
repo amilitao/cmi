@@ -171,6 +171,7 @@
 							<c:param name="id_impressora"
 								value="${emprestimo.impressora.id_impressora}" />
 							<c:param name="impressora" value="${emprestimo.impressora}" />
+							<c:param name="valor_impressora" value="${emprestimo.impressora.valor}" />
 							<c:param name="dtFim" value="${emprestimo.dtFim}" />
 							<c:param name="prazo_devolucao"
 								value="${emprestimo.prazoDevolucaoFormatada}" />

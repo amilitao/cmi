@@ -22,7 +22,7 @@
 					<p><b>Emitir NFe tipo:</b> Empréstimo</p>
 					<p><b>Empresa:</b> ${param.nomeLoja}</p>
 					<p><b>CNPJ:</b> ${param.cnpjLoja}</p>
-					<p><b>Valor:</b> </p>
+					<p><b>Valor:</b> ${param.valor_impressora}</p>
 					<p><b>Quantidade:</b> 1</p>
 					<hr>
 					<h5><b>Informações</b></h5>
@@ -40,7 +40,7 @@
 				
 
 				<button class="w3-button w3-khaki" type="submit">
-					<i class="fa fa-floppy-o w3-margin-right"></i>OK
+					<i class="fa fa-floppy-o w3-margin-right"></i>Salvar
 				</button>
 			</form>
 		</div>

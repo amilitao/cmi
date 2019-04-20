@@ -1,19 +1,23 @@
 <%@tag description="Painel de Ultimas Atualizaçoes" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@attribute name="ultima_id_emprestimo" %>
 <%@attribute name="ultima_usuario" required="true" %>
 <%@attribute name="ultima_ocorrencia" required="true" %>
 <%@attribute name="ultima_data" required="true" %>
+<%@attribute name="ultima_avatar" required="true" %>
 <%@attribute name="penultima_id_emprestimo" required="true" %>
 <%@attribute name="penultima_usuario" required="true" %>
 <%@attribute name="penultima_ocorrencia" required="true" %>
 <%@attribute name="penultima_data" required="true" %>
+<%@attribute name="penultima_avatar" required="true" %>
 
 
 <div class="w3-container w3-white">
 		<h5>Ultimas atualizações</h5>
-		<div class="w3-row">
+		<div class="w3-row">		
+				
 			<div class="w3-col m2 text-center">
-				<img class="w3-circle" src="resources/style/images/avatar2.png"
+				<img class="w3-circle" src="resources/style/images/${ultima_avatar}.png"
 					style="width: 106px; height: 106px">
 			</div>
 			<div class="w3-col m10 w3-container">
@@ -25,10 +29,10 @@
 				<br>
 			</div>
 		</div>
-		<hr>
+	
 		<div class="w3-row">
 			<div class="w3-col m2 text-center">
-				<img class="w3-circle" src="resources/style/images/user_ava.png"
+				<img class="w3-circle" src="resources/style/images/${penultima_avatar}.png"
 					style="width: 106px; height: 106px">
 			</div>
 			<div class="w3-col m10 w3-container">
