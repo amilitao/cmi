@@ -14,6 +14,7 @@ import br.com.militao.cmi.conexao.ConnectionFactory;
 import br.com.militao.cmi.modelo.Assistencia;
 import br.com.militao.cmi.modelo.EstadoImpressoraEnum;
 import br.com.militao.cmi.modelo.Impressora;
+import br.com.militao.cmi.modelo.Loja;
 import br.com.militao.cmi.modelo.Manutencao;
 import br.com.militao.cmi.modelo.StatusImpressoraEnum;
 import br.com.militao.cmi.modelo.StatusManutencaoEnum;
@@ -54,7 +55,8 @@ public class ManutencaoDao {
 		List<Manutencao> manutencoes = new ArrayList<>();
 
 		String sql = "select * from manutencao m join assistencia a on m.assistencia_id_assistencia = a.id_assistencia "
-				+ "join impressora i on m.impressora_id_impressora = i.id_impressora "
+				+ "join impressora i on m.impressora_id_impressora = i.id_impressora "			
+				+ "join loja l on i.loja_id_loja = l.id_loja "
 				+ "order by id_manutencao desc;";
 
 		try (Connection con = new ConnectionFactory().getConnection();
@@ -66,6 +68,7 @@ public class ManutencaoDao {
 				Manutencao manutencao = new Manutencao();
 				Assistencia assistencia = new Assistencia();
 				Impressora impressora = new Impressora();
+				Loja loja = new Loja();
 				
 				manutencao.setId_manutencao(rs.getInt("id_manutencao"));
 				
@@ -79,7 +82,14 @@ public class ManutencaoDao {
 				
 				manutencao.setAssistencia(assistencia);
 				
-				impressora.setId_impressora(rs.getInt("id_impressora"));				
+				impressora.setId_impressora(rs.getInt("id_impressora"));
+				
+				loja.setId_loja(rs.getInt("loja_id_loja"));
+				loja.setNumero_loja(rs.getInt("numero_loja"));
+				loja.setNome(rs.getString("nome"));
+				loja.setTelefone(rs.getString("telefone"));
+				impressora.setLoja(loja);
+				
 				impressora.setNumero(rs.getInt("numero"));
 				impressora.setModelo(rs.getString("modelo"));
 				impressora.setPip(rs.getInt("pip"));

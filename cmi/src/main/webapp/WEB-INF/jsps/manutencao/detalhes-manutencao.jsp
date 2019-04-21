@@ -117,6 +117,8 @@
 							<c:param name="cor" value="${manutencao.status_manutencao.cor}" />
 							<c:param name="b1" value="${btn1}" />
 							<c:param name="id_manutencao" value="${manutencao.id_manutencao}" />
+							<c:param name="loja" value="${manutencao.impressora.loja}" />
+							<c:param name="telefone_loja" value="${manutencao.impressora.loja.telefone}" />
 						</c:import>
 
 					</p>

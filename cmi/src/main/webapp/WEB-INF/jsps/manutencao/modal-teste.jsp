@@ -28,17 +28,111 @@
 
 		<div class="w3-panel w3-padding-large">
 
-			<table class="w3-table w3-centered">
+			<table class="w3-table">
 				<tr>
-					<td>IMPRESSORA TERMICA</td>
+					<td class="w3-border w3-center">IMPRESSORA TERMICA<br>ATACADAO<br><%=hoje%></td>
 				</tr>
 				<tr>
-					<td>ATACADAO</td>
+					<td class="w3-border">FILIAL: ${param.loja}</td>
 				</tr>
 				<tr>
-					<td><%=hoje%></td>
+					<td class="w3-border">OPERADOR: <input type="text"
+						style="width: 30%" required></td>
+				</tr>
+				<tr>
+					<td class="w3-border">CONTATO: ${param.telefone_loja}</td>
 				</tr>
 			</table>
+
+			<div class="w3-row w3-margin-top">
+				<div class="w3-col m12 w3-center">
+					<b>DADOS DO EQUIPAMENTO</b>
+				</div>
+			</div>
+
+			<div class="w3-row">
+				<div class="w3-col s6 w3-border w3-center">
+					<p>CHAMADO</p>
+				</div>
+				<div class="w3-col s6 w3-border w3-center">
+					<p>IMPRESSORA</p>
+				</div>
+			</div>
+			<div class="w3-row">
+				<div class="w3-col s6 w3-border w3-center">
+					<p>?????</p>
+				</div>
+				<div class="w3-col s6 w3-border w3-center">
+					<p>?????</p>
+				</div>
+			</div>
+			<div class="w3-row w3-padding-large">
+				<div class="w3-col s6 w3-border w3-center">
+					<p>ANÁLISE/DESCRIÇÃO DOS PROBLEMAS</p>
+				</div>
+				<div class="w3-col s6 w3-border">
+					<textarea class="w3-col" style="width: 100%" rows="3"
+						name="descricao"></textarea>
+					<input type="hidden" name="desc_problema" value="" />
+				</div>
+			</div>
+			<div class="w3-row w3-padding-large">
+				<div class="w3-col s6 w3-border w3-center">
+					ANÁLISE/DESCRIÇÃO DOS PROBLEMAS
+				</div>
+				<div class="w3-col s6 w3-border">
+					<select>
+						<option value="volvo">Volvo</option>
+						<option value="saab">Saab</option>
+						<option value="opel">Opel</option>
+						<option value="audi">Audi</option>
+					</select>
+				</div>
+			</div>
+			<div class="w3-row w3-padding-large">
+				<div class="w3-col s6 w3-border w3-center">
+					ANÁLISE/DESCRIÇÃO DOS PROBLEMAS
+				</div>
+				<div class="w3-col s6 w3-border">
+					<select>
+						<option value="volvo">Volvo</option>
+						<option value="saab">Saab</option>
+						<option value="opel">Opel</option>
+						<option value="audi">Audi</option>
+					</select>
+				</div>
+			</div>
+			<div class="w3-row w3-padding-large">
+				<div class="w3-col s6 w3-border w3-center">
+					<p>ANÁLISE/DESCRIÇÃO DOS PROBLEMAS</p>
+				</div>
+				<div class="w3-col s6 w3-border">
+					<p>????</p>
+				</div>
+			</div>
+			<div class="w3-row w3-padding-large">
+				<div class="w3-col s6 w3-border w3-center">
+					ANÁLISE/DESCRIÇÃO DOS PROBLEMAS
+				</div>
+				<div class="w3-col s6 w3-border">
+					<select>
+						<option value="volvo">Volvo</option>
+						<option value="saab">Saab</option>
+						<option value="opel">Opel</option>
+						<option value="audi">Audi</option>
+					</select>
+				</div>
+			</div>
+			<div class="w3-row w3-padding-large">
+				<div class="w3-col s6 w3-border w3-center">
+					<p>ANÁLISE/DESCRIÇÃO DOS PROBLEMAS</p>
+				</div>
+				<div class="w3-col s6 w3-border">
+					<textarea class="w3-col" style="width: 100%" rows="3"
+						name="descricao"></textarea>
+					<input type="hidden" name="desc_problema" value="" />
+				</div>
+			</div>
 
 			<form action="controle" method="post">
 
