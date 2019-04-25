@@ -33,14 +33,14 @@
 					<td class=" w3-center">IMPRESSORA TERMICA<br>ATACADAO<br><%=hoje%></td>
 				</tr>
 				<tr>
-					<td class="w3-border-bottom">FILIAL: ${manutencao.impressora.loja}</td>
+					<td><b>FILIAL: </b>${manutencao.impressora.loja}</td>
 				</tr>
 				<tr>
-					<td class="w3-border-bottom">OPERADOR: <input type="text"
-						style="width: 30%" required></td>
+					<td><b>OPERADOR: </b>
+					<input type="text" style="width: 30%" required /></td>
 				</tr>
 				<tr>
-					<td class="w3-border-bottom">CONTATO: ${manutencao.impressora.loja.telefone}</td>
+					<td><b>CONTATO: </b>${manutencao.impressora.loja.telefone}</td>
 				</tr>
 			</table>
 
@@ -58,11 +58,11 @@
 					IMPRESSORA
 				</div>
 			</div>
-			<div class="w3-row">
-				<div class="w3-col s6 w3-border w3-center">
+			<div class="w3-row w3-border-top w3-border-bottom" style="heigth:100px">
+				<div class="w3-col s6 w3-center">
 					<p>?????</p>
 				</div>
-				<div class="w3-col s6 w3-border w3-center">
+				<div class="w3-col s6 w3-leftbar w3-center w3-padding-large">
 					Impressora: ${manutencao.impressora.modelo} <br>
 					Nº Serie: ${manutencao.impressora.numero_serie}
 				</div>
