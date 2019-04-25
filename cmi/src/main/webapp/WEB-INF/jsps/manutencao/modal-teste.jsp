@@ -5,7 +5,7 @@
 <%@page import="br.com.militao.cmi.util.FormatadorDeData"%>
 
 <%
-	String hoje = FormatadorDeData.formata(LocalDate.now());
+	String hoje = FormatadorDeData.formata(LocalDate.now());	
 %>
 
 <button
@@ -30,17 +30,17 @@
 
 			<table class="w3-table">
 				<tr>
-					<td class="w3-border w3-center">IMPRESSORA TERMICA<br>ATACADAO<br><%=hoje%></td>
+					<td class=" w3-center">IMPRESSORA TERMICA<br>ATACADAO<br><%=hoje%></td>
 				</tr>
 				<tr>
-					<td class="w3-border">FILIAL: ${param.loja}</td>
+					<td class="w3-border-bottom">FILIAL: ${param.loja}</td>
 				</tr>
 				<tr>
-					<td class="w3-border">OPERADOR: <input type="text"
+					<td class="w3-border-bottom">OPERADOR: <input type="text"
 						style="width: 30%" required></td>
 				</tr>
 				<tr>
-					<td class="w3-border">CONTATO: ${param.telefone_loja}</td>
+					<td class="w3-border-bottom">CONTATO: ${param.telefone_loja}</td>
 				</tr>
 			</table>
 
@@ -51,11 +51,11 @@
 			</div>
 
 			<div class="w3-row">
-				<div class="w3-col s6 w3-border w3-center">
-					<p>CHAMADO</p>
+				<div class="w3-col s6 w3-center">
+					CHAMADO
 				</div>
-				<div class="w3-col s6 w3-border w3-center">
-					<p>IMPRESSORA</p>
+				<div class="w3-col s6 w3-center">
+					IMPRESSORA
 				</div>
 			</div>
 			<div class="w3-row">
@@ -67,68 +67,70 @@
 				</div>
 			</div>
 			<div class="w3-row w3-padding-large">
-				<div class="w3-col s6 w3-border w3-center">
-					<p>ANÁLISE/DESCRIÇÃO DOS PROBLEMAS</p>
+				<div class="w3-col s4 w3-center">
+					<p class="w3-right">ANÁLISE/DESCRIÇÃO DOS PROBLEMAS: </p>
 				</div>
-				<div class="w3-col s6 w3-border">
+				<div class="w3-col s8 w3-padding-large">
 					<textarea class="w3-col" style="width: 100%" rows="3"
 						name="descricao"></textarea>
 					<input type="hidden" name="desc_problema" value="" />
 				</div>
 			</div>
 			<div class="w3-row w3-padding-large">
-				<div class="w3-col s6 w3-border w3-center">
-					ANÁLISE/DESCRIÇÃO DOS PROBLEMAS
+				<div class="w3-col s4 w3-center">
+					<p class="w3-right">ESTADO DO ROLO DE BORRACHA: </p>
 				</div>
-				<div class="w3-col s6 w3-border">
-					<select>
-						<option value="volvo">Volvo</option>
-						<option value="saab">Saab</option>
-						<option value="opel">Opel</option>
-						<option value="audi">Audi</option>
+				<div class="w3-col s8 w3-padding-large">
+					<select class="w3-select w3-border" required>
+						<option value="" disabled selected>Escolha o status</option>
+						<c:forEach var="stat" items="${status}">
+							<option value="">${stat.descricao}</option>
+						</c:forEach>
 					</select>
 				</div>
 			</div>
 			<div class="w3-row w3-padding-large">
-				<div class="w3-col s6 w3-border w3-center">
-					ANÁLISE/DESCRIÇÃO DOS PROBLEMAS
+				<div class="w3-col s4 w3-center">
+					<p class="w3-right">ESTADO DA CABEÇA DE IMPRESSÃO</p>
 				</div>
-				<div class="w3-col s6 w3-border">
-					<select>
-						<option value="volvo">Volvo</option>
-						<option value="saab">Saab</option>
-						<option value="opel">Opel</option>
-						<option value="audi">Audi</option>
+				<div class="w3-col s8 w3-padding-large">
+					<select class="w3-select w3-border" required>
+						<option value="" disabled selected>Escolha o status</option>
+						<c:forEach var="stat" items="${status}">
+							<option value="">${stat.descricao}</option>
+						</c:forEach>
 					</select>
 				</div>
 			</div>
 			<div class="w3-row w3-padding-large">
-				<div class="w3-col s6 w3-border w3-center">
-					<p>ANÁLISE/DESCRIÇÃO DOS PROBLEMAS</p>
+				<div class="w3-col s4 w3-center">
+					<p class="w3-right">ANEXAR TESTE DE IMPRESSÃO: </p>
 				</div>
-				<div class="w3-col s6 w3-border">
-					<p>????</p>
+				<div class="w3-col s8 w3-padding-large" >
+					<div class="w3-border" style="height:200px">
+						
+					</div>			
 				</div>
 			</div>
 			<div class="w3-row w3-padding-large">
-				<div class="w3-col s6 w3-border w3-center">
-					ANÁLISE/DESCRIÇÃO DOS PROBLEMAS
+				<div class="w3-col s4">
+					<p class="w3-right">ESTADO DA FACA: </p>
 				</div>
-				<div class="w3-col s6 w3-border">
-					<select>
-						<option value="volvo">Volvo</option>
-						<option value="saab">Saab</option>
-						<option value="opel">Opel</option>
-						<option value="audi">Audi</option>
+				<div class="w3-col s8 w3-padding-large">
+					<select class="w3-select w3-border" required>
+						<option value="" disabled selected>Escolha o status</option>
+						<c:forEach var="stat" items="${status}">
+							<option value="">${stat.descricao}</option>
+						</c:forEach>
 					</select>
 				</div>
 			</div>
 			<div class="w3-row w3-padding-large">
-				<div class="w3-col s6 w3-border w3-center">
-					<p>ANÁLISE/DESCRIÇÃO DOS PROBLEMAS</p>
+				<div class="w3-col s4">
+					<p class="w3-right">OBSERVAÇÃO: </p>
 				</div>
-				<div class="w3-col s6 w3-border">
-					<textarea class="w3-col" style="width: 100%" rows="3"
+				<div class="w3-col s8 w3-padding-large">
+					<textarea class="w3-col" style="width: 100%" rows="2"
 						name="descricao"></textarea>
 					<input type="hidden" name="desc_problema" value="" />
 				</div>
@@ -138,14 +140,14 @@
 
 
 				<button class="w3-button w3-khaki" type="submit">
-					<i class="fa fa-floppy-o w3-margin-right"></i>Enviar
+					<i class="fa fa-floppy-o w3-margin-right"></i>Salvar
 				</button>
 			</form>
 		</div>
 
 
 		<footer class="w3-container w3-khaki">
-			<p>O email será enviado pelo servidor</p>
+			<p>O documento deve ser impresso e enviado para a assistência.</p>
 		</footer>
 	</div>
 </div>
