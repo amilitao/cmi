@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>	
 
-<button onclick="document.getElementById('idnfe${param.id_emprestimo}').style.display='block'"
+<button onclick="document.getElementById('idnfe${emprestimo.id_emprestimo}').style.display='block'"
 	class="w3-button" style="background:#ffeead" <c:out value="${param.b1}" />><b>Solicitar Nfe</b></button>
 
-<div id="idnfe${param.id_emprestimo}" class="w3-modal">
+<div id="idnfe${emprestimo.id_emprestimo}" class="w3-modal">
 	<div class="w3-modal-content w3-animate-top w3-card-4 w3-left-align">
 		<header class="w3-container w3-khaki">
-			<span onclick="document.getElementById('idnfe${param.id_emprestimo}').style.display='none'"
+			<span onclick="document.getElementById('idnfe${emprestimo.id_emprestimo}').style.display='none'"
 				class="w3-button w3-display-topright w3-xlarge">&times;</span>
 			<h2>Solicitação de NFE</h2>			
 		</header>
@@ -20,23 +20,23 @@
 					<p>Poderia emitir uma nota fiscal para a devolução de impressora para a filial ${param.nomeLoja} .</p>
 					<br>	
 					<p><b>Emitir NFe tipo:</b> Empréstimo</p>
-					<p><b>Empresa:</b> ${param.nomeLoja}</p>
-					<p><b>CNPJ:</b> ${param.cnpjLoja}</p>
-					<p><b>Valor:</b> ${param.valor_impressora}</p>
+					<p><b>Empresa:</b> ${emprestimo.loja}</p>
+					<p><b>CNPJ:</b> ${emprestimo.loja.cnpj}</p>
+					<p><b>Valor:</b> ${emprestimo.impressora.valor}</p>
 					<p><b>Quantidade:</b> 1</p>
 					<hr>
 					<h5><b>Informações</b></h5>
-					<p>1- O item está registrado como ativo? R: </p>					
-					<p>2- Em qual razão social? R: </p>					
-					<p>3- Qual previsão de retorno? R: ${param.prazo_devolucao}</p>					
+					<p>1- O item está registrado como ativo? R: SIM</p>					
+					<p>2- Em qual razão social? R: ATACADAO S.A </p>					
+					<p>3- Qual previsão de retorno? R: ${emprestimo.prazoDevolucaoFormatada}</p>					
 					
 			
 				<br> <input type="hidden" name="logica" value="AtualizarEmprestimo" />
 				
-				<input type="hidden" name="id_emprestimo" value="${param.id_emprestimo}" />
-				<input type="hidden" name="id_impressora" value="${param.id_impressora}" />
+				<input type="hidden" name="id_emprestimo" value="${emprestimo.id_emprestimo}" />
+				<input type="hidden" name="id_impressora" value="${emprestimo.impressora.id_impressora}" />
 				<input type="hidden" name="situacao" value="aguardando transporte" />
-				<input type="hidden" name="dtFim" value="${param.dtFim}" />
+				<input type="hidden" name="dtFim" value="${emprestimo.dtFim}" />
 				
 
 				<button class="w3-button w3-khaki" type="submit">

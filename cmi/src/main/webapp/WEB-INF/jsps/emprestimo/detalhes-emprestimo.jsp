@@ -163,18 +163,7 @@
 						</c:if>
 
 						<c:import url="modal-nfe.jsp">
-							<c:param name="b1" value="${btn1}" />
-							<c:param name="id_emprestimo" value="${emprestimo.id_emprestimo}" />
-							<c:param name="id_loja" value="${emprestimo.loja.id_loja}" />
-							<c:param name="nomeLoja" value="${emprestimo.loja.nome}" />
-							<c:param name="cnpjLoja" value="${emprestimo.loja.cnpj}" />
-							<c:param name="id_impressora"
-								value="${emprestimo.impressora.id_impressora}" />
-							<c:param name="impressora" value="${emprestimo.impressora}" />
-							<c:param name="valor_impressora" value="${emprestimo.impressora.valor}" />
-							<c:param name="dtFim" value="${emprestimo.dtFim}" />
-							<c:param name="prazo_devolucao"
-								value="${emprestimo.prazoDevolucaoFormatada}" />
+							<c:param name="b1" value="${btn1}" />							
 						</c:import>
 					</p>
 				</div>
@@ -186,9 +175,7 @@
 						</c:if>
 
 						<c:import url="modal-transporte.jsp">
-							<c:param name="b2" value="${btn2}" />
-							<c:param name="id_emprestimo" value="${emprestimo.id_emprestimo}" />
-							<c:param name="dtEnvio" value="now.getDate()" />
+							<c:param name="b2" value="${btn2}" />							
 						</c:import>
 					</p>
 
@@ -201,10 +188,7 @@
 						</c:if>
 
 						<c:import url="modal-entrega.jsp">
-							<c:param name="b3" value="${btn3}" />
-							<c:param name="id_emprestimo" value="${emprestimo.id_emprestimo}" />
-							<c:param name="id_impressora"
-								value="${emprestimo.impressora.id_impressora}" />
+							<c:param name="b3" value="${btn3}" />							
 						</c:import>
 					</p>
 				</div>
@@ -216,8 +200,7 @@
 						</c:if>
 
 						<c:import url="modal-devolucao.jsp">
-							<c:param name="b4" value="${btn4}" />
-							<c:param name="id_emprestimo" value="${emprestimo.id_emprestimo}" />
+							<c:param name="b4" value="${btn4}" />							
 						</c:import>
 					</p>
 				</div>

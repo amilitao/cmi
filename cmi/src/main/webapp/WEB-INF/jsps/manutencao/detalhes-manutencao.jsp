@@ -113,12 +113,8 @@
 							<c:set var="btn1" value="disabled" />										
 						</c:if>
 
-						<c:import url="modal-teste.jsp">
-							<c:param name="cor" value="${manutencao.status_manutencao.cor}" />
-							<c:param name="b1" value="${btn1}" />
-							<c:param name="id_manutencao" value="${manutencao.id_manutencao}" />
-							<c:param name="loja" value="${manutencao.impressora.loja}" />
-							<c:param name="telefone_loja" value="${manutencao.impressora.loja.telefone}" />
+						<c:import url="modal-teste.jsp">							
+							<c:param name="b1" value="${btn1}" />																			
 						</c:import>
 
 					</p>

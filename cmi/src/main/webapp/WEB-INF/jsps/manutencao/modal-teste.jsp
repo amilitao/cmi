@@ -9,19 +9,19 @@
 %>
 
 <button
-	onclick="document.getElementById('idteste${param.id_manutencao}').style.display='block'"
-	class="w3-button w3-circle w3-border w3-${param.cor}"
+	onclick="document.getElementById('idteste${manutencao.id_manutencao}').style.display='block'"
+	class="w3-button w3-circle w3-border w3-${manutencao.status_manutencao.cor}"
 	<c:out value="${param.b1}" />>
 	<b>+</b>
 </button>
 <br />
 <b>Teste Local</b>
 
-<div id="idteste${param.id_manutencao}" class="w3-modal">
+<div id="idteste${manutencao.id_manutencao}" class="w3-modal">
 	<div class="w3-modal-content w3-animate-top w3-card-4 w3-left-align">
 		<header class="w3-container w3-center w3-khaki">
 			<span
-				onclick="document.getElementById('idteste${param.id_manutencao}').style.display='none'"
+				onclick="document.getElementById('idteste${manutencao.id_manutencao}').style.display='none'"
 				class="w3-button w3-display-topright w3-xlarge">&times;</span>
 			<h2>Relatório de Teste</h2>
 		</header>
@@ -33,14 +33,14 @@
 					<td class=" w3-center">IMPRESSORA TERMICA<br>ATACADAO<br><%=hoje%></td>
 				</tr>
 				<tr>
-					<td class="w3-border-bottom">FILIAL: ${param.loja}</td>
+					<td class="w3-border-bottom">FILIAL: ${manutencao.impressora.loja}</td>
 				</tr>
 				<tr>
 					<td class="w3-border-bottom">OPERADOR: <input type="text"
 						style="width: 30%" required></td>
 				</tr>
 				<tr>
-					<td class="w3-border-bottom">CONTATO: ${param.telefone_loja}</td>
+					<td class="w3-border-bottom">CONTATO: ${manutencao.impressora.loja.telefone}</td>
 				</tr>
 			</table>
 
@@ -63,7 +63,8 @@
 					<p>?????</p>
 				</div>
 				<div class="w3-col s6 w3-border w3-center">
-					<p>?????</p>
+					Impressora: ${manutencao.impressora.modelo} <br>
+					Nº Serie: ${manutencao.impressora.numero_serie}
 				</div>
 			</div>
 			<div class="w3-row w3-padding-large">
