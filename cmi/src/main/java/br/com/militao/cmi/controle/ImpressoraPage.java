@@ -18,8 +18,11 @@ public class ImpressoraPage implements Logica {
 		ImpressoraDao impDao = new ImpressoraDao();
 		LojaDao lojaDao = new LojaDao();
 		
-		req.setAttribute("lista_situacao", StatusImpressoraEnum.values());
-		req.setAttribute("lista_estado", EstadoImpressoraEnum.values());
+		/*req.setAttribute("lista_situacao", StatusImpressoraEnum.values());
+		req.setAttribute("lista_estado", EstadoImpressoraEnum.values());*/
+		
+		req.setAttribute("status_impressora", StatusImpressoraEnum.values());
+		req.setAttribute("estado_impressora", EstadoImpressoraEnum.values());
 		req.setAttribute("impressoras", impDao.getList());
 		req.setAttribute("lojas", lojaDao.getList());
 		

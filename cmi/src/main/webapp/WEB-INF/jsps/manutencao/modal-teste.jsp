@@ -85,7 +85,7 @@
 					<select class="w3-select w3-border" required>
 						<option value="" disabled selected>Escolha o status</option>
 						<c:forEach var="stat" items="${status}">
-							<option value="">${stat.descricao}</option>
+							<option value="${stat}">${stat.descricao}</option>
 						</c:forEach>
 					</select>
 				</div>
@@ -97,8 +97,8 @@
 				<div class="w3-col s8 w3-padding-large">
 					<select class="w3-select w3-border" required>
 						<option value="" disabled selected>Escolha o status</option>
-						<c:forEach var="stat" items="${status}">
-							<option value="">${stat.descricao}</option>
+						<c:forEach var="stat" items="${status}" >
+							<option value="${stat}">${stat.descricao}</option>
 						</c:forEach>
 					</select>
 				</div>
@@ -118,10 +118,10 @@
 					<p class="w3-right">ESTADO DA FACA: </p>
 				</div>
 				<div class="w3-col s8 w3-padding-large">
-					<select class="w3-select w3-border" required>
+					<select class="w3-select w3-border" name="status_faca" required>
 						<option value="" disabled selected>Escolha o status</option>
 						<c:forEach var="stat" items="${status}">
-							<option value="">${stat.descricao}</option>
+							<option value="${stat}">${stat.descricao}</option>
 						</c:forEach>
 					</select>
 				</div>

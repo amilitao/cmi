@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import br.com.militao.cmi.modelo.Emprestimo;
 import br.com.militao.cmi.modelo.Impressora;
 import br.com.militao.cmi.modelo.Loja;
+import br.com.militao.cmi.modelo.StatusPecaImpressoraEnum;
 import br.com.militao.cmi.modelo.dao.EmprestimoDao;
 
 public class SalvarEmprestimo implements Logica {
@@ -22,8 +23,8 @@ public class SalvarEmprestimo implements Logica {
 		Emprestimo emprestimo = new Emprestimo(
 				new Loja(Integer.parseInt(req.getParameter("id_loja"))),
 				new Impressora(Integer.parseInt(req.getParameter("id_impressora"))), 
-				numChamado);
-
+				numChamado);	
+		
 		empDao.insert(emprestimo);				
 		
 		/*ListaDeEspera lojaAguardando = listaEsperaDao.getByNumberLoja(Integer.parseInt(req.getParameter("id_loja")));

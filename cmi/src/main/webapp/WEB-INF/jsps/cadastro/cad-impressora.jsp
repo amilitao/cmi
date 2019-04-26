@@ -61,7 +61,7 @@
 						class="w3-select w3-border" name="estado" id="inp_estado" disabled
 						required>
 						<option value="" disabled selected>Escolha o estado</option>
-						<c:forEach var="estado" items="${lista_estado}">
+						<c:forEach var="estado" items="${estado_impressora}">
 							<option value="${estado}" id="${estado.descricao}">${estado.descricao}</option>
 						</c:forEach>
 					</select>
@@ -71,7 +71,7 @@
 						class="w3-select w3-border" name="situacao" id="inp_situacao"
 						disabled required>
 						<option value="" disabled selected>Escolha a situacao</option>
-						<c:forEach var="situacao" items="${lista_situacao}">
+						<c:forEach var="situacao" items="${status_impressora}">
 							<option value="${situacao}" id="${situacao.descricao}">${situacao.descricao}</option>
 						</c:forEach>
 					</select>
