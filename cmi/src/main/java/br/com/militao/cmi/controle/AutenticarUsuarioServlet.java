@@ -36,7 +36,8 @@ public class AutenticarUsuarioServlet extends HttpServlet {
 			dispatcher.forward(req, resp);
 
 		} else {
-			req.setAttribute("erroLogin", true);
+			System.out.println("erro ao logar");
+			session.setAttribute("erroLogin", true); 
 			resp.sendRedirect("index.jsp");
 		}
 	}

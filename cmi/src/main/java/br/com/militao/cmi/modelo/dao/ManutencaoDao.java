@@ -12,7 +12,6 @@ import org.slf4j.LoggerFactory;
 
 import br.com.militao.cmi.conexao.ConnectionFactory;
 import br.com.militao.cmi.modelo.Assistencia;
-import br.com.militao.cmi.modelo.Emprestimo;
 import br.com.militao.cmi.modelo.EstadoImpressoraEnum;
 import br.com.militao.cmi.modelo.Impressora;
 import br.com.militao.cmi.modelo.Loja;

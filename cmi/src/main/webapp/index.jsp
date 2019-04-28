@@ -68,7 +68,6 @@
 							incorretos!!!
 						</p>
 					</div>
-
 				</c:if>
 
 				<div class="w3-center">
