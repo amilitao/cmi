@@ -6,7 +6,7 @@ public class Assistencia {
 	private String razao_social;
 	private String cnpj;
 	private String email;
-	private String telefone;
+	private String telefone_assistencia;
 	private String endereco;
 	
 	public Assistencia() {}
@@ -38,14 +38,16 @@ public class Assistencia {
 	}
 	public void setEmail(String email) {
 		this.email = email;
-	}	
+	}		
 	
-	public String getTelefone() {
-		return telefone;
+	public String getTelefone_assistencia() {
+		return telefone_assistencia;
 	}
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
+
+	public void setTelefone_assistencia(String telefone_assistencia) {
+		this.telefone_assistencia = telefone_assistencia;
 	}
+
 	public String getEndereco() {
 		return endereco;
 	}

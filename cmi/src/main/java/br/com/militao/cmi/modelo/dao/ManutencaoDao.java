@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 
 import br.com.militao.cmi.conexao.ConnectionFactory;
 import br.com.militao.cmi.modelo.Assistencia;
+import br.com.militao.cmi.modelo.Emprestimo;
 import br.com.militao.cmi.modelo.EstadoImpressoraEnum;
 import br.com.militao.cmi.modelo.Impressora;
 import br.com.militao.cmi.modelo.Loja;
@@ -24,12 +25,32 @@ public class ManutencaoDao {
 	
 	final Logger LOGGER = LoggerFactory.getLogger(ManutencaoDao.class);
 	
+	
+	public void update(Manutencao manutencao) {
+
+		String sql = "update manutencao set status_manutencao=? where id_manutencao=?";
+
+		try (Connection con = new ConnectionFactory().getConnection();
+				PreparedStatement stmt = con.prepareStatement(sql)) {
+
+			stmt.setString(1, manutencao.getStatus_manutencao().name());		
+			stmt.setInt(2, manutencao.getId_manutencao());
+
+			stmt.executeUpdate();
+
+		} catch (SQLException e) {
+			
+			LOGGER.error("Erro ao atualizar manutenção nº ", manutencao.getId_manutencao());
+			throw new RuntimeException("Erro ao atualizar manutencao!!!" + e);
+		}
+
+	}	
+	
 	public void insert(Manutencao manutencao) {
 
 		String sql = "insert into manutencao ("
 				+ "assistencia_id_assistencia,impressora_id_impressora, "
-				+ "status_manutencao, "
-				+ "dt_inicio) "
+				+ "status_manutencao, dt_inicio) "
 				+ "values (?,?,?,?)";
 
 		try (Connection con = new ConnectionFactory().getConnection();
@@ -37,7 +58,7 @@ public class ManutencaoDao {
 
 			stmt.setInt(1, manutencao.getAssistencia().getId_assistencia());
 			stmt.setInt(2, manutencao.getImpressora().getId_impressora());	
-			stmt.setString(3, manutencao.getStatus_manutencao().getDescricao());
+			stmt.setString(3, manutencao.getStatus_manutencao().name());
 			stmt.setDate(4, FormatadorDeData.toDate(manutencao.getDt_inicio()));
 			
 
@@ -77,7 +98,7 @@ public class ManutencaoDao {
 				assistencia.setRazao_social(rs.getString("razao_social"));
 				assistencia.setCnpj(rs.getString("cnpj"));
 				assistencia.setEmail(rs.getString("email"));
-				assistencia.setTelefone(rs.getString("telefone"));
+				assistencia.setTelefone_assistencia(rs.getString("telefone_assistencia"));
 				assistencia.setEndereco(rs.getString("endereco"));
 				
 				manutencao.setAssistencia(assistencia);
@@ -95,7 +116,7 @@ public class ManutencaoDao {
 				impressora.setPip(rs.getInt("pip"));
 				impressora.setNumero_serie(rs.getString("numero_serie"));
 				impressora.setValor(rs.getDouble("valor"));
-				impressora.setEstado(EstadoImpressoraEnum.getByDescricao(rs.getString("estado")));
+				impressora.setEstado(EstadoImpressoraEnum.valueOf(rs.getString("estado")));
 				impressora.setSituacao(StatusImpressoraEnum.getByDescricao(rs.getString("situacao")));
 				
 				manutencao.setImpressora(impressora);
@@ -104,7 +125,7 @@ public class ManutencaoDao {
 				manutencao.setNfe_envio(rs.getString("nfe_envio"));
 				manutencao.setDt_devolucao(FormatadorDeData.toLocalDateTime(rs.getTimestamp("dt_devolucao")));
 				manutencao.setNfe_devolucao(rs.getString("nfe_devolucao"));
-				manutencao.setStatus_manutencao(StatusManutencaoEnum.getByDescricao(rs.getString("status_manutencao")));
+				manutencao.setStatus_manutencao(StatusManutencaoEnum.valueOf(rs.getString("status_manutencao")));
 				manutencao.setNumero_despesa(rs.getInt("numero_despesa"));
 				manutencao.setNfe_pagamento(rs.getString("nfe_pagamento"));
 				manutencao.setDt_inicio(FormatadorDeData.toLocalDate(rs.getDate("dt_inicio")));

@@ -17,7 +17,7 @@
 			
 			<form action="controle" method="post">
 								
-					<p>Poderia emitir uma nota fiscal para a devolução de impressora para a filial ${param.nomeLoja} .</p>
+					<p>Poderia emitir uma nota fiscal para a devolução de impressora para a filial ${emprestimo.loja.nome} .</p>
 					<br>	
 					<p><b>Emitir NFe tipo:</b> Empréstimo</p>
 					<p><b>Empresa:</b> ${emprestimo.loja}</p>
@@ -35,7 +35,7 @@
 				
 				<input type="hidden" name="id_emprestimo" value="${emprestimo.id_emprestimo}" />
 				<input type="hidden" name="id_impressora" value="${emprestimo.impressora.id_impressora}" />
-				<input type="hidden" name="situacao" value="aguardando transporte" />
+				<input type="hidden" name="situacao" value="AGUARDANDO_TRANSPORTE" />
 				<input type="hidden" name="dtFim" value="${emprestimo.dtFim}" />
 				
 

@@ -50,7 +50,7 @@ public class EmprestimoDao {
 		try (Connection con = new ConnectionFactory().getConnection();
 				PreparedStatement stmt = con.prepareStatement(sql)) {
 
-			stmt.setString(1, emprestimo.getSituacao().getDescricao());		
+			stmt.setString(1, emprestimo.getSituacao().name());		
 			stmt.setInt(2, emprestimo.getImpressora().getId_impressora());
 			stmt.setInt(3, emprestimo.getId_emprestimo());
 
@@ -74,7 +74,7 @@ public class EmprestimoDao {
 			stmt.setInt(1, emprestimo.getLoja().getId_loja());
 			stmt.setInt(2, emprestimo.getImpressora().getId_impressora());
 			stmt.setString(3, emprestimo.getNum_chamado());
-			stmt.setString(4, emprestimo.getSituacao().getDescricao());
+			stmt.setString(4, emprestimo.getSituacao().name());
 			stmt.setTimestamp(5, FormatadorDeData.toTimeStamp(emprestimo.getDtInicio()));
 			stmt.setDate(6, FormatadorDeData.toDate(emprestimo.getPrazoDevolucao()));
 
@@ -92,7 +92,7 @@ public class EmprestimoDao {
 
 		String sql = "select e.id_emprestimo, e.dt_inicio, l.id_loja, l.numero_loja, l.nome, l.cnpj, l.endereco,"
 				+ " l.telefone, i.id_impressora, i.numero, i.modelo, i.valor, e.num_chamado, e.situacao, e.prazo_devolucao, dt_fim "
-				+ "from emprestimo e join loja l on e.loja_id_loja = l.id_loja \n"
+				+ "from emprestimo e join loja l on e.loja_id_loja = l.id_loja "
 				+ "join impressora i on e.impressora_id_impressora = i.id_impressora "
 				+ "order by id_emprestimo desc;";
 
@@ -117,7 +117,7 @@ public class EmprestimoDao {
 				imp.setNumero(rs.getInt("numero"));
 				imp.setModelo(rs.getString("modelo"));
 				imp.setValor(rs.getDouble("valor"));
-				e.setSituacao(StatusEmprestimoEnum.getByDescricao(rs.getString("situacao")));
+				e.setSituacao(StatusEmprestimoEnum.valueOf(rs.getString("situacao")));
 				e.setNum_chamado(rs.getString("num_chamado"));
 				e.setPrazoDevolucao(FormatadorDeData.toLocalDate(rs.getDate("prazo_devolucao")));
 				e.setDtFim(FormatadorDeData.toLocalDateTime(rs.getTimestamp("dt_fim")));

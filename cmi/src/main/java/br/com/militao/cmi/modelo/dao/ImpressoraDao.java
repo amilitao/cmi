@@ -57,8 +57,8 @@ public class ImpressoraDao {
 			stmt.setInt(4, impressora.getPip());
 			stmt.setString(5, impressora.getNumero_serie());
 			stmt.setDouble(6, impressora.getValor());
-			stmt.setString(7, impressora.getEstado().getDescricao());
-			stmt.setString(8, impressora.getSituacao().getDescricao());
+			stmt.setString(7, impressora.getEstado().name());
+			stmt.setString(8, impressora.getSituacao().name());
 			stmt.setInt(9, impressora.getId_impressora());
 
 			stmt.executeUpdate();
@@ -84,8 +84,8 @@ public class ImpressoraDao {
 			stmt.setInt(4, impressora.getPip());
 			stmt.setString(5, impressora.getNumero_serie());
 			stmt.setDouble(6, impressora.getValor());
-			stmt.setString(7, impressora.getEstado().getDescricao());
-			stmt.setString(8, impressora.getSituacao().getDescricao());
+			stmt.setString(7, impressora.getEstado().name());
+			stmt.setString(8, impressora.getSituacao().name());
 
 			stmt.executeUpdate();
 
@@ -120,8 +120,8 @@ public class ImpressoraDao {
 				imp.setPip(rs.getInt("pip"));
 				imp.setNumero_serie(rs.getString("numero_serie"));
 				imp.setValor(rs.getDouble("valor"));
-				imp.setEstado(EstadoImpressoraEnum.getByDescricao(rs.getString("estado")));
-				imp.setSituacao(StatusImpressoraEnum.getByDescricao(rs.getString("situacao")));
+				imp.setEstado(EstadoImpressoraEnum.valueOf(rs.getString("estado")));
+				imp.setSituacao(StatusImpressoraEnum.valueOf(rs.getString("situacao")));
 
 				impressoras.add(imp);
 			}

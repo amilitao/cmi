@@ -19,7 +19,7 @@ public class AtualizarEmprestimo implements Logica {
 		Impressora impressora = new Impressora();
 
 		emprestimo.setId_emprestimo(Integer.parseInt(req.getParameter("id_emprestimo")));
-		emprestimo.setSituacao(StatusEmprestimoEnum.getByDescricao(req.getParameter("situacao")));
+		emprestimo.setSituacao(StatusEmprestimoEnum.valueOf(req.getParameter("situacao")));
 		impressora.setId_impressora(Integer.parseInt(req.getParameter("id_impressora")));
 		emprestimo.setImpressora(impressora);		
 		

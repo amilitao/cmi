@@ -21,7 +21,7 @@
 				<input type="hidden" name="logica" value="AtualizarEmprestimo" />
 				<input type="hidden" name="id_emprestimo" value="${emprestimo.id_emprestimo}" />
 				<input type="hidden" name="id_impressora" value="${emprestimo.impressora.id_impressora}" />
-				<input type="hidden" name="situacao" value="em emprestimo" />				
+				<input type="hidden" name="situacao" value="EM_EMPRESTIMO" />				
 
 				<button class="w3-button w3-khaki" type="submit">
 					<i class="fa fa-floppy-o w3-margin-right"></i>Confirmar

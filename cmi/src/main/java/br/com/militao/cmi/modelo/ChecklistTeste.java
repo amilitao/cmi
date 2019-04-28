@@ -1,17 +1,24 @@
 package br.com.militao.cmi.modelo;
 
-public class CheckListTeste {
+public class ChecklistTeste {
 	
+	private int id_checklist_teste; 
 	private String operador;
 	private Manutencao manutencao;
 	private String desc_problema;
 	private StatusPecaImpressoraEnum status_borracha;
 	private StatusPecaImpressoraEnum status_cabeca_impressao;
 	private StatusPecaImpressoraEnum status_faca;
-	private String observacao;
+	private String observacao;	
 	
+		
 	
-	
+	public int getId_checklist_teste() {
+		return id_checklist_teste;
+	}
+	public void setId_checklist_teste(int id_checklist_teste) {
+		this.id_checklist_teste = id_checklist_teste;
+	}
 	public String getOperador() {
 		return operador;
 	}

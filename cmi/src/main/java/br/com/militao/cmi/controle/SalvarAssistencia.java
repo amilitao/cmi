@@ -18,7 +18,7 @@ public class SalvarAssistencia implements Logica {
 		assistencia.setRazao_social(req.getParameter("razao_social"));
 		assistencia.setCnpj(req.getParameter("cnpj"));
 		assistencia.setEmail(req.getParameter("email"));
-		assistencia.setTelefone(req.getParameter("telefone"));
+		assistencia.setTelefone_assistencia(req.getParameter("telefone_assistencia"));
 		assistencia.setEndereco(req.getParameter("endereco"));		
 		
 

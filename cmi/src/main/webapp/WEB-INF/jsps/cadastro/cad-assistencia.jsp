@@ -48,7 +48,7 @@
 				<div class="w3-third ">
 					<label><i class="fa fa-pencil-square-o"></i> telefone</label> <input
 						pattern="\([0-9]{2}\) [0-9]{4,6}-[0-9]{3,4}$" class="w3-input w3-border" type="tel" 
-						name="telefone" placeholder="(XX) XXXX-XXXX" id="inp_telefone" disabled required>
+						name="telefone_assistencia" placeholder="(XX) XXXX-XXXX" id="inp_telefone" disabled required>
 				</div>
 				<div class="w3-third w3-margin-bottom">
 					<label><i class="fa fa-pencil-square-o"></i> endereco</label> <input
@@ -91,11 +91,11 @@
 					</thead>
 					<c:forEach var="ass" items="${assistencias}">
 						<tr
-							onclick="f_selecionar('${ass.id_assistencia}', '${ass.razao_social}', '${ass.cnpj}', '${ass.email}','${ass.telefone}', '${ass.endereco}')">
+							onclick="f_selecionar('${ass.id_assistencia}', '${ass.razao_social}', '${ass.cnpj}', '${ass.email}','${ass.telefone_assistencia}', '${ass.endereco}')">
 							<td><b>${ass.razao_social}</b></td>
 							<td>${ass.cnpj}</td>
 							<td>${ass.email}</td>
-							<td>${ass.telefone}</td>
+							<td>${ass.telefone_assistencia}</td>
 							<td>${ass.endereco}</td>							
 						</tr>
 					</c:forEach>

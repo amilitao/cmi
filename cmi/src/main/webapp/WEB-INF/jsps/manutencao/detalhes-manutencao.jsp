@@ -120,9 +120,14 @@
 					</p>
 				</div>
 				<div class="w3-col m1">
-					<p>
-						<button class="w3-button w3-circle w3-gray">+</button>
-						<br /> <b>Solicitar NFE</b>
+					<p>					
+						<c:set var="btn2" value="" />					
+						<c:if test="${manutencao.status_manutencao.porcentagem != '30%'}">
+							<c:set var="btn2" value="disabled" />										
+						</c:if>
+						<c:import url="modal-nfe-manutencao.jsp">							
+							<c:param name="b2" value="${btn2}" />																			
+						</c:import>
 
 					</p>
 				</div>

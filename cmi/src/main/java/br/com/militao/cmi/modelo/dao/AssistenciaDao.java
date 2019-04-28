@@ -21,7 +21,7 @@ public class AssistenciaDao {
 	public void insert(Assistencia assist) {
 		
 		String sql = "insert into assistencia "
-				+ "(razao_social, cnpj, email, telefone, endereco) values "
+				+ "(razao_social, cnpj, email, telefone_assistencia, endereco) values "
 				+ "(?,?,?,?,?)";
 		
 		try (Connection con = new ConnectionFactory().getConnection();
@@ -30,7 +30,7 @@ public class AssistenciaDao {
 			stmt.setString(1, assist.getRazao_social());
 			stmt.setString(2, assist.getCnpj());
 			stmt.setString(3, assist.getEmail());
-			stmt.setString(4, assist.getTelefone());
+			stmt.setString(4, assist.getTelefone_assistencia());
 			stmt.setString(5, assist.getEndereco());
 			
 			stmt.executeUpdate();
@@ -46,7 +46,7 @@ public class AssistenciaDao {
 	public void update(Assistencia assist) {
 		
 		String sql = "update assistencia set razao_social = ?, cnpj = ?, email = ?, "
-				+ "telefone = ?, endereco = ? where id_assistencia =?";
+				+ "telefone_assistencia = ?, endereco = ? where id_assistencia =?";
 		
 		try (Connection con = new ConnectionFactory().getConnection();
 				PreparedStatement stmt = con.prepareStatement(sql)) {
@@ -54,7 +54,7 @@ public class AssistenciaDao {
 			stmt.setString(1, assist.getRazao_social());
 			stmt.setString(2, assist.getCnpj());
 			stmt.setString(3, assist.getEmail());
-			stmt.setString(4, assist.getTelefone());
+			stmt.setString(4, assist.getTelefone_assistencia());
 			stmt.setString(5, assist.getEndereco());
 			stmt.setInt(6, assist.getId_assistencia());
 			
@@ -83,7 +83,7 @@ public class AssistenciaDao {
 				assistencia.setRazao_social(rs.getString("razao_social"));
 				assistencia.setCnpj(rs.getString("cnpj"));
 				assistencia.setEmail(rs.getString("email"));
-				assistencia.setTelefone(rs.getString("telefone"));
+				assistencia.setTelefone_assistencia(rs.getString("telefone_assistencia"));
 				assistencia.setEndereco(rs.getString("endereco"));
 				
 				listaDeAssistencias.add(assistencia);

@@ -24,7 +24,7 @@ class EmprestimoDaoTest {
 			System.out.println(e.getLoja().getCnpj());
 			System.out.println(e.getImpressora());
 			System.out.println(e.getNum_chamado());
-			System.out.println(e.getSituacao());	
+			System.out.println(e.getSituacao().getDescricao());	
 			System.out.println(e.getPrazoDevolucaoFormatada());
 		}
 		

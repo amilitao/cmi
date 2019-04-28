@@ -5,7 +5,7 @@
 <%@page import="br.com.militao.cmi.util.FormatadorDeData"%>
 
 <%
-	String hoje = FormatadorDeData.formata(LocalDate.now());	
+	String hoje = FormatadorDeData.formata(LocalDate.now());
 %>
 
 <button
@@ -28,118 +28,112 @@
 
 		<div class="w3-panel w3-padding-large">
 
-			<table class="w3-table">
-				<tr>
-					<td class=" w3-center">IMPRESSORA TERMICA<br>ATACADAO<br><%=hoje%></td>
-				</tr>
-				<tr>
-					<td><b>FILIAL: </b>${manutencao.impressora.loja}</td>
-				</tr>
-				<tr>
-					<td><b>OPERADOR: </b>
-					<input type="text" style="width: 30%" required /></td>
-				</tr>
-				<tr>
-					<td><b>CONTATO: </b>${manutencao.impressora.loja.telefone}</td>
-				</tr>
-			</table>
-
-			<div class="w3-row w3-margin-top">
-				<div class="w3-col m12 w3-center">
-					<b>DADOS DO EQUIPAMENTO</b>
-				</div>
-			</div>
-
-			<div class="w3-row">
-				<div class="w3-col s6 w3-center">
-					CHAMADO
-				</div>
-				<div class="w3-col s6 w3-center">
-					IMPRESSORA
-				</div>
-			</div>
-			<div class="w3-row w3-border-top w3-border-bottom" style="heigth:100px">
-				<div class="w3-col s6 w3-center">
-					<p>?????</p>
-				</div>
-				<div class="w3-col s6 w3-leftbar w3-center w3-padding-large">
-					Impressora: ${manutencao.impressora.modelo} <br>
-					Nº Serie: ${manutencao.impressora.numero_serie}
-				</div>
-			</div>
-			<div class="w3-row w3-padding-large">
-				<div class="w3-col s4 w3-center">
-					<p class="w3-right">ANÁLISE/DESCRIÇÃO DOS PROBLEMAS: </p>
-				</div>
-				<div class="w3-col s8 w3-padding-large">
-					<textarea class="w3-col" style="width: 100%" rows="3"
-						name="descricao"></textarea>
-					<input type="hidden" name="desc_problema" value="" />
-				</div>
-			</div>
-			<div class="w3-row w3-padding-large">
-				<div class="w3-col s4 w3-center">
-					<p class="w3-right">ESTADO DO ROLO DE BORRACHA: </p>
-				</div>
-				<div class="w3-col s8 w3-padding-large">
-					<select class="w3-select w3-border" required>
-						<option value="" disabled selected>Escolha o status</option>
-						<c:forEach var="stat" items="${status}">
-							<option value="${stat}">${stat.descricao}</option>
-						</c:forEach>
-					</select>
-				</div>
-			</div>
-			<div class="w3-row w3-padding-large">
-				<div class="w3-col s4 w3-center">
-					<p class="w3-right">ESTADO DA CABEÇA DE IMPRESSÃO</p>
-				</div>
-				<div class="w3-col s8 w3-padding-large">
-					<select class="w3-select w3-border" required>
-						<option value="" disabled selected>Escolha o status</option>
-						<c:forEach var="stat" items="${status}" >
-							<option value="${stat}">${stat.descricao}</option>
-						</c:forEach>
-					</select>
-				</div>
-			</div>
-			<div class="w3-row w3-padding-large">
-				<div class="w3-col s4 w3-center">
-					<p class="w3-right">ANEXAR TESTE DE IMPRESSÃO: </p>
-				</div>
-				<div class="w3-col s8 w3-padding-large" >
-					<div class="w3-border" style="height:200px">
-						
-					</div>			
-				</div>
-			</div>
-			<div class="w3-row w3-padding-large">
-				<div class="w3-col s4">
-					<p class="w3-right">ESTADO DA FACA: </p>
-				</div>
-				<div class="w3-col s8 w3-padding-large">
-					<select class="w3-select w3-border" name="status_faca" required>
-						<option value="" disabled selected>Escolha o status</option>
-						<c:forEach var="stat" items="${status}">
-							<option value="${stat}">${stat.descricao}</option>
-						</c:forEach>
-					</select>
-				</div>
-			</div>
-			<div class="w3-row w3-padding-large">
-				<div class="w3-col s4">
-					<p class="w3-right">OBSERVAÇÃO: </p>
-				</div>
-				<div class="w3-col s8 w3-padding-large">
-					<textarea class="w3-col" style="width: 100%" rows="2"
-						name="descricao"></textarea>
-					<input type="hidden" name="desc_problema" value="" />
-				</div>
-			</div>
-
 			<form action="controle" method="post">
 
+				<table class="w3-table">
+					<tr>
+						<td class=" w3-center">IMPRESSORA TERMICA<br>ATACADAO<br><%=hoje%></td>
+					</tr>
+					<tr>
+						<td><b>FILIAL: </b>${manutencao.impressora.loja}</td>
+					</tr>
+					<tr>
+						<td><b>OPERADOR: </b> <input type="text" name="operador" style="width: 30%"
+							required /></td>
+					</tr>
+					<tr>
+						<td><b>CONTATO: </b>${manutencao.impressora.loja.telefone}</td>
+					</tr>
+				</table>
 
+				<div class="w3-row w3-margin-top">
+					<div class="w3-col m12 w3-center">
+						<b>DADOS DO EQUIPAMENTO</b>
+					</div>
+				</div>
+
+				<div class="w3-row">
+					<div class="w3-col s6 w3-center">CHAMADO</div>
+					<div class="w3-col s6 w3-center">IMPRESSORA</div>
+				</div>
+				<div class="w3-row w3-border-top w3-border-bottom"
+					style="heigth: 100px">
+					<div class="w3-col s6 w3-center">
+						<p>?????</p>
+					</div>
+					<div class="w3-col s6 w3-leftbar w3-center w3-padding-large">
+						Impressora: ${manutencao.impressora.modelo} <br> Nº Serie:
+						${manutencao.impressora.numero_serie}
+					</div>
+				</div>
+				<div class="w3-row w3-padding-large">
+					<div class="w3-col s4 w3-center">
+						<p class="w3-right">ANÁLISE/DESCRIÇÃO DOS PROBLEMAS:</p>
+					</div>
+					<div class="w3-col s8 w3-padding-large">
+						<textarea class="w3-col" style="width: 100%" rows="3"
+							name="desc_problema"></textarea>			
+					</div>
+				</div>
+				<div class="w3-row w3-padding-large">
+					<div class="w3-col s4 w3-center">
+						<p class="w3-right">ESTADO DO ROLO DE BORRACHA:</p>
+					</div>
+					<div class="w3-col s8 w3-padding-large">
+						<select class="w3-select w3-border" name="status_borracha" required>
+							<option value="" disabled selected>Escolha o status</option>
+							<c:forEach var="stat" items="${status}">
+								<option value="${stat}">${stat.descricao}</option>
+							</c:forEach>
+						</select>
+					</div>
+				</div>
+				<div class="w3-row w3-padding-large">
+					<div class="w3-col s4 w3-center">
+						<p class="w3-right">ESTADO DA CABEÇA DE IMPRESSÃO</p>
+					</div>
+					<div class="w3-col s8 w3-padding-large">
+						<select class="w3-select w3-border" name="status_cabeca_impressao" required>
+							<option value="" disabled selected>Escolha o status</option>
+							<c:forEach var="stat" items="${status}">
+								<option value="${stat}">${stat.descricao}</option>
+							</c:forEach>
+						</select>
+					</div>
+				</div>
+				<div class="w3-row w3-padding-large">
+					<div class="w3-col s4 w3-center">
+						<p class="w3-right">ANEXAR TESTE DE IMPRESSÃO:</p>
+					</div>
+					<div class="w3-col s8 w3-padding-large">
+						<div class="w3-border" style="height: 200px"></div>
+					</div>
+				</div>
+				<div class="w3-row w3-padding-large">
+					<div class="w3-col s4">
+						<p class="w3-right">ESTADO DA FACA:</p>
+					</div>
+					<div class="w3-col s8 w3-padding-large">
+						<select class="w3-select w3-border" name="status_faca" required>
+							<option value="" disabled selected>Escolha o status</option>
+							<c:forEach var="stat" items="${status}">
+								<option value="${stat}">${stat.descricao}</option>
+							</c:forEach>
+						</select>
+					</div>
+				</div>
+				<div class="w3-row w3-padding-large">
+					<div class="w3-col s4">
+						<p class="w3-right">OBSERVAÇÃO:</p>
+					</div>
+					<div class="w3-col s8 w3-padding-large">
+						<textarea class="w3-col" name="observacao" style="width: 100%" rows="2"
+							name="descricao"></textarea>					
+					</div>
+				</div>				
+				<input type="hidden" name="id_manutencao" value="${manutencao.id_manutencao}" />
+				<input type="hidden" name="logica" value="SalvarChecklistTeste" />
+				
 				<button class="w3-button w3-khaki" type="submit">
 					<i class="fa fa-floppy-o w3-margin-right"></i>Salvar
 				</button>
