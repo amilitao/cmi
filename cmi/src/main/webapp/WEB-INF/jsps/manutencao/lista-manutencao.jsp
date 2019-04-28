@@ -96,7 +96,7 @@
 							${manutencao.id_manutencao}
 						</h5>
 					</div>
-					<div class="w3-col m2">
+					<div class="w3-col m3">
 						<h5>
 							<i class="fa fa-home"></i> Assistência :
 							${manutencao.assistencia.razao_social}
@@ -108,7 +108,7 @@
 							${manutencao.impressora.modelo}
 						</h5>
 					</div>
-					<div class="w3-col m4">
+					<div class="w3-col m3">
 						<h5>
 							<i class="fa fa-rss w3-text-${manutencao.status_manutencao.cor}">
 							</i> Situação : ${manutencao.status_manutencao.descricao}
