@@ -41,13 +41,13 @@
 		<!----------------------------------------------------------------------------------------------------------------->
 
 		<div class="container">
-			<div class="w3-col m3 w3-margin-bottom">
+			<div class="w3-col m2 w3-margin-bottom">
 				<ul class="w3-ul">
 					<li><i class="fa fa-handshake-o"></i> Manutenção :<b>${manutencao.id_manutencao}</b></li>
 					<li><i class="fa fa-phone-square"></i> Chamado: <b>Livre</b></li>
 				</ul>
 			</div>
-			<div class="w3-col m3 w3-margin-bottom">
+			<div class="w3-col m4 w3-margin-bottom">
 				<ul class="w3-ul">
 					<li><i class="fa fa-home"></i> Assistencia: <b>${manutencao.assistencia.razao_social}</b></li>
 					<li><i class="fa fa-calendar"></i> Email: <b>${manutencao.assistencia.email}</b></li>
@@ -192,9 +192,7 @@
 				<ul class="w3-ul w3-border w3-hover-shadow">
 					<li class="w3-large w3-center" style="background: #f4ab43"><b>Problema
 							da impressora</b></li>
-					<li><b>Problema 1</b></li>
-					<li><b>Problema 2</b></li>
-					<li><b>Problema 3</b></li>
+					<li><b>${checklist_teste.desc_problema}</b></li>					
 
 				</ul>
 			</div>

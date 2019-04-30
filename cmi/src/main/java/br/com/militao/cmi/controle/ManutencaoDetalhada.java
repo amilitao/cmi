@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.militao.cmi.modelo.StatusPecaImpressoraEnum;
+import br.com.militao.cmi.modelo.dao.ChecklistTesteDao;
 import br.com.militao.cmi.modelo.dao.ManutencaoDao;
 
 public class ManutencaoDetalhada implements Logica{
@@ -12,10 +13,12 @@ public class ManutencaoDetalhada implements Logica{
 	public String executa(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 
 		ManutencaoDao manuDao = new  ManutencaoDao();	
+		ChecklistTesteDao checklist = new ChecklistTesteDao();
 		
 		int id_manutencao = Integer.parseInt(req.getParameter("id_manutencao"));
 			
 		req.setAttribute("manutencao", manuDao.getManutencaoById(id_manutencao));
+		req.setAttribute("checklist_teste", checklist.getByIdManutencao(id_manutencao));
 		req.setAttribute("status", StatusPecaImpressoraEnum.values());
 		
 		return "/WEB-INF/jsps/manutencao/detalhes-manutencao.jsp";

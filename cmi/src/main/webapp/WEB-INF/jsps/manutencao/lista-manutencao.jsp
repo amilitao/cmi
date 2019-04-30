@@ -105,7 +105,7 @@
 					<div class="w3-col m3">
 						<h5>
 							<i class="fa fa-print"></i> Impressora :
-							${manutencao.impressora.modelo}
+							${manutencao.impressora}
 						</h5>
 					</div>
 					<div class="w3-col m3">
