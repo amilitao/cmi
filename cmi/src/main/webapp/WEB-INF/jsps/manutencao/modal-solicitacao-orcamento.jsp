@@ -3,46 +3,31 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <button
-	onclick="document.getElementById('idnfe${manutencao.id_manutencao}').style.display='block'"
+	onclick="document.getElementById('idSolOrcam${manutencao.id_manutencao}').style.display='block'"
 	class="w3-button w3-circle w3-border w3-yellow"
-	<c:out value="${param.b2}" />>
+	<c:out value="${param.b3}" />>
 	<b>+</b>
 </button>
 <br />
-<b>Solicitação de NFE</b>
+<b>Solicitação de Orçamento</b>
 
-<div id="idnfe${manutencao.id_manutencao}" class="w3-modal">
+<div id="idSolOrcam${manutencao.id_manutencao}" class="w3-modal">
 	<div class="w3-modal-content w3-animate-top w3-card-4 w3-left-align">
 		<header class="w3-container w3-center w3-khaki">
 			<span
-				onclick="document.getElementById('idnfe${manutencao.id_manutencao}').style.display='none'"
+				onclick="document.getElementById('idSolOrcam${manutencao.id_manutencao}').style.display='none'"
 				class="w3-button w3-display-topright w3-xlarge">&times;</span>
-			<h2>Relatório de Teste</h2>
+			<h2>Solicitação de Orçamento</h2>
 		</header>
 		<div class="w3-panel w3-padding-large">
 			<h5>
-				<b>ASSUNTO:</b> Solicitação de emissão de nota fiscal.
+				<b>ASSUNTO:</b> Solicitação de orçamento.
 			</h5>
 
 			<form action="controle" method="post">
 
-				<p>Poderia emitir uma nota fiscal para envio de impressora para orçamento.</p>
-				<br>
-				<p>
-					<b>Emitir NFe tipo:</b> Remessa para conserto.
-				</p>
-				<p>
-					<b>Empresa:</b> ${manutencao.assistencia.razao_social}
-				</p>
-				<p>
-					<b>CNPJ:</b> ${manutencao.assistencia.cnpj}
-				</p>				
-				<p>
-					<b>Quantidade:</b> 1
-				</p>
-				<p>
-					<b>Valor:</b> ${manutencao.impressora.valor}
-				</p>
+				<p>Poderia retirar uma impressora modelo ${manutencao.impressora.modelo} para orçamento?</p>
+						
 				<hr>
 				
 				<br> <input type="hidden" name="logica" value="AtualizarManutencao" /> 

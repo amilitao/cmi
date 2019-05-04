@@ -10,7 +10,7 @@
 
 <button
 	onclick="document.getElementById('idteste${manutencao.id_manutencao}').style.display='block'"
-	class="w3-button w3-circle w3-border w3-${manutencao.status_manutencao.cor}"
+	class="w3-button w3-circle w3-border w3-yellow"
 	<c:out value="${param.b1}" />>
 	<b>+</b>
 </button>

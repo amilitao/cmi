@@ -65,9 +65,7 @@
 									<option value="${assistencia.id_assistencia}">${assistencia}</option>
 								</c:forEach>
 							</select>
-
 						</div>
-
 					</div>
 					<hr>
 					<input type="hidden" name="logica" value="SalvarManutencao" />
@@ -77,8 +75,6 @@
 						<i class="fa fa-floppy-o w3-margin-right"></i>Salvar
 					</button>
 				</form>
-
-
 			</div>
 		</div>
 	</div>
