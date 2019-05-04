@@ -13,7 +13,7 @@
 
 
 <div class="w3-container w3-white">
-		<h5>Ultimas atualizações</h5>
+		<h5>Ultimas atualizações de empréstimos</h5>
 		<div class="w3-row">		
 				
 			<div class="w3-col m2 text-center">

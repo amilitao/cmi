@@ -144,9 +144,15 @@
 					</p>
 				</div>
 				<div class="w3-col m1">
-					<p>
-						<button class="w3-button w3-circle w3-gray">+</button>
-						<br /> <b>Orçamento</b>
+					<p>					
+						<c:set var="btn4" value="" />					
+						<c:if test="${manutencao.status_manutencao.porcentagem != '45%'}">
+							<c:set var="btn4" value="disabled" />										
+						</c:if>
+						<c:import url="modal-orcamento.jsp">							
+							<c:param name="b4" value="${btn4}" />																			
+						</c:import>
+
 					</p>
 				</div>
 				<div class="w3-col m1">
