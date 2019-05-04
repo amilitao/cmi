@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags"%>
@@ -108,49 +109,49 @@
 				</div>
 				<div class="w3-col m1">
 					<p>
-						<c:set var="btn1" value="" />					
+						<c:set var="btn1" value="" />
 						<c:if test="${manutencao.status_manutencao.porcentagem != '20%'}">
-							<c:set var="btn1" value="disabled" />										
+							<c:set var="btn1" value="disabled" />
 						</c:if>
 
-						<c:import url="modal-teste.jsp">							
-							<c:param name="b1" value="${btn1}" />																			
+						<c:import url="modal-teste.jsp">
+							<c:param name="b1" value="${btn1}" />
 						</c:import>
 
 					</p>
 				</div>
 				<div class="w3-col m1">
-					<p>					
-						<c:set var="btn2" value="" />					
+					<p>
+						<c:set var="btn2" value="" />
 						<c:if test="${manutencao.status_manutencao.porcentagem != '30%'}">
-							<c:set var="btn2" value="disabled" />										
+							<c:set var="btn2" value="disabled" />
 						</c:if>
-						<c:import url="modal-nfe-manutencao.jsp">							
-							<c:param name="b2" value="${btn2}" />																			
+						<c:import url="modal-nfe-manutencao.jsp">
+							<c:param name="b2" value="${btn2}" />
 						</c:import>
 
 					</p>
 				</div>
 				<div class="w3-col m1">
-					<p>					
-						<c:set var="btn3" value="" />					
+					<p>
+						<c:set var="btn3" value="" />
 						<c:if test="${manutencao.status_manutencao.porcentagem != '40%'}">
-							<c:set var="btn3" value="disabled" />										
+							<c:set var="btn3" value="disabled" />
 						</c:if>
-						<c:import url="modal-solicitacao-orcamento.jsp">							
-							<c:param name="b3" value="${btn3}" />																			
+						<c:import url="modal-solicitacao-orcamento.jsp">
+							<c:param name="b3" value="${btn3}" />
 						</c:import>
 
 					</p>
 				</div>
 				<div class="w3-col m1">
-					<p>					
-						<c:set var="btn4" value="" />					
+					<p>
+						<c:set var="btn4" value="" />
 						<c:if test="${manutencao.status_manutencao.porcentagem != '45%'}">
-							<c:set var="btn4" value="disabled" />										
+							<c:set var="btn4" value="disabled" />
 						</c:if>
-						<c:import url="modal-orcamento.jsp">							
-							<c:param name="b4" value="${btn4}" />																			
+						<c:import url="modal-orcamento.jsp">
+							<c:param name="b4" value="${btn4}" />
 						</c:import>
 
 					</p>
@@ -203,18 +204,22 @@
 				<ul class="w3-ul w3-border w3-hover-shadow">
 					<li class="w3-large w3-center" style="background: #f4ab43"><b>Problema
 							da impressora</b></li>
-					<li><b>${checklist_teste.desc_problema}</b></li>					
+					<li><b>${checklist_teste.desc_problema}</b></li>
 
 				</ul>
 			</div>
 			<div class="w3-third w3-margin-bottom">
 
 				<ul class="w3-ul w3-border w3-hover-shadow">
-					<li class="w3-large w3-center" style="background: #5ebf99"><b>Orçamento</b></li>
-					<li><b>Orçamento 1</b>
-						<h6 class="w3-green w3-right">Aprovado</h6></li>
-					<li><b>Orçamento 2</b></li>
-					<li><b>Orçamento 3</b></li>
+					<li class="w3-large w3-center" style="background: #5ebf99"><b>Orçamento
+							nº 123456</b>
+						</li>
+					<li><b>Item 1</b>
+						<h6 class="w3-right">R$ 200,00</h6></li>
+					<li><b>Item 2</b></li>
+					<li><b>Item 3</b></li>
+					<li class="w3-right">R$ 200,00</li>		
+					<li><b>Valor total</b></li>		
 				</ul>
 			</div>
 			<div class="w3-third w3-margin-bottom">
