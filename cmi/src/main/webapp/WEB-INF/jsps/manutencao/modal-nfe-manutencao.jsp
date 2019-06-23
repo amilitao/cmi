@@ -47,7 +47,7 @@
 				
 				<br> <input type="hidden" name="logica" value="AtualizarManutencao" /> 
 				<input type="hidden" name="id_manutencao" value="${manutencao.id_manutencao}" /> 
-				<input type="hidden" name="status_manutencao" value="SOLICITACAO_ORCAMENTO" />
+				<input type="hidden" name="status_manutencao" value="ENVIO" />
 			
 				<button class="w3-button w3-khaki" type="submit">
 					<i class="fa fa-floppy-o w3-margin-right"></i>Salvar

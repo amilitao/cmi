@@ -138,7 +138,7 @@
 						<c:if test="${manutencao.status_manutencao.porcentagem != '40%'}">
 							<c:set var="btn3" value="disabled" />
 						</c:if>
-						<c:import url="modal-solicitacao-orcamento.jsp">
+						<c:import url="modal-envio-de-impressora.jsp">
 							<c:param name="b3" value="${btn3}" />
 						</c:import>
 

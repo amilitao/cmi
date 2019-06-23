@@ -9,7 +9,7 @@
 	<b>+</b>
 </button>
 <br />
-<b>Solicitação de Orçamento</b>
+<b>Envio de Impressora</b>
 
 <div id="idSolOrcam${manutencao.id_manutencao}" class="w3-modal">
 	<div class="w3-modal-content w3-animate-top w3-card-4 w3-left-align">
@@ -17,7 +17,7 @@
 			<span
 				onclick="document.getElementById('idSolOrcam${manutencao.id_manutencao}').style.display='none'"
 				class="w3-button w3-display-topright w3-xlarge">&times;</span>
-			<h2>Solicitação de Orçamento</h2>
+			<h2>Envio de Impressora</h2>
 		</header>
 		<div class="w3-panel w3-padding-large">
 			<h5>
