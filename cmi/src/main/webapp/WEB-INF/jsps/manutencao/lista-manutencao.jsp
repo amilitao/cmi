@@ -79,7 +79,7 @@
 		</div>
 	</div>
 
-	<div class="w3-panel w3-padding-large">
+	<div class="w3-panel w3-padding-large" style="height:550px; overflow: auto;">
 
 		<c:forEach var="manutencao" items="${listaDeManutencao}">
 
