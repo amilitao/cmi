@@ -109,7 +109,7 @@
 			<div class="w3-center w3-white">
 				<h4><b>Lista de impressoras</b></h4>
 			</div>
-			<div style="height: 370px; overflow: auto;">
+			<div style="height: 300px; overflow: auto;">
 				<table class="w3-table-all w3-hoverable">
 					<thead>
 						<tr class="w3-dark-grey">
