@@ -21,7 +21,23 @@
 		</header>
 		<div class="w3-panel w3-padding-large">			
 
-			<form action="controle" method="post">				
+			<form action="controle" method="post">	
+			
+			<div class="w3-row-padding" style="margin: 0 -16px;">
+				
+					<div class="w3-col m3 w3-margin-bottom">
+						<label><i class="fa fa-calendar-o"></i> Número do orçamento: </label> 
+						<input class="w3-input w3-border" type="text" value="" name="numeroOrcamento" required>
+					</div>
+					<div class="w3-col m3 w3-margin-bottom">
+						<label><i class="fa fa-calendar-o"></i> Valor Total: </label> 
+						<input class="w3-input w3-border" type="text" value="" name="valorTotal" required>
+					</div>
+					<div class="w3-col m3 w3-margin-bottom">
+						<label><i class="fa fa-calendar-o"></i> Prazo: </label> 
+						<input class="w3-input w3-border" type="text" name="prazo" required>
+					</div>					
+				</div>							
 				
 				<br> <input type="hidden" name="logica" value="" /> 
 				<input type="hidden" name="id_manutencao" value="${manutencao.id_manutencao}" />			

@@ -208,18 +208,22 @@
 
 				</ul>
 			</div>
+			
+			
+			<c:set var="orcamento" value="${null}" />
+			<c:if test="${not empty listaDeOrcamento}">
+				<c:forEach var="orc" items="${listaDeOrcamento}">
+					<c:set var="orcamento" value="${orc}" />
+				</c:forEach>
+			</c:if>
 			<div class="w3-third w3-margin-bottom">
 
 				<ul class="w3-ul w3-border w3-hover-shadow">
-					<li class="w3-large w3-center" style="background: #5ebf99"><b>Orçamento
-							nº 123456</b>
-						</li>
-					<li><b>Item 1</b>
-						<h6 class="w3-right">R$ 200,00</h6></li>
-					<li><b>Item 2</b></li>
-					<li><b>Item 3</b></li>
-					<li class="w3-right">R$ 200,00</li>		
-					<li><b>Valor total</b></li>		
+					<li class="w3-large w3-center" style="background: #5ebf99"><b>Orçamento</b></li>	
+					<li><b>Número: </b>${orcamento.numero_orcamento}</li>														
+					<li><b>Valor total: </b>${orcamento.valot_total}</li>	
+					<li><b>Prazo: </b>${orcamento.prazo}</li>		
+					<li><b>Status: </b>${orcamento.aprovado}</li>	
 				</ul>
 			</div>
 			<div class="w3-third w3-margin-bottom">

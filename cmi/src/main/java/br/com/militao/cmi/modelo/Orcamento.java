@@ -7,6 +7,7 @@ public class Orcamento {
 	private int id_orcamento;
 	private Manutencao manutencao;
 	private int numero_orcamento;
+	private double valor_total;
 	private LocalDate prazo;
 	private boolean aprovado;
 	
@@ -28,6 +29,12 @@ public class Orcamento {
 	}
 	public void setNumero_orcamento(int numero_orcamento) {
 		this.numero_orcamento = numero_orcamento;
+	}	
+	public double getValor_total() {
+		return valor_total;
+	}
+	public void setValor_total(double valor_total) {
+		this.valor_total = valor_total;
 	}
 	public LocalDate getPrazo() {
 		return prazo;
