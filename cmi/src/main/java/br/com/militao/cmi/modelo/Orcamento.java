@@ -9,7 +9,7 @@ public class Orcamento {
 	private int numero_orcamento;
 	private double valor_total;
 	private LocalDate prazo;
-	private boolean aprovado;
+	private StatusOrcamentoEnum status;
 	
 	
 	public int getId_orcamento() {
@@ -42,13 +42,15 @@ public class Orcamento {
 	public void setPrazo(LocalDate prazo) {
 		this.prazo = prazo;
 	}
-	public boolean isAprovado() {
-		return aprovado;
+	public StatusOrcamentoEnum getStatus() {
+		return status;
 	}
-	public void setAprovado(boolean aprovado) {
-		this.aprovado = aprovado;
+	public void setStatus(StatusOrcamentoEnum status) {
+		this.status = status;
 	}
 	
+	
+		
 	
 
 }

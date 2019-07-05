@@ -27,20 +27,20 @@
 				
 					<div class="w3-col m3 w3-margin-bottom">
 						<label><i class="fa fa-calendar-o"></i> Número do orçamento: </label> 
-						<input class="w3-input w3-border" type="text" value="" name="numeroOrcamento" required>
+						<input class="w3-input w3-border" type="number" name="numeroOrcamento" required>
 					</div>
 					<div class="w3-col m3 w3-margin-bottom">
 						<label><i class="fa fa-calendar-o"></i> Valor Total: </label> 
-						<input class="w3-input w3-border" type="text" value="" name="valorTotal" required>
+						<input class="w3-input w3-border" type="number" name="valorTotal" required>
 					</div>
 					<div class="w3-col m3 w3-margin-bottom">
 						<label><i class="fa fa-calendar-o"></i> Prazo: </label> 
-						<input class="w3-input w3-border" type="text" name="prazo" required>
+						<input class="w3-input w3-border" type="date" name="prazo" required>
 					</div>					
 				</div>							
 				
-				<br> <input type="hidden" name="logica" value="" /> 
-				<input type="hidden" name="id_manutencao" value="${manutencao.id_manutencao}" />			
+				<br> <input type="hidden" name="logica" value="SalvarOrcamento" /> 
+				<input type="hidden" name="idManutencao" value="${manutencao.id_manutencao}" />			
 			
 				<button class="w3-button w3-khaki" type="submit">
 					<i class="fa fa-floppy-o w3-margin-right"></i>Salvar

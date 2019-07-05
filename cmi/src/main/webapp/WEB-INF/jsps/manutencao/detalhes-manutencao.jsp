@@ -221,16 +221,16 @@
 						</c:if>
 						<c:if test="${not empty listaDeOrcamento}">
 							<c:forEach var="orc" items="${listaDeOrcamento}">
-								<c:set var="orcamento" value="${orc}" />
-							</c:forEach>
+								<c:set var="orcamento" value="${orc}" />							
 								<li><b>Número: </b>${orcamento.numero_orcamento}
 					  			 | <b>Valor: </b>${orcamento.valor_total}
-								 | <b>Aprovado? </b>
-								 <c:if test="${!orcamento.aprovado}">
-								 	<a class="w3-text-red"><b> Não</b></a>
-								 </c:if>
+								 | <b>Status: </b>
+										 <a class="w3-text-${orcamento.status.cor}">
+											 <b>${orcamento.status.descricao}</b>
+										 </a>								 
 									
-								</li>				
+								</li>
+							</c:forEach>				
 						</c:if>																						
 				</ul>
 			</div>				

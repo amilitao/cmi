@@ -17,12 +17,12 @@ public class ManutencaoDetalhada implements Logica{
 		ChecklistTesteDao checklist = new ChecklistTesteDao();
 		OrcamentoDao orcDao = new OrcamentoDao();
 		
-		int id_manutencao = Integer.parseInt(req.getParameter("id_manutencao"));
+		int idManutencao = Integer.parseInt(req.getParameter("idManutencao"));
 			
-		req.setAttribute("manutencao", manuDao.getManutencaoById(id_manutencao));
-		req.setAttribute("checklist_teste", checklist.getByIdManutencao(id_manutencao));
+		req.setAttribute("manutencao", manuDao.getManutencaoById(idManutencao));
+		req.setAttribute("checklist_teste", checklist.getByIdManutencao(idManutencao));
 		req.setAttribute("status", StatusPecaImpressoraEnum.values());
-		req.setAttribute("listaDeOrcamento", orcDao.getOrcamentoPorIdManutencao(id_manutencao));
+		req.setAttribute("listaDeOrcamento", orcDao.getOrcamentoPorIdManutencao(idManutencao));
 		
 		return "/WEB-INF/jsps/manutencao/detalhes-manutencao.jsp";
 	}
