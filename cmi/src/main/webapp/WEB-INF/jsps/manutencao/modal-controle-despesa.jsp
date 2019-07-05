@@ -3,21 +3,21 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <button
-	onclick="document.getElementById('idOrc${manutencao.id_manutencao}').style.display='block'"
+	onclick="document.getElementById('idDesp${manutencao.id_manutencao}').style.display='block'"
 	class="w3-button w3-circle w3-border w3-yellow"
-	<c:out value="${param.b4}" />>
+	<c:out value="${param.b5}" />>
 	<b>+</b>
 </button>
 <br />
-<b>Orçamento</b>
+<b>Controle de Despesa</b>
 
-<div id="idOrc${manutencao.id_manutencao}" class="w3-modal">
+<div id="idDesp${manutencao.id_manutencao}" class="w3-modal">
 	<div class="w3-modal-content w3-animate-top w3-card-4 w3-left-align">
 		<header class="w3-container w3-center w3-khaki">
 			<span
-				onclick="document.getElementById('idOrc${manutencao.id_manutencao}').style.display='none'"
+				onclick="document.getElementById('idDesp${manutencao.id_manutencao}').style.display='none'"
 				class="w3-button w3-display-topright w3-xlarge">&times;</span>
-			<h2> Orçamento</h2>
+			<h2> Controle de Despesa</h2>
 		</header>
 		<div class="w3-panel w3-padding-large">			
 
@@ -39,7 +39,7 @@
 					</div>					
 				</div>							
 				
-				<br> <input type="hidden" name="logica" value="SalvarOrcamento" /> 
+				<br> <input type="hidden" name="logica" value="" /> 
 				<input type="hidden" name="id_manutencao" value="${manutencao.id_manutencao}" />			
 			
 				<button class="w3-button w3-khaki" type="submit">

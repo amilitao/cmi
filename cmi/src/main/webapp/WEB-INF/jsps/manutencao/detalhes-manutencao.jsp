@@ -158,8 +158,13 @@
 				</div>
 				<div class="w3-col m1">
 					<p>
-						<button class="w3-button w3-circle w3-gray">+</button>
-						<br /> <b>Controle de despesa</b>
+						<c:set var="btn5" value="" />
+						<c:if test="${manutencao.status_manutencao.porcentagem != '55%'}">
+							<c:set var="btn5" value="disabled" />
+						</c:if>
+						<c:import url="modal-controle-despesa.jsp">
+							<c:param name="b5" value="${btn5}" />
+						</c:import>
 					</p>
 				</div>
 				<div class="w3-col m1">

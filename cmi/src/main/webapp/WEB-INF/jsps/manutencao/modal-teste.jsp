@@ -72,7 +72,7 @@
 					</div>
 					<div class="w3-col s8 w3-padding-large">
 						<textarea class="w3-col" style="width: 100%" rows="3"
-							name="desc_problema"></textarea>			
+							name="desc_problema" required ></textarea>			
 					</div>
 				</div>
 				<div class="w3-row w3-padding-large">
@@ -128,7 +128,7 @@
 					</div>
 					<div class="w3-col s8 w3-padding-large">
 						<textarea class="w3-col" name="observacao" style="width: 100%" rows="2"
-							name="descricao"></textarea>					
+							name="descricao" required></textarea>					
 					</div>
 				</div>				
 				<input type="hidden" name="id_manutencao" value="${manutencao.id_manutencao}" />

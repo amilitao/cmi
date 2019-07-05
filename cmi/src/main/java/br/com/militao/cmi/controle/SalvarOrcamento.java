@@ -20,7 +20,7 @@ public class SalvarOrcamento implements Logica {
 		Manutencao manutencao = new Manutencao();	
 		
 		
-		manutencao.setId_manutencao(Integer.parseInt(req.getParameter("idManutencao")));
+		manutencao.setId_manutencao(Integer.parseInt(req.getParameter("id_manutencao")));
 		orcamento.setManutencao(manutencao);
 		orcamento.setNumero_orcamento(Integer.parseInt(req.getParameter("numeroOrcamento")));
 		orcamento.setValor_total(Double.parseDouble(req.getParameter("valorTotal")));
