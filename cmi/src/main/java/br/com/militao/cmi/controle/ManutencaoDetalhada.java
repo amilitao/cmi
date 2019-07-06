@@ -17,7 +17,7 @@ public class ManutencaoDetalhada implements Logica{
 		ChecklistTesteDao checklist = new ChecklistTesteDao();
 		OrcamentoDao orcDao = new OrcamentoDao();
 		
-		int idManutencao = Integer.parseInt(req.getParameter("idManutencao"));
+		int idManutencao = Integer.parseInt(req.getParameter("id_manutencao"));
 			
 		req.setAttribute("manutencao", manuDao.getManutencaoById(idManutencao));
 		req.setAttribute("checklist_teste", checklist.getByIdManutencao(idManutencao));

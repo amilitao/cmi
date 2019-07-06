@@ -19,21 +19,22 @@
 				class="w3-button w3-display-topright w3-xlarge">&times;</span>
 			<h2>Envio de Impressora</h2>
 		</header>
+		
 		<div class="w3-panel w3-padding-large">
-			<h5>
-				<b>ASSUNTO:</b> Solicitação de orçamento.
-			</h5>
-
+					
 			<form action="controle" method="post">
 
-				<p>Poderia retirar uma impressora modelo ${manutencao.impressora.modelo} para orçamento?</p>
-						
-				<hr>
+				<div class="w3-row-padding" style="margin: 0 -16px;">
 				
-				<br> <input type="hidden" name="logica" value="AtualizarManutencao" /> 
+					<div class="w3-col m3 w3-margin-bottom">
+						<label><i class="fa fa-calendar-o"></i> Número do Nfe de Envio: </label> 
+						<input class="w3-input w3-border" type="number" name="nfe_envio" required>
+					</div>												
+			</div>		
+				
+				<br> <input type="hidden" name="logica" value="EnviarParaManutencao" /> 
 				<input type="hidden" name="id_manutencao" value="${manutencao.id_manutencao}" /> 
-				<input type="hidden" name="status_manutencao" value="ORCAMENTO" />
-			
+							
 				<button class="w3-button w3-khaki" type="submit">
 					<i class="fa fa-floppy-o w3-margin-right"></i>Salvar
 				</button>

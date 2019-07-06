@@ -24,6 +24,27 @@ public class ManutencaoDao {
 	
 	final Logger LOGGER = LoggerFactory.getLogger(ManutencaoDao.class);
 	
+	public void updateEnvioImpressora(Manutencao manutencao) {
+		
+		String sql = "update manutencao set dt_envio=? , nfe_envio=?, "
+				+ "status_manutencao=? where id_manutencao=?";
+
+		try (Connection con = new ConnectionFactory().getConnection();
+				PreparedStatement stmt = con.prepareStatement(sql)) {
+			
+			stmt.setTimestamp(1, FormatadorDeData.toTimeStamp(manutencao.getDt_envio()));
+			stmt.setString(2, manutencao.getNfe_envio());
+			stmt.setString(3, manutencao.getStatus_manutencao().name());		
+			stmt.setInt(4, manutencao.getId_manutencao());
+
+			stmt.executeUpdate();
+
+		} catch (SQLException e) {
+			
+			LOGGER.error("Erro ao atualizar manutenção após envio de impressora nº ", manutencao.getId_manutencao());
+			throw new RuntimeException("Erro ao atualizar manutencao após envio de impressora!!!" + e);
+		}
+	}
 	
 	public void update(Manutencao manutencao) {
 
@@ -44,6 +65,28 @@ public class ManutencaoDao {
 		}
 
 	}	
+	
+	public void updateControleDespesa(Manutencao manutencao) {
+		
+		String sql = "update manutencao set numero_despesa=?, "
+				+ "status_manutencao=? where id_manutencao=?";
+
+		try (Connection con = new ConnectionFactory().getConnection();
+				PreparedStatement stmt = con.prepareStatement(sql)) {
+						
+			stmt.setInt(1, manutencao.getNumero_despesa());
+			stmt.setString(2, manutencao.getStatus_manutencao().name());		
+			stmt.setInt(3, manutencao.getId_manutencao());
+
+			stmt.executeUpdate();
+
+		} catch (SQLException e) {
+			
+			LOGGER.error("Erro ao atualizar manutenção após lançamento de despesa: nº ", manutencao.getId_manutencao());
+			throw new RuntimeException("Erro ao atualizar manutencao após após lançamento de despesa!!!" + e);
+		}
+		
+	}
 	
 	public void insert(Manutencao manutencao) {
 

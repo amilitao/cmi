@@ -126,7 +126,7 @@
 						<c:if test="${manutencao.status_manutencao.porcentagem != '30%'}">
 							<c:set var="btn2" value="disabled" />
 						</c:if>
-						<c:import url="modal-nfe-manutencao.jsp">
+						<c:import url="modal-solicita-nfe.jsp">
 							<c:param name="b2" value="${btn2}" />
 						</c:import>
 

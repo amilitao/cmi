@@ -37,7 +37,7 @@
 						<label><i class="fa fa-calendar-o"></i> Prazo: </label> 
 						<input class="w3-input w3-border" type="date" name="prazo" required>
 					</div>					
-				</div>							
+			</div>							
 				
 				<br> <input type="hidden" name="logica" value="SalvarOrcamento" /> 
 				<input type="hidden" name="id_manutencao" value="${manutencao.id_manutencao}" />			

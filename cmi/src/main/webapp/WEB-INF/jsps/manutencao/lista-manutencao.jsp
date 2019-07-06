@@ -112,7 +112,7 @@
 					</div>
 					<div class="w3-col m1 w3-text-indigo w3-center">
 
-						<input type="hidden" name="idManutencao"
+						<input type="hidden" name="id_manutencao"
 							value="${manutencao.id_manutencao}" />
 
 						<button class="w3-button w3-padding" name="logica"
