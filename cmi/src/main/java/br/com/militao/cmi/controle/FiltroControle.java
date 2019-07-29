@@ -47,6 +47,7 @@ public class FiltroControle implements Filter {
 			resp.sendRedirect("index.jsp");
 
 		} else {
+			
 			chain.doFilter(req, resp);
 		}
 

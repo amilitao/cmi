@@ -1,6 +1,5 @@
 package br.com.militao.cmi.controle;
 
-import java.time.LocalDateTime;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
