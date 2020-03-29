@@ -18,19 +18,31 @@ public class ControllerServlet extends HttpServlet {
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		String nomeDaClasse = req.getParameter("logica");
-		
+
+		String urlDestino = null;
+
 		try {
 			Class<?> classe = Class.forName("br.com.militao.cmi.controle." + nomeDaClasse);
 
 			Logica logica = (Logica) classe.newInstance();
 
-			String urldestino = logica.executa(req, resp);
-			RequestDispatcher dispatcher = req.getRequestDispatcher(urldestino);
-
-			dispatcher.forward(req, resp);
+			urlDestino = logica.executa(req, resp);
 
 		} catch (Exception e) {
 			throw new ServletException("Encontrou erro " + e);
+		}
+
+		String[] param = urlDestino.split(":");
+
+		if (param[0].equals("forward")) {
+
+			RequestDispatcher dispatcher = req.getRequestDispatcher(param[1]);
+			dispatcher.forward(req, resp);
+
+		} else {
+
+			resp.sendRedirect(param[1]);
+
 		}
 	}
 }

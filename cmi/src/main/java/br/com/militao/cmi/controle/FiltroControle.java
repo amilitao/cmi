@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 
 
 
-@WebFilter(urlPatterns = { "/controle" })
+//@WebFilter(urlPatterns = "/controle")
 public class FiltroControle implements Filter {
 
 	/**

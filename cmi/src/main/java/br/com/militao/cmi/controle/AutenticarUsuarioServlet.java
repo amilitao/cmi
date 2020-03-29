@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 import br.com.militao.cmi.modelo.ControleDeAcesso;
 import br.com.militao.cmi.modelo.Usuario;
 
-@WebServlet(urlPatterns = "/acesso")
+//@WebServlet(urlPatterns = "/acesso")
 public class AutenticarUsuarioServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
