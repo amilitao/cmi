@@ -47,7 +47,7 @@ public class LoadDashboard implements Logica {
 		req.setAttribute("painelStatusImpressora", dashboard.getPainelStatusImpressora());		
 		req.setAttribute("painelUltimasAtualizacoes", dashboard.getPainelUltimasAtualizacoes());
 
-		return "/WEB-INF/jsps/dashboard.jsp";
+		return "forward:dashboard.jsp";
 	}
 
 }

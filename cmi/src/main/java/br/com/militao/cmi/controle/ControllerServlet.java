@@ -36,7 +36,7 @@ public class ControllerServlet extends HttpServlet {
 
 		if (param[0].equals("forward")) {
 
-			RequestDispatcher dispatcher = req.getRequestDispatcher(param[1]);
+			RequestDispatcher dispatcher = req.getRequestDispatcher("WEB-INF/jsps/" + param[1]);
 			dispatcher.forward(req, resp);
 
 		} else {

@@ -1,6 +1,5 @@
 package br.com.militao.cmi.controle;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -22,8 +21,10 @@ public class Login implements Logica {
 		if (ControleDeAcesso.autentica(user)) {
 
 			session.setAttribute("usuarioLogado", user);
+			
+			System.out.println("Autenticou");
 
-			return "forward:/controle?logica=LoadDashboard";
+			return "redirect:controle?logica=LoadDashboard";
 
 		}
 

@@ -21,7 +21,6 @@
    			  <button class="w3-bar-item w3-button w3-padding" name="logica" value="AssistenciaPage"><i class="fa fa-home"></i> Assistência</button>
  		 </div>     
     </form>
-    <form action="logout" method="post">
-     <button class="w3-bar-item w3-button w3-padding" ><i class="fa fa-sign-out"></i> Sair</button>
-     </form>
+    <a href="controle?logica=Logout" class="w3-bar-item w3-button w3-padding"><i class="fa fa-sign-out"></i> Sair</a>
+   
   </div>

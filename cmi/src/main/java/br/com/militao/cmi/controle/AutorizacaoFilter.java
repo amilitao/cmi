@@ -49,7 +49,7 @@ public class AutorizacaoFilter implements Filter {
 		boolean ehUmaAcaoProtegida = !(paramAcao.equals("Login") || paramAcao.equals("LoginForm"));
 
 		if (ehUmaAcaoProtegida & usuarioNaoEstaLogado) {
-			resp.sendRedirect("index.jsp");
+			resp.sendRedirect("controle?logica=LoginForm");
 			return;
 		}
 
