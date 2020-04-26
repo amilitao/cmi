@@ -4,7 +4,6 @@ import java.time.LocalDate;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import br.com.militao.cmi.modelo.Emprestimo;
 import br.com.militao.cmi.modelo.Transporte;
@@ -23,15 +22,9 @@ public class SalvarTransporte implements Logica {
 		transporte.setNumNfeEnvio(req.getParameter("nfeEnvio"));
 		transporte.setDtEnvio(LocalDate.now());
 
-		transporteDao.insert(transporte);
+		transporteDao.insert(transporte);		
 
-		req.setAttribute("confirmaDao", true);
-
-		// atualiza dashboard
-		HttpSession session = req.getSession();
-		session.setAttribute("dashboard", null);
-
-		return new EmprestimoDetalhado().executa(req, resp);
+		return "redirect:controle?logica=EmprestimoDetalhado";
 	}
 
 }

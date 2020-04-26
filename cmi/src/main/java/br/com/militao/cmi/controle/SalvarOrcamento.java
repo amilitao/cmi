@@ -2,7 +2,7 @@ package br.com.militao.cmi.controle;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+
 
 import br.com.militao.cmi.modelo.Manutencao;
 import br.com.militao.cmi.modelo.Orcamento;
@@ -27,15 +27,9 @@ public class SalvarOrcamento implements Logica {
 		orcamento.setPrazo(FormatadorDeData.toLocalDate(req.getParameter("prazo")));
 		orcamento.setStatus(StatusOrcamentoEnum.EM_ANALISE);
 		
-		orcDao.insert(orcamento);
+		orcDao.insert(orcamento);	
 		
-		req.setAttribute("confirmaDao", true);
-		
-		// atualiza dashboard
-		HttpSession session = req.getSession();
-		session.setAttribute("dashboard", null);
-		
-		return new ManutencaoDetalhada().executa(req, resp);
+		return "redirect:controle?logica=ManutencaoDetalhada";
 	}
 
 }

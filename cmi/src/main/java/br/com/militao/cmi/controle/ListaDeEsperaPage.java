@@ -23,7 +23,7 @@ public class ListaDeEsperaPage implements Logica {
 		req.setAttribute("listaDeEspera", listaDeEsperaDao.getList());
 
 
-		return "/WEB-INF/jsps/lista-de-espera.jsp";
+		return "forward:lista-de-espera.jsp";
 
 	}
 

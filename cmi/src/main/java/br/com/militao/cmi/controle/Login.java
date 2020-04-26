@@ -20,9 +20,7 @@ public class Login implements Logica {
 
 		if (ControleDeAcesso.autentica(user)) {
 
-			session.setAttribute("usuarioLogado", user);
-			
-			System.out.println("Autenticou");
+			session.setAttribute("usuarioLogado", user);	
 
 			return "redirect:controle?logica=LoadDashboard";
 

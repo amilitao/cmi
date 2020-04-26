@@ -26,7 +26,7 @@ public class ImpressoraPage implements Logica {
 		req.setAttribute("impressoras", impDao.getList());
 		req.setAttribute("lojas", lojaDao.getList());
 		
-		return "/WEB-INF/jsps/cadastro/cad-impressora.jsp";
+		return "forward:cadastro/cad-impressora.jsp";
 
 	}
 }

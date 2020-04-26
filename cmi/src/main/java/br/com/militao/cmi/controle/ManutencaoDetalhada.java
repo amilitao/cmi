@@ -24,7 +24,7 @@ public class ManutencaoDetalhada implements Logica{
 		req.setAttribute("status", StatusPecaImpressoraEnum.values());
 		req.setAttribute("listaDeOrcamento", orcDao.getOrcamentoPorIdManutencao(idManutencao));
 		
-		return "/WEB-INF/jsps/manutencao/detalhes-manutencao.jsp";
+		return "forward:manutencao/detalhes-manutencao.jsp";
 	}
 	
 	

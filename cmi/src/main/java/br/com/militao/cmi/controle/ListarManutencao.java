@@ -24,7 +24,7 @@ public class ListarManutencao implements Logica{
 		req.setAttribute("listaDeAssistencias", assistenciaDao.getList());
 		
 		
-		return  "/WEB-INF/jsps/manutencao/lista-manutencao.jsp";
+		return  "forward:manutencao/lista-manutencao.jsp";
 	
 	}			
 	

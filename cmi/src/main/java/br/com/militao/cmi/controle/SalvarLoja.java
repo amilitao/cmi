@@ -2,7 +2,6 @@ package br.com.militao.cmi.controle;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import br.com.militao.cmi.modelo.Loja;
 import br.com.militao.cmi.modelo.Regional;
@@ -28,22 +27,14 @@ public class SalvarLoja implements Logica {
 		if (req.getParameter("id_loja") != "") {
 
 			loja.setId_loja(Integer.parseInt(req.getParameter("id_loja")));
-			dao.update(loja);
-			
-			req.setAttribute("confirmaDao", true);
+			dao.update(loja);			
 
 		} else {
 
-			dao.insert(loja);
-			req.setAttribute("confirmaDao", true);
+			dao.insert(loja);		
 		}
 
-		HttpSession session = req.getSession();
-
-		req.setAttribute("confirmaDao", true);
-		session.setAttribute("dashboard", null);
-
-		return new LojaPage().executa(req, resp);
+		return "redirect:controle?logica=LojaPage";
 	}
 
 }

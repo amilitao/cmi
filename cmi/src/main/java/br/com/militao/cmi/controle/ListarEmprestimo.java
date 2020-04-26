@@ -24,7 +24,7 @@ public class ListarEmprestimo implements Logica{
 		req.setAttribute("listaDeDevolucoes", devolucaoDao.getList());
 		
 		
-		return  "/WEB-INF/jsps/emprestimo/lista-emprestimo.jsp";
+		return  "forward:emprestimo/lista-emprestimo.jsp";
 	}
 	
 	

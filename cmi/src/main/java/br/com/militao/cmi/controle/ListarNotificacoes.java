@@ -14,7 +14,7 @@ public class ListarNotificacoes implements Logica {
 		
 		req.setAttribute("notificacoes", notiDao.getList());
 		
-		return "WEB-INF/jsps/notificacoes.jsp";
+		return "forward:notificacoes.jsp";
 	}
 
 }

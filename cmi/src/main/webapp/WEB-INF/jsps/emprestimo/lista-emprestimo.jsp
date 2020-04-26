@@ -14,7 +14,7 @@
 	</div>
 
 	
-	<div class="w3-panel w3-padding-large" style="height:550px; overflow: auto;">
+	<div class="w3-panel w3-padding-large" style="height: 600px; overflow: auto;">
 
 		<c:forEach var="emprestimo" items="${listaDeEmprestimos}">
 
@@ -22,21 +22,21 @@
 
 				<div class="w3-row w3-border-bottom">
 					<div class="w3-col m3">
-						<h4>
+						<h6>
 							<i class="fa fa-handshake-o"></i> Empréstimo :
 							${emprestimo.id_emprestimo}
-						</h4>
+						</h6>
 					</div>
 					<div class="w3-col m3">
-						<h4>
+						<h6>
 							<i class="fa fa-home"></i> Loja : ${emprestimo.loja}
-						</h4>
+						</h6>
 					</div>
 					<div class="w3-col m4">
-						<h4>
+						<h6>
 							<i class="fa fa-rss w3-text-${emprestimo.situacao.cor}"> </i>
 							Situação : ${emprestimo.situacao.descricao}
-						</h4>
+						</h6>
 					</div>
 					<div class="w3-col m2 w3-text-indigo w3-center">
 

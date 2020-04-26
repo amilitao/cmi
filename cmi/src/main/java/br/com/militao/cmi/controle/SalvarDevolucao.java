@@ -4,7 +4,6 @@ import java.time.LocalDate;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import br.com.militao.cmi.modelo.Devolucao;
 import br.com.militao.cmi.modelo.Emprestimo;
@@ -23,15 +22,10 @@ public class SalvarDevolucao implements Logica {
 		devolucao.setNumNfeDevolucao(req.getParameter("numNfeDevolucao"));
 		devolucao.setRecebedor(req.getParameter("recebedor"));
 
-		devolucaoDao.insert(devolucao);
-
-		req.setAttribute("confirmaDao", true);
+		devolucaoDao.insert(devolucao);		
 		
-		// atualiza dashboard
-		HttpSession session = req.getSession();
-		session.setAttribute("dashboard", null);
 
-		return new EmprestimoDetalhado().executa(req, resp);
+		return "redirect:controle?logica=EmprestimoDetalhado";
 	}
 
 }

@@ -14,7 +14,7 @@ public class AssistenciaPage implements Logica {
 
 		req.setAttribute("assistencias", assDao.getList());
 
-		return "/WEB-INF/jsps/cadastro/cad-assistencia.jsp";
+		return "forward:cadastro/cad-assistencia.jsp";
 	}
 
 }

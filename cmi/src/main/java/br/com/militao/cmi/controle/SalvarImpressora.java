@@ -2,7 +2,6 @@ package br.com.militao.cmi.controle;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import br.com.militao.cmi.modelo.EstadoImpressoraEnum;
 import br.com.militao.cmi.modelo.Impressora;
@@ -30,21 +29,14 @@ public class SalvarImpressora implements Logica {
 		if (Integer.parseInt(req.getParameter("id_impressora")) != 0) {				
 			
 			impressora.setId_impressora(Integer.parseInt(req.getParameter("id_impressora")));
-			impDao.update(impressora);
+			impDao.update(impressora);			
 			
-			req.setAttribute("confirmaDao", true);
+		} else {			
 			
-		} else {				
-			
-			impDao.insert(impressora);
-			req.setAttribute("confirmaDao", true);
+			impDao.insert(impressora);		
 		}
 		
-		// atualiza dashboard
-		HttpSession session = req.getSession();
-		session.setAttribute("dashboard", null);		
-
-		return new ImpressoraPage().executa(req, resp);
+		return "redirect:controle?logica=ImpressoraPage";
 	}
 
 }

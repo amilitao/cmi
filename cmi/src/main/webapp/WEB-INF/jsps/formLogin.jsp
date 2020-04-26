@@ -75,10 +75,10 @@
 
 				<form class="w3-container" action="${linkControleServlet}" method="post">
 					<div class="w3-section">
-						<label><b>Login</b></label> <input
-							class="w3-input w3-border w3-margin-bottom" type="text"
-							name="login" required> <label><b>Senha</b></label> <input
-							class="w3-input w3-border" type="password" name="senha" required>
+						<label><b>Login</b></label> 
+						<input class="w3-input w3-border w3-margin-bottom" type="text"
+							name="login" required> <label><b>Senha</b></label>
+						<input class="w3-input w3-border" type="password" name="senha" required>
 
 						<input type="hidden" name="logica" value="Login" />
 

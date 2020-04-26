@@ -86,29 +86,29 @@
 			<form action="controle" method="post">
 
 				<div class="w3-row w3-border-bottom">
-					<div class="w3-col m2">
-						<h5>
-							<i class="fa fa-handshake-o"></i> Manutencao :
+					<div class="w3-col m1">
+						<h6>
+							<i class="fa fa-handshake-o"></i> Nº :
 							${manutencao.id_manutencao}
-						</h5>
+						</h6>
 					</div>
 					<div class="w3-col m3">
-						<h5>
+						<h6>
 							<i class="fa fa-home"></i> Assistência :
 							${manutencao.assistencia.razao_social}
-						</h5>
+						</h6>
 					</div>
 					<div class="w3-col m3">
-						<h5>
+						<h6>
 							<i class="fa fa-print"></i> Impressora :
 							${manutencao.impressora}
-						</h5>
+						</h6>
 					</div>
-					<div class="w3-col m3">
-						<h5>
+					<div class="w3-col m4">
+						<h6>
 							<i class="fa fa-rss w3-text-${manutencao.status_manutencao.cor}">
 							</i> Situação : ${manutencao.status_manutencao.descricao}
-						</h5>
+						</h6>
 					</div>
 					<div class="w3-col m1 w3-text-indigo w3-center">
 

@@ -18,7 +18,7 @@ public class LojaPage implements Logica{
 		req.setAttribute("regionais", regDao.getList());
 		
 		
-		return "/WEB-INF/jsps/cadastro/cad-loja.jsp";
+		return "forward:cadastro/cad-loja.jsp";
 	}
 	
 	

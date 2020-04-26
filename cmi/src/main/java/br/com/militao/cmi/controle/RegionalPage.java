@@ -14,7 +14,7 @@ public class RegionalPage implements Logica {
 		
 		req.setAttribute("regionais", regDao.getList());
 		
-		return "/WEB-INF/jsps/cadastro/cad-regional.jsp";
+		return "forward:cadastro/cad-regional.jsp";
 	}
 
 }

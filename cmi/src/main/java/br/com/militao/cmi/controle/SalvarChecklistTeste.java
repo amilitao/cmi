@@ -2,7 +2,6 @@ package br.com.militao.cmi.controle;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import br.com.militao.cmi.modelo.ChecklistTeste;
 import br.com.militao.cmi.modelo.Manutencao;
@@ -28,14 +27,9 @@ public class SalvarChecklistTeste implements Logica {
 		manutencao.setId_manutencao(Integer.parseInt(req.getParameter("id_manutencao")));
 		checklist.setManutencao(manutencao);
 		
-		checkDao.insert(checklist);		
-
-		HttpSession session = req.getSession();
-
-		req.setAttribute("confirmaDao", true);
-		session.setAttribute("dashboard", null);
+		checkDao.insert(checklist);			
 		
-		return new ManutencaoDetalhada().executa(req, resp);		
+		return "redirect:controle?logica=ManutencaoDetalhada";		
 
 		
 	}

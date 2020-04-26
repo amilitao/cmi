@@ -2,7 +2,6 @@ package br.com.militao.cmi.controle;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import br.com.militao.cmi.modelo.Assistencia;
 import br.com.militao.cmi.modelo.dao.AssistenciaDao;
@@ -25,22 +24,13 @@ public class SalvarAssistencia implements Logica {
 		if (req.getParameter("id_assistencia") != "") {
 
 			assistencia.setId_assistencia(Integer.parseInt(req.getParameter("id_assistencia")));
-			assisDao.update(assistencia);
-
-			req.setAttribute("confirmaDao", true);
+			assisDao.update(assistencia);			
 
 		} else {
 
-			assisDao.insert(assistencia);
-			req.setAttribute("confirmaDao", true);
+			assisDao.insert(assistencia);		
 		}
-
-		HttpSession session = req.getSession();
-
-		req.setAttribute("confirmaDao", true);
-		session.setAttribute("dashboard", null);
-
-		return new AssistenciaPage().executa(req, resp);
+		return "redirect:controle?logica=AssistenciaPage"; 
 
 	}
 

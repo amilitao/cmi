@@ -31,14 +31,9 @@ public class SalvarComentario implements Logica{
 	
 		historico.setUsuario(user);
 		
-		histEmpDao.insert(historico);
-		
-		req.setAttribute("confirmaDao", true);
+		histEmpDao.insert(historico);		
 
-		// atualiza dashboard		
-		session.setAttribute("dashboard", null);
-
-		return new EmprestimoDetalhado().executa(req, resp);		
+		return "redirect:controle?logica=EmprestimoDetalhado";		
 	
 	}
 

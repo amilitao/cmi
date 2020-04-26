@@ -2,7 +2,6 @@ package br.com.militao.cmi.controle;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import br.com.militao.cmi.modelo.Assistencia;
 import br.com.militao.cmi.modelo.Impressora;
@@ -21,16 +20,9 @@ public class SalvarManutencao implements Logica {
 				new Assistencia(Integer.parseInt(req.getParameter("id_assistencia"))),
 				new Impressora(Integer.parseInt(req.getParameter("id_impressora"))));
 		
-		manuDao.insert(manutencao);	
+		manuDao.insert(manutencao);			
 		
-		req.setAttribute("confirmaDao", true);		
-		
-		// atualiza dashboard
-				HttpSession session = req.getSession();
-				session.setAttribute("dashboard", null);
-
-		
-		return new ListarManutencao().executa(req, resp);
+		return "redirect:controle?logica=ListarManutencao";
 	}
 
 }

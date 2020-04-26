@@ -3,7 +3,6 @@ package br.com.militao.cmi.controle;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import br.com.militao.cmi.modelo.Emprestimo;
 import br.com.militao.cmi.modelo.Impressora;
@@ -23,15 +22,9 @@ public class SalvarEmprestimo implements Logica {
 				new Impressora(Integer.parseInt(req.getParameter("id_impressora"))), 
 				numChamado);	
 		
-		empDao.insert(emprestimo);		
-		
-		req.setAttribute("confirmaDao", true);
+		empDao.insert(emprestimo);			
 
-		// atualiza dashboard
-		HttpSession session = req.getSession();
-		session.setAttribute("dashboard", null);
-
-		return new EmprestimoPage().executa(req, resp);
+		return "redirect:controle?logica=EmprestimoPage";
 	}
 
 }

@@ -17,13 +17,13 @@ public class EmprestimoPage implements Logica{
 		
 				
 		LojaDao lojaDao = new LojaDao();
-		ImpressoraDao impDao = new ImpressoraDao();
+		ImpressoraDao impressoraDao = new ImpressoraDao();
 		
 		req.setAttribute("lojas", lojaDao.getList());
-		req.setAttribute("impressoras", impDao.getListPorStatus(StatusImpressoraEnum.DISPONIVEL));			
+		req.setAttribute("impressoras", impressoraDao.getListPorStatus(StatusImpressoraEnum.DISPONIVEL));			
 
 
-		return "/WEB-INF/jsps/emprestimo/emprestimo.jsp";
+		return "forward:emprestimo/emprestimo.jsp";
 
 		
 	}

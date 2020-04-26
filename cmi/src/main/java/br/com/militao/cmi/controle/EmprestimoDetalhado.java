@@ -26,7 +26,7 @@ public class EmprestimoDetalhado implements Logica {
 		req.setAttribute("listaDeDevolucoes", devDao.getDevolucaoPorIdEmprestimo(id_emprestimo));
 		req.setAttribute("historicos", histDao.getHistoricoPorIdEmprestimo(id_emprestimo));
 		
-		return "/WEB-INF/jsps/emprestimo/detalhes-emprestimo.jsp";
+		return "forward:emprestimo/detalhes-emprestimo.jsp";
 	}
 
 }
