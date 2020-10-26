@@ -11,7 +11,6 @@ public class AssistenciaPage implements Logica {
 	public String executa(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 
 		AssistenciaDao assDao = new AssistenciaDao();
-
 		req.setAttribute("assistencias", assDao.getList());
 
 		return "forward:cadastro/cad-assistencia.jsp";
