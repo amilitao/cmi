@@ -4,4 +4,5 @@ public interface Componente {
 
 	Componente criar();
 	
+	
 }
