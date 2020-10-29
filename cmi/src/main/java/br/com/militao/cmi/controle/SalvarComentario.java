@@ -18,11 +18,13 @@ public class SalvarComentario implements Logica{
 	public String executa(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		HttpSession session = req.getSession();
 		
+		int id_emprestimo = Integer.parseInt(req.getParameter("id_emprestimo"));
+		
 		HistoricoEmprestimoDao histEmpDao = new HistoricoEmprestimoDao();
 		HistoricoEmprestimo historico = new HistoricoEmprestimo();
 		Usuario user = new Usuario();
 		
-		historico.setEmprestimo(new Emprestimo(Integer.parseInt(req.getParameter("id_emprestimo"))));  
+		historico.setEmprestimo(new Emprestimo(id_emprestimo));  
 		historico.setOcorrencia(req.getParameter("comentario"));
 		historico.setDt_ocorrencia(LocalDateTime.now());
 			
@@ -33,7 +35,7 @@ public class SalvarComentario implements Logica{
 		
 		histEmpDao.insert(historico);		
 
-		return "redirect:controle?logica=EmprestimoDetalhado";		
+		return "redirect:controle?logica=EmprestimoDetalhado&id_emprestimo=" + id_emprestimo;		
 	
 	}
 

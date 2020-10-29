@@ -218,7 +218,7 @@
 			<c:set var="orcamento" value="${null}" />			
 			
 			<div class="w3-third w3-margin-bottom">			
-				<ul class="w3-ul w3-border w3-hover-shadow">
+				<ul class="w3-ul w3-border w3-hover-shadow">				
 					<li class="w3-large w3-center" style="background: #5ebf99"><b>Orçamento</b></li>
 				
 						<c:if test="${empty listaDeOrcamento}">
