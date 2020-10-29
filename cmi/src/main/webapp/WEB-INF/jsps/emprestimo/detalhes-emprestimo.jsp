@@ -27,7 +27,7 @@
 
 		<!--  Mensagem de gravação de dados no banco --------------------------------------------------------------------->
 
-		<c:if test="${confirmaDao}">
+		<c:if test="${confirmaDao}">		
 			<c:set var="teste" value="disabled" />
 			<div class="w3-panel w3-display-container"
 				style="background: #b5e7a0">

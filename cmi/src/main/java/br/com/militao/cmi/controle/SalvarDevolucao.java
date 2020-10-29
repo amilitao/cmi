@@ -14,10 +14,12 @@ public class SalvarDevolucao implements Logica {
 	@Override
 	public String executa(HttpServletRequest req, HttpServletResponse resp) {
 
+		int id_emprestimo = Integer.parseInt(req.getParameter("id_emprestimo"));
+		
 		DevolucaoDao devolucaoDao = new DevolucaoDao();
 		Devolucao devolucao = new Devolucao();
 
-		devolucao.setEmprestimo(new Emprestimo(Integer.parseInt(req.getParameter("id_emprestimo"))));
+		devolucao.setEmprestimo(new Emprestimo(id_emprestimo));
 		devolucao.setDtDevolucao(LocalDate.now());
 		devolucao.setNumNfeDevolucao(req.getParameter("numNfeDevolucao"));
 		devolucao.setRecebedor(req.getParameter("recebedor"));
@@ -25,7 +27,7 @@ public class SalvarDevolucao implements Logica {
 		devolucaoDao.insert(devolucao);		
 		
 
-		return "redirect:controle?logica=EmprestimoDetalhado";
+		return "redirect:controle?logica=EmprestimoDetalhado&id_emprestimo=" + id_emprestimo;
 	}
 
 }
