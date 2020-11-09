@@ -13,55 +13,13 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <title>CMI</title>
-
-<style type="text/css">
-.img1 {
-	padding: 10px;
-	width: 100px;
-	-moz-transform: rotate(20deg);
-	-ms-transform: rotate(20deg); /* IE 9 */
-	-webkit-transform: rotate(20deg); /* Chrome, Safari, Opera */
-	transform: rotate(20deg);
-}
-
-.img2 {
-	padding: 10px;
-	width: 100px;
-	-moz-transform: rotate(-20deg);
-	-ms-transform: rotate(-20deg); /* IE 9 */
-	-webkit-transform: rotate(-20deg); /* Chrome, Safari, Opera */
-	transform: rotate(-20deg);
-}
-
-.img-p1 {
-	padding: 10px;
-	width: 70px;
-	-moz-transform: rotate(20deg);
-	-ms-transform: rotate(20deg); /* IE 9 */
-	-webkit-transform: rotate(20deg); /* Chrome, Safari, Opera */
-	transform: rotate(20deg);
-}
-
-.img-p2 {
-	padding: 10px;
-	width: 70px;
-	-moz-transform: rotate(-20deg);
-	-ms-transform: rotate(-20deg); /* IE 9 */
-	-webkit-transform: rotate(-20deg); /* Chrome, Safari, Opera */
-	transform: rotate(-20deg);
-}
-</style>
-
-
 </head>
-
 
 <body class="w3-light-gray">
 
-
 	<div class="w3-row">
 
-		<div class="w3-display-right w3-padding-large w3-col m3"
+		<div class="w3-display-right w3-padding-large w3-col m4"
 			style="height: 100%; background: #d8dddf">
 
 			<div class="container" style="margin-top: 50%">			
@@ -89,40 +47,7 @@
 					</div>
 				</form>
 			</div>
-		</div>
-
-		<div class="w3-col m9 w3-opacity-max">
-			<span style="position: absolute; top: 40px; left: 60px"> <img
-				src="resources/style/images/icons-index/icon1.png" class="img1">
-			</span> <span style="position: absolute; top: 150px; left: 300px"> <img
-				src="resources/style/images/icons-index/icon8.png" class="img-p1">
-			</span> <span style="position: absolute; top: 40px; left: 500px"> <img
-				src="resources/style/images/icons-index/icon2.png" class="img2">
-			</span> <span style="position: absolute; top: 150px; left: 750px"> <img
-				src="resources/style/images/icons-index/icon5.png" class="img-p2">
-			</span> <span style="position: absolute; top: 40px; left: 900px"> <img
-				src="resources/style/images/icons-index/icon3.png" class="img1">
-
-
-
-			</span> <span style="position: absolute; top: 300px; left: 200px"> <img
-				src="resources/style/images/icons-index/icon4.png" class="img2">
-			</span> <span style="position: absolute; top: 300px; left: 600px"> <img
-				src="resources/style/images/icons-index/icon1.png" class="img1">
-			</span> <span style="position: absolute; top: 300px; left: 1000px"> <img
-				src="resources/style/images/icons-index/icon2.png" class="img-p1">
-			</span> <span style="position: absolute; top: 500px; left: 40px"> <img
-				src="resources/style/images/icons-index/icon4.png" class="img2">
-			</span> <span style="position: absolute; top: 480px; left: 250px"> <img
-				src="resources/style/images/icons-index/icon5.png" class="img-p2">
-			</span> <span style="position: absolute; top: 500px; left: 400px"> <img
-				src="resources/style/images/icons-index/icon7.png" class="img1">
-			</span> <span style="position: absolute; top: 450px; left: 600px"> <img
-				src="resources/style/images/icons-index/icon1.png" class="img-p1">
-			</span> <span style="position: absolute; top: 500px; left: 900px"> <img
-				src="resources/style/images/icons-index/icon8.png" class="img2">
-			</span>
-		</div>
+		</div>		
 	</div>
 
 </body>
